@@ -1,0 +1,15 @@
+{
+  "name": "com.ValkyrieIndustries.eirsdk",
+  "displayName": "EIR SDK",
+  "version": "0.1.0-alpha",
+  "unity": "2022.3",
+  "description": "The Valkyrie EIR SDK provides interface between EIR devices and Unity middleware.",
+  "keywords": [
+    "EIR",
+    "EMS",
+	"Valkyrie"
+  ],
+  "dependencies": {
+    "com.unity.modules.jsonserialize": "1.0.0",
+  },
+}
