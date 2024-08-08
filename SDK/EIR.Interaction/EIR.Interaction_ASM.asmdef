@@ -1,0 +1,21 @@
+{
+    "name": "EIR.Interaction",
+    "rootNamespace": "EIR.Interaction",
+    "references": [
+        "GUID:fe685ec1767f73d42b749ea8045bfe43",
+        "GUID:58da95b093c3f81409ebbbea7eb0bf2b",
+        "GUID:f64c9ebcd7899c3448a08dc9f9ddbe30",
+        "GUID:bdc51bca99ed862479e0af5b216ecab0",
+        "GUID:d27d695c812e528409e03a171196c1df",
+        "GUID:6bc6cec8afbfcd6498ba81dda29917de"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

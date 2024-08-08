@@ -1,0 +1,25 @@
+{
+    "name": "EIR.Examples",
+    "rootNamespace": "EIR.Examples",
+    "references": [
+        "GUID:fe685ec1767f73d42b749ea8045bfe43",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:6bc6cec8afbfcd6498ba81dda29917de",
+        "GUID:dc960734dc080426fa6612f1c5fe95f3",
+        "GUID:bc8b714810fda9b4cab5cec7bcb1ecde",
+        "GUID:da0fdeb126dfaac42856c056083b4e07",
+        "GUID:58da95b093c3f81409ebbbea7eb0bf2b",
+        "GUID:7d5007da3064eda44b9df03e667b7581",
+        "GUID:081b1b29e3265344fa597b8b805f1481",
+        "GUID:d27d695c812e528409e03a171196c1df"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
