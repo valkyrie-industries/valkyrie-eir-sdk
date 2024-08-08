@@ -9,6 +9,10 @@
     "EMS",
     "Valkyrie"
   ],
+    "author": {
+    "name": "Valkyrie Industries, Ltd.",
+    "url": "https://www.valkyrie-vr.com/"
+  },
   "dependencies": {
     "com.unity.modules.jsonserialize": "1.0.0",
 	"com.unity.textmeshpro": "3.0.6",
