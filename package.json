@@ -1,5 +1,5 @@
 {
-  "name": "com.ValkyrieIndustries.eirsdk",
+  "name": "com.valkyrieindustries.eirsdk",
   "displayName": "EIR SDK",
   "version": "0.1.0-alpha",
   "unity": "2022.3",
@@ -11,5 +11,5 @@
   ],
   "dependencies": {
     "com.unity.modules.jsonserialize": "1.0.0",
-  },
+  }
 }
