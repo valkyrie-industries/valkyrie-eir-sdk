@@ -1,15 +1,13 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Valkyrie.EIR.Utilities;
 #if EIR_COMM
 using Valkyrie.EIR.Bluetooth;
 #endif
 #if EIR_HAPTICS
 using Valkyrie.EIR.Haptics;
 using System.Collections.Generic;
-using Valkyrie.EIR.Examples;
-using Valkyrie.EIR.Utilities;
-
 #endif
 #if EIR_INTERACTION
 using Valkyrie.EIR.Interaction;

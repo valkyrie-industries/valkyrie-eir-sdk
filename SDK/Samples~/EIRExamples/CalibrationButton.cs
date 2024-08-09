@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+#if EIR_HAPTICS
 using Valkyrie.EIR.Haptics;
+#endif
 
 namespace Valkyrie.EIR.Examples {
     public class CalibrationButton : MonoBehaviour {
