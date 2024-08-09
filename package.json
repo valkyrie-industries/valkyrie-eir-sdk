@@ -19,9 +19,6 @@
   "dependencies": {
     "com.unity.modules.jsonserialize": "1.0.0",
 	"com.unity.textmeshpro": "3.0.6",
-    "com.unity.xr.oculus": "4.0.0",
-    "com.unity.xr.openxr": "1.8.2",
     "com.unity.xr.interaction.toolkit": "2.5.4",
-	"com.unity.xr.oculus": "4.2.0"
   }
 }
