@@ -1,8 +1,9 @@
 {
   "name": "com.valkyrieindustries.eirsdk",
-  "displayName": "EIR SDK",
+  "displayName": "Valkyrie EIR SDK",
   "version": "0.1.0-alpha",
   "unity": "2022.3",
+  "unityRelease": "36f1",
   "description": "The Valkyrie EIR SDK provides interface between EIR devices and Unity middleware.",
   "keywords": [
     "EIR",
@@ -13,10 +14,14 @@
     "name": "Valkyrie Industries, Ltd.",
     "url": "https://www.valkyrie-vr.com/"
   },
+  "documentationUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/wiki/",
+  "changelogUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/commits/v0.1.0-alpha/",
   "dependencies": {
     "com.unity.modules.jsonserialize": "1.0.0",
 	"com.unity.textmeshpro": "3.0.6",
     "com.unity.xr.oculus": "4.0.0",
-    "com.unity.xr.openxr": "1.8.2"
+    "com.unity.xr.openxr": "1.8.2",
+    "com.unity.xr.interaction.toolkit": "2.5.4",
+	"com.unity.xr.oculus": "4.2.0"
   }
 }
