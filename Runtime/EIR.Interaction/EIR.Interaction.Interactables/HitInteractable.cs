@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valkyrie.EIR.Utilities;
 using Valkyrie.EIR.Interaction;
+#if EIR_HAPTICS
 using Valkyrie.EIR.Haptics;
+#endif
 
 namespace Valkyrie.EIR.Interaction.Interactables
 {

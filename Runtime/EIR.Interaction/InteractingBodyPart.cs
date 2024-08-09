@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+#if EIR_HAPTICS
 using Valkyrie.EIR.Haptics;
+#endif
 
 namespace Valkyrie.EIR.Interaction
 {

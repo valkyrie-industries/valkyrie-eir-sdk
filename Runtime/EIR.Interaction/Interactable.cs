@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
+#if EIR_HAPTICS
 using Valkyrie.EIR.Haptics;
+#endif
 
 namespace Valkyrie.EIR.Interaction
 {
