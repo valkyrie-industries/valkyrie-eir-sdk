@@ -33,6 +33,8 @@ namespace Valkyrie.EIR.Utilities {
         public string DeviceFilter { get { return deviceFilter; } }
         public bool AutoInitiaise { get { return autoInitialise; } }    
 
+        public bool UseOVRForVibrations { get { return useOVRForVibrations; } }
+
         [SerializeField] private bool enableHapticsManager;
         [SerializeField] private bool enableBTEirBluetoothBridge;
         [SerializeField] private bool enableInteractionManager;
@@ -41,6 +43,7 @@ namespace Valkyrie.EIR.Utilities {
         [SerializeField] private int vitalsReadInterval;
         [SerializeField] private string deviceFilter;
         [SerializeField] private bool autoInitialise;
+        [SerializeField] private bool useOVRForVibrations;
 
         public bool OutputHapticDebug { get { return outputHapticDebug; } }
         public BluetoothSendFrequency BluetoothSendFrequency { get { return bluetoothSendFrequency; } set { bluetoothSendFrequency = value; } }

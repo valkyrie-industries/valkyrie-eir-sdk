@@ -17,9 +17,6 @@ namespace Valkyrie.EIR.Interaction
         [SerializeField]
         public XRController[] controllers { get; private set; }
 
-        [SerializeField]
-        private bool useOVRForVibrations;
-
         public void Initialise()
         {
             controllers = GameObject.FindObjectsOfType<XRController>();
@@ -106,13 +103,11 @@ namespace Valkyrie.EIR.Interaction
                 return;
             }
 
-
-            if (!useOVRForVibrations)
-                controller.SendHapticImpulse(_intensity, _duration);
-            else
-            {
-                OVRInput.SetControllerVibration(_duration, _intensity, isLeft ? OVRInput.Controller.LTouch : OVRInput.Controller.RTouch);
-            }
+#if EIR_USE_OVR_VIBRATIONS
+            OVRInput.SetControllerVibration(_duration, _intensity, isLeft ? OVRInput.Controller.LTouch : OVRInput.Controller.RTouch);
+#else
+            controller.SendHapticImpulse(_intensity, _duration);
+#endif
         }
 
         public void SendVibration(int pointerId, float _intensity, float _duration)
@@ -128,15 +123,11 @@ namespace Valkyrie.EIR.Interaction
             XRRayInteractor rayInteractor = inputModule.GetInteractor(pointerId) as XRRayInteractor;
 
             Debug.Log("[VLKXRB] Sending vibrations to pointer ID: " + pointerId);
-
-            if (!useOVRForVibrations)
-            {
-                if (rayInteractor != null) rayInteractor.SendHapticImpulse(_intensity, _duration);
-            }
-            else
-            {
-                OVRInput.SetControllerVibration(_duration, _intensity, rayInteractor.GetComponent<XRController>().controllerNode == XRNode.LeftHand ? OVRInput.Controller.LTouch : OVRInput.Controller.RTouch);
-            }
+#if EIR_USE_OVR_VIBRATIONS
+             OVRInput.SetControllerVibration(_duration, _intensity, rayInteractor.GetComponent<XRController>().controllerNode == XRNode.LeftHand ? OVRInput.Controller.LTouch : OVRInput.Controller.RTouch);
+#else
+            if (rayInteractor != null) rayInteractor.SendHapticImpulse(_intensity, _duration);
+#endif
         }
 
         InputFeatureUsage<bool> ButtonToFeature(ControllerButtons button)
@@ -204,6 +195,6 @@ namespace Valkyrie.EIR.Interaction
         }
 
 #endif
-    }
+        }
 
-}
+    }
