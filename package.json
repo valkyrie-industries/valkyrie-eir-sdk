@@ -14,15 +14,13 @@
     "name": "Valkyrie Industries, Ltd.",
     "url": "https://www.valkyrie-vr.com/"
   },
-  {
-    "samples": [
-        {
-            "displayName": "EIR Examples",
-            "description": "Contains example implementations of EIR functionality.",
-            "path": "Samples~/EIRExamples"
-        }
-    ]
-  },
+  "samples": [
+    {
+      "displayName": "EIR Examples",
+      "description": "Contains example implementations of EIR functionality.",
+      "path": "Samples~/EIRExamples"
+    }
+  ],
   "documentationUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/wiki/",
   "changelogUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/commits/v0.1.0-alpha/",
   "dependencies": {
