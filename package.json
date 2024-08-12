@@ -22,7 +22,7 @@
     }
   ],
   "documentationUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/wiki/",
-  "changelogUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/commits/v0.1.0-alpha/",
+  "changelogUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/commits/v0.1.2-alpha/",
   "dependencies": {
     "com.unity.modules.jsonserialize": "1.0.0",
 	"com.unity.textmeshpro": "3.0.6",
