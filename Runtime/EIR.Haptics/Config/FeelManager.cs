@@ -3,12 +3,11 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Valkyrie.EIR.Haptics{
+namespace Valkyrie.EIR.Haptics {
     /// <summary>
     /// Runs set feels from FeelLibrary as well as configuring EIR to whatever that feel requires
     /// </summary>
-    public class FeelManager : MonoBehaviour
-    {
+    public class FeelManager : MonoBehaviour {
 #if EIR_HAPTICS
         public static FeelManager instance;
 
@@ -24,41 +23,35 @@ namespace Valkyrie.EIR.Haptics{
 
 
 
-        private void Awake()
-        {
+        private void Awake() {
             if (instance == null)
                 instance = this;
-            else
-            {
+            else {
                 Destroy(this);
                 return;
             }
         }
 
-        void Start()
-        {
+        void Start() {
             configureEIR = FindObjectOfType<ConfigureEIR>();
             if (configureEIR == null)
                 Debug.LogError("Can't find ConfigureEIR");
         }
 
-        public void StopPlayingFeeling()
-        {
+        public void StopPlayingFeeling() {
             playingFeeling = false;
             EIRManager.Instance.Haptics.StopHapticPresetRunner();
             configureEIR.ConfigureToDefault();
             onFeelingStatusChange?.Invoke(false);
         }
 
-        public void PlayFeeling(string feelID)
-        {
+        public void PlayFeeling(string feelID) {
             if (playingFeeling)
                 return;
 
             FeelStruct feel = FeelLibrary.RequestFeel(feelID);
 
-            if (string.IsNullOrEmpty(name))
-            {
+            if (string.IsNullOrEmpty(name)) {
                 Debug.LogError("[FeelButton] Could not find feel with ID " + feelID);
                 return;
             }
@@ -75,10 +68,8 @@ namespace Valkyrie.EIR.Haptics{
         }
 
 
-        private IEnumerator WaitForPresetRunners()
-        {
-            while (playingFeeling && leftPreset != null && rightPreset != null)
-            {
+        private IEnumerator WaitForPresetRunners() {
+            while (playingFeeling && leftPreset != null && rightPreset != null) {
                 yield return new WaitForEndOfFrame();
             }
 
@@ -89,8 +80,7 @@ namespace Valkyrie.EIR.Haptics{
         }
     }
 
-    public struct FeelStruct
-    {
+    public struct FeelStruct {
         public string name;
         public HapticPreset leftPreset;
         public HapticPreset rightPreset;
@@ -102,10 +92,8 @@ namespace Valkyrie.EIR.Haptics{
     /// <summary>
     /// Retrieves feels from a list
     /// </summary>
-    public static class FeelLibrary
-    {
-        public static FeelStruct RequestFeel(string id)
-        {
+    public static class FeelLibrary {
+        public static FeelStruct RequestFeel(string id) {
             return feelList.FirstOrDefault(s => s.name == id);
         }
 
@@ -117,10 +105,10 @@ namespace Valkyrie.EIR.Haptics{
                 name = "Spikes",
                 leftPreset = new HapticPreset(
                     CreateArrayOfSegments(HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.rise,0.1f),
-                        HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.fall,0.1f)),true),
+                        HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.fall,0.1f)),HapticPreset.LoopType.Loop),
                 rightPreset = new HapticPreset(
                     CreateArrayOfSegments(HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.rise,0.1f),
-                        HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.fall,0.1f)),true),
+                        HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.fall,0.1f)),HapticPreset.LoopType.Loop),
                 gain = ConfigureEIR.MIN_GAIN,
                 frequency = HapticManager.CONST_FREQUENCY,
                 pulseWidth = HapticManager.CONST_PULSE_WIDTH
@@ -128,8 +116,8 @@ namespace Valkyrie.EIR.Haptics{
             new FeelStruct
             {
                 name = "Sine",
-                leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.sine,3,true),
-                rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.sine,3,true),
+                leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.sine,3,HapticPreset.LoopType.Loop),
+                rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.sine,3,HapticPreset.LoopType.Loop),
                 gain = ConfigureEIR.MIN_GAIN,
                 frequency = HapticManager.CONST_FREQUENCY,
                 pulseWidth = HapticManager.CONST_PULSE_WIDTH
@@ -137,8 +125,8 @@ namespace Valkyrie.EIR.Haptics{
             new FeelStruct
             {
                 name = "Maximum",
-                leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,1,false),
-                rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,1,false),
+                leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,1,HapticPreset.LoopType.None),
+                rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,1,HapticPreset.LoopType.None),
                 gain = ConfigureEIR.MIN_GAIN,
                 frequency = HapticManager.CONST_FREQUENCY,
                 pulseWidth = HapticManager.CONST_PULSE_WIDTH
@@ -153,7 +141,7 @@ namespace Valkyrie.EIR.Haptics{
                                           HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.minimum,0.2f),
                                           HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.maximum,0.1f),
                                           HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.minimum,0.1f),
-                                          HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.maximum,0.05f)),false),
+                                          HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.maximum,0.05f)),HapticPreset.LoopType.None),
                rightPreset = new HapticPreset(
                     CreateArrayOfSegments(HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.maximum,0.3f),
                                           HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.minimum,0.3f),
@@ -161,7 +149,7 @@ namespace Valkyrie.EIR.Haptics{
                                           HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.minimum,0.2f),
                                           HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.maximum,0.1f),
                                           HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.minimum,0.1f),
-                                          HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.maximum,0.05f)),false),
+                                          HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.maximum,0.05f)),HapticPreset.LoopType.None),
                 gain = ConfigureEIR.MIN_GAIN,
                 frequency = HapticManager.CONST_FREQUENCY,
                 pulseWidth = 200
@@ -175,14 +163,14 @@ namespace Valkyrie.EIR.Haptics{
                                           HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.OneToBridge,0.3f),
                                           HapticPreset.CreateSegment(0.1f,0.3f,1),
                                           HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.maximum,0.2f),
-                                          HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.fall,0.3f)),true),
+                                          HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.fall,0.3f)),HapticPreset.LoopType.Loop),
                 rightPreset = new HapticPreset(
                     CreateArrayOfSegments(HapticPreset.CreateSegment(0.1f,0.6f,1.3f),
                                           HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.maximum,0.2f),
                                           HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.OneToBridge,0.3f),
                                           HapticPreset.CreateSegment(0.1f,0.3f,1),
                                           HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.maximum,0.2f),
-                                          HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.fall,0.3f)),true),
+                                          HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.fall,0.3f)),HapticPreset.LoopType.Loop),
                 gain = 3,
                 frequency = 255,
                 pulseWidth = 200
@@ -190,8 +178,8 @@ namespace Valkyrie.EIR.Haptics{
             new FeelStruct
             {
                 name = "Fire",
-                leftPreset = new HapticPreset(CreateArrayOfSegments(HapticPreset.CreateSegment(0.8f,0.8f,1.23f),HapticPreset.CreateSegment(0.8f,1f,0.5f)),true),
-                rightPreset = new HapticPreset(CreateArrayOfSegments(HapticPreset.CreateSegment(0.8f,0.8f,0.9f),HapticPreset.CreateSegment(0.8f,1f,0.5f)),true),
+                leftPreset = new HapticPreset(CreateArrayOfSegments(HapticPreset.CreateSegment(0.8f,0.8f,1.23f),HapticPreset.CreateSegment(0.8f,1f,0.5f)),HapticPreset.LoopType.Loop),
+                rightPreset = new HapticPreset(CreateArrayOfSegments(HapticPreset.CreateSegment(0.8f,0.8f,0.9f),HapticPreset.CreateSegment(0.8f,1f,0.5f)),HapticPreset.LoopType.Loop),
                 gain = 2,
                 frequency = 200,
                 pulseWidth = 90
@@ -199,8 +187,8 @@ namespace Valkyrie.EIR.Haptics{
             new FeelStruct
             {
                 name = "Earthquake",
-                leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,1,true),
-                rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,1,true),
+                leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,1,HapticPreset.LoopType.Loop),
+                rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,1,HapticPreset.LoopType.Loop),
                 gain = ConfigureEIR.MIN_GAIN,
                 frequency = 25,
                 pulseWidth = 180
@@ -208,8 +196,8 @@ namespace Valkyrie.EIR.Haptics{
             new FeelStruct
             {
                 name = "Shotgun",
-                leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,0.1f,false),
-                rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,0.1f,false),
+                leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,0.1f,HapticPreset.LoopType.None),
+                rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,0.1f,HapticPreset.LoopType.None),
                 gain = ConfigureEIR.MIN_GAIN,
                 frequency = HapticManager.CONST_FREQUENCY,
                 pulseWidth = 200
@@ -217,8 +205,8 @@ namespace Valkyrie.EIR.Haptics{
             new FeelStruct
             {
                 name = "SineOnce",
-                leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.sine,3,false),
-                rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.sine,3,false),
+                leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.sine,3,HapticPreset.LoopType.None),
+                rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.sine,3,HapticPreset.LoopType.None),
                 gain = ConfigureEIR.MIN_GAIN,
                 frequency = HapticManager.CONST_FREQUENCY,
                 pulseWidth = HapticManager.CONST_PULSE_WIDTH
@@ -226,38 +214,31 @@ namespace Valkyrie.EIR.Haptics{
 
         };
 
-        private static HapticSegment[] CreateArrayOfSegments(HapticSegment s1)
-        {
+        private static HapticSegment[] CreateArrayOfSegments(HapticSegment s1) {
             return new HapticSegment[] { s1 };
         }
 
-        private static HapticSegment[] CreateArrayOfSegments(HapticSegment s1, HapticSegment s2)
-        {
+        private static HapticSegment[] CreateArrayOfSegments(HapticSegment s1, HapticSegment s2) {
             return new HapticSegment[] { s1, s2 };
         }
 
-        private static HapticSegment[] CreateArrayOfSegments(HapticSegment s1, HapticSegment s2, HapticSegment s3)
-        {
+        private static HapticSegment[] CreateArrayOfSegments(HapticSegment s1, HapticSegment s2, HapticSegment s3) {
             return new HapticSegment[] { s1, s2, s3 };
         }
 
-        private static HapticSegment[] CreateArrayOfSegments(HapticSegment s1, HapticSegment s2, HapticSegment s3, HapticSegment s4)
-        {
+        private static HapticSegment[] CreateArrayOfSegments(HapticSegment s1, HapticSegment s2, HapticSegment s3, HapticSegment s4) {
             return new HapticSegment[] { s1, s2, s3, s4 };
         }
 
-        private static HapticSegment[] CreateArrayOfSegments(HapticSegment s1, HapticSegment s2, HapticSegment s3, HapticSegment s4, HapticSegment s5)
-        {
+        private static HapticSegment[] CreateArrayOfSegments(HapticSegment s1, HapticSegment s2, HapticSegment s3, HapticSegment s4, HapticSegment s5) {
             return new HapticSegment[] { s1, s2, s3, s4, s5 };
         }
 
-        private static HapticSegment[] CreateArrayOfSegments(HapticSegment s1, HapticSegment s2, HapticSegment s3, HapticSegment s4, HapticSegment s5, HapticSegment s6)
-        {
+        private static HapticSegment[] CreateArrayOfSegments(HapticSegment s1, HapticSegment s2, HapticSegment s3, HapticSegment s4, HapticSegment s5, HapticSegment s6) {
             return new HapticSegment[] { s1, s2, s3, s4, s5, s6 };
         }
 
-        private static HapticSegment[] CreateArrayOfSegments(HapticSegment s1, HapticSegment s2, HapticSegment s3, HapticSegment s4, HapticSegment s5, HapticSegment s6, HapticSegment s7)
-        {
+        private static HapticSegment[] CreateArrayOfSegments(HapticSegment s1, HapticSegment s2, HapticSegment s3, HapticSegment s4, HapticSegment s5, HapticSegment s6, HapticSegment s7) {
             return new HapticSegment[] { s1, s2, s3, s4, s5, s6, s7 };
         }
 

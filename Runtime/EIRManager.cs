@@ -213,7 +213,7 @@ namespace Valkyrie.EIR {
         /// <param name="upperLimits"></param>
         /// <param name="calibrationIndex"></param>
         private void OnCalibrationUpdated(int[] lowerLimits, int[] upperLimits, int[] calibrationIndex) {
-            HapticManager.SetCalibration(lowerLimits, upperLimits, calibrationIndex); // this is currently static, not sure it should be!
+            hapticManager.SetCalibration(lowerLimits, upperLimits, calibrationIndex);
         }
 
         /// <summary>
@@ -243,7 +243,6 @@ namespace Valkyrie.EIR {
         private void OnConnectionStateChanged(ConnectionStates conState) {
             if (conState == ConnectionStates.Connected) {
                 eirBluetoothBridge.SendConfigSignal(hapticManager.GenerateConfigSignal());
-                hapticManager.InilialiseCalibration();
                 ToggleBluetoothSend(true);
             }
             else if (eirBluetoothBridge.PreviousState == ConnectionStates.Connected) {

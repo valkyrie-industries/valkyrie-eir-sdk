@@ -41,9 +41,9 @@ namespace Valkyrie.EIR.Haptics
 
 
         //Integers that define the user's current calibration
-        public static int[] LowerLimits { get; private set; }
-        public static int[] UpperLimits { get; private set; }
-        public static int[] CalibrationIndex { get; private set; }
+        public int[] LowerLimits { get; private set; }
+        public int[] UpperLimits { get; private set; }
+        public int[] CalibrationIndex { get; private set; }
 
         public bool Configured { get { return configured; } }
 
@@ -192,7 +192,7 @@ namespace Valkyrie.EIR.Haptics
 
         #region Calibration
 
-        public static void SetCalibration(int[] lLimits, int[] uLimits, int[] cIndexes) {
+        public void SetCalibration(int[] lLimits, int[] uLimits, int[] cIndexes) {
             Debug.Log("[Calibration] Setting calibration to " + uLimits[0] + ", & " + uLimits[1]);
             LowerLimits = lLimits;
             UpperLimits = uLimits;

@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using Valkyrie.EIR;
 
 namespace Valkyrie.EIR.Haptics {
 
@@ -17,11 +16,11 @@ namespace Valkyrie.EIR.Haptics {
         private void Update() {
 #if EIR_HAPTICS
             if (!gameObject.activeInHierarchy) return;
-            if (haptic == null) {  }
+            if (haptic == null) { haptic = EIRManager.Instance.Haptics; }
             else {
-                text[0].SetText(HapticManager.ConfigSignal.Gain.ToString());
-                text[1].SetText(HapticManager.ConfigSignal.Frequency.ToString());
-                text[2].SetText(HapticManager.ConfigSignal.PulseWidth.ToString());
+                text[0].SetText(haptic.ConfigSignal.Gain.ToString());
+                text[1].SetText(haptic.ConfigSignal.Frequency.ToString());
+                text[2].SetText(haptic.ConfigSignal.PulseWidth.ToString());
             }
 #endif
         }

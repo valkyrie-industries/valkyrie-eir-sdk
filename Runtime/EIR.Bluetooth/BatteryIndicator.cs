@@ -8,11 +8,11 @@ namespace Valkyrie.EIR.Bluetooth {
     /// <summary>
     /// Manages an output display to visualise the connection and battery state of an EIR device, dependent on the Communication Manager reading the required characteristic.
     /// </summary>
-    public class BatteryIndicator : MonoBehaviour {
+    public class BatteryIndicator : MonoBehaviour, IEirBluetooth {
 
         #region Events
 
-        public static Action<BatteryIndicator> OnBatteryIndicatorAwake;
+        public static Action<IEirBluetooth> OnIndicatorEnabled;
 
         #endregion
 
@@ -28,50 +28,21 @@ namespace Valkyrie.EIR.Bluetooth {
 
         [SerializeField] private Image panel;
 
-        [SerializeField] private bool forceOn;
-        [SerializeField] private uint devBatteryStatus;
         #endregion
 
         #region Private Variables
 
-        private EirBluetoothBridge eirBluetoothBridge;
-        private bool disabled, enabled;
-
-        private bool initialised;
+        private bool isActive;
 
         #endregion
 
         #region Unity Methods
 
-        private void Awake() {
-            OnBatteryIndicatorAwake?.Invoke(this);
-        }
-
-        private void Update() {
-#if EIR_COMM
-            if (!initialised) return;
-
-            if (!eirBluetoothBridge.IsActive && !forceOn) {
-                Disable();
-            }
-            else {
-                Enable();
-
-                SetIndication(false);
-                SetIndication(true);
-            }
-#endif
+        private void OnEnable() {
+            OnIndicatorEnabled?.Invoke(this);
         }
 
         #endregion
-
-        #region Public Methpds
-#if EIR_COMM
-        public void Initialise(EirBluetoothBridge eir) {
-            eirBluetoothBridge = eir;
-        }
-#endif
-#endregion
 
         #region Private Methods
 
@@ -79,9 +50,9 @@ namespace Valkyrie.EIR.Bluetooth {
         /// Sets the indicator values for each device.
         /// </summary>
         /// <param name="isRight"></param>
-        private void SetIndication(bool isRight) {
-            uint battery = forceOn ? devBatteryStatus : (isRight ? eirBluetoothBridge.Vitals.RightBattery : eirBluetoothBridge.Vitals.LeftBattery);
-            bool connected = forceOn ?  true : (isRight ? eirBluetoothBridge.Vitals.RightConnected : eirBluetoothBridge.Vitals.LeftConnected);
+        private void SetIndication(bool isRight, DeviceVitals deviceVitals) {
+            uint battery = isRight ? deviceVitals.RightBattery : deviceVitals.LeftBattery;
+            bool connected = isRight ? deviceVitals.RightConnected : deviceVitals.LeftConnected;
             Image i = isRight ? rightIndicator : leftIndicator;
             i.sprite = GetSprite(connected, battery);
             TextMeshProUGUI t = isRight ? rightText : leftText;
@@ -108,10 +79,10 @@ namespace Valkyrie.EIR.Bluetooth {
         /// Disables the indicator if the devices are not in use.
         /// </summary>
         private void Disable() {
-            if (disabled)
+            if (!isActive)
                 return;
-            disabled = true;
-            enabled = false;
+            isActive = false;
+
             if (leftIndicator.gameObject.activeSelf) leftIndicator.gameObject.SetActive(false);
             if (rightIndicator.gameObject.activeSelf) rightIndicator.gameObject.SetActive(false);
 
@@ -119,17 +90,17 @@ namespace Valkyrie.EIR.Bluetooth {
             if (rightText.gameObject.activeSelf) rightText.gameObject.SetActive(false);
 
             if (panel.gameObject.activeSelf) panel.gameObject.SetActive(false);
-            
+
         }
 
         /// <summary>
         /// Enables the indicator if the devices are in use.
         /// </summary>
         private void Enable() {
-            if (enabled)
+            if (isActive)
                 return;
-            enabled = true;
-            disabled = false;
+            isActive = true;
+
             if (!leftIndicator.gameObject.activeSelf) leftIndicator.gameObject.SetActive(true);
             if (!rightIndicator.gameObject.activeSelf) rightIndicator.gameObject.SetActive(true);
 
@@ -137,7 +108,28 @@ namespace Valkyrie.EIR.Bluetooth {
             if (!rightText.gameObject.activeSelf) rightText.gameObject.SetActive(true);
 
             if (!panel.gameObject.activeSelf) panel.gameObject.SetActive(true);
-            
+
+        }
+        #endregion
+
+        #region Interface Implementation
+
+        public void OnBluetoothEnable() {
+            Enable();
+        }
+
+        public void OnWrite() {
+            // discard.
+        }
+
+        public void OnUpdateVitals(DeviceVitals vitals) {
+            Enable();
+            SetIndication(false, vitals);
+            SetIndication(true, vitals);
+        }
+
+        public void OnBluetoothDisable() {
+            Disable();
         }
 
         #endregion
