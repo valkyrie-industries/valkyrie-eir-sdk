@@ -16,14 +16,14 @@ namespace Valkyrie.EIR.Examples {
             handIndex = isLeft ? 1 : 0;
 #if EIR_HAPTICS
             if (label != null)
-                label.GetComponent<TextMeshProUGUI>().text = (HapticManager.calibrationIndex[handIndex] + 1).ToString();
+                label.GetComponent<TextMeshProUGUI>().text = (EIRManager.Instance.Haptics.CalibrationIndex[handIndex] + 1).ToString();
 #endif
         }
 
         public void UpdateCalibrationIndex(bool up) {
 #if EIR_HAPTICS
 
-            int currentIndex = HapticManager.calibrationIndex[handIndex];
+            int currentIndex = EIRManager.Instance.Haptics.CalibrationIndex[handIndex];
             if (up) {
                 if (currentIndex < HapticManager.CALIBRATION_INDEX_LENGTH)
                     currentIndex += 1;
@@ -32,7 +32,7 @@ namespace Valkyrie.EIR.Examples {
                 if (currentIndex > 0)
                     currentIndex -= 1;
             }
-            HapticManager.calibrationIndex[handIndex] = currentIndex;
+            EIRManager.Instance.Haptics.CalibrationIndex[handIndex] = currentIndex;
 
             if (EIRManager.Instance.Haptics == null) {
                 Debug.LogError("No HapticManager instance found");

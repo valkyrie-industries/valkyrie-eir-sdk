@@ -72,7 +72,7 @@ namespace Valkyrie.EIR.Examples {
         void InitialisePresets()
         {
 #if EIR_HAPTICS
-            HapticPreset hapticPresetProperties = HapticPreset.CreateDefaultPreset(presetType, period, true);
+            HapticPreset hapticPresetProperties = HapticPreset.CreateDefaultPreset(presetType, period, HapticPreset.LoopType.Loop);
             hapticPresetRunners[(int)BodyPart.leftHand] = EIRManager.Instance.Haptics.CreateHapticPresetRunner(BodyPart.leftHand, hapticPresetProperties, 0);
             hapticPresetRunners[(int)BodyPart.rightHand] = EIRManager.Instance.Haptics.CreateHapticPresetRunner(BodyPart.rightHand, hapticPresetProperties, 0);
             initialised = true;

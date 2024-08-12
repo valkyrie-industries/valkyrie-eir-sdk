@@ -27,8 +27,8 @@ namespace Valkyrie.EIR.Examples {
         protected void LateUpdate() {
             if (haptics == null)
                 return;
-            signalLevels[(int)BodyPart.leftHand] = haptics.indicatorSignal[(int)BodyPart.leftHand];
-            signalLevels[(int)BodyPart.rightHand] = haptics.indicatorSignal[(int)BodyPart.rightHand];
+            signalLevels[(int)BodyPart.leftHand] = haptics.IndicatorSignal[(int)BodyPart.leftHand];
+            signalLevels[(int)BodyPart.rightHand] = haptics.IndicatorSignal[(int)BodyPart.rightHand];
             //Debug.Log(signalLevels[(int)part]);
         }
 

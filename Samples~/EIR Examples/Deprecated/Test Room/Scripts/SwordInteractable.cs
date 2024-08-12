@@ -44,7 +44,7 @@ namespace Valkyrie.EIR.Examples {
                 //If we are grabbed, begin the passive sine
                 if (grabbing && justGrabbed)
                 {
-                    HapticPreset props = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.sine, 1, true);
+                    HapticPreset props = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.sine, 1, HapticPreset.LoopType.Loop);
                     swordRunner = haptics.CreateHapticPresetRunner(currentlyInteractingBodyPart.BodyPart, props, 0.4f);
 
                 }

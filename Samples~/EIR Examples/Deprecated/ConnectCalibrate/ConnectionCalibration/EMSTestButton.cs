@@ -35,7 +35,7 @@ namespace Valkyrie.EIR.Examples {
 #if EIR_HAPTICS
         void TestEMS()
         {
-            EIRManager.Instance.Haptics.CreateHapticPresetRunner(affectedParts, HapticPreset.CreateDefaultPreset(presetType, 1, holdToTest ? true : false));
+            EIRManager.Instance.Haptics.CreateHapticPresetRunner(affectedParts, HapticPreset.CreateDefaultPreset(presetType, 1, holdToTest ? HapticPreset.LoopType.Loop : HapticPreset.LoopType.None));
         }
 
         void EndEMSTest()

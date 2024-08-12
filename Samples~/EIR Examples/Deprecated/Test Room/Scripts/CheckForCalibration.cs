@@ -15,7 +15,7 @@ public class CheckForCalibration : MonoBehaviour
     {
         if(EIRManager.Instance.Haptics != null)
         {
-            if(HapticManager.upperLimits[(int)BodyPart.leftHand] != 0 || HapticManager.upperLimits[(int)BodyPart.rightHand] != 0)
+            if(EIRManager.Instance.Haptics.UpperLimits[(int)BodyPart.leftHand] != 0 || EIRManager.Instance.Haptics.UpperLimits[(int)BodyPart.rightHand] != 0)
             {
                 conCalFloor.SetActive(false);
                 testRoomFloor.SetActive(true);

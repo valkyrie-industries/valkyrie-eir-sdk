@@ -65,7 +65,7 @@ namespace Valkyrie.EIR.Examples
             }
             int handIndex = isLeft ? 1 : 0;
 
-            int currentIndex = HapticManager.calibrationIndex[handIndex];
+            int currentIndex = EIRManager.Instance.Haptics.CalibrationIndex[handIndex];
             if (increase && currentIndex < HapticManager.CALIBRATION_INDEX_LENGTH)
             {
                 currentIndex += 1;
@@ -75,9 +75,9 @@ namespace Valkyrie.EIR.Examples
                 currentIndex -= 1;
             }
 
-            Debug.Log("[Calibration][Menu Example] Right: " + HapticManager.calibrationIndex[0] + " Left: " + HapticManager.calibrationIndex[1]);
+            Debug.Log("[Calibration][Menu Example] Right: " + EIRManager.Instance.Haptics.CalibrationIndex[0] + " Left: " + EIRManager.Instance.Haptics.CalibrationIndex[1]);
 
-            HapticManager.calibrationIndex[handIndex] = currentIndex;
+            EIRManager.Instance.Haptics.CalibrationIndex[handIndex] = currentIndex;
             haptic.ModifyCalibrationByIndex(isLeft, currentIndex);
 #endif
         }

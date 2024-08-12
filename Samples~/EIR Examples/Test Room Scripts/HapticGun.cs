@@ -186,8 +186,8 @@ namespace Valkyrie.EIR.Examples {
                     ResetConfigurationWithDelay((int)(shotEMSLength * 1000));
                 }
                 if (string.IsNullOrEmpty(feelID) || feel == null) {
-                    HapticPreset preset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.value, shotEMSLength, false, intensity);
-                    HapticPreset halfPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.value, shotEMSLength, false, intensity * 0.75f);
+                    HapticPreset preset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.value, shotEMSLength, HapticPreset.LoopType.None, intensity);
+                    HapticPreset halfPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.value, shotEMSLength, HapticPreset.LoopType.None, intensity * 0.75f);
 
                     haptics.CreateHapticPresetRunner(currentInteractors[0].transform.GetComponentInParent<InteractingBodyPart>().BodyPart, preset);
 
@@ -219,8 +219,8 @@ namespace Valkyrie.EIR.Examples {
                     PerformShot();
                 }
 #if EIR_HAPTICS
-                HapticPreset preset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.value, shotEMSLength, false, intensity);
-                HapticPreset halfPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.value, shotEMSLength, false, intensity * 0.75f);
+                HapticPreset preset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.value, shotEMSLength, HapticPreset.LoopType.None, intensity);
+                HapticPreset halfPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.value, shotEMSLength, HapticPreset.LoopType.None, intensity * 0.75f);
 
                 haptics.CreateHapticPresetRunner(currentInteractors[0].transform.GetComponentInParent<InteractingBodyPart>().BodyPart, preset);
 
