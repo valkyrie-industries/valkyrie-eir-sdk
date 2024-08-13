@@ -14,11 +14,12 @@ namespace Valkyrie.EIR.Interaction
 
         public delegate void OnInteractableEventHandler(Interactable i);
         public delegate void OnForceEventHandler(BodyPart part, float force, bool ignoreCalibration = false);
-
+#if EIR_HAPTICS
         public delegate void OnHapticPresetEventHandler(BodyPart bodyPart, HapticPreset preset);
         public static event OnHapticPresetEventHandler OnHapticPresetRequested;
         public delegate void OnHapticPresetTypeEventHandler(BodyPart bodyPart, HapticPreset.PresetType presetType);
         public static event OnHapticPresetTypeEventHandler OnHapticPresetTypeRequested;
+#endif
 
         public static event OnForceEventHandler OnForce;
 

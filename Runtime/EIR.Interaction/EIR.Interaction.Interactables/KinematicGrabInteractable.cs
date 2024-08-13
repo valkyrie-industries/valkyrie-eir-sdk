@@ -39,6 +39,7 @@ namespace Valkyrie.EIR.Interaction.Interactables {
         }
         public override void Interacting()
         {
+#if EIR_INTERACTION
             if (grabbing)
             {
                 // 1. Calculate force of the object
@@ -108,6 +109,7 @@ namespace Valkyrie.EIR.Interaction.Interactables {
 
                 InvokeOnForce(currentlyInteractingBodyPart.BodyPart, kinematicForce);
             }
+#endif
         }
 
         private Vector3 ElbowPosition(InteractingBodyPart hand, Transform _head, float _headSize)
