@@ -15,6 +15,7 @@ namespace Valkyrie.EIR.Haptics {
         private int prevValue = 0;
 
         private void Update() {
+#if EIR_HAPTICS
             if (text == null) {
                 text = GetComponent<TextMeshProUGUI>();
             }
@@ -24,6 +25,7 @@ namespace Valkyrie.EIR.Haptics {
                 prevValue = value;
                 text.SetText((value + 1).ToString());
             }
+#endif
         }
     }
 }
