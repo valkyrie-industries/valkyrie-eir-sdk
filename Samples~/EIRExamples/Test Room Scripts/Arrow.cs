@@ -50,10 +50,10 @@ namespace Valkyrie.EIR.Examples
         private void EndFlight()
         {
             inFlight = false;
-
+#if EIR_INTERACTION
             if (GetComponent<ReturnAfterGrabbing>() != null)
                 GetComponent<ReturnAfterGrabbing>().ReturnToOrigin();
-
+#endif
             gameObject.layer = 0;
 
             Invoke("ResetRotation", 0.3f);

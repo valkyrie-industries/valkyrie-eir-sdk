@@ -90,8 +90,12 @@ namespace Valkyrie.EIR.Examples {
         [SerializeField]
         private bool bulletsDisappearOnContact = true;
 
+#if EIR_INTERACTION
         public override void Start() {
             base.Start();
+#else
+        public void Start() {
+#endif
             rig = GetComponent<Rigidbody>();
             if (rig == null)
                 Debug.Log("[HapticGun] No Rigidbody found");
@@ -116,6 +120,7 @@ namespace Valkyrie.EIR.Examples {
 #endif
         }
 
+#if EIR_INTERACTION
         public override void Interacting() {
             base.Interacting();
             if (grabbing) {
@@ -123,6 +128,9 @@ namespace Valkyrie.EIR.Examples {
             } else {
                 col.enabled = true;
             }
+#else
+        public void Interacting() {
+        #endif
         }
 
         new public void SelectEntered(SelectEnterEventArgs e) {
@@ -180,7 +188,7 @@ namespace Valkyrie.EIR.Examples {
                     StartCoroutine(ContinousFire());
                 }
             } else {
-#if EIR_HAPTICS
+#if EIR_HAPTICS && EIR_INTERACTION
                 if (conf != null) {
                     conf.Configure((int)configuration.x, (byte)configuration.y, (byte)configuration.z);
                     ResetConfigurationWithDelay((int)(shotEMSLength * 1000));
@@ -218,7 +226,7 @@ namespace Valkyrie.EIR.Examples {
                 for (int i = 0; i < shotsPerFire; i++) {
                     PerformShot();
                 }
-#if EIR_HAPTICS
+#if EIR_HAPTICS && EIR_INTERACTION
                 HapticPreset preset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.value, shotEMSLength, HapticPreset.LoopType.None, intensity);
                 HapticPreset halfPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.value, shotEMSLength, HapticPreset.LoopType.None, intensity * 0.75f);
 

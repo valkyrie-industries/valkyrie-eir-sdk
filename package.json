@@ -4,7 +4,7 @@
   "version": "0.1.4-beta",
   "unity": "2022.3",
   "unityRelease": "36f1",
-  "description": "The Valkyrie EIR SDK provides interface between EIR devices and Unity middleware.",
+  "description": "The Valkyrie EIR SDK provides interface between EIR devices and Unity.",
   "keywords": [
     "EIR",
     "EMS",
@@ -15,19 +15,19 @@
     "url": "https://www.valkyrie-vr.com/"
   },
   "samples": [
-    {
-      "displayName": "EIR Examples",
-      "description": "Contains example implementations of EIR functionality.",
-      "path": "Samples~/EIRExamples"
-    },
-	{
+  	{
       "displayName": "EIR Interaction",
       "description": "EIR functionality designed to be used with the Unity XR Interaction Toolkit for XR purposes.",
       "path": "Samples~/EIRInteraction"
+    },
+    {
+      "displayName": "EIR Examples",
+      "description": "Contains example implementations of EIR functionality. Requires EIR Interaction.",
+      "path": "Samples~/EIRExamples"
     }
   ],
   "documentationUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/wiki/",
-  "changelogUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/commits/v0.1.3-alpha/",
+  "changelogUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/commits/v0.1.4-beta/",
   "licensesUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/blob/main/LICENSE",
   "dependencies": {
     "com.unity.modules.jsonserialize": "1.0.0",

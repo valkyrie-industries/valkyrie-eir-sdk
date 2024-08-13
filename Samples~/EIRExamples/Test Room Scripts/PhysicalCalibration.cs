@@ -147,7 +147,7 @@ namespace Valkyrie.EIR.Examples {
         //Send the results of the current calibration to the device
         private void CalibrateEMS(int newIndex, int oldIndex, bool isLeft)
         {
-
+#if EIR_INTERACTION
 
             //Check that the index has changed and is valid
             if (newIndex != oldIndex && newIndex != -1)
@@ -164,6 +164,7 @@ namespace Valkyrie.EIR.Examples {
                 calibrationIndex[(int)part] = newIndex;
                 OnCalibrationUpdated?.Invoke(lowerLimits, upperLimits, calibrationIndex);
             }
+#endif
         }
 
     }
