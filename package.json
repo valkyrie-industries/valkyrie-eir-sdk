@@ -1,7 +1,7 @@
 {
   "name": "com.valkyrieindustries.eirsdk",
   "displayName": "Valkyrie EIR SDK",
-  "version": "0.1.4-beta",
+  "version": "0.1.5-beta",
   "unity": "2022.3",
   "unityRelease": "36f1",
   "description": "The Valkyrie EIR SDK provides interface between EIR devices and Unity.",
@@ -15,22 +15,18 @@
     "url": "https://www.valkyrie-vr.com/"
   },
   "samples": [
-  	{
-      "displayName": "EIR Interaction",
-      "description": "EIR functionality designed to be used with the Unity XR Interaction Toolkit for XR purposes.",
-      "path": "Samples~/EIRInteraction"
-    },
     {
       "displayName": "EIR Examples",
-      "description": "Contains example implementations of EIR functionality. Requires EIR Interaction.",
+      "description": "Contains example implementations of EIR functionality. Requires EIR Interaction enabled in EIR Config.",
       "path": "Samples~/EIRExamples"
     }
   ],
   "documentationUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/wiki/",
-  "changelogUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/commits/v0.1.4-beta/",
+  "changelogUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/commits/v0.1.5-beta/",
   "licensesUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/blob/main/LICENSE",
   "dependencies": {
     "com.unity.modules.jsonserialize": "1.0.0",
-	"com.unity.textmeshpro": "3.0.6"
+	"com.unity.textmeshpro": "3.0.6",
+	"com.unity.xr.interaction.toolkit": "2.5.4"
   }
 }

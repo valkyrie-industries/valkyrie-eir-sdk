@@ -53,13 +53,13 @@ namespace Valkyrie.EIR.Utilities {
         private GUIStyle boldStyle;
         private bool isOVRPackageInstalled = false;
         private ListRequest listRequest;
-        private bool hasInteractionPackage;
+        //private bool hasInteractionPackage;
 
         private void OnEnable() {
 
             listRequest = Client.List(true);
             EditorApplication.update += CheckPackageManagerRequest;
-            hasInteractionPackage = HasInteractionPackage();
+            //hasInteractionPackage = HasInteractionPackage();
 
             enableHapticsManager = serializedObject.FindProperty("enableHapticsManager");
             enableBTEirBluetoothBridge = serializedObject.FindProperty("enableBTEirBluetoothBridge");
@@ -73,26 +73,26 @@ namespace Valkyrie.EIR.Utilities {
             useOVRForVibrations = serializedObject.FindProperty("useOVRForVibrations");
         }
 
-        private static bool HasInteractionPackage() {
-            string basePath = "Assets/Samples/Valkyrie EIR SDK";
-            string[] subfolders = AssetDatabase.GetSubFolders(basePath);
+        //private static bool HasInteractionPackage() {
+        //    string basePath = "Assets/Samples/Valkyrie EIR SDK";
+        //    string[] subfolders = AssetDatabase.GetSubFolders(basePath);
 
-            foreach (var subfolder in subfolders) {
-                string eirFolderPath = $"{subfolder}/EIRInteraction";
-                if (AssetDatabase.IsValidFolder(eirFolderPath)) {
-                    return true;
-                }
-            }
+        //    foreach (var subfolder in subfolders) {
+        //        string eirFolderPath = $"{subfolder}/EIRInteraction";
+        //        if (AssetDatabase.IsValidFolder(eirFolderPath)) {
+        //            return true;
+        //        }
+        //    }
 
-            foreach (var subfolder in subfolders) {
-                string eirFolderPath = $"{subfolder}/EIR Interaction";
-                if (AssetDatabase.IsValidFolder(eirFolderPath)) {
-                    return true;
-                }
-            }
+        //    foreach (var subfolder in subfolders) {
+        //        string eirFolderPath = $"{subfolder}/EIR Interaction";
+        //        if (AssetDatabase.IsValidFolder(eirFolderPath)) {
+        //            return true;
+        //        }
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
 
         public override void OnInspectorGUI() {
 
@@ -103,10 +103,10 @@ namespace Valkyrie.EIR.Utilities {
             EditorGUILayout.PropertyField(autoInitialise, new GUIContent("Auto Initialise (EIR Manager automatically initialises, otherwise call Initialise)"));
             EditorGUILayout.PropertyField(enableHapticsManager, new GUIContent("Enable Haptics Manager"));
             EditorGUILayout.PropertyField(enableBTEirBluetoothBridge, new GUIContent("Enable BT Communication Manager"));
-            EditorGUI.BeginDisabledGroup(!hasInteractionPackage);
-            if (!hasInteractionPackage) EditorGUILayout.LabelField("Interaction Package not installed.", EditorStyles.miniLabel);
+            //EditorGUI.BeginDisabledGroup(!hasInteractionPackage);
+            //if (!hasInteractionPackage) EditorGUILayout.LabelField("Interaction Package not installed.", EditorStyles.miniLabel);
             EditorGUILayout.PropertyField(enableInteractionManager, new GUIContent("Enable Interaction Manager"));
-            EditorGUI.EndDisabledGroup();
+            //EditorGUI.EndDisabledGroup();
             EditorGUILayout.Space(10);
             EditorGUILayout.LabelField("EIR Device Properties", EditorStyles.boldLabel);
             if (!enableBTEirBluetoothBridge.boolValue) EditorGUILayout.LabelField("EIR Bluetooth is not enabled.", EditorStyles.miniLabel);
@@ -166,10 +166,10 @@ namespace Valkyrie.EIR.Utilities {
             if (enableInteractionManager.boolValue != currentEnableInteraction) {
                 SetScriptingDefineSymbol("EIR_INTERACTION", enableInteractionManager.boolValue);
             }
-            if (enableInteractionManager.boolValue == true && !hasInteractionPackage) {
-                enableInteractionManager.boolValue = false;
-                SetScriptingDefineSymbol("EIR_INTERACTION", false);
-            }
+            //if (enableInteractionManager.boolValue == true && !hasInteractionPackage) {
+            //    enableInteractionManager.boolValue = false;
+            //    SetScriptingDefineSymbol("EIR_INTERACTION", false);
+            //}
 
             if (useOVRForVibrations.boolValue != currentEnableOVRVibrations) {
                 SetScriptingDefineSymbol("EIR_USE_OVR_VIBRATIONS", useOVRForVibrations.boolValue);
