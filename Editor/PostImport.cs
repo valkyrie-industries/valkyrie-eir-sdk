@@ -54,9 +54,6 @@ public class PostImport {
 
         SetScriptingDefineSymbol("EIR_COMM", true);
 
-
-        SetScriptingDefineSymbol("EIR_INTERACTION", true);
-
         Selection.activeObject = cfg;
 
     }
