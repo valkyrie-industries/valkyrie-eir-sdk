@@ -51,6 +51,7 @@ namespace Valkyrie.EIR.Examples {
             if (!EIRManager.Instance.Initialised) {
                 throw new System.Exception("[AutoConnection] EIR Manager is not initialised. Eir Config should be auto-initialising for this example script, check this is toggled.");
             } else {
+                if (EIRManager.Instance.Communication == null) return;
                 CheckConnectionState(EIRManager.Instance.Communication.CurrentState);
             }
 #endif
@@ -61,6 +62,7 @@ namespace Valkyrie.EIR.Examples {
             //if (connectionEstablished)
             //TODO: Make it do it once in a while (every second)
 #if EIR_COMM
+            if (EIRManager.Instance.Communication == null) return;
             CheckConnectionState(EIRManager.Instance.Communication.CurrentState);
 #endif
         }
@@ -155,7 +157,7 @@ namespace Valkyrie.EIR.Examples {
         }
 
         private void CheckConnectionState(ConnectionStates state) {
-            if (EIRManager.Instance == null)
+            if (EIRManager.Instance == null || EIRManager.Instance.Communication == null)
                 return;
 
             if (EIRManager.Instance.Communication.CurrentState != ConnectionStates.Selection) {
