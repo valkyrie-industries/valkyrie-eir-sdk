@@ -38,6 +38,11 @@ namespace Valkyrie.EIR {
         private InteractionManager interactionManager;
 #endif
 
+        /// <summary>
+        /// Returns true when all requisite systems and permissions are initialised and granted.
+        /// </summary>
+        public bool Initialised { get; private set; }
+
         #endregion
 
         #region Events
@@ -131,10 +136,13 @@ namespace Valkyrie.EIR {
             if (gameObject.GetComponent<MainThreadDispatcher>() == null) gameObject.AddComponent<MainThreadDispatcher>();
 
 #if UNITY_EDITOR
-            // automatically flag initialised if on editor.
+            // automatically flag initialised if in editor.
+            Initialised = true;
             OnBluetoothInitialised?.Invoke(true);
 #endif
             RequestPermissions();
+#else
+            Initialised = true;
 #endif
         }
         #endregion
@@ -168,10 +176,10 @@ namespace Valkyrie.EIR {
         }
 #endif
 
-            /// <summary>
-            /// Shuts down and cleans up the EIR Manager.
-            /// </summary>
-            public void Dispose() {
+        /// <summary>
+        /// Shuts down and cleans up the EIR Manager.
+        /// </summary>
+        public void Dispose() {
 
             Debug.Log($"[EIR Manager] EIR Manager is being disposed.");
 
@@ -206,7 +214,7 @@ namespace Valkyrie.EIR {
             }
             eirBluetoothBridge = null;
 #endif
-                OnDisposed?.Invoke();
+            OnDisposed?.Invoke();
             Destroy(this);
         }
 
@@ -253,8 +261,7 @@ namespace Valkyrie.EIR {
             if (conState == ConnectionStates.Connected) {
                 eirBluetoothBridge.SendConfigSignal(hapticManager.GenerateConfigSignal());
                 ToggleBluetoothSend(true);
-            }
-            else if (eirBluetoothBridge.PreviousState == ConnectionStates.Connected) {
+            } else if (eirBluetoothBridge.PreviousState == ConnectionStates.Connected) {
                 hapticManager.SetUnconfigured();
                 ToggleBluetoothSend(false);
             }
@@ -339,13 +346,13 @@ namespace Valkyrie.EIR {
             if (granted) {
                 eirBluetoothBridge = new EirBluetoothBridge();
                 eirBluetoothBridge.Initialise(OnInitialisationComplete);
-            }
-            else {
+                Initialised = true;
+            } else {
                 Debug.LogWarning("[EIR Manager] Bluetooth Permissions have been denied. EIR will not function.");
                 OnPermissionsDenied?.Invoke();
             }
         }
 #endif
-        #endregion
+#endregion
     }
 }
