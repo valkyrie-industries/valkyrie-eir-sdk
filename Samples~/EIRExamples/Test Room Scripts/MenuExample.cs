@@ -50,7 +50,7 @@ namespace Valkyrie.EIR.Examples
 
         public void ToggleEMS(bool activate)
         {
-#if EIR_COMM
+#if EIR_COMM && EIR_HAPTICS
             EIRManager.Instance.ToggleBluetoothSend(!EIRManager.Instance.Communication.IsActive);
 #endif
         }

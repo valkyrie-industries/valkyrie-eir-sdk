@@ -85,6 +85,7 @@ namespace Valkyrie.EIR {
                     if (signal[signal.Length - 1] != 0 && EIRConfig.Instance.OutputHapticDebug) Debug.Log($"[EIR Manager] Sending signal to EMS device: {signal[signal.Length - 1]}");
                     eirBluetoothBridge.WriteBytesToDevice(signal);
                 }
+            }
 #endif
 #if EIR_HAPTICS
             hapticManager.Reset();
@@ -140,7 +141,7 @@ namespace Valkyrie.EIR {
 
         #region Public Methods
 
-#if EIR_COMM
+#if EIR_COMM && EIR_HAPTICS
         /// <summary>
         /// Toggles on or off the bluetooth data write.
         /// When enabled, sends a configuration signal to the connected device.
