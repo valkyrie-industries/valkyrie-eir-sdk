@@ -76,6 +76,7 @@ namespace Valkyrie.EIR {
 
 
         private void Update() {
+            if (!Initialised) return;
 #if EIR_COMM && UNITY_ANDROID && !UNITY_EDITOR
             // read the device vitals (connection states, battery levels) of the connected EIR device.
             if (eirBluetoothBridge != null) eirBluetoothBridge.ReadDeviceVitals();
@@ -83,6 +84,7 @@ namespace Valkyrie.EIR {
         }
 
         private void LateUpdate() {
+            if (!Initialised) return;
 #if EIR_HAPTICS && EIR_COMM && UNITY_ANDROID && !UNITY_EDITOR
             if (eirBluetoothBridge != null && eirBluetoothBridge.IsActive) {
                 sbyte[] signal = hapticManager.GenerateHapticSignalForSendFrequency();
