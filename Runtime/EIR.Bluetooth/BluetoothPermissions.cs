@@ -30,7 +30,14 @@ namespace Valkyrie.EIR.Bluetooth {
             } else {
                 if (PlayerPrefs.HasKey(DontAskKey)) PlayerPrefs.DeleteKey(DontAskKey);
             }
+            if (!Permission.HasUserAuthorizedPermission("android.permission.ACCESS_FINE_LOCATION")) {
+                permissions.Add("android.permission.ACCESS_FINE_LOCATION");
+                Debug.Log("[EIR Manager] Permission: ACCESS_FINE_LOCATION");
+            }
+            else {
+                if (PlayerPrefs.HasKey(DontAskKey)) PlayerPrefs.DeleteKey(DontAskKey);
 
+            }
             if (PlayerPrefs.HasKey(DontAskKey)) {
                 Debug.Log("[EIR Manager] Permissions previously denied with don't ask, cannot proceed.");
                 OnPermissionsGranted?.Invoke(false);
