@@ -5,6 +5,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using System.Xml;
 
 public class VLKBuild : IPreprocessBuildWithReport {
     public int callbackOrder => 0;
@@ -12,6 +13,7 @@ public class VLKBuild : IPreprocessBuildWithReport {
     public void OnPreprocessBuild(BuildReport report) {
         if (report.summary.platform == BuildTarget.Android) {
             MergeGradleFiles();
+            MergeAndroidManifest();
         }
     }
 
