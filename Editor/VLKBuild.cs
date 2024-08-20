@@ -124,28 +124,36 @@ public class VLKBuild : IPreprocessBuildWithReport {
             var sourceDoc = new XmlDocument();
             sourceDoc.Load(customManifestPath);
 
-            XmlNode targetManifestNode = targetDoc.SelectSingleNode("/manifest");
-            XmlNode sourceManifestNode = sourceDoc.SelectSingleNode("/manifest");
+            XmlNamespaceManager nsManager = new XmlNamespaceManager(targetDoc.NameTable);
+            nsManager.AddNamespace("android", "http://schemas.android.com/apk/res/android");
 
-            MergeXmlNodes(targetDoc, targetManifestNode, sourceManifestNode);
+            XmlNode targetManifestNode = targetDoc.SelectSingleNode("/manifest", nsManager);
+            XmlNode sourceManifestNode = sourceDoc.SelectSingleNode("/manifest", nsManager);
+
+            MergeXmlNodes(targetDoc, targetManifestNode, sourceManifestNode, nsManager);
 
             targetDoc.Save(manifestPath);
             Debug.Log($"[EIR Build] Merged {customManifestPath} into {manifestPath}");
         }
     }
 
-    private void MergeXmlNodes(XmlDocument targetDoc, XmlNode targetNode, XmlNode sourceNode) {
+    private void MergeXmlNodes(XmlDocument targetDoc, XmlNode targetNode, XmlNode sourceNode, XmlNamespaceManager nsManager) {
         foreach (XmlNode sourceChildNode in sourceNode.ChildNodes) {
-            XmlNode targetChildNode = targetNode.SelectSingleNode($"{sourceChildNode.Name}[@android:name='{sourceChildNode.Attributes?["android:name"]?.Value}']");
+            if (sourceChildNode.NodeType == XmlNodeType.Element) {
+                // Create the XPath query for the child node considering namespaces
+                string xpathQuery = $"{sourceChildNode.Name}[@android:name='{sourceChildNode.Attributes?["android:name"]?.Value}']";
 
-            if (targetChildNode == null) {
-                // Node doesn't exist in target, so import and add it
-                XmlNode newNode = targetDoc.ImportNode(sourceChildNode, true);
-                targetNode.AppendChild(newNode);
-            }
-            else {
-                // Node exists in target, merge its children recursively
-                MergeXmlNodes(targetDoc, targetChildNode, sourceChildNode);
+                XmlNode targetChildNode = targetNode.SelectSingleNode(xpathQuery, nsManager);
+
+                if (targetChildNode == null) {
+                    // Node doesn't exist in target, so import and add it
+                    XmlNode newNode = targetDoc.ImportNode(sourceChildNode, true);
+                    targetNode.AppendChild(newNode);
+                }
+                else {
+                    // Node exists in target, merge its children recursively
+                    MergeXmlNodes(targetDoc, targetChildNode, sourceChildNode, nsManager);
+                }
             }
         }
     }
