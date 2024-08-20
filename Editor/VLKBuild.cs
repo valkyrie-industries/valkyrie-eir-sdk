@@ -109,4 +109,42 @@ public class VLKBuild : IPreprocessBuildWithReport {
 
         Debug.Log($"[EIR Build] Merged {sourcePath} into {targetPath}");
     }
+
+    private void MergeAndroidManifest() {
+        string projectPath = Application.dataPath.Replace("/Assets", "");
+        string manifestPath = Path.Combine(projectPath, "Assets", "Plugins", "Android", "AndroidManifest.xml");
+        string customManifestPath = Path.Combine(projectPath, "Packages", "com.valkyrieindustries.eirsdk", "Runtime", "Plugins", "Android", "AndroidManifest.xml");
+
+        if (File.Exists(customManifestPath)) {
+            var targetDoc = new XmlDocument();
+            targetDoc.Load(manifestPath);
+
+            var sourceDoc = new XmlDocument();
+            sourceDoc.Load(customManifestPath);
+
+            XmlNode targetManifestNode = targetDoc.SelectSingleNode("/manifest");
+            XmlNode sourceManifestNode = sourceDoc.SelectSingleNode("/manifest");
+
+            MergeXmlNodes(targetDoc, targetManifestNode, sourceManifestNode);
+
+            targetDoc.Save(manifestPath);
+            Debug.Log($"[EIR Build] Merged {customManifestPath} into {manifestPath}");
+        }
+    }
+
+    private void MergeXmlNodes(XmlDocument targetDoc, XmlNode targetNode, XmlNode sourceNode) {
+        foreach (XmlNode sourceChildNode in sourceNode.ChildNodes) {
+            XmlNode targetChildNode = targetNode.SelectSingleNode($"{sourceChildNode.Name}[@android:name='{sourceChildNode.Attributes?["android:name"]?.Value}']");
+
+            if (targetChildNode == null) {
+                // Node doesn't exist in target, so import and add it
+                XmlNode newNode = targetDoc.ImportNode(sourceChildNode, true);
+                targetNode.AppendChild(newNode);
+            }
+            else {
+                // Node exists in target, merge its children recursively
+                MergeXmlNodes(targetDoc, targetChildNode, sourceChildNode);
+            }
+        }
+    }
 }
