@@ -2,10 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
-using Valkyrie.EIR.Interaction;
-#if EIR_HAPTICS
-using Valkyrie.EIR.Haptics;
-#endif
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 namespace Valkyrie.EIR.Interaction.Interactables
 {

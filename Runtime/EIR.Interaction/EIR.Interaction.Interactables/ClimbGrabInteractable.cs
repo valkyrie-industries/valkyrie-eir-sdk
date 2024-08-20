@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
+﻿using UnityEngine;
 using Unity.XR.CoreUtils;
-using Valkyrie.EIR.Interaction;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 namespace Valkyrie.EIR.Interaction.Interactables
 {
