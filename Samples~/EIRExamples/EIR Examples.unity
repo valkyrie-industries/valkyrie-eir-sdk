@@ -736,6 +736,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4325959573801867}
     m_Modifications:
+    - target: {fileID: 3720329079294558809, guid: 071e97d0e852141498c8457a3af23388,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7925117659862065168}
     - target: {fileID: 3720329079294558812, guid: 071e97d0e852141498c8457a3af23388,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1009,6 +1014,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1265445412}
     m_Modifications:
+    - target: {fileID: 3720329079294558809, guid: 071e97d0e852141498c8457a3af23388,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7925117659862065168}
     - target: {fileID: 3720329079294558812, guid: 071e97d0e852141498c8457a3af23388,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2186,6 +2196,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 940465077604910413, guid: e02311dd2850d9a4eae46e7851474c91,
+        type: 3}
+      propertyPath: m_ActivateInput.m_InputActionReferencePerformed
+      value: 
+      objectReference: {fileID: 83097790271614945, guid: e63902db4771d8d4eb5515b9e8deced4,
+        type: 3}
     - target: {fileID: 1726972425687552176, guid: e02311dd2850d9a4eae46e7851474c91,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2236,6 +2252,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6639070122922393244, guid: e02311dd2850d9a4eae46e7851474c91,
+        type: 3}
+      propertyPath: m_ActivateInput.m_InputActionReferencePerformed
+      value: 
+      objectReference: {fileID: -5982496924579745919, guid: e63902db4771d8d4eb5515b9e8deced4,
+        type: 3}
     - target: {fileID: 7984455585841996114, guid: e02311dd2850d9a4eae46e7851474c91,
         type: 3}
       propertyPath: m_Name
@@ -2657,6 +2679,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647547249}
     m_Modifications:
+    - target: {fileID: 3720329079294558809, guid: 071e97d0e852141498c8457a3af23388,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7925117659862065168}
     - target: {fileID: 3720329079294558812, guid: 071e97d0e852141498c8457a3af23388,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2865,6 +2892,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 91093269254104623}
     m_Modifications:
+    - target: {fileID: 3720329079294558809, guid: 071e97d0e852141498c8457a3af23388,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7925117659862065168}
     - target: {fileID: 3720329079294558812, guid: 071e97d0e852141498c8457a3af23388,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3324,6 +3356,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_currentlyInteractingBodyPart: {fileID: 0}
   interactionDuration: 0.3
+  presetType: 0
+  targetParts: 
 --- !u!1001 &376066080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6415,6 +6449,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_currentlyInteractingBodyPart: {fileID: 0}
   interactionDuration: 0.3
+  presetType: 0
+  targetParts: 
 --- !u!1001 &884949653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7916,6 +7952,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_currentlyInteractingBodyPart: {fileID: 0}
   interactionDuration: 0.3
+  presetType: 0
+  targetParts: 
 --- !u!1001 &1141594726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8891,6 +8929,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_currentlyInteractingBodyPart: {fileID: 0}
   interactionDuration: 0.3
+  presetType: 0
+  targetParts: 
 --- !u!1001 &1327941297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9979,6 +10019,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4325959573801867}
     m_Modifications:
+    - target: {fileID: 3720329079294558809, guid: 071e97d0e852141498c8457a3af23388,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7925117659862065168}
     - target: {fileID: 3720329079294558812, guid: 071e97d0e852141498c8457a3af23388,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11102,6 +11147,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 748513485}
     m_Modifications:
+    - target: {fileID: 3720329079294558809, guid: 071e97d0e852141498c8457a3af23388,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7925117659862065168}
     - target: {fileID: 3720329079294558812, guid: 071e97d0e852141498c8457a3af23388,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11310,6 +11360,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 487923977}
     m_Modifications:
+    - target: {fileID: 3720329079294558809, guid: 071e97d0e852141498c8457a3af23388,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7925117659862065168}
     - target: {fileID: 3720329079294558812, guid: 071e97d0e852141498c8457a3af23388,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12424,6 +12479,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 748513485}
     m_Modifications:
+    - target: {fileID: 3720329079294558809, guid: 071e97d0e852141498c8457a3af23388,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7925117659862065168}
     - target: {fileID: 3720329079294558812, guid: 071e97d0e852141498c8457a3af23388,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13274,11 +13334,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bow
       objectReference: {fileID: 0}
-    - target: {fileID: 7511565137987052594, guid: 46c5bc8245f5c4a44bd1d90b2c57ae1d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 15ca0a78da073a3428a2a3203aa4cec9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16576,9 +16631,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_Colliders: []
-  m_InteractionLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 1
   m_DistanceCalculationMode: 1
@@ -16637,33 +16689,6 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
-  m_OnFirstHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnLastHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectCanceled:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnActivate:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnDeactivate:
-    m_PersistentCalls:
-      m_Calls: []
   m_AttachTransform: {fileID: 3829968738245782385}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
@@ -16710,10 +16735,10 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
-  m_AttachPointCompatibilityMode: 0
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  m_FarAttachMode: 0
 --- !u!114 &3108831020303906888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16728,9 +16753,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_Colliders: []
-  m_InteractionLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 1
   m_DistanceCalculationMode: 1
@@ -16789,33 +16811,6 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
-  m_OnFirstHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnLastHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectCanceled:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnActivate:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnDeactivate:
-    m_PersistentCalls:
-      m_Calls: []
   m_AttachTransform: {fileID: 3829968736487068303}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
@@ -16862,10 +16857,10 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
-  m_AttachPointCompatibilityMode: 0
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  m_FarAttachMode: 0
 --- !u!1 &3263689122678024868
 GameObject:
   m_ObjectHideFlags: 0
