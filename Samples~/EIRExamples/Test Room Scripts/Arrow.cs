@@ -12,12 +12,15 @@ namespace Valkyrie.EIR.Examples
     {
         public Transform arrowBody;
 
+        Collider col;
         Rigidbody rb;
 
         bool inFlight = false;
 
         float returnAfter = 5;
         float flyStartTime;
+        
+        float waitBeforeCollide = 10f;
 
         void Start()
         {
@@ -28,12 +31,21 @@ namespace Valkyrie.EIR.Examples
         {
             inFlight = true;
             flyStartTime = Time.time;
+            col = GetComponent<Collider>();
+            col.enabled = false;
         }
+
         private void LateUpdate()
         {
             if (inFlight && rb != null && arrowBody != null)
             {
                 arrowBody.LookAt(transform.position + rb.velocity);
+            }
+
+            if (Time.time + waitBeforeCollide < Time.time && inFlight)
+            {
+                if(col != null)
+                    col.enabled = true;
             }
 
             if (Time.time - flyStartTime > returnAfter && !rb.isKinematic && inFlight)
@@ -44,7 +56,10 @@ namespace Valkyrie.EIR.Examples
 
         private void OnCollisionEnter(Collision collision)
         {
-            EndFlight();
+            Debug.Log("I HIT SOMETHING");
+
+            if(flyStartTime + waitBeforeCollide < Time.time)
+                EndFlight();
         }
 
         private void EndFlight()
@@ -55,6 +70,7 @@ namespace Valkyrie.EIR.Examples
                 GetComponent<ReturnAfterGrabbing>().ReturnToOrigin();
 #endif
             gameObject.layer = 0;
+            col.enabled = true;
 
             Invoke("ResetRotation", 0.3f);
         }

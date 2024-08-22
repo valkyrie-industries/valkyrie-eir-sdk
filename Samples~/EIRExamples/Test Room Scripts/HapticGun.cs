@@ -135,6 +135,7 @@ namespace Valkyrie.EIR.Examples {
 
         new public void SelectEntered(SelectEnterEventArgs e) {
             currentInteractors.Add(e.interactorObject);
+            Debug.Log("select entered");
         }
 
         new public void SelectExited(SelectExitEventArgs e) {

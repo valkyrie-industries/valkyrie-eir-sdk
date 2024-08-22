@@ -132,6 +132,7 @@ namespace Valkyrie.EIR.Examples
 
         void FireArrow()
         {
+            Debug.Log("AM FIRING ARROW");
             StartCoroutine(DelayedFire());
         }
 
@@ -139,8 +140,14 @@ namespace Valkyrie.EIR.Examples
         {
             arrowGrabInteractable.SendZeroForce();
             arrowGrabInteractable = null;
-            EIRManager.Instance.Interaction.XrBridge.SendVibration(true, 0, 0);
-            EIRManager.Instance.Interaction.XrBridge.SendVibration(false, 0, 0);
+
+#if EIR_INTERACTION
+            if(EIRManager.Instance.Interaction.XrBridge != null)
+            {
+                EIRManager.Instance.Interaction.XrBridge.SendVibration(true, 0, 0);
+                EIRManager.Instance.Interaction.XrBridge.SendVibration(false, 0, 0);
+            }
+#endif
             Transform flyingArrow = arrowToFly;
             yield return new WaitForEndOfFrame(); // This is so that the XR Interaction toolkit would return to it its original values for Rigidbody, and then we override it
             Rigidbody arrowRB = arrowToGrab.GetComponent<Rigidbody>();
