@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.XR.Interaction.Toolkit;
+
 #if EIR_HAPTICS
 using Valkyrie.EIR.Haptics;
 #endif
@@ -13,7 +13,7 @@ namespace Valkyrie.EIR.Examples
 
         #region Private Variables
 
-        private TeleportationAnchor[] anchors;
+        private UnityEngine.XR.Interaction.Toolkit.Locomotion.Teleportation.TeleportationAnchor[] anchors;
         private HapticGun[] guns;
 
         [SerializeField]
@@ -29,7 +29,7 @@ namespace Valkyrie.EIR.Examples
 
         private void Start()
         {
-            anchors = FindObjectsOfType<TeleportationAnchor>();
+            anchors = FindObjectsOfType<UnityEngine.XR.Interaction.Toolkit.Locomotion.Teleportation.TeleportationAnchor>();
             guns = FindObjectsOfType<HapticGun>();
             buttonStates = new bool[buttons.Length];
             ActivateHapticButtons(false);
@@ -60,7 +60,7 @@ namespace Valkyrie.EIR.Examples
                 }
             }
 
-            foreach (TeleportationAnchor anchor in anchors)
+            foreach (UnityEngine.XR.Interaction.Toolkit.Locomotion.Teleportation.TeleportationAnchor anchor in anchors)
             {
                 anchor.enabled = !firing;
             }

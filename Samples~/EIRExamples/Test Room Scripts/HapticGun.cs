@@ -19,7 +19,7 @@ namespace Valkyrie.EIR.Examples {
     public class HapticGun : MonoBehaviour {
 #endif
         bool firing = false;
-        List<IXRSelectInteractor> currentInteractors = new List<IXRSelectInteractor>();
+        List<UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor> currentInteractors = new List<UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor>();
         Rigidbody rig;
 #if EIR_HAPTICS
         HapticManager haptics;
