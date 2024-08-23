@@ -46,16 +46,29 @@ namespace Valkyrie.EIR.Examples {
 
         private static bool attemptingConnection = false;
 
+        [SerializeField]
+        private bool connectAutomatically;
+
         private void Start() {
 #if EIR_COMM
+            StartCoroutine(ConnectNextFrame());
+#endif
+        }
+
+#if EIR_COMM
+        private IEnumerator ConnectNextFrame() {
+            yield return new WaitForEndOfFrame();
             if (!EIRManager.Instance.Initialised) {
                 throw new System.Exception("[AutoConnection] EIR Manager is not initialised. Eir Config should be auto-initialising for this example script, check this is toggled.");
             } else {
-                if (EIRManager.Instance.Communication == null) return;
-                CheckConnectionState(EIRManager.Instance.Communication.CurrentState);
+                if (EIRManager.Instance.Communication != null) {
+                    CheckConnectionState(EIRManager.Instance.Communication.CurrentState);
+                    if (connectAutomatically) Connect(true);
+                }
             }
-#endif
         }
+#endif
+
 
         private void Update() {
             if (!EIRManager.Instance.Initialised) return;
