@@ -17,16 +17,15 @@ namespace Valkyrie.EIR.Examples {
 
 #if EIR_HAPTICS
 
-        private void Awake() {
-            haptics = EIRManager.Instance.Haptics;
-
-            //if (haptics == null)
-            //    Destroy(this);
-        }
-
         protected void LateUpdate() {
             if (haptics == null)
-                return;
+            {
+                haptics = EIRManager.Instance.Haptics;
+
+                if (haptics == null)
+                    return;
+            }
+
             signalLevels[(int)BodyPart.leftHand] = haptics.IndicatorSignal[(int)BodyPart.leftHand];
             signalLevels[(int)BodyPart.rightHand] = haptics.IndicatorSignal[(int)BodyPart.rightHand];
             //Debug.Log(signalLevels[(int)part]);
