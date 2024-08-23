@@ -222,6 +222,7 @@ namespace Valkyrie.EIR.Bluetooth {
         /// </summary>
         /// <param name="data"></param>
         public void SendConfigSignal(sbyte[] data) {
+			if (state == ConnectionStates.NotConnected) return;
             eirBlu.CallStatic("writeCharacteristic", data, true);
         }
 

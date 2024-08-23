@@ -115,20 +115,20 @@ namespace Valkyrie.EIR {
         /// </summary>
         public void Initialise() {
 
-            SceneManager.sceneLoaded += OnSceneLoaded;
-
             Debug.Log("[EIR Manager] Instantiating required modules...");
 #if EIR_HAPTICS
             hapticManager = new HapticManager(gameObject);
 #endif
 #if EIR_INTERACTION
-            interactionManager = new InteractionManager(true);
-            interactionManager.XrBridge.Initialise();
+            interactionManager = new InteractionManager();
 #if EIR_HAPTICS
             interactionManager.HapticRequest += OnHapticRequest;
             Interactable.OnHapticPresetRequested += OnHapticPresetRequested;
             Interactable.OnHapticPresetTypeRequested += OnHapticPresetTypeRequested;
 #endif
+#endif
+#if EIR_COMM
+            eirBluetoothBridge = new EirBluetoothBridge();
 #endif
 #if EIR_COMM && EIR_HAPTICS
             EirBluetoothBridge.OnConnectionStateChanged += OnConnectionStateChanged;
@@ -184,8 +184,6 @@ namespace Valkyrie.EIR {
         public void Dispose() {
 
             Debug.Log($"[EIR Manager] EIR Manager is being disposed.");
-
-            SceneManager.sceneLoaded -= OnSceneLoaded;
 
 #if EIR_INTERACTION && EIR_HAPTICS
             if (interactionManager != null) {
@@ -269,17 +267,6 @@ namespace Valkyrie.EIR {
             }
         }
 #endif
-        /// <summary>
-        /// Invoked by the Unity Scene Management system upon scene load.
-        /// </summary>
-        /// <param name="arg0"></param>
-        /// <param name="arg1"></param>
-        private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1) {
-#if EIR_INTERACTION
-            // initialises the XR Bridge under Interaction Manager.
-            interactionManager.XrBridge.Initialise();
-#endif
-        }
 
 #if EIR_INTERACTION && EIR_HAPTICS
         /// <summary>
@@ -346,7 +333,6 @@ namespace Valkyrie.EIR {
         private void OnPermissionsResult(bool granted) {
             BluetoothPermissions.OnPermissionsGranted -= OnPermissionsResult;
             if (granted) {
-                eirBluetoothBridge = new EirBluetoothBridge();
                 eirBluetoothBridge.Initialise(OnInitialisationComplete);
                 Initialised = true;
             } else {
