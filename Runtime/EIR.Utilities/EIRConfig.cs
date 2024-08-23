@@ -41,8 +41,8 @@ namespace Valkyrie.EIR.Utilities {
         [SerializeField] private bool outputHapticDebug;
         [SerializeField] private bool ignoreCachedDevice;
         [SerializeField] private int vitalsReadInterval;
-        [SerializeField] private string deviceFilter;
-        [SerializeField] private bool autoInitialise;
+        [SerializeField] private string deviceFilter = "Valkyrie";
+        [SerializeField] private bool autoInitialise = true;
         [SerializeField] private bool useOVRForVibrations;
 
         public bool OutputHapticDebug { get { return outputHapticDebug; } }
