@@ -23,21 +23,17 @@ namespace Valkyrie.EIR.Interaction
         //This is the number of bodyparts we use
         public static readonly int usedBodyParts = 3;
 
-        public VLKXRBridge XrBridge { get { return xrBridge; } }
-        private VLKXRBridge xrBridge;
-
         //This is the number of bodyparts in total
         public static int TotalBodyParts { get { return Enum.GetNames(typeof(BodyPart)).Length; } }
 
         private float[] forces;
 
-        public InteractionManager(bool enableXRBridge = true) {
+        public InteractionManager() {
             UnityEngine.Debug.Log("[Interaction] Interaction Manager Intiialised");
             interactingBodyParts = new InteractingBodyPart[usedBodyParts];
             forces = new float[usedBodyParts - 1];
             Interactable.OnForce += ApplyForce;
             InteractingBodyPart.OnInteractingBodyPartAlive += OnInteractingBodyPartAlive;
-            if (enableXRBridge) xrBridge = new VLKXRBridge();
         }
 
         public InteractingBodyPart[] InteractingBodyParts {

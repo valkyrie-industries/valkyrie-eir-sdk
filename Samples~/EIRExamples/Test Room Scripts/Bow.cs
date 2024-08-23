@@ -126,7 +126,6 @@ namespace Valkyrie.EIR.Examples
                 float force = ValkyrieEIRExtensionMethods.Map(direction.magnitude, 0, 0.5f);
                 arrowGrabInteractable.ApplyForceToGrabbingArm(force);
                 bool isLeft = arrowGrabInteractable.currentlyInteractingBodyPart.BodyPart == 0 ? false : true;
-                EIRManager.Instance.Interaction.XrBridge.SendVibration(isLeft, force * 0.5f, 0.01f);
             }
         }
 
@@ -141,13 +140,6 @@ namespace Valkyrie.EIR.Examples
             arrowGrabInteractable.SendZeroForce();
             arrowGrabInteractable = null;
 
-#if EIR_INTERACTION
-            if(EIRManager.Instance.Interaction.XrBridge != null)
-            {
-                EIRManager.Instance.Interaction.XrBridge.SendVibration(true, 0, 0);
-                EIRManager.Instance.Interaction.XrBridge.SendVibration(false, 0, 0);
-            }
-#endif
             Transform flyingArrow = arrowToFly;
             yield return new WaitForEndOfFrame(); // This is so that the XR Interaction toolkit would return to it its original values for Rigidbody, and then we override it
             Rigidbody arrowRB = arrowToGrab.GetComponent<Rigidbody>();
