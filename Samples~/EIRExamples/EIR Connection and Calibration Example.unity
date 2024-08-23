@@ -1058,6 +1058,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test Right Calibration
       objectReference: {fileID: 0}
+    - target: {fileID: 1813237873935999328, guid: dc257b5ba0f1f1848914547b30ccc256,
+        type: 3}
+      propertyPath: takeFirstConnection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2545348056504441765, guid: dc257b5ba0f1f1848914547b30ccc256,
         type: 3}
       propertyPath: m_Sprite
