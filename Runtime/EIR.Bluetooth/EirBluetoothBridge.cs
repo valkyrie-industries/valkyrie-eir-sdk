@@ -247,7 +247,8 @@ namespace Valkyrie.EIR.Bluetooth {
         /// <param name="data"></param>
         /// <param name="critical"></param>
         public void WriteBytesToDevice(sbyte[] data, bool critical = false) {
-            eirBlu.CallStatic("writeCharacteristic", data, critical);
+            if(IsConnected)
+                eirBlu.CallStatic("writeCharacteristic", data, critical);
         }
 
         /// <summary>
