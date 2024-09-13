@@ -103,7 +103,6 @@ namespace Valkyrie.EIR.Bluetooth {
         /// Returns true if the Bluetooth device is connected.
         /// </summary>
         public bool IsConnected { get {
-                Debug.Log($"[EIR Bluetooth] Querying connection state: {state}");
                 return state == ConnectionStates.Connected; } }
 
         #endregion
