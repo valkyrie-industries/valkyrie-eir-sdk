@@ -51,7 +51,7 @@ namespace Valkyrie.EIR.Haptics {
 
             FeelStruct feel = FeelLibrary.RequestFeel(feelID);
 
-            if (string.IsNullOrEmpty(name)) {
+            if (string.IsNullOrEmpty(feel.name)) {
                 Debug.LogError("[FeelButton] Could not find feel with ID " + feelID);
                 return;
             }
