@@ -37,7 +37,16 @@ namespace Valkyrie.EIR.Interaction
         }
 
         public InteractingBodyPart[] InteractingBodyParts {
-            get { if (interactingBodyParts[0] == null) { InteractingBodyPart[] ints = GameObject.FindObjectsOfType<InteractingBodyPart>(); if (ints != null) interactingBodyParts = OrganiseBodyParts(ints); } return interactingBodyParts; }
+            get 
+            { 
+                if (interactingBodyParts[0] == null) 
+                { 
+                    InteractingBodyPart[] ints = GameObject.FindObjectsOfType<InteractingBodyPart>(); 
+                    if (ints != null) interactingBodyParts = OrganiseBodyParts(ints); 
+                } 
+
+                return interactingBodyParts; 
+            }
         }
 
         private InteractingBodyPart[] OrganiseBodyParts(InteractingBodyPart[] unorganised) {
