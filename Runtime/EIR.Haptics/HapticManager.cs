@@ -18,7 +18,7 @@ namespace Valkyrie.EIR.Haptics
 
         #region Events
 
-        public delegate void CalibrationUpdatedEventHandler(int left, int right, bool dontSync);
+        public delegate void CalibrationUpdatedEventHandler(int left, int right);
         public static event CalibrationUpdatedEventHandler CalibrationUpdated;
 
         #endregion
@@ -200,14 +200,14 @@ namespace Valkyrie.EIR.Haptics
         }
 
         //Alter the user's current calibration using the provided index
-        public void ModifyCalibrationByIndex(bool isLeft, int index, bool dontSync = false) {
+        public void ModifyCalibrationByIndex(bool isLeft, int index) {
 
             float[] minMax = GetLowerUpperLimitForIndex(index, 2);
 
             LowerLimits[isLeft ? 1 : 0] = (int)minMax[0];
             UpperLimits[isLeft ? 1 : 0] = (int)minMax[1];
 
-            CalibrationUpdated?.Invoke(CalibrationIndex[1], CalibrationIndex[0], dontSync);
+            CalibrationUpdated?.Invoke(CalibrationIndex[1], CalibrationIndex[0]);
 
         }
 
