@@ -4,7 +4,7 @@ using UnityEditor.PackageManager;
 using UnityEngine;
 using Valkyrie.EIR.Utilities;
 
-public class PostImport {
+public class VLKPostImport {
 
     [InitializeOnLoadMethod]
     private static void SubscribeToEvent() {
@@ -14,7 +14,7 @@ public class PostImport {
 
     private static void OnRegisteredPackages(PackageRegistrationEventArgs packageRegistrationEventArgs) {
         foreach (var package in packageRegistrationEventArgs.added) {
-            if (package.name == "com.valkyrieindustries.eirsdk") ExecutePostImportProcess();
+            if (package.name == "com.valkyrieindustries.eirsdk") EditorApplication.delayCall += ExecutePostImportProcess;
         }
     }
 
