@@ -25,8 +25,8 @@ namespace Valkyrie.EIR.Utilities {
             }
         }
 
-        public bool UsingHpt { get { return enableHapticsManager; } set { enableHapticsManager = value; }
-        public bool UsingCom { get { return enableBTEirBluetoothBridge; } set { enableBTEirBluetoothBridge = value; }
+        public bool UsingHpt { get { return enableHapticsManager; } set { enableHapticsManager = value; } }
+        public bool UsingCom { get { return enableBTEirBluetoothBridge; } set { enableBTEirBluetoothBridge = value; } }
         public bool UsingInt { get { return enableInteractionManager; } }
         public bool IgnoreCache { get { return ignoreCachedDevice; } }
         public int VitalsReadInterval { get { return vitalsReadInterval; } }
