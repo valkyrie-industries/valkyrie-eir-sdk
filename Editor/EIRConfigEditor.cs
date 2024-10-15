@@ -60,8 +60,6 @@ namespace Valkyrie.EIR.Utilities {
             listRequest = Client.List(true);
             EditorApplication.update += CheckPackageManagerRequest;
             //hasInteractionPackage = HasInteractionPackage();
-            UpdateScriptingDefines();
-
 
             enableHapticsManager = serializedObject.FindProperty("enableHapticsManager");
             enableBTEirBluetoothBridge = serializedObject.FindProperty("enableBTEirBluetoothBridge");
