@@ -251,7 +251,7 @@ namespace Valkyrie.EIR.Haptics
         #region Presets
 
         //Creates a new HapticPresetRunner instance and attaches it to the runnerObject
-        public HapticPresetRunner CreateHapticPresetRunner(BodyPart affectedBodyPart, HapticPreset props, float startIntensity = 1, bool runNow = true) {
+        public HapticPresetRunner CreateHapticPresetRunner(BodyPart affectedBodyPart, HapticPreset props, float intensityMultiplier = 1, bool beginActive = true, bool keepAliveBetweenScenes = false) {
             HapticPresetRunner runner = runnerObject.AddComponent<HapticPresetRunner>();    
             runners.Add(runner);
 
@@ -260,17 +260,17 @@ namespace Valkyrie.EIR.Haptics
                 affectedBodyPart
             };
 
-            runner.SetupRunner(affectedBodyParts, props, startIntensity, runNow);
+            runner.SetupRunner(affectedBodyParts, props, intensityMultiplier, beginActive, keepAliveBetweenScenes);
 
             return runner;
         }
 
 
         //Overload that instead uses a list of body parts so that a HapticPresetRunner can apply to multiple limbs
-        public HapticPresetRunner CreateHapticPresetRunner(List<BodyPart> affectedBodyParts, HapticPreset props, float startIntensity = 1, bool runNow = true) {
+        public HapticPresetRunner CreateHapticPresetRunner(List<BodyPart> affectedBodyParts, HapticPreset props, float intensityMultiplier = 1, bool beginActive = true, bool keepAliveBetweenScenes = false) {
             HapticPresetRunner runner = runnerObject.AddComponent<HapticPresetRunner>();
             runners.Add(runner);
-            runner.SetupRunner(affectedBodyParts, props, startIntensity, runNow);
+            runner.SetupRunner(affectedBodyParts, props, intensityMultiplier, beginActive, keepAliveBetweenScenes);
 
             return runner;
         }

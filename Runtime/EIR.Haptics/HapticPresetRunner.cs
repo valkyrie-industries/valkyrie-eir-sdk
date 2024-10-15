@@ -33,16 +33,16 @@ namespace Valkyrie.EIR.Haptics
         /// </summary>
         /// <param name="affectedEMSParts"></param>
         /// <param name="properties"></param>
-        /// <param name="startIntensity"></param>
-        /// <param name="runNow"></param>
-        public void SetupRunner(List<BodyPart> affectedEMSParts, HapticPreset properties, float startIntensity = 1, bool runNow = true, bool keepalivebetweenscenes = false) {
+        /// <param name="intensityMultiplier"></param>
+        /// <param name="beginActive"></param>
+        public void SetupRunner(List<BodyPart> affectedEMSParts, HapticPreset properties, float intensityMultiplier = 1, bool beginActive = true, bool keepAliveBetweenScenes = false) {
             m_affectedBodyParts = affectedEMSParts;
             m_preset = properties;
-            m_intensityMultiplier = startIntensity;
+            m_intensityMultiplier = intensityMultiplier;
 
-            if (!keepalivebetweenscenes) SceneManager.activeSceneChanged += OnSceneChange;
+            if (!keepAliveBetweenScenes) SceneManager.activeSceneChanged += OnSceneChange;
 
-            SetPauseState(!runNow);
+            SetPauseState(!beginActive);
             if (coroutine != null) StopCoroutine(coroutine);
             StartCoroutine(coroutine = ExecuteHapticPreset());
         }
