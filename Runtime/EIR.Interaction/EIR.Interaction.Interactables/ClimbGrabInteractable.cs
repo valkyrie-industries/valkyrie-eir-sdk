@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using Unity.XR.CoreUtils;
-using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 namespace Valkyrie.EIR.Interaction.Interactables
 {

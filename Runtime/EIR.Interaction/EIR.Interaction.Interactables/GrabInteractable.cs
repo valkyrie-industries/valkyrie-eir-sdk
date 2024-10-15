@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 namespace Valkyrie.EIR.Interaction.Interactables
 {
@@ -15,9 +16,9 @@ namespace Valkyrie.EIR.Interaction.Interactables
         public bool grabbing, justGrabbed, justDropped;
 
 
-        private XRGrabInteractable xRGrabInteractable;
+        private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable xRGrabInteractable;
 
-        public XRGrabInteractable XRGrabInteractable {
+        public UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable XRGrabInteractable {
             get {
                 try {
                     if (xRGrabInteractable == null) {
