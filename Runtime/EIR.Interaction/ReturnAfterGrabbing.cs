@@ -10,7 +10,7 @@ namespace Valkyrie.EIR.Interaction {
     /// Returns a grab interactable back to its home location.
     /// </summary>
     [RequireComponent(typeof(Rigidbody))]
-    [RequireComponent(typeof(UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable))]
+    [RequireComponent(typeof(UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable))]
     public class ReturnAfterGrabbing : MonoBehaviour {
 
         [SerializeField]
@@ -20,7 +20,7 @@ namespace Valkyrie.EIR.Interaction {
         [SerializeField]
         private float allowedDistance = 0.5f;
 
-        private UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable xRGrabInteractable;
+        private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable xRGrabInteractable;
         private Rigidbody rig;
         private ParticleSystem part;
 
@@ -126,10 +126,10 @@ namespace Valkyrie.EIR.Interaction {
         /// </summary>
         /// <exception cref="System.NullReferenceException"></exception>
         private void SetReferences() {
-            if (GetComponent<UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable>() == null) {
+            if (GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>() == null) {
                 throw new System.NullReferenceException($"[EIR.Interaction.ReturnAfterGrabbing] No XRGrabInteractable found on object {gameObject.name}. Please attach an XRGrabInteractable.");
             }
-            else xRGrabInteractable = GetComponent<UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable>();
+            else xRGrabInteractable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
             if (GetComponent<Rigidbody>() == null) {
                 throw new System.NullReferenceException($"[EIR.Interaction.ReturnAfterGrabbing] No RigidBody found on object {gameObject.name}. Please attach a RigidBody.");
             }
