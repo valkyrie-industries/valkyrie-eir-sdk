@@ -25,8 +25,8 @@ namespace Valkyrie.EIR.Utilities {
             }
         }
 
-        public bool UsingHpt { get { return enableHapticsManager; } }
-        public bool UsingCom { get { return enableBTEirBluetoothBridge; } }
+        public bool UsingHpt { get { return enableHapticsManager; } set { enableHapticsManager = value; }
+        public bool UsingCom { get { return enableBTEirBluetoothBridge; } set { enableBTEirBluetoothBridge = value; }
         public bool UsingInt { get { return enableInteractionManager; } }
         public bool IgnoreCache { get { return ignoreCachedDevice; } }
         public int VitalsReadInterval { get { return vitalsReadInterval; } }
@@ -36,21 +36,9 @@ namespace Valkyrie.EIR.Utilities {
         public bool UseOVRForVibrations { get { return useOVRForVibrations; } }
 
 
-#if EIR_HAPTICS
-        [SerializeField] private bool enableHapticsManager = true;
-#else
-        [SerializeField] private bool enableHapticsManager = false;
-#endif
-#if EIR_COMM
-        [SerializeField] private bool enableBTEirBluetoothBridge = true;
-#else
-        [SerializeField] private bool enableBTEirBluetoothBridge = false;
-#endif
-#if EIR_INTERACTION
-        [SerializeField] private bool enableInteractionManager = true;
-#else
-        [SerializeField] private bool enableInteractionManager = false;
-#endif
+        [SerializeField] private bool enableHapticsManager;
+        [SerializeField] private bool enableBTEirBluetoothBridge;
+        [SerializeField] private bool enableInteractionManager;
 
         [SerializeField] private bool outputHapticDebug;
         [SerializeField] private bool ignoreCachedDevice;

@@ -14,7 +14,7 @@ public class VLKPostImport {
 
     private static void OnRegisteredPackages(PackageRegistrationEventArgs packageRegistrationEventArgs) {
         foreach (var package in packageRegistrationEventArgs.added) {
-            if (package.name == "com.valkyrieindustries.eirsdk") EditorApplication.delayCall += ExecutePostImportProcess;
+            if (package.name == "com.valkyrieindustries.eirsdk") ExecutePostImportProcess();
         }
     }
 
@@ -53,6 +53,9 @@ public class VLKPostImport {
 
 
         SetScriptingDefineSymbol("EIR_COMM", true);
+
+        cfg.UsingHpt = true;
+        cfg.UsingCom = true;
 
         Selection.activeObject = cfg;
 
