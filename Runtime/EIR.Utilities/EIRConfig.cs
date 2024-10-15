@@ -35,9 +35,23 @@ namespace Valkyrie.EIR.Utilities {
 
         public bool UseOVRForVibrations { get { return useOVRForVibrations; } }
 
-        [SerializeField] private bool enableHapticsManager;
-        [SerializeField] private bool enableBTEirBluetoothBridge;
-        [SerializeField] private bool enableInteractionManager;
+
+#if EIR_HAPTICS
+        [SerializeField] private bool enableHapticsManager = true;
+#else
+        [SerializeField] private bool enableHapticsManager = false;
+#endif
+#if EIR_COMM
+        [SerializeField] private bool enableBTEirBluetoothBridge = true;
+#else
+        [SerializeField] private bool enableBTEirBluetoothBridge = false;
+#endif
+#if EIR_INTERACTION
+        [SerializeField] private bool enableInteractionManager = true;
+#else
+        [SerializeField] private bool enableInteractionManager = false;
+#endif
+
         [SerializeField] private bool outputHapticDebug;
         [SerializeField] private bool ignoreCachedDevice;
         [SerializeField] private int vitalsReadInterval;
