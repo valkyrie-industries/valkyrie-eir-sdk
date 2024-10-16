@@ -218,11 +218,11 @@ namespace Valkyrie.EIR.Bluetooth {
         }
 
         /// <summary>
-        /// Sends a configuration signal to the EIR bands.
+        /// Sends a configuration signal to the EIR bands, if the sendstate is active.
         /// </summary>
         /// <param name="data"></param>
         public void SendConfigSignal(sbyte[] data) {
-			if (state == ConnectionStates.NotConnected) return;
+            if (state == ConnectionStates.NotConnected || !isActive) return;
             eirBlu.CallStatic("writeCharacteristic", data, true);
         }
 
@@ -247,8 +247,8 @@ namespace Valkyrie.EIR.Bluetooth {
         /// <param name="data"></param>
         /// <param name="critical"></param>
         public void WriteBytesToDevice(sbyte[] data, bool critical = false) {
-            if(IsConnected)
-                eirBlu.CallStatic("writeCharacteristic", data, critical);
+            if (state == ConnectionStates.NotConnected || !isActive) return;
+            eirBlu.CallStatic("writeCharacteristic", data, critical);
         }
 
         /// <summary>
