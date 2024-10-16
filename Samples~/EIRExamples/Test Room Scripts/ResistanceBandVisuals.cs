@@ -61,12 +61,12 @@ namespace Valkyrie.EIR.Examples
 #endif
         }
 
-        void Update()
+        private void Update()
         {
             DrawResistanceBand();
         }
 
-        void DrawResistanceBand()
+        private void DrawResistanceBand()
         {
             line.SetPosition(0, machineAttachmentPoint.position);
             line.SetPosition(1, interactableAttachmentPoint.position);

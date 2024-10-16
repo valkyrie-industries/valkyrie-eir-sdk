@@ -75,7 +75,7 @@ namespace Valkyrie.EIR.Examples
                 currentIndex -= 1;
             }
 
-            Debug.Log("[Calibration][Menu Example] Right: " + EIRManager.Instance.Haptics.CalibrationIndex[0] + " Left: " + EIRManager.Instance.Haptics.CalibrationIndex[1]);
+            Debug.Log("[Calibration] [Menu Example] Right: " + EIRManager.Instance.Haptics.CalibrationIndex[0] + " Left: " + EIRManager.Instance.Haptics.CalibrationIndex[1]);
 
             EIRManager.Instance.Haptics.CalibrationIndex[handIndex] = currentIndex;
             haptic.ModifyCalibrationByIndex(isLeft, currentIndex);

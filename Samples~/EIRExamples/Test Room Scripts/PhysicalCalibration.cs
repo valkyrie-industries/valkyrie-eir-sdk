@@ -46,7 +46,7 @@ namespace Valkyrie.EIR.Examples {
             resistanceBands = GetComponentsInChildren<ResistanceBandVisuals>(true);
 
             if (resistanceBands == null)
-                Debug.LogError("No Reistance Band Calibration Interactables are found in the scene", this);
+                Debug.LogError("[PhysicalCalibration] No Reistance Band Calibration Interactables are found in the scene", this);
             for (int i = 0; i < resistanceBands.Length; i++)// CalibrationResistanceBandVisuals resistanceBandCalibration in resistanceBands)
             {
                 float[] minMax = EIRManager.Instance.Haptics.GetLowerUpperLimitForIndex(i, 2);

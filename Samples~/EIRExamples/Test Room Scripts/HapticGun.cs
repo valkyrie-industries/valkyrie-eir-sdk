@@ -18,16 +18,16 @@ namespace Valkyrie.EIR.Examples {
 #else
     public class HapticGun : MonoBehaviour {
 #endif
-        bool firing = false;
-        List<UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor> currentInteractors = new List<UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor>();
-        Rigidbody rig;
+        private bool firing = false;
+        private List<UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor> currentInteractors = new List<UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor>();
+        private Rigidbody rig;
 #if EIR_HAPTICS
-        HapticManager haptics;
+        private HapticManager haptics;
 #endif
 
         public bool Firing { get { return firing; } }
 
-        BoxCollider col;
+        private BoxCollider col;
 #if EIR_HAPTICS
         FeelManager feel;
         ConfigureEIR conf;
@@ -108,15 +108,15 @@ namespace Valkyrie.EIR.Examples {
 #endif
             col = GetComponent<BoxCollider>();
             if (col == null)
-                Debug.Log("[HapticGun] Box collider missing");
+                Debug.Log("[HapticGun] Box Collider missing");
 #if EIR_HAPTICS
             feel = FindObjectOfType<FeelManager>();
             if (feel == null)
-                Debug.Log("[HapticGun] Feel manager missing");
+                Debug.Log("[HapticGun] FeelManager missing");
 
             conf = FindObjectOfType<ConfigureEIR>();
             if (conf == null)
-                Debug.Log("[HapticGun] Configure eir missing");
+                Debug.Log("[HapticGun] ConfigureEir missing");
 #endif
         }
 
@@ -135,12 +135,11 @@ namespace Valkyrie.EIR.Examples {
 
         new public void SelectEntered(SelectEnterEventArgs e) {
             currentInteractors.Add(e.interactorObject);
-            Debug.Log("select entered");
         }
 
         new public void SelectExited(SelectExitEventArgs e) {
             if (currentInteractors.Count < 1) {
-                Debug.LogError("No current interactors. Should never reach this state");
+                Debug.LogError("[HapticGun] No current interactors. This should never reach this state.");
                 return;
             }
 
@@ -157,7 +156,7 @@ namespace Valkyrie.EIR.Examples {
 
         public void Deactivate(DeactivateEventArgs e) {
             if (currentInteractors.Count < 1) {
-                Debug.LogError("No current interactors. Should never reach this state");
+                Debug.LogError("[HapticGun] No current interactors. This should never reach this state");
                 return;
             }
 
@@ -171,7 +170,7 @@ namespace Valkyrie.EIR.Examples {
 
         public void Activate(ActivateEventArgs e) {
             if (currentInteractors.Count < 1) {
-                Debug.LogError("No current interactors. Should never reach this state");
+                Debug.LogError("[HapticGun] No current interactors. This should never reach this state");
                 return;
             }
 
