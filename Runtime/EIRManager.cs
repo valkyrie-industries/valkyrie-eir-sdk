@@ -259,6 +259,7 @@ namespace Valkyrie.EIR {
         private void OnConnectionStateChanged(ConnectionStates conState) {
             if (conState == ConnectionStates.Connected) {
                 eirBluetoothBridge.SendConfigSignal(hapticManager.GenerateConfigSignal());
+                eirBluetoothBridge.ReadDeviceVitals();
                 ToggleBluetoothSend(true);
             } else if (eirBluetoothBridge.PreviousState == ConnectionStates.Connected) {
                 hapticManager.SetUnconfigured();
@@ -329,6 +330,6 @@ namespace Valkyrie.EIR {
             }
         }
 #endif
-#endregion
+        #endregion
     }
 }
