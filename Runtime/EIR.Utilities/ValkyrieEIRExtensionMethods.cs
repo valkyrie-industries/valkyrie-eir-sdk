@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valkyrie.EIR.Haptics;
+using Valkyrie.EIR.Interaction;
 
 namespace Valkyrie.EIR.Utilities
 {
@@ -77,6 +79,18 @@ namespace Valkyrie.EIR.Utilities
             }
             return output;
         }
+
+        public static Dictionary<BodyPart, DeviceRole> BodyPartToDeviceRole = new Dictionary<BodyPart, DeviceRole>
+        {
+            { BodyPart.leftHand,DeviceRole.B},
+            { BodyPart.rightHand,DeviceRole.A }
+        };
+
+        public static Dictionary<DeviceRole, BodyPart> DeviceRoleToBodyPart = new Dictionary<DeviceRole, BodyPart>
+        {
+            { DeviceRole.B, BodyPart.leftHand },
+            { DeviceRole.A, BodyPart.rightHand }
+        };
 
         /// <summary>
         /// Search all of the children of this gameobject for a name that matches the input

@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6194e9f92ad46b4d83588686dba325e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  affectedParts: 01000000
+  affectedRoles: 01000000
   presetType: 2
   holdToTest: 1
 --- !u!114 &530405250
@@ -897,7 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6194e9f92ad46b4d83588686dba325e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  affectedParts: 00000000
+  affectedRoles: 00000000
   presetType: 2
   holdToTest: 1
 --- !u!4 &1635386842874150497

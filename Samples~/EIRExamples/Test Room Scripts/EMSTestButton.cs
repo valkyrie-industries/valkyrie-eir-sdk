@@ -9,7 +9,7 @@ namespace Valkyrie.EIR.Examples {
     public class EMSTestButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         [SerializeField]
-        List<BodyPart> affectedParts = new List<BodyPart>();
+        List<DeviceRole> affectedRoles = new List<DeviceRole>();
 
         [SerializeField]
         HapticPreset.PresetType presetType;
@@ -34,13 +34,13 @@ namespace Valkyrie.EIR.Examples {
 #if EIR_HAPTICS
         void TestEMS()
         {
-            EIRManager.Instance.Haptics.CreateHapticPresetRunner(affectedParts, HapticPreset.CreateDefaultPreset(presetType, 1, holdToTest ? HapticPreset.LoopType.Loop : HapticPreset.LoopType.None));
+            EIRManager.Instance.Haptics.CreateHapticPresetRunner(affectedRoles, HapticPreset.CreateDefaultPreset(presetType, 1, holdToTest ? HapticPreset.LoopType.Loop : HapticPreset.LoopType.None));
         }
 
         void EndEMSTest()
         {
             if (holdToTest)
-                EIRManager.Instance.Haptics.StopHapticPresetRunner(affectedParts);
+                EIRManager.Instance.Haptics.StopHapticPresetRunner(affectedRoles);
         }
 
 #endif

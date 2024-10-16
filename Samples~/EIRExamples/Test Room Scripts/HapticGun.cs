@@ -198,10 +198,10 @@ namespace Valkyrie.EIR.Examples {
                     HapticPreset preset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.value, shotEMSLength, HapticPreset.LoopType.None, intensity);
                     HapticPreset halfPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.value, shotEMSLength, HapticPreset.LoopType.None, intensity * 0.75f);
 
-                    haptics.CreateHapticPresetRunner(currentInteractors[0].transform.GetComponentInParent<InteractingBodyPart>().BodyPart, preset);
+                    InvokeHapticPresetRequest(currentInteractors[0].transform.GetComponentInParent<InteractingBodyPart>().BodyPart, preset);
 
                     if (currentInteractors.Count > 1) {
-                        haptics.CreateHapticPresetRunner(currentInteractors[1].transform.GetComponentInParent<InteractingBodyPart>().BodyPart, halfPreset);
+                        InvokeHapticPresetRequest(currentInteractors[1].transform.GetComponentInParent<InteractingBodyPart>().BodyPart, halfPreset);
                     }
                 } else {
                     feel.PlayFeeling(feelID);
@@ -231,10 +231,10 @@ namespace Valkyrie.EIR.Examples {
                 HapticPreset preset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.value, shotEMSLength, HapticPreset.LoopType.None, intensity);
                 HapticPreset halfPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.value, shotEMSLength, HapticPreset.LoopType.None, intensity * 0.75f);
 
-                haptics.CreateHapticPresetRunner(currentInteractors[0].transform.GetComponentInParent<InteractingBodyPart>().BodyPart, preset);
+                InvokeHapticPresetRequest(currentInteractors[0].transform.GetComponentInParent<InteractingBodyPart>().BodyPart, preset);
 
                 if (currentInteractors.Count > 1) {
-                    haptics.CreateHapticPresetRunner(currentInteractors[1].transform.GetComponentInParent<InteractingBodyPart>().BodyPart, halfPreset);
+                    InvokeHapticPresetRequest(currentInteractors[1].transform.GetComponentInParent<InteractingBodyPart>().BodyPart, halfPreset);
                 }
 #endif
                 yield return new WaitForSeconds(shotDelay);

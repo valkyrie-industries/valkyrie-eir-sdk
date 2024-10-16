@@ -26,9 +26,9 @@ namespace Valkyrie.EIR.Examples {
         private void Update() {
             if (haptics == null) haptics = EIRManager.Instance.Haptics;
             else {
-                leftCalibration.SetText($"Left Calibration Lower: {haptics.LowerLimits[(int)BodyPart.leftHand]}.Upper: {haptics.UpperLimits[(int)BodyPart.leftHand]}.");
-                rightCalibration.SetText($"Right Calibration Lower: {haptics.LowerLimits[(int)BodyPart.rightHand]}.Upper: {haptics.UpperLimits[(int)BodyPart.rightHand]}.");
-                mappedIntensities.SetText($"Active Mapped Intensities: L: {haptics.MappedIntensities[(int)BodyPart.leftHand]}. R: {haptics.MappedIntensities[(int)BodyPart.rightHand]}.");
+                leftCalibration.SetText($"Left Calibration Lower: {haptics.LowerLimits[(int)DeviceRole.B]}.Upper: {haptics.UpperLimits[(int)DeviceRole.B]}.");
+                rightCalibration.SetText($"Right Calibration Lower: {haptics.LowerLimits[(int)DeviceRole.A]}.Upper: {haptics.UpperLimits[(int)DeviceRole.A]}.");
+                mappedIntensities.SetText($"Active Mapped Intensities: L: {haptics.MappedIntensities[(int)DeviceRole.B]}. R: {haptics.MappedIntensities[(int)DeviceRole.B]}.");
             }
         }
 #endif

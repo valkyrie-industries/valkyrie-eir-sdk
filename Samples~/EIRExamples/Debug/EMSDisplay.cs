@@ -5,19 +5,23 @@ using Valkyrie.EIR.Haptics;
 
 namespace Valkyrie.EIR.Examples {
     public abstract class EMSDisplay : MonoBehaviour {
-        #if EIR_HAPTICS
+#if EIR_HAPTICS
         HapticManager haptics;
+
+        [SerializeField]
+        protected DeviceRole role;
+
 #endif
-        //Raw signal levels from 0-1 with 1 being max calibration
+        //Intensity levels from 0-1. 0 represents the user's lower limit and 1 represents the user's upper limit
         [SerializeField]
         protected float[] signalLevels = { 0, 0 };
 
-        [SerializeField]
-        protected BodyPart part;
+
 
 #if EIR_HAPTICS
 
         protected void LateUpdate() {
+
             if (haptics == null)
             {
                 haptics = EIRManager.Instance.Haptics;
@@ -26,9 +30,8 @@ namespace Valkyrie.EIR.Examples {
                     return;
             }
 
-            signalLevels[(int)BodyPart.leftHand] = haptics.IndicatorSignal[(int)BodyPart.leftHand];
-            signalLevels[(int)BodyPart.rightHand] = haptics.IndicatorSignal[(int)BodyPart.rightHand];
-            //Debug.Log(signalLevels[(int)part]);
+            signalLevels[(int)DeviceRole.A] = haptics.IndicatorSignal[(int)DeviceRole.A];
+            signalLevels[(int)DeviceRole.B] = haptics.IndicatorSignal[(int)DeviceRole.B];
         }
 
 #endif

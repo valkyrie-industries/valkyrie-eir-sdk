@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valkyrie.EIR.Haptics;
 
 namespace Valkyrie.EIR.Examples {
     public class BreakingTarget : Target
     {
-        private bool interacted;
         [SerializeField]
         private MeshRenderer meshRenderer;
         private Rigidbody[] parts;
@@ -34,7 +34,6 @@ namespace Valkyrie.EIR.Examples {
 
         public override void ReactToCollision(object parameter = null)
         {
-            interacted = true;
             Material mat = meshRenderer.material;
             Debug.Log("Explode!");
             if (GetComponent<AudioSource>() != null)
@@ -54,8 +53,8 @@ namespace Valkyrie.EIR.Examples {
             {
                 if (EIRManager.Instance.Haptics != null)
                 {
-                    EIRManager.Instance.Haptics.AddHapticIntensity((int)BodyPart.leftHand, 1, false);
-                    EIRManager.Instance.Haptics.AddHapticIntensity((int)BodyPart.rightHand, 1, false);
+                    EIRManager.Instance.Haptics.AddHapticIntensity(DeviceRole.A, 1, false);
+                    EIRManager.Instance.Haptics.AddHapticIntensity(DeviceRole.B, 1, false);
                 }
             }
 #endif

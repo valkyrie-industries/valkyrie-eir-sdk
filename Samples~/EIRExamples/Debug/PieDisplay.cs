@@ -18,7 +18,7 @@ namespace Valkyrie.EIR.Examples
 
         void UpdateIndicatorImages()
         {
-            meter.fillAmount = signalLevels[(int)part];
+            meter.fillAmount = signalLevels[(int)role];
         }
 
     }

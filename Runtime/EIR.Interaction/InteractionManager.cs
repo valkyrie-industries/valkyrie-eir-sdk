@@ -6,6 +6,10 @@ using Valkyrie.EIR.Haptics;
 
 namespace Valkyrie.EIR.Interaction
 {
+
+    [System.Serializable]
+    public enum BodyPart { rightHand, leftHand, head, leftFoot, rightFoot };
+
     /// <summary>
     /// Valkyrie Interaction Manager is an interface between all the body parts, 
     /// interactable objects and EMS force creator.

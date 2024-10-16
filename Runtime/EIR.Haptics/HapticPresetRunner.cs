@@ -14,10 +14,10 @@ namespace Valkyrie.EIR.Haptics
     [Serializable]
     public class HapticPresetRunner : MonoBehaviour {
 
-        public delegate void OnHapticPresetRequestEventHandler(int bodyPart, float intensity);
+        public delegate void OnHapticPresetRequestEventHandler(DeviceRole role, float intensity);
         public static event OnHapticPresetRequestEventHandler OnHapticPresetRequest;
 
-        public List<BodyPart> m_affectedBodyParts { get; private set; } = new List<BodyPart>();     // which body parts will this preset affect during execution.
+        public List<DeviceRole> affectedRoles { get; private set; } = new List<DeviceRole>();     // which device roles will this preset affect during execution.
 
         public HapticPreset m_preset;                                                               // the preset this runner is running.
 
@@ -31,12 +31,12 @@ namespace Valkyrie.EIR.Haptics
         /// <summary>
         /// Initialise and start the haptic preset.
         /// </summary>
-        /// <param name="affectedEMSParts"></param>
+        /// <param name="affectedRoles"></param>
         /// <param name="properties"></param>
         /// <param name="intensityMultiplier"></param>
         /// <param name="beginActive"></param>
-        public void SetupRunner(List<BodyPart> affectedEMSParts, HapticPreset properties, float intensityMultiplier = 1, bool beginActive = true, bool keepAliveBetweenScenes = false) {
-            m_affectedBodyParts = affectedEMSParts;
+        public void SetupRunner(List<DeviceRole> affectedRoles, HapticPreset properties, float intensityMultiplier = 1, bool beginActive = true, bool keepAliveBetweenScenes = false) {
+            this.affectedRoles = affectedRoles;
             m_preset = properties;
             m_intensityMultiplier = intensityMultiplier;
 
@@ -53,7 +53,7 @@ namespace Valkyrie.EIR.Haptics
         /// <param name="state"></param>
         public void SetPauseState(bool state) {
             if (state)
-                SendZeroesToAffectedParts();
+                SendZeroesToAffectedRoles();
             paused = state;
         }
 
@@ -107,15 +107,15 @@ namespace Valkyrie.EIR.Haptics
         /// <summary>
         /// Sends all zeroes to affected parts. This prevents the intensity from carrying over.
         /// </summary>
-        private void SendZeroesToAffectedParts() {
-            for (int i = 0; i < m_affectedBodyParts.Count; i++) {
-                OnHapticPresetRequest?.Invoke((int)m_affectedBodyParts[i], 0);
+        private void SendZeroesToAffectedRoles() {
+            for (int i = 0; i < affectedRoles.Count; i++) {
+                OnHapticPresetRequest?.Invoke(affectedRoles[i], 0);
             }
         }
 
         private IEnumerator StopHapticPreset() {
             yield return new WaitForEndOfFrame();
-            SendZeroesToAffectedParts();
+            SendZeroesToAffectedRoles();
             Destroy(this);
         }
 
@@ -208,9 +208,9 @@ namespace Valkyrie.EIR.Haptics
                 }
 
                 //Send out a signal to each part that we affect
-                for (int i = 0; i < m_affectedBodyParts.Count; i++) {
+                for (int i = 0; i < affectedRoles.Count; i++) {
                     //Debug.Log("sending intensity of " + intensity * m_intensityMultiplier);
-                    OnHapticPresetRequest?.Invoke((int)m_affectedBodyParts[i], intensity * m_intensityMultiplier);
+                    OnHapticPresetRequest?.Invoke(affectedRoles[i], intensity * m_intensityMultiplier);
                 }
             }
 

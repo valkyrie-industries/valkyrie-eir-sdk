@@ -239,7 +239,17 @@ namespace Valkyrie.EIR {
         /// <param name="bodyPart"></param>
         /// <param name="preset"></param>
         private void OnHapticPresetRequested(BodyPart bodyPart, HapticPreset preset) {
-            hapticManager.CreateHapticPresetRunner(bodyPart, preset);
+
+            DeviceRole prospectiveRole;
+
+            if (ValkyrieEIRExtensionMethods.BodyPartToDeviceRole.TryGetValue(bodyPart,out prospectiveRole))
+            {
+                hapticManager.CreateHapticPresetRunner(prospectiveRole, preset);
+            }
+            else
+            {
+                Debug.LogError("[EIRManager] BodyPart has no valid default conversion to DeviceRole, HapticPresetRunner not started");
+            }
         }
 
         /// <summary>
@@ -248,7 +258,17 @@ namespace Valkyrie.EIR {
         /// <param name="bodyPart"></param>
         /// <param name="preset"></param>
         private void OnHapticPresetTypeRequested(BodyPart bodyPart, HapticPreset.PresetType preset) {
-            hapticManager.CreateHapticPresetRunner(bodyPart, HapticPreset.CreateDefaultPreset(preset));
+
+            DeviceRole prospectiveRole;
+
+            if (ValkyrieEIRExtensionMethods.BodyPartToDeviceRole.TryGetValue(bodyPart, out prospectiveRole))
+            {
+                hapticManager.CreateHapticPresetRunner(prospectiveRole, HapticPreset.CreateDefaultPreset(preset));
+            }
+            else
+            {
+                Debug.LogError("[EIRManager] BodyPart has no valid default conversion to DeviceRole, no default preset created");
+            }
         }
 #endif
 
@@ -277,7 +297,19 @@ namespace Valkyrie.EIR {
         /// <param name="bypassCalibration"></param>
         private void OnHapticRequest(BodyPart bodyPart, float force, bool bypassCalibration) {
             Debug.Log($"[EIR Manager] OnHapticRequest from Interaction system {(int)bodyPart} {force}");
-            hapticManager.AddHapticIntensity((int)bodyPart, force, bypassCalibration);
+
+            DeviceRole prospectiveRole;
+
+            if (ValkyrieEIRExtensionMethods.BodyPartToDeviceRole.TryGetValue(bodyPart, out prospectiveRole))
+            {
+                hapticManager.AddHapticIntensity(prospectiveRole, force, bypassCalibration);
+            }
+            else
+            {
+                Debug.LogError("[EIRManager] BodyPart has no valid default conversion to DeviceRole, no haptic intensity added");
+            }
+
+
         }
 #endif
 

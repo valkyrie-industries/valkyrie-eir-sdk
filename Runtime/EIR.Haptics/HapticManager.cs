@@ -8,6 +8,15 @@ using Valkyrie.EIR.Utilities;
 namespace Valkyrie.EIR.Haptics
 {
     /// <summary>
+    /// eir Bands will each belong to a DeviceRole. DeviceRoles are sent intensity which is then sent to each device within that role
+    /// </summary>
+    public enum DeviceRole
+    {
+        A,
+        B
+    }
+
+    /// <summary>
     /// Haptics Manager deals with calibration and EMS signals.
     /// It receives intensities and converts them into EMS-based messages (based on calibration values) and sends them to the Communication Manager.
     /// </summary>
@@ -18,7 +27,7 @@ namespace Valkyrie.EIR.Haptics
 
         #region Events
 
-        public delegate void CalibrationUpdatedEventHandler(int left, int right);
+        public delegate void CalibrationUpdatedEventHandler(int a, int b);
         public static event CalibrationUpdatedEventHandler CalibrationUpdated;
 
         #endregion
@@ -235,53 +244,53 @@ namespace Valkyrie.EIR.Haptics
         #region Create & Send EMS Message
 
         //Adds haptic intensity to a bodypart, based on the calibration
-        public void AddHapticIntensity(int bodyPart, float intensity, bool bypassCalibration = false) {
+        public void AddHapticIntensity(DeviceRole role, float intensity, bool bypassCalibration = false) {
 
-            if (EIRConfig.Instance.OutputHapticDebug) Debug.Log($"[Haptics] AddHapticIntensity for BodyPart {bodyPart} with intensity {intensity}");
+            if (EIRConfig.Instance.OutputHapticDebug) Debug.Log($"[Haptics] AddHapticIntensity for Role {role} with intensity {intensity}");
             // Currently: if the bodypart is not hands, don't do anything
-            if (bodyPart != 0 && bodyPart != 1) return;
+            if (role != DeviceRole.A && role != DeviceRole.B) return;
 
-            intensities[bodyPart] += intensity;
+            intensities[(int)role] += intensity;
 
-            mappedIntensities[bodyPart] = bypassCalibration ? (int)intensities[bodyPart] : (int)ClampMappedForce(bodyPart, intensities[bodyPart]);
-            IndicatorSignal[bodyPart] = bypassCalibration ? intensities[bodyPart] / 255.0f : intensities[bodyPart];
+            mappedIntensities[(int)role] = bypassCalibration ? (int)intensities[(int)role] : (int)ClampMappedForce((int)role, intensities[(int)role]);
+            IndicatorSignal[(int)role] = bypassCalibration ? intensities[(int)role] / 255.0f : intensities[(int)role];
         }
         #endregion
 
         #region Presets
 
         //Creates a new HapticPresetRunner instance and attaches it to the runnerObject
-        public HapticPresetRunner CreateHapticPresetRunner(BodyPart affectedBodyPart, HapticPreset props, float intensityMultiplier = 1, bool beginActive = true, bool keepAliveBetweenScenes = false) {
+        public HapticPresetRunner CreateHapticPresetRunner(DeviceRole affectedRole, HapticPreset props, float intensityMultiplier = 1, bool beginActive = true, bool keepAliveBetweenScenes = false) {
             HapticPresetRunner runner = runnerObject.AddComponent<HapticPresetRunner>();    
             runners.Add(runner);
 
 
-            List<BodyPart> affectedBodyParts = new List<BodyPart> {
-                affectedBodyPart
+            List<DeviceRole> affectedRoles = new List<DeviceRole> {
+                affectedRole
             };
 
-            runner.SetupRunner(affectedBodyParts, props, intensityMultiplier, beginActive, keepAliveBetweenScenes);
+            runner.SetupRunner(affectedRoles, props, intensityMultiplier, beginActive, keepAliveBetweenScenes);
 
             return runner;
         }
 
 
         //Overload that instead uses a list of body parts so that a HapticPresetRunner can apply to multiple limbs
-        public HapticPresetRunner CreateHapticPresetRunner(List<BodyPart> affectedBodyParts, HapticPreset props, float intensityMultiplier = 1, bool beginActive = true, bool keepAliveBetweenScenes = false) {
+        public HapticPresetRunner CreateHapticPresetRunner(List<DeviceRole> affectedRole, HapticPreset props, float intensityMultiplier = 1, bool beginActive = true, bool keepAliveBetweenScenes = false) {
             HapticPresetRunner runner = runnerObject.AddComponent<HapticPresetRunner>();
             runners.Add(runner);
-            runner.SetupRunner(affectedBodyParts, props, intensityMultiplier, beginActive, keepAliveBetweenScenes);
+            runner.SetupRunner(affectedRole, props, intensityMultiplier, beginActive, keepAliveBetweenScenes);
 
             return runner;
         }
 
         //Get all HapticPresetRunners that affect a certain limb
-        public List<HapticPresetRunner> GetHapticPresetRunnerByLimb(BodyPart affectedBodyPart) {
+        public List<HapticPresetRunner> GetHapticPresetRunnerByLimb(DeviceRole affectedRole) {
 
             List<HapticPresetRunner> correctRunners = new List<HapticPresetRunner>();
 
             for (int i = 0; i < runners.Count; i++) {
-                if (runners[i].m_affectedBodyParts.Contains(affectedBodyPart) || (int)affectedBodyPart == -1) {
+                if (runners[i].affectedRoles.Contains(affectedRole) || (int)affectedRole == -1) {
                     correctRunners.Add(runners[i]);
                 }
             }
@@ -290,11 +299,11 @@ namespace Valkyrie.EIR.Haptics
         }
 
         //Stops the HapticPresetRunners running on a single body part, or all of them with no argument
-        public void StopHapticPresetRunner(BodyPart affectedBodyPart = (BodyPart)(-1)) {
+        public void StopHapticPresetRunner(DeviceRole affectedRole = (DeviceRole)(-1)) {
 
             for (int i = runners.Count - 1; i >= 0; i--) 
             {
-                if (runners[i].m_affectedBodyParts.Contains(affectedBodyPart) || (int)affectedBodyPart == -1) {
+                if (runners[i].affectedRoles.Contains(affectedRole) || (int)affectedRole == -1) {
                     runners[i].Stop();
                     runners.Remove(runners[i]);
                 }
@@ -302,12 +311,12 @@ namespace Valkyrie.EIR.Haptics
         }
 
         //Stop the HapticPresetRunners running on a list of body parts
-        public void StopHapticPresetRunner(List<BodyPart> affectedBodyParts) {
+        public void StopHapticPresetRunner(List<DeviceRole> affectedRoles) {
 
             for (int i = runners.Count - 1; i >= 0; i--)
             {
-                for (int j = 0; j < affectedBodyParts.Count; j++) {
-                    if (runners[i].m_affectedBodyParts.Contains(affectedBodyParts[j])) {
+                for (int j = 0; j < affectedRoles.Count; j++) {
+                    if (runners[i].affectedRoles.Contains(affectedRoles[j])) {
                         runners[i].Stop();
                         runners.Remove(runners[i]);
                     }
@@ -319,8 +328,8 @@ namespace Valkyrie.EIR.Haptics
 
         #region Event Handlers
 
-        private void OnHapticPresetRequest(int bodyPart, float intensity) {
-            AddHapticIntensity(bodyPart, intensity);
+        private void OnHapticPresetRequest(DeviceRole role, float intensity) {
+            AddHapticIntensity(role, intensity);
         }
 
         #endregion
