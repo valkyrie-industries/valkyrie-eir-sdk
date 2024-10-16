@@ -65,7 +65,6 @@ namespace Valkyrie.EIR.Haptics
         {
             newTime = Mathf.Clamp(newTime, 0, 1);
             SetTimeStarted(timer.timeStarted - newTime.MapToRange(0, 1, 0, m_preset.totalSegmentTime));
-            Debug.Log("Skipped backwards this far: " + newTime.MapToRange(0, 1, 0, m_preset.totalSegmentTime));
         }
 
         /// <summary>
@@ -76,7 +75,7 @@ namespace Valkyrie.EIR.Haptics
         {
             if(newTime < Time.time - m_preset.totalSegmentTime)
             {
-                Debug.LogError("[HapticPresetRunner] Cannot set start time that far back as it will cause the preset to instantly complete");
+                Debug.LogError("[Haptic Preset Runner] Cannot set start time that far back as it will cause the preset to instantly complete");
             }
 
             timer.SetStartTime(newTime);

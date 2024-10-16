@@ -34,13 +34,11 @@ namespace Valkyrie.EIR.Interaction.Interactables
         public override void Start() {
             col = GetComponent<Collider>();
 
-            if (col == null)
-                Debug.LogError("No collider found on this gameobject", gameObject);
+            if (col == null) Debug.LogError("[Grab Impact Interactable] No collider found on this gameobject", gameObject);
 
             rig = GetComponent<Rigidbody>();
 
-            if (rig == null)
-                Debug.LogError("No Rigidbody found on this gameobject", gameObject);
+            if (rig == null) Debug.LogError("[Grab Impact Interactable] No Rigidbody found on this gameobject", gameObject);
             base.Start();
         }
 
@@ -84,7 +82,6 @@ namespace Valkyrie.EIR.Interaction.Interactables
             float totalCollisionMagnitude = currentlyInteractingBodyPart.velocity.magnitude;
 
             for (int i = 0; i < colliders.Length; i++) {
-                Debug.Log(colliders[i].gameObject.name);
 
                 Rigidbody otherRig = colliders[i].gameObject.GetComponent<Rigidbody>();
 
@@ -95,9 +92,6 @@ namespace Valkyrie.EIR.Interaction.Interactables
             }
 
             float avgCollisionMagnitude = totalCollisionMagnitude / colliders.Length;
-
-            Debug.Log("Total: " + totalCollisionMagnitude + " Avg: " + avgCollisionMagnitude);
-
 
             avgCollisionMagnitude = Mathf.Clamp(avgCollisionMagnitude, 0, maximumAccountedMagnitude);
 

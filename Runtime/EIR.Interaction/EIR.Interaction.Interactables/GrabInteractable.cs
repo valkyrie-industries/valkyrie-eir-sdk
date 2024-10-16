@@ -24,7 +24,7 @@ namespace Valkyrie.EIR.Interaction.Interactables
                     if (xRGrabInteractable == null) {
                         xRGrabInteractable = GetComponent<XRGrabInteractable>();
                         if (xRGrabInteractable == null) {
-                            Debug.LogError("[Grab Interactable] XRGrabInteractable component not found on the GameObject or its children.");
+                            Debug.LogError("[Grab Interactable] XRGrabInteractable component not found on this GameObject or its children.");
                         }
                     }
                     return xRGrabInteractable;
@@ -92,7 +92,6 @@ namespace Valkyrie.EIR.Interaction.Interactables
 
         private IEnumerator DropRoutine(bool doNotWait = false) {
             if (currentlyInteractingBodyPart != null) {
-                Debug.Log("Force Dropping");
                 // Turn off xrgrabinteractable
                 BodyPart lastInteractingBodyPart = currentlyInteractingBodyPart.BodyPart;
                 xRGrabInteractable.enabled = false;

@@ -156,9 +156,9 @@ namespace Valkyrie.EIR.Haptics
 
         //Configure the hardware
         public sbyte[] GenerateConfigSignal(int gain, byte frequency, byte pulseWidth) {
-            Debug.Log("[Haptic Manager] Sending Config Signal");
+            Debug.Log("[Haptic Manager] Generating Config Signal");
             try {
-                Debug.Log($"[Haptic Manager] Device configured with gain: {gain} frequency: {frequency} pulse width: {pulseWidth}");
+                Debug.Log($"[Haptic Manager] Config Signal generated with gain: {gain} frequency: {frequency} pulse width: {pulseWidth}");
                 HapticSignal h = CreateConfigSignal(gain, frequency, pulseWidth);
                 configured = true;
                 return getBytes(h);
@@ -172,11 +172,11 @@ namespace Valkyrie.EIR.Haptics
 
         //Configure the hardware
         public sbyte[] GenerateConfigSignal() {
-            Debug.Log("[Haptic Manager] Sending Config Signal");
+            Debug.Log("[Haptic Manager] Generating Config Signal");
             try {
 
                 ConfigSignalClass c = ConfigSignal;
-                Debug.Log($"[Haptic Manager] Device configured with gain: {c.Gain} frequency: {c.Frequency} pulse width: {c.PulseWidth}");
+                Debug.Log($"[Haptic Manager] Config Signal generated with gain: {c.Gain} frequency: {c.Frequency} pulse width: {c.PulseWidth}");
                 HapticSignal h = CreateConfigSignal(c.Gain, c.Frequency, c.PulseWidth);
                 configured = true;
                 return getBytes(h);
@@ -237,7 +237,7 @@ namespace Valkyrie.EIR.Haptics
         //Adds haptic intensity to a bodypart, based on the calibration
         public void AddHapticIntensity(int bodyPart, float intensity, bool bypassCalibration = false) {
 
-            if (EIRConfig.Instance.OutputHapticDebug) Debug.Log($"[Haptics] AddHapticIntensity for BodyPart {bodyPart} with intensity {intensity}");
+            if (EIRConfig.Instance.OutputHapticDebug) Debug.Log($"[Haptic Manager] Adding Haptic Intensity for BodyPart {bodyPart} with intensity {intensity}");
             // Currently: if the bodypart is not hands, don't do anything
             if (bodyPart != 0 && bodyPart != 1) return;
 

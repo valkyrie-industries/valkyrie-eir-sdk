@@ -32,10 +32,10 @@ namespace Valkyrie.EIR.Haptics {
             }
         }
 
-        void Start() {
+        private void Start() {
             configureEIR = FindObjectOfType<ConfigureEIR>();
             if (configureEIR == null)
-                Debug.LogError("Can't find ConfigureEIR");
+                Debug.LogError("[FeelManager] FeelManager failed to initialise. Unable to find ConfigureEIR component.");
         }
 
         public void StopPlayingFeeling() {
@@ -52,7 +52,7 @@ namespace Valkyrie.EIR.Haptics {
             FeelStruct feel = FeelLibrary.RequestFeel(feelID);
 
             if (string.IsNullOrEmpty(feel.name)) {
-                Debug.LogError("[FeelButton] Could not find feel with ID " + feelID);
+                Debug.LogError("[FeelManager] Could not find feel with ID " + feelID);
                 return;
             }
 

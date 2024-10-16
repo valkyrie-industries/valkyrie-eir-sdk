@@ -29,7 +29,7 @@ namespace Valkyrie.EIR.Interaction
         private float[] forces;
 
         public InteractionManager() {
-            UnityEngine.Debug.Log("[Interaction] Interaction Manager Intiialised");
+            UnityEngine.Debug.Log("[Interaction Manager] Interaction Manager Initialised");
             interactingBodyParts = new InteractingBodyPart[usedBodyParts];
             forces = new float[usedBodyParts - 1];
             Interactable.OnForce += ApplyForce;
