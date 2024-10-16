@@ -132,7 +132,6 @@ namespace Valkyrie.EIR {
 #endif
 #if EIR_COMM && EIR_HAPTICS
             EirBluetoothBridge.OnConnectionStateChanged += OnConnectionStateChanged;
-            BatteryIndicator.OnIndicatorEnabled += OnBatteryIndicatorEnabled;
             DeviceManager.OnRequestDevices += OnRequestDevices;
             DeviceManager.OnConnectionRequest += OnConnectionRequest;
             if (gameObject.GetComponent<MainThreadDispatcher>() == null) gameObject.AddComponent<MainThreadDispatcher>();
@@ -305,17 +304,6 @@ namespace Valkyrie.EIR {
             }
             dm.InstantiateButtons(devices);
         }
-
-        /// <summary>
-        /// Invoked on the Battery Indicator, receives the Eir Bluetooth bridge.
-        /// </summary>
-        /// <param name="indicator"></param>
-#if EIR_COMM
-        private void OnBatteryIndicatorEnabled(IEirBluetooth handler) {
-            if (eirBluetoothBridge != null) eirBluetoothBridge.RegisterHandler(handler);
-            else throw new MissingReferenceException("[EIR Manager] Bluetooth Indicator trying to register itself, but no Eir Bluetooth Bridge is present");
-        }
-#endif
 
         /// <summary>
         /// Invoked on DeviceManager when a device is selected.

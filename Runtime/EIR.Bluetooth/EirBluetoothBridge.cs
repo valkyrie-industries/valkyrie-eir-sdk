@@ -82,6 +82,7 @@ namespace Valkyrie.EIR.Bluetooth {
                 isActive = value;
                 if (isActive != oldValue) {
                     foreach (IEirBluetooth handler in handlers) {
+                        if (handler == null) continue;
                         if (isActive) handler.OnBluetoothEnable();
                         else handler.OnBluetoothDisable();
                     }
@@ -276,6 +277,7 @@ namespace Valkyrie.EIR.Bluetooth {
             OnDataWritten?.Invoke(obj);
 
             foreach (IEirBluetooth handler in handlers) {
+                if (handler == null) continue;
                 handler.OnWrite();
             }
         }
@@ -295,6 +297,7 @@ namespace Valkyrie.EIR.Bluetooth {
             deviceVitals.Update(deviceLConnected, deviceRConnected, lBattery, rBattery, pulseWidth, pulseFrequency);
 
             foreach (IEirBluetooth handler in handlers) {
+                if (handler == null) continue;
                 handler.OnUpdateVitals(deviceVitals);
             }
 
