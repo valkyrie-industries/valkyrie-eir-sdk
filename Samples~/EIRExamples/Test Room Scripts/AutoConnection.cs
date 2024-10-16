@@ -27,15 +27,15 @@ namespace Valkyrie.EIR.Examples {
 
         // Optional button to move to the after-connection stage
         [SerializeField]
-        Button afterConnectionStageButton;
+        private Button afterConnectionStageButton;
 
         // If we want to change the text of the UI (connected, connecting, disconnected)
         [SerializeField]
-        bool doTextChanges = false;
+        private bool doTextChanges = false;
 
         // If true, we take the first valid device instead of triggering the selection event
         [SerializeField]
-        bool takeFirstConnection = false;
+        private bool takeFirstConnection = false;
 
         //The event that fires if we find multiple valid EIR devices while scanning and takeFirstConnection is NOT true
         public UnityEvent OnSelectionState;
@@ -81,11 +81,11 @@ namespace Valkyrie.EIR.Examples {
         }
 
         public void ConnectToDevice() {
-            Debug.Log("Attempting connection via autoconnection");
+            Debug.Log("[AutoConnection] Attempting connection via autoconnection");
 #if EIR_COMM
 
             if (EIRManager.Instance.Communication.IsConnected) {
-                Debug.Log("Device is already connected");
+                Debug.Log("[AutoConnection] Device is already connected");
                 return;
             }
 
@@ -97,9 +97,9 @@ namespace Valkyrie.EIR.Examples {
         public void Connect(bool connect) {
 #if EIR_COMM
             if (connect) {
-                Debug.Log("Attempting connection via autoconnection");
+                Debug.Log("[AutoConnection] Attempting connection via autoconnection");
                 if (EIRManager.Instance.Communication.IsConnected) {
-                    Debug.Log("Device is already connected");
+                    Debug.Log("[AutoConnection] Device is already connected");
                     return;
                 }
 
@@ -109,10 +109,10 @@ namespace Valkyrie.EIR.Examples {
             else {
                 EIRManager.Instance.Communication.IsActive = false;
                 if (!EIRManager.Instance.Communication.IsConnected) {
-                    Debug.Log("Device is already disconnected");
+                    Debug.Log("[AutoConnection] Device is already disconnected");
                     return;
                 }
-                Debug.Log("Disconnecting device");
+                Debug.Log("[AutoConnection] Disconnecting device");
                 EIRManager.Instance.Communication.Disconnect();
             }
 #endif
@@ -152,7 +152,7 @@ namespace Valkyrie.EIR.Examples {
             }
 
             EIRManager.Instance.Communication.ScanAndConnect(); // autoconnection needs to be refactored, this is actaully an awaitable function
-            Debug.Log("AutoConnection is scanning");
+            Debug.Log("[AutoConnection] AutoConnection is scanning");
 
             while (EIRManager.Instance.Communication.CurrentState == ConnectionStates.Scanning) {
                 yield return null;
@@ -243,7 +243,7 @@ namespace Valkyrie.EIR.Examples {
             ChangeIndicator(EIRManager.Instance.Communication.CurrentState);
         }
 
-        void ChangeText(string text) {
+        private void ChangeText(string text) {
             if (doTextChanges) {
                 if (GetComponentInChildren<Text>())
                     GetComponentInChildren<Text>().text = text;
@@ -252,7 +252,7 @@ namespace Valkyrie.EIR.Examples {
             }
         }
 
-        void ChangeIndicator(ConnectionStates state) {
+        private void ChangeIndicator(ConnectionStates state) {
             if (connectionIndicator != null) {
                 if (connectionIndicator.GetComponent<Image>() != null) {
                     switch (state) {
@@ -275,7 +275,7 @@ namespace Valkyrie.EIR.Examples {
             }
         }
 
-        void MoveToNextUIStage() {
+        private void MoveToNextUIStage() {
             if (ConnectionUI != null)
                 ConnectionUI.SetActive(false);
             if (afterConnectionStageUI != null)

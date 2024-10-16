@@ -20,7 +20,7 @@ namespace Valkyrie.EIR.Examples {
         {
             base.Start();
             if (meshRenderer == null)
-                Debug.LogWarning("No meshrenderer found on this object", this);
+                Debug.LogWarning("[Breaking Target] No meshrenderer found on this object", this);
 
             parts = GetComponentsInChildren<Rigidbody>(true);
             initPosArray = new Vector3[parts.Length];
@@ -36,7 +36,7 @@ namespace Valkyrie.EIR.Examples {
         {
             interacted = true;
             Material mat = meshRenderer.material;
-            Debug.Log("Explode!");
+            Debug.Log("[Breaking Target] Reacting to collision, exploding!");
             if (GetComponent<AudioSource>() != null)
                 GetComponent<AudioSource>().Play();
             meshRenderer.enabled = false;

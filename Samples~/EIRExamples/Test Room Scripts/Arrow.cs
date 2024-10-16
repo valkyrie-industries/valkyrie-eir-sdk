@@ -6,64 +6,54 @@ using Valkyrie.EIR;
 using Valkyrie.EIR.Interaction;
 #endif
 
-namespace Valkyrie.EIR.Examples
-{
-    public class Arrow : MonoBehaviour
-    {
+namespace Valkyrie.EIR.Examples {
+    public class Arrow : MonoBehaviour {
         public Transform arrowBody;
 
-        Collider col;
-        Rigidbody rb;
+        private Collider col;
+        private Rigidbody rb;
 
-        bool inFlight = false;
+        private bool inFlight = false;
 
-        float returnAfter = 5;
-        float flyStartTime;
-        
-        float waitBeforeCollide = 10f;
+        private float returnAfter = 5;
+        private float flyStartTime;
 
-        void Start()
-        {
+        private float waitBeforeCollide = 10f;
+
+        private void Start() {
             rb = GetComponent<Rigidbody>();
         }
 
-        public void BeginFlight()
-        {
+        public void BeginFlight() {
             inFlight = true;
             flyStartTime = Time.time;
             col = GetComponent<Collider>();
             col.enabled = false;
         }
 
-        private void LateUpdate()
-        {
-            if (inFlight && rb != null && arrowBody != null)
-            {
+        private void LateUpdate() {
+            if (inFlight && rb != null && arrowBody != null) {
                 arrowBody.LookAt(transform.position + rb.velocity);
             }
 
-            if (Time.time + waitBeforeCollide < Time.time && inFlight)
-            {
-                if(col != null)
+            if (Time.time + waitBeforeCollide < Time.time && inFlight) {
+                if (col != null)
                     col.enabled = true;
             }
 
-            if (Time.time - flyStartTime > returnAfter && !rb.isKinematic && inFlight)
-            {
+            if (Time.time - flyStartTime > returnAfter && !rb.isKinematic && inFlight) {
                 EndFlight();
             }
         }
 
-        private void OnCollisionEnter(Collision collision)
-        {
-            Debug.Log("I HIT SOMETHING");
+        private void OnCollisionEnter(Collision collision) {
+            Debug.Log($"[Arrow] Hit Detected. Collider: {collision.gameObject.name}");
 
-            if(flyStartTime + waitBeforeCollide < Time.time)
+            if (flyStartTime + waitBeforeCollide < Time.time)
                 EndFlight();
         }
 
-        private void EndFlight()
-        {
+        private void EndFlight() {
             inFlight = false;
 #if EIR_INTERACTION
             if (GetComponent<ReturnAfterGrabbing>() != null)
@@ -75,8 +65,7 @@ namespace Valkyrie.EIR.Examples
             Invoke("ResetRotation", 0.3f);
         }
 
-        private void ResetRotation()
-        {
+        private void ResetRotation() {
             arrowBody.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
             transform.localRotation = Quaternion.Euler(new Vector3(90, 0, 0));
         }

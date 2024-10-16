@@ -8,11 +8,14 @@ using Valkyrie.EIR.Haptics;
 
 namespace Valkyrie.EIR.Examples {
     public class CalibrationButton : MonoBehaviour {
+
         public bool isLeft;
+
         private int handIndex;
         [SerializeField]
         private GameObject label;
-        void Start() {
+
+        private void Start() {
             handIndex = isLeft ? 1 : 0;
 #if EIR_HAPTICS
             if (label != null)
@@ -35,7 +38,7 @@ namespace Valkyrie.EIR.Examples {
             EIRManager.Instance.Haptics.CalibrationIndex[handIndex] = currentIndex;
 
             if (EIRManager.Instance.Haptics == null) {
-                Debug.LogError("No HapticManager instance found");
+                Debug.LogError("[Calibration Button] No HapticManager instance found.");
                 return;
             }
 

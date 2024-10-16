@@ -17,28 +17,28 @@ namespace Valkyrie.EIR.Examples
 #if EIR_INTERACTION
 
         [SerializeField]
-        Transform bow, topPoint, bottomPoint, midPoint, midStringPoint;
+        private Transform bow, topPoint, bottomPoint, midPoint, midStringPoint;
         [SerializeField]
-        LineRenderer topLine, bottomLine;
+        private LineRenderer topLine, bottomLine;
 
-        Transform arrowToGrab, arrowToFly;
-        Arrow[] arrows;
+        private Transform arrowToGrab, arrowToFly;
+        private Arrow[] arrows;
 
-        bool grabbing;
-        bool arrowOnBow;
+        private bool grabbing;
+        private bool arrowOnBow;
 
-        GrabInteractable arrowGrabInteractable, bowGrabInteractable;
-        InteractionManager interactionManager;
+        private GrabInteractable arrowGrabInteractable, bowGrabInteractable;
+        private InteractionManager interactionManager;
 
         public float forceMultiplier = 20;
         public float speedMultiplier = 20;
 
-        Vector3 initialMidPoint, initialArrowPosition;
-        Quaternion initialArrowRotation;
+        private Vector3 initialMidPoint, initialArrowPosition;
+        private Quaternion initialArrowRotation;
 
-        Vector3 direction;
-        // Start is called before the first frame update
-        void Start()
+        private Vector3 direction;
+
+        private void Start()
         {
             bowGrabInteractable = GetComponent<GrabInteractable>();
 
@@ -47,8 +47,7 @@ namespace Valkyrie.EIR.Examples
             FindAllArrows();
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
             UpdateBowVisuals();
             //UpdateBowPhysics();
@@ -60,7 +59,7 @@ namespace Valkyrie.EIR.Examples
             UpdateBowVisuals();
         }
 
-        void UpdateBowVisuals()
+        private void UpdateBowVisuals()
         {
             // Update String visuas
             if (arrowOnBow)
@@ -116,7 +115,7 @@ namespace Valkyrie.EIR.Examples
             }
         }
 
-        void UpdateEIRsignal()
+        private void UpdateEIRsignal()
         {
             if (arrowGrabInteractable == null)
                 return;
@@ -129,13 +128,13 @@ namespace Valkyrie.EIR.Examples
             }
         }
 
-        void FireArrow()
+        private void FireArrow()
         {
-            Debug.Log("AM FIRING ARROW");
+            Debug.Log("[Bow] Arrow loosed...");
             StartCoroutine(DelayedFire());
         }
 
-        IEnumerator DelayedFire()
+        private IEnumerator DelayedFire()
         {
             arrowGrabInteractable.SendZeroForce();
             arrowGrabInteractable = null;
@@ -154,10 +153,10 @@ namespace Valkyrie.EIR.Examples
             arrowRB.gameObject.GetComponent<Arrow>().BeginFlight();
         }
 
-        void FindAllArrows()
+        private void FindAllArrows()
         {
             arrows = FindObjectsOfType<Arrow>();
-            Debug.Log(arrows);
+            Debug.Log($"[Bow] Found {arrows} arrows");
         }
 #endif
     }
