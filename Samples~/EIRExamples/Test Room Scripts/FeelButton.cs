@@ -1,11 +1,7 @@
-using System.Collections.Generic;
-using System.Collections;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using Valkyrie.EIR;
 
-namespace Valkyrie.EIR.Haptics
+namespace Valkyrie.EIR.Examples
 {
     /// <summary>
     /// Button that communicates with FeelManager to play feelings

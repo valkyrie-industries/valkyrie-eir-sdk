@@ -58,7 +58,7 @@ namespace Valkyrie.EIR.Examples {
         }
 
         private void OnTriggerEnter(Collider other) {
-#if !EIR_INTERACTION
+#if EIR_INTERACTION
             Debug.Log($"[Target] OnTriggerEnter with: {other}");
             if (handsOnly) {
                 if (other.GetComponent<InteractingBodyPart>() != null) {

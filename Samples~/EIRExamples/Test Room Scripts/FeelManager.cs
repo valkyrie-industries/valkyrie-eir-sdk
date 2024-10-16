@@ -2,8 +2,9 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using Valkyrie.EIR.Haptics;
 
-namespace Valkyrie.EIR.Haptics {
+namespace Valkyrie.EIR.Examples {
     /// <summary>
     /// Runs set feels from FeelLibrary as well as configuring EIR to whatever that feel requires
     /// </summary>

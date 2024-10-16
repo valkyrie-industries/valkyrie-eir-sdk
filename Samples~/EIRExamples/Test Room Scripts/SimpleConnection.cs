@@ -14,7 +14,7 @@ namespace Valkyrie.EIR.Examples {
     /// Intended to be placed on a button with a text child.
     /// Checks the status of connection
     /// </summary>
-    public class AutoConnection : MonoBehaviour {
+    public class SimpleConnection : MonoBehaviour {
         [Header("Optional UI")]
         [SerializeField]
         private GameObject ConnectionUI;
@@ -59,7 +59,7 @@ namespace Valkyrie.EIR.Examples {
         private IEnumerator ConnectNextFrame() {
             yield return new WaitForEndOfFrame();
             if (!EIRManager.Instance.Initialised) {
-                throw new System.Exception("[AutoConnection] EIR Manager is not initialised. Eir Config should be auto-initialising for this example script, check this is toggled.");
+                throw new System.Exception("[SimpleConnection] EIR Manager is not initialised. Eir Config should be auto-initialising for this example script, check this is toggled.");
             } else {
                 if (EIRManager.Instance.Communication != null) {
                     CheckConnectionState(EIRManager.Instance.Communication.CurrentState);
@@ -81,11 +81,11 @@ namespace Valkyrie.EIR.Examples {
         }
 
         public void ConnectToDevice() {
-            Debug.Log("[AutoConnection] Attempting connection via autoconnection");
+            Debug.Log("[SimpleConnection] Attempting connection...");
 #if EIR_COMM
 
             if (EIRManager.Instance.Communication.IsConnected) {
-                Debug.Log("[AutoConnection] Device is already connected");
+                Debug.Log("[SimpleConnection] Device is already connected");
                 return;
             }
 
@@ -97,9 +97,9 @@ namespace Valkyrie.EIR.Examples {
         public void Connect(bool connect) {
 #if EIR_COMM
             if (connect) {
-                Debug.Log("[AutoConnection] Attempting connection via autoconnection");
+                Debug.Log("[SimpleConnection] Attempting connection via autoconnection");
                 if (EIRManager.Instance.Communication.IsConnected) {
-                    Debug.Log("[AutoConnection] Device is already connected");
+                    Debug.Log("[SimpleConnection] Device is already connected");
                     return;
                 }
 
@@ -109,10 +109,10 @@ namespace Valkyrie.EIR.Examples {
             else {
                 EIRManager.Instance.Communication.IsActive = false;
                 if (!EIRManager.Instance.Communication.IsConnected) {
-                    Debug.Log("[AutoConnection] Device is already disconnected");
+                    Debug.Log("[SimpleConnection] Device is already disconnected");
                     return;
                 }
-                Debug.Log("[AutoConnection] Disconnecting device");
+                Debug.Log("[SimpleConnection] Disconnecting device");
                 EIRManager.Instance.Communication.Disconnect();
             }
 #endif
@@ -152,7 +152,7 @@ namespace Valkyrie.EIR.Examples {
             }
 
             EIRManager.Instance.Communication.ScanAndConnect(); // autoconnection needs to be refactored, this is actaully an awaitable function
-            Debug.Log("[AutoConnection] AutoConnection is scanning");
+            Debug.Log("[SimpleConnection] AutoConnection is scanning");
 
             while (EIRManager.Instance.Communication.CurrentState == ConnectionStates.Scanning) {
                 yield return null;
@@ -228,12 +228,10 @@ namespace Valkyrie.EIR.Examples {
                     }
                 case ConnectionStates.Connecting:
                 case ConnectionStates.Scanning: {
-                        //// Make it non-interactable
+                        // Make it non-interactable
                         if (this.GetComponent<Button>() != null)
                             GetComponent<Button>().interactable = false;
 
-                        //if (LoadingIcon != null)
-                        //    LoadingIcon.SetActive(true);
 
                         ChangeText("Connecting...");
                         break;
