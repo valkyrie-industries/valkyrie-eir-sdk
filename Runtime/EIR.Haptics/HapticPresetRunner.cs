@@ -54,6 +54,11 @@ namespace Valkyrie.EIR.Haptics {
             if (state)
                 SendZeroesToAffectedParts();
             paused = state;
+
+            if (paused)
+            {
+                Debug.LogWarning("[HapticPresetRunner] Pausing a preset currently causes it to skip the segment it is playing. This will be fixed in the next release");
+            }
         }
 
         /// <summary>
@@ -146,10 +151,11 @@ namespace Valkyrie.EIR.Haptics {
             float intensity = 0;
 
             //Begin main while loop
-            while (!timer.IsTimeOver()) {
+            while (!timer.IsTimeOver() || !timer.IsTiming) {
 
                 //Wait for the frame and loop if we're paused.
                 timer.SetPauseState(paused);
+                timer.SetIsTiming(!paused);
 
                 //Waiting for the end of the frame ensures we're not constantly while looping
                 yield return new WaitForEndOfFrame();
