@@ -114,6 +114,12 @@ namespace Valkyrie.EIR.Bluetooth {
         /// Initialise the BLE communication system.
         /// </summary>
         public void Initialise(Action<bool> callback) {
+
+#if UNITY_EDITOR
+            Debug.LogWarning("[EIR Bluetooth] Bluetooth functionality currently does not work in editor");
+            return;
+#endif
+
             if (initialised) return;
             initialisationCallback = callback;
 

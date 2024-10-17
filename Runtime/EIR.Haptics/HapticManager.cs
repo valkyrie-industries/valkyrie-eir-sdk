@@ -238,8 +238,14 @@ namespace Valkyrie.EIR.Haptics
         public void AddHapticIntensity(int bodyPart, float intensity, bool bypassCalibration = false) {
 
             if (EIRConfig.Instance.OutputHapticDebug) Debug.Log($"[Haptic Manager] Adding Haptic Intensity for BodyPart {bodyPart} with intensity {intensity}");
-            // Currently: if the bodypart is not hands, don't do anything
-            if (bodyPart != 0 && bodyPart != 1) return;
+
+            if (bodyPart != 0 && bodyPart != 1) 
+            {
+                Debug.LogError("[HapticManager] Cannot send intensity to parts other than hands");
+                return;
+            }
+
+            Debug.Log("Intensity: " + intensities[bodyPart]);
 
             intensities[bodyPart] += intensity;
 
