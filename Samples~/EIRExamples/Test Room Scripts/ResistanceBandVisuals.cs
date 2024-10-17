@@ -1,21 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
+using Valkyrie.EIR.Utilities;
 #if EIR_INTERACTION
 using Valkyrie.EIR.Interaction.Interactables;
 #endif
-using Valkyrie.EIR.Utilities;
 
-namespace Valkyrie.EIR.Examples
-{
+namespace Valkyrie.EIR.Examples {
+
     /// <summary>
     /// Resistance band visuals. 
     /// Controls the colour and visuals of the band during interaction
     /// </summary>
-    public class ResistanceBandVisuals : MonoBehaviour
-    {
-        public int calibrationRange = 0; // 10 max
+    public class ResistanceBandVisuals : MonoBehaviour {
+
+        #region Serialized Variables
 
 #if EIR_INTERACTION
         [SerializeField]
@@ -33,8 +31,15 @@ namespace Valkyrie.EIR.Examples
         [SerializeField]
         private TMP_Text levelLabel;
 
-        public void InitialiseVisuals(int calibrationLevel)
-        {
+        #endregion
+
+        #region Public Methods
+
+        /// <summary>
+        /// Modifies the size and colour of the band from the calibration value.
+        /// </summary>
+        /// <param name="calibrationLevel"></param>
+        public void InitialiseVisuals(int calibrationLevel) {
 #if EIR_INTERACTION
             // Change colour depending on the calibrationRange:
             Color bandColor = ValkyrieEIRExtensionMethods.ColorBasedOnCalibrationLevel(calibrationLevel);
@@ -46,11 +51,9 @@ namespace Valkyrie.EIR.Examples
             // Change size depending on the calibrationRange:
             interactable.transform.localScale = ValkyrieEIRExtensionMethods.SizeBasedOnCalibrationLevel(calibrationLevel, 0.8f, 1.2f);
 
-            if (calibrationLevel < 3)
-            {
+            if (calibrationLevel < 3) {
                 particles.gameObject.SetActive(false);
-            } else
-            {
+            } else {
                 particles.gameObject.SetActive(true);
                 ParticleSystem.MainModule main = particles.main;
                 main.maxParticles = (int)ValkyrieEIRExtensionMethods.MapToExpRange(calibrationLevel);
@@ -61,15 +64,19 @@ namespace Valkyrie.EIR.Examples
 #endif
         }
 
-        private void Update()
-        {
+        #endregion
+
+        #region Private Methods
+
+        private void Update() {
             DrawResistanceBand();
         }
 
-        private void DrawResistanceBand()
-        {
+        private void DrawResistanceBand() {
             line.SetPosition(0, machineAttachmentPoint.position);
             line.SetPosition(1, interactableAttachmentPoint.position);
         }
+
+        #endregion
     }
 }

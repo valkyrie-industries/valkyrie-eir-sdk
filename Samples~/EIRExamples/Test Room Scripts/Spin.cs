@@ -1,14 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Spin : MonoBehaviour
-{
-    public float speed = 10;
+/// <summary>
+/// Rotates a gameobject over time.
+/// </summary>
+public class Spin : MonoBehaviour {
 
-    // Update is called once per frame
-    void Update()
-    {
+    #region Serialized Variables
+
+    [SerializeField]
+    private float speed = 10;
+
+    #endregion
+
+    #region Unity Methods
+
+    private void Update() {
         transform.Rotate(0, speed * Time.deltaTime, 0);
     }
+
+    #endregion
 }

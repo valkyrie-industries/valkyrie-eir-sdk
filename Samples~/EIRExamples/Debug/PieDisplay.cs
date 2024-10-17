@@ -1,28 +1,29 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Valkyrie.EIR.Examples
-{
-    public class PieDisplay : EMSDisplay
-    {
+namespace Valkyrie.EIR.Examples {
+
+    /// <summary>
+    /// Overrides EMSDisplay example and visualises as a pie.
+    /// </summary>
+    public class PieDisplay : EMSDisplay {
+
+        #region Serialized Variables
+
         [SerializeField]
-        public Image meter;
+        private Image meter;
 
-        private void Update()
-        {
-            UpdateIndicatorImages();
-        }
+        #endregion
 
-        private void UpdateIndicatorImages()
-        {
+        #region Unity Methods
+
+        private void Update() {
             meter.fillAmount = signalLevels[(int)part];
         }
 
+        #endregion
     }
 }
-    
+
 
 

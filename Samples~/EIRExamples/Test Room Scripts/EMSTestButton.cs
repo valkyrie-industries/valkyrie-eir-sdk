@@ -1,13 +1,17 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using Valkyrie.EIR.Haptics;
 using UnityEngine.EventSystems;
 
 namespace Valkyrie.EIR.Examples {
-    public class EMSTestButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
-    {
+
+    /// <summary>
+    /// Example implementation of quick EMS output from pointer input.
+    /// </summary>
+    public class EMSTestButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
+
+        #region Serialized Variables
+
         [SerializeField]
         List<BodyPart> affectedParts = new List<BodyPart>();
 
@@ -17,33 +21,38 @@ namespace Valkyrie.EIR.Examples {
         [SerializeField]
         private bool holdToTest;
 
-        public void OnPointerDown(PointerEventData eventData)
-        {
+        #endregion
+
+        #region Interface Implementations
+
+        public void OnPointerDown(PointerEventData eventData) {
 #if EIR_HAPTICS
-            TestEMS();
+            BeginEMSOutput();
 #endif
         }
 
-        public void OnPointerUp(PointerEventData eventData)
-        {
+        public void OnPointerUp(PointerEventData eventData) {
 #if EIR_HAPTICS
-            EndEMSTest();
+            EndEMSOutput();
 #endif
         }
 
+        #endregion
+
+        #region Private Methods
+
 #if EIR_HAPTICS
-        void TestEMS()
-        {
+        private void BeginEMSOutput() {
             EIRManager.Instance.Haptics.CreateHapticPresetRunner(affectedParts, HapticPreset.CreateDefaultPreset(presetType, 1, holdToTest ? HapticPreset.LoopType.Loop : HapticPreset.LoopType.None));
         }
 
-        void EndEMSTest()
-        {
+        private void EndEMSOutput() {
             if (holdToTest)
                 EIRManager.Instance.Haptics.StopHapticPresetRunner(affectedParts);
         }
-
 #endif
+        #endregion
+
     }
 }
 

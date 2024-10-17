@@ -5,28 +5,45 @@ using UnityEngine;
 using Valkyrie.EIR.Haptics;
 
 namespace Valkyrie.EIR.Examples {
+
     /// <summary>
-    /// Runs set feels from FeelLibrary as well as configuring EIR to whatever that feel requires
+    /// Runs set feels from FeelLibrary as well as configuring EIR to whatever that feel requires.
     /// </summary>
     public class FeelManager : MonoBehaviour {
 #if EIR_HAPTICS
-        public static FeelManager instance;
 
-        public static bool playingFeeling { get; private set; }
+        #region Static Accessors
+
+        public static FeelManager Instance;
+
+        #endregion
+
+        #region Public Properties
+
+        public bool IsPlayingFeeling { get; private set; }
+
+        #endregion
+
+        #region Events
+
+        public delegate void FeelingStatusEvent(bool status);
+        public FeelingStatusEvent OnFeelingStatusChange;
+
+        #endregion
+
+        #region Private Variables
 
         private HapticPresetRunner leftPreset;
         private HapticPresetRunner rightPreset;
 
         private ConfigureEIR configureEIR;
 
-        public delegate void FeelingStatusEvent(bool status);
-        public FeelingStatusEvent onFeelingStatusChange;
+        #endregion
 
-
+        #region Unity Methods
 
         private void Awake() {
-            if (instance == null)
-                instance = this;
+            if (Instance == null) Instance = this;
             else {
                 Destroy(this);
                 return;
@@ -35,25 +52,25 @@ namespace Valkyrie.EIR.Examples {
 
         private void Start() {
             configureEIR = FindObjectOfType<ConfigureEIR>();
-            if (configureEIR == null)
-                Debug.LogError("[FeelManager] FeelManager failed to initialise. Unable to find ConfigureEIR component.");
+            if (configureEIR == null) Debug.LogError("[FeelManager] FeelManager failed to initialise. Unable to find ConfigureEIR component.");
         }
 
-        public void StopPlayingFeeling() {
-            playingFeeling = false;
-            EIRManager.Instance.Haptics.StopHapticPresetRunner();
-            configureEIR.ConfigureToDefault();
-            onFeelingStatusChange?.Invoke(false);
-        }
+        #endregion
 
+        #region Public Methods
+
+        /// <summary>
+        /// Plays the 'feeling' which corresponds to the input ID.
+        /// </summary>
+        /// <param name="feelID"></param>
         public void PlayFeeling(string feelID) {
-            if (playingFeeling)
+            if (IsPlayingFeeling)
                 return;
 
             FeelStruct feel = FeelLibrary.RequestFeel(feelID);
 
             if (string.IsNullOrEmpty(feel.name)) {
-                Debug.LogError("[FeelManager] Could not find feel with ID " + feelID);
+                Debug.LogError($"[FeelManager] Could not find feel with ID {feelID}.");
                 return;
             }
 
@@ -62,24 +79,41 @@ namespace Valkyrie.EIR.Examples {
             leftPreset = EIRManager.Instance.Haptics.CreateHapticPresetRunner(BodyPart.leftHand, feel.leftPreset);
             rightPreset = EIRManager.Instance.Haptics.CreateHapticPresetRunner(BodyPart.rightHand, feel.rightPreset);
 
-            playingFeeling = true;
-            onFeelingStatusChange?.Invoke(true);
+            IsPlayingFeeling = true;
+            OnFeelingStatusChange?.Invoke(true);
 
             StartCoroutine(WaitForPresetRunners());
         }
 
+        /// <summary>
+        /// Stops the active 'feeling'.
+        /// </summary>
+        public void StopPlayingFeeling() {
+            IsPlayingFeeling = false;
+            EIRManager.Instance.Haptics.StopHapticPresetRunner();
+            configureEIR.ConfigureToDefault();
+            OnFeelingStatusChange?.Invoke(false);
+        }
+
+        #endregion
+
+        #region Private Methods
 
         private IEnumerator WaitForPresetRunners() {
-            while (playingFeeling && leftPreset != null && rightPreset != null) {
+            while (IsPlayingFeeling && leftPreset != null && rightPreset != null) {
                 yield return new WaitForEndOfFrame();
             }
 
             configureEIR.ConfigureToDefault();
 
-            onFeelingStatusChange?.Invoke(false);
-            playingFeeling = false;
+            OnFeelingStatusChange?.Invoke(false);
+            IsPlayingFeeling = false;
         }
+
+        #endregion
     }
+
+    #region Data Classes
 
     public struct FeelStruct {
         public string name;
@@ -91,9 +125,15 @@ namespace Valkyrie.EIR.Examples {
     }
 
     /// <summary>
-    /// Retrieves feels from a list
+    /// Retrieves feels from a list.
     /// </summary>
     public static class FeelLibrary {
+
+        /// <summary>
+        /// Retrieve the feel corresponding to the input id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static FeelStruct RequestFeel(string id) {
             return feelList.FirstOrDefault(s => s.name == id);
         }
@@ -242,8 +282,10 @@ namespace Valkyrie.EIR.Examples {
         private static HapticSegment[] CreateArrayOfSegments(HapticSegment s1, HapticSegment s2, HapticSegment s3, HapticSegment s4, HapticSegment s5, HapticSegment s6, HapticSegment s7) {
             return new HapticSegment[] { s1, s2, s3, s4, s5, s6, s7 };
         }
+        #endregion
 
 #endif
     }
+
 }
 

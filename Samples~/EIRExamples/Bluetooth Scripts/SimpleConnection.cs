@@ -9,12 +9,16 @@ using Valkyrie.EIR.Bluetooth;
 #endif
 
 namespace Valkyrie.EIR.Examples {
+
     /// <summary>
     /// Connects to the Valkyrie EIR in the background. 
     /// Intended to be placed on a button with a text child.
     /// Checks the status of connection
     /// </summary>
     public class SimpleConnection : MonoBehaviour {
+
+        #region Serialized Variables
+
         [Header("Optional UI")]
         [SerializeField]
         private GameObject ConnectionUI;
@@ -25,35 +29,112 @@ namespace Valkyrie.EIR.Examples {
         [SerializeField]
         private GameObject connectionIndicator;
 
-        // Optional button to move to the after-connection stage
+        // optional button to move to the after-connection stage
         [SerializeField]
         private Button afterConnectionStageButton;
 
-        // If we want to change the text of the UI (connected, connecting, disconnected)
+        // if we want to change the text of the UI (connected, connecting, disconnected)
         [SerializeField]
         private bool doTextChanges = false;
 
-        // If true, we take the first valid device instead of triggering the selection event
+        // if true, we take the first valid device instead of triggering the selection event
         [SerializeField]
         private bool takeFirstConnection = false;
 
-        //The event that fires if we find multiple valid EIR devices while scanning and takeFirstConnection is NOT true
-        public UnityEvent OnSelectionState;
-
-        private bool selectionStateEventFired = false;
-
-        private bool connectionEstablished;
-
-        private static bool attemptingConnection = false;
-
         [SerializeField]
         private bool connectAutomatically;
+
+        #endregion
+
+        #region Private Variables
+
+        private bool selectionStateEventFired = false;
+        private bool connectionEstablished;
+        private static bool attemptingConnection = false;
+
+        #endregion
+
+        #region Unity Events
+
+        public UnityEvent OnSelectionState; // invokes if we find multiple valid EIR devices while scanning and takeFirstConnection is NOT true. For example usage of an eir selection state, check EirDeviceSelection.cs
+
+        #endregion
+
+        #region Unity Methods
 
         private void Start() {
 #if EIR_COMM
             StartCoroutine(ConnectNextFrame());
 #endif
         }
+
+        private void Update() {
+            if (!EIRManager.Instance.Initialised) return;
+            //if (connectionEstablished)
+            //TODO: Make it do it once in a while (every second)
+#if EIR_COMM
+            if (EIRManager.Instance.Communication == null) return;
+            CheckConnectionState(EIRManager.Instance.Communication.CurrentState);
+#endif
+        }
+
+        #endregion
+
+        #region Public Methods
+
+        /// <summary>
+        /// Invokes Scan and Connect on the EIR Bluetooth module.
+        /// </summary>
+        public void ScanAndConnect() {
+            Debug.Log("[SimpleConnection] Attempting connection...");
+#if EIR_COMM
+
+            if (EIRManager.Instance.Communication.IsConnected) {
+                Debug.Log("[SimpleConnection] Device is already connected");
+                return;
+            }
+
+            if (!connectionEstablished && !attemptingConnection)
+                ConnectionAsync();
+#endif
+        }
+
+        /// <summary>
+        /// Invokes Scan and Connect on the EIR Bluetooth module if true (and not already connected), disconnects (if connected) if false.
+        /// </summary>
+        public void Connect(bool connect) {
+#if EIR_COMM
+            if (connect) {
+                Debug.Log("[SimpleConnection] Attempting connection via autoconnection");
+                if (EIRManager.Instance.Communication.IsConnected) {
+                    Debug.Log("[SimpleConnection] Device is already connected");
+                    return;
+                }
+
+                if (!attemptingConnection)
+                    ConnectionAsync();
+            } else {
+                EIRManager.Instance.Communication.IsActive = false;
+                if (!EIRManager.Instance.Communication.IsConnected) {
+                    Debug.Log("[SimpleConnection] Device is already disconnected");
+                    return;
+                }
+                Debug.Log("[SimpleConnection] Disconnecting device");
+                EIRManager.Instance.Communication.Disconnect();
+            }
+#endif
+        }
+
+        /// <summary>
+        /// Connects if not connected, disconnects if connected.
+        /// </summary>
+        public void Connect() {
+            Connect(!connectionEstablished);
+        }
+
+        #endregion
+
+        #region Private Methods
 
 #if EIR_COMM
         private IEnumerator ConnectNextFrame() {
@@ -68,59 +149,6 @@ namespace Valkyrie.EIR.Examples {
             }
         }
 #endif
-
-
-        private void Update() {
-            if (!EIRManager.Instance.Initialised) return;
-            //if (connectionEstablished)
-            //TODO: Make it do it once in a while (every second)
-#if EIR_COMM
-            if (EIRManager.Instance.Communication == null) return;
-            CheckConnectionState(EIRManager.Instance.Communication.CurrentState);
-#endif
-        }
-
-        public void ConnectToDevice() {
-            Debug.Log("[SimpleConnection] Attempting connection...");
-#if EIR_COMM
-
-            if (EIRManager.Instance.Communication.IsConnected) {
-                Debug.Log("[SimpleConnection] Device is already connected");
-                return;
-            }
-
-            if (!connectionEstablished && !attemptingConnection)
-                ConnectionAsync();
-#endif
-        }
-
-        public void Connect(bool connect) {
-#if EIR_COMM
-            if (connect) {
-                Debug.Log("[SimpleConnection] Attempting connection via autoconnection");
-                if (EIRManager.Instance.Communication.IsConnected) {
-                    Debug.Log("[SimpleConnection] Device is already connected");
-                    return;
-                }
-
-                if (!attemptingConnection)
-                    ConnectionAsync();
-            }
-            else {
-                EIRManager.Instance.Communication.IsActive = false;
-                if (!EIRManager.Instance.Communication.IsConnected) {
-                    Debug.Log("[SimpleConnection] Device is already disconnected");
-                    return;
-                }
-                Debug.Log("[SimpleConnection] Disconnecting device");
-                EIRManager.Instance.Communication.Disconnect();
-            }
-#endif
-        }
-
-        public void Connect() {
-            Connect(!connectionEstablished);
-        }
 
         private async void ConnectionAsync() {
 #if EIR_COMM
@@ -141,34 +169,6 @@ namespace Valkyrie.EIR.Examples {
         }
 #if EIR_COMM
 
-        private IEnumerator ConnectionCoroutine() {
-            attemptingConnection = true;
-            LoadingIcon.SetActive(true);
-            gameObject.GetComponent<Image>().enabled = false;
-            GetComponentInChildren<TMP_Text>().text = "Connecting...";
-
-            if (doTextChanges) {
-                GetComponentInChildren<TextMeshProUGUI>().text = "Connecting...";
-            }
-
-            EIRManager.Instance.Communication.ScanAndConnect(); // autoconnection needs to be refactored, this is actaully an awaitable function
-            Debug.Log("[SimpleConnection] AutoConnection is scanning");
-
-            while (EIRManager.Instance.Communication.CurrentState == ConnectionStates.Scanning) {
-                yield return null;
-            }
-
-            if (EIRManager.Instance.Communication.CurrentState == ConnectionStates.NotFound || EIRManager.Instance.Communication.CurrentState == ConnectionStates.NotConnected) {
-                attemptingConnection = false;
-                yield break;
-            }
-
-            connectionEstablished = true;
-            attemptingConnection = false;
-
-
-        }
-
         private void CheckConnectionState(ConnectionStates state) {
             if (EIRManager.Instance == null || EIRManager.Instance.Communication == null)
                 return;
@@ -181,8 +181,7 @@ namespace Valkyrie.EIR.Examples {
                 case ConnectionStates.Selection: {
                         if (takeFirstConnection) {
                             _ = EIRManager.Instance.Communication.Connect(EIRManager.Instance.Communication.DeviceList.devices[0].address);
-                        }
-                        else if (!selectionStateEventFired) {
+                        } else if (!selectionStateEventFired) {
                             OnSelectionState.Invoke();
                             selectionStateEventFired = true;
                         }
@@ -280,5 +279,8 @@ namespace Valkyrie.EIR.Examples {
                 afterConnectionStageUI.SetActive(true);
         }
 #endif
+
+        #endregion
+
     }
 }

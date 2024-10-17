@@ -1,22 +1,27 @@
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.XR.Interaction.Toolkit;
-
-#if EIR_HAPTICS
-using Valkyrie.EIR.Haptics;
-#endif
 
 namespace Valkyrie.EIR.Examples {
+
+    /// <summary>
+    /// Process teleportation around the Valkyrie EIR Example Room.
+    /// Also enables/disables the Haptic preset buttons when teleporting, or additionally when firing the Haptic Gun.
+    /// </summary>
     public class TeleportManager : MonoBehaviour {
+
+        #region Serialized Variables
+
+        [SerializeField]
+        private Button[] buttons;
+
+        #endregion
 
         #region Private Variables
 
         private UnityEngine.XR.Interaction.Toolkit.Locomotion.Teleportation.TeleportationAnchor[] anchors;
         private HapticGun[] guns;
 
-        [SerializeField]
-        private Button[] buttons;
         private bool[] buttonStates;
         private bool previousFiringState = false;
 
@@ -64,25 +69,30 @@ namespace Valkyrie.EIR.Examples {
             previousFiringState = firing;
         }
 
+        #endregion
+
+        #region Public Methods
+
+        /// <summary>
+        /// Activates the haptic buttons. These should be disabled during teleportation and re-enabled when the teleportation process has ended.
+        /// </summary>
+        /// <param name="active"></param>
         public async void ActivateHapticButtons(bool active) {
             await Task.Delay(100);
 #if EIR_HAPTICS
 
-            if (FindObjectOfType<FeelManager>() && lastState == true)
-            {
+            if (FindObjectOfType<FeelManager>() && lastState == true) {
                 FindObjectOfType<FeelManager>().StopPlayingFeeling();
             }
 
             await Task.Delay(10);
 
-            for (int i = 0; i < buttons.Length; i++)
-            {
-                Debug.Log("Setting active " + active);
+            for (int i = 0; i < buttons.Length; i++) {
+                Debug.Log($"[Teleport Manager] Setting Haptic Buttons {(active ? "active" : "inactive")}.");
                 buttons[i].interactable = active;
             }
 
-            if (FindObjectOfType<ConfigureEIR>() && lastState == true)
-            {
+            if (FindObjectOfType<ConfigureEIR>() && lastState == true) {
                 FindObjectOfType<ConfigureEIR>().ConfigureToDefault();
             }
 #endif

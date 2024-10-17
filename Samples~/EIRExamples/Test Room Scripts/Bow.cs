@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Valkyrie.EIR;
 #if EIR_INTERACTION
 using Valkyrie.EIR.Interaction;
 using Valkyrie.EIR.Interaction.Interactables;
@@ -9,17 +7,27 @@ using Valkyrie.EIR.Interaction.Interactables;
 using Valkyrie.EIR.Utilities;
 
 
-namespace Valkyrie.EIR.Examples
-{
-    public class Bow : MonoBehaviour
-    {
+namespace Valkyrie.EIR.Examples {
+
+    /// <summary>
+    /// Example bow that applies EMS force when drawn.
+    /// </summary>
+    public class Bow : MonoBehaviour {
 
 #if EIR_INTERACTION
+
+        #region Serialized Variables
 
         [SerializeField]
         private Transform bow, topPoint, bottomPoint, midPoint, midStringPoint;
         [SerializeField]
         private LineRenderer topLine, bottomLine;
+        [SerializeField]
+        private float speedMultiplier = 20;
+
+        #endregion
+
+        #region Private Variables
 
         private Transform arrowToGrab, arrowToFly;
         private Arrow[] arrows;
@@ -30,16 +38,17 @@ namespace Valkyrie.EIR.Examples
         private GrabInteractable arrowGrabInteractable, bowGrabInteractable;
         private InteractionManager interactionManager;
 
-        public float forceMultiplier = 20;
-        public float speedMultiplier = 20;
 
         private Vector3 initialMidPoint, initialArrowPosition;
         private Quaternion initialArrowRotation;
 
         private Vector3 direction;
 
-        private void Start()
-        {
+        #endregion
+
+        #region Unity Methods
+
+        private void Start() {
             bowGrabInteractable = GetComponent<GrabInteractable>();
 
             initialMidPoint = midStringPoint.localPosition;
@@ -47,31 +56,28 @@ namespace Valkyrie.EIR.Examples
             FindAllArrows();
         }
 
-        private void Update()
-        {
+        private void Update() {
             UpdateBowVisuals();
-            //UpdateBowPhysics();
             UpdateEIRsignal();
         }
 
-        private void FixedUpdate()
-        {
+        private void FixedUpdate() {
             UpdateBowVisuals();
         }
 
-        private void UpdateBowVisuals()
-        {
+        #endregion
+
+        #region Private Methods
+
+        private void UpdateBowVisuals() {
             // Update String visuas
-            if (arrowOnBow)
-            {
+            if (arrowOnBow) {
                 Vector3[] topPositions = { topPoint.position, arrowToGrab.position };
                 topLine.SetPositions(topPositions);
 
                 Vector3[] bottomPositions = { bottomPoint.position, arrowToGrab.position };
                 bottomLine.SetPositions(bottomPositions);
-            }
-            else
-            {
+            } else {
                 Vector3[] topPositions = { topPoint.position, midStringPoint.position };
                 topLine.SetPositions(topPositions);
 
@@ -80,17 +86,13 @@ namespace Valkyrie.EIR.Examples
             }
 
             // Check if the arrow is close and is grabbed
-            if (!arrowOnBow)
-            {
-                foreach (Arrow a in arrows)
-                {
+            if (!arrowOnBow) {
+                foreach (Arrow a in arrows) {
                     GrabInteractable aGrabInteractable = a.GetComponent<GrabInteractable>();
-                    if (aGrabInteractable.IsGrabbing)
-                    {
-                        if (Vector3.Distance(a.transform.position, midStringPoint.position) < 0.1f)
-                        {
+                    if (aGrabInteractable.IsGrabbing) {
+                        if (Vector3.Distance(a.transform.position, midStringPoint.position) < 0.1f) {
                             arrowToGrab = a.transform;
-                            arrowToFly = a.arrowBody;
+                            arrowToFly = a.ArrowBody;
                             arrowOnBow = true;
                             arrowGrabInteractable = aGrabInteractable;
                         }
@@ -100,27 +102,23 @@ namespace Valkyrie.EIR.Examples
             }
 
             // Check if arrow is released
-            if (arrowOnBow && !arrowGrabInteractable.IsGrabbing)
-            {
+            if (arrowOnBow && !arrowGrabInteractable.IsGrabbing) {
                 arrowOnBow = false;
                 FireArrow();
             }
 
             // Update Arrow pointing
 
-            if (arrowOnBow)
-            {
+            if (arrowOnBow) {
                 Quaternion pointingDirection = Quaternion.LookRotation(midPoint.position - arrowToGrab.position);
                 arrowToFly.rotation = pointingDirection;
             }
         }
 
-        private void UpdateEIRsignal()
-        {
+        private void UpdateEIRsignal() {
             if (arrowGrabInteractable == null)
                 return;
-            if (arrowGrabInteractable.IsGrabbing && arrowOnBow)
-            {
+            if (arrowGrabInteractable.IsGrabbing && arrowOnBow) {
                 direction = (transform.TransformPoint(initialMidPoint) - arrowToGrab.position);
                 float force = ValkyrieEIRExtensionMethods.Map(direction.magnitude, 0, 0.5f);
                 arrowGrabInteractable.ApplyForceToGrabbingArm(force);
@@ -128,14 +126,12 @@ namespace Valkyrie.EIR.Examples
             }
         }
 
-        private void FireArrow()
-        {
+        private void FireArrow() {
             Debug.Log("[Bow] Arrow loosed...");
             StartCoroutine(DelayedFire());
         }
 
-        private IEnumerator DelayedFire()
-        {
+        private IEnumerator DelayedFire() {
             arrowGrabInteractable.SendZeroForce();
             arrowGrabInteractable = null;
 
@@ -153,11 +149,13 @@ namespace Valkyrie.EIR.Examples
             arrowRB.gameObject.GetComponent<Arrow>().BeginFlight();
         }
 
-        private void FindAllArrows()
-        {
+        private void FindAllArrows() {
             arrows = FindObjectsOfType<Arrow>();
             Debug.Log($"[Bow] Found {arrows} arrows");
         }
+
+        #endregion
+
 #endif
     }
 }

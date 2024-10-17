@@ -14,81 +14,82 @@ using System.Threading.Tasks;
 namespace Valkyrie.EIR.Examples {
 
 #if EIR_INTERACTION
+
+    /// <summary>
+    /// Example gun that applies EMS force when fired.
+    /// </summary>
     public class HapticGun : KinematicGrabInteractable {
 #else
     public class HapticGun : MonoBehaviour {
 #endif
-        private bool firing = false;
-        private List<UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor> currentInteractors = new List<UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor>();
-        private Rigidbody rig;
-#if EIR_HAPTICS
-        private HapticManager haptics;
-#endif
 
-        public bool Firing { get { return firing; } }
-
-        private BoxCollider col;
-#if EIR_HAPTICS
-        FeelManager feel;
-        ConfigureEIR conf;
-#endif
-
-        private AudioSource audioSource;
-        private ParticleSystem particles;
+        #region Serialized Variables
 
         [Space]
         [Header("Haptic Gun")]
         [Space]
-
-
         [Header("Scene Assignments")]
-
         [SerializeField]
         private Transform barrelTip;
         [SerializeField]
         private Rigidbody bulletPrefab;
-
         [SerializeField]
         private string feelID = "";
-
         [Header("Shooting")]
-
         [SerializeField]
         private bool rapidFire = false;
-
         [SerializeField]
         private float bulletSpreadMax = 0;
-
         [SerializeField]
         private int shotsPerFire = 1;
-
         [SerializeField]
         private float shotDelay = 0.1f;
-
         [SerializeField]
         private float shotVelocity = 100;
-
         [Range(0, 3)]
         [SerializeField]
         float minPitch = 1;
-
         [Range(0, 3)]
         [SerializeField]
         float maxPitch = 1;
-
         [Header("EMS Output")]
-
         [SerializeField]
         private float intensity = 1.0f;
-
         [SerializeField]
         private float shotEMSLength = 0.1f;
-
         [SerializeField]
         private Vector3 configuration = new Vector3(0, 100, 100);
-
         [SerializeField]
         private bool bulletsDisappearOnContact = true;
+
+        #endregion
+
+        #region Private Variables
+
+        private bool firing = false;
+        private List<UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor> currentInteractors = new List<UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor>();
+        private Rigidbody rig;
+        private AudioSource audioSource;
+        private ParticleSystem particles;
+        private BoxCollider col;
+
+#if EIR_HAPTICS
+        private ConfigureEIR conf;
+#endif
+
+        #endregion
+
+        #region Public Properties
+
+        /// <summary>
+        /// Returns true if the gun is actively firing.
+        /// </summary>
+        public bool Firing { get { return firing; } }
+
+        #endregion
+
+        #region Unity Methods
+
 
 #if EIR_INTERACTION
         protected override void Start() {
@@ -97,46 +98,33 @@ namespace Valkyrie.EIR.Examples {
         public void Start() {
 #endif
             rig = GetComponent<Rigidbody>();
-            if (rig == null)
-                Debug.Log("[HapticGun] No Rigidbody found");
+            if (rig == null) Debug.LogWarning("[HapticGun] No Rigidbody found");
 
             rig.maxAngularVelocity = 20;
-#if EIR_HAPTICS
-            haptics = EIRManager.Instance.Haptics;
-            if (haptics == null)
-                Debug.Log("[HapticGun] No HapticManager found");
-#endif
             col = GetComponent<BoxCollider>();
-            if (col == null)
-                Debug.Log("[HapticGun] Box Collider missing");
+            if (col == null) Debug.LogWarning("[HapticGun] Box Collider missing");
 #if EIR_HAPTICS
-            feel = FindObjectOfType<FeelManager>();
-            if (feel == null)
-                Debug.Log("[HapticGun] FeelManager missing");
-
             conf = FindObjectOfType<ConfigureEIR>();
-            if (conf == null)
-                Debug.Log("[HapticGun] ConfigureEir missing");
+            if (conf == null) Debug.LogWarning("[HapticGun] ConfigureEir missing");
 #endif
         }
 
-#if EIR_INTERACTION
-        protected override void Interacting() {
-            base.Interacting();
-            if (grabbing) {
-                col.enabled = false;
-            } else {
-                col.enabled = true;
-            }
-#else
-        public void Interacting() {
-        #endif
-        }
+        #endregion
 
+        #region Public Methods
+
+        /// <summary>
+        /// Add the newly selected interactor to the list of current interactors.
+        /// </summary>
+        /// <param name="e"></param>
         new public void SelectEntered(SelectEnterEventArgs e) {
             currentInteractors.Add(e.interactorObject);
         }
 
+        /// <summary>
+        /// Remove the deselected interactor from the list of current interactors.
+        /// </summary>
+        /// <param name="e"></param>
         new public void SelectExited(SelectExitEventArgs e) {
             if (currentInteractors.Count < 1) {
                 Debug.LogError("[HapticGun] No current interactors. This should never reach this state.");
@@ -154,20 +142,10 @@ namespace Valkyrie.EIR.Examples {
             currentInteractors.Remove(e.interactorObject);
         }
 
-        public void Deactivate(DeactivateEventArgs e) {
-            if (currentInteractors.Count < 1) {
-                Debug.LogError("[HapticGun] No current interactors. This should never reach this state");
-                return;
-            }
-
-            if (firing && e.interactorObject == currentInteractors[0]) {
-                firing = false;
-#if EIR_HAPTICS
-                conf.ConfigureToDefault();
-#endif
-            }
-        }
-
+        /// <summary>
+        /// Activate the gun, and begin firing if on rapid fire, or fire one bullet if not.
+        /// </summary>
+        /// <param name="e"></param>
         public void Activate(ActivateEventArgs e) {
             if (currentInteractors.Count < 1) {
                 Debug.LogError("[HapticGun] No current interactors. This should never reach this state");
@@ -185,7 +163,7 @@ namespace Valkyrie.EIR.Examples {
                     if (conf != null)
                         conf.Configure((int)configuration.x, (byte)configuration.y, (byte)configuration.z);
 #endif
-                    StartCoroutine(ContinousFire());
+                    StartCoroutine(ProcessContinuousFire());
                 }
             } else {
 #if EIR_HAPTICS && EIR_INTERACTION
@@ -193,17 +171,17 @@ namespace Valkyrie.EIR.Examples {
                     conf.Configure((int)configuration.x, (byte)configuration.y, (byte)configuration.z);
                     ResetConfigurationWithDelay((int)(shotEMSLength * 1000));
                 }
-                if (string.IsNullOrEmpty(feelID) || feel == null) {
+                if (string.IsNullOrEmpty(feelID) || FeelManager.Instance == null) {
                     HapticPreset preset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.value, shotEMSLength, HapticPreset.LoopType.None, intensity);
                     HapticPreset halfPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.value, shotEMSLength, HapticPreset.LoopType.None, intensity * 0.75f);
 
-                    haptics.CreateHapticPresetRunner(currentInteractors[0].transform.GetComponentInParent<InteractingBodyPart>().BodyPart, preset);
+                    EIRManager.Instance.Haptics.CreateHapticPresetRunner(currentInteractors[0].transform.GetComponentInParent<InteractingBodyPart>().BodyPart, preset);
 
                     if (currentInteractors.Count > 1) {
-                        haptics.CreateHapticPresetRunner(currentInteractors[1].transform.GetComponentInParent<InteractingBodyPart>().BodyPart, halfPreset);
+                        EIRManager.Instance.Haptics.CreateHapticPresetRunner(currentInteractors[1].transform.GetComponentInParent<InteractingBodyPart>().BodyPart, halfPreset);
                     }
                 } else {
-                    feel.PlayFeeling(feelID);
+                    FeelManager.Instance.PlayFeeling(feelID);
                 }
 #endif
 
@@ -213,6 +191,28 @@ namespace Valkyrie.EIR.Examples {
             }
         }
 
+        /// <summary>
+        /// Deactivate the gun, resetting it to its default state.
+        /// </summary>
+        /// <param name="e"></param>
+        public void Deactivate(DeactivateEventArgs e) {
+            if (currentInteractors.Count < 1) {
+                Debug.LogError("[HapticGun] No current interactors. This should never reach this state");
+                return;
+            }
+
+            if (firing && e.interactorObject == currentInteractors[0]) {
+                firing = false;
+#if EIR_HAPTICS
+                conf.ConfigureToDefault();
+#endif
+            }
+        }
+
+        /// <summary>
+        /// Resets the gun to its default configuration after the input delay (ms).
+        /// </summary>
+        /// <param name="waitTime"></param>
         public async void ResetConfigurationWithDelay(int waitTime) {
             await Task.Delay(waitTime);
 #if EIR_HAPTICS
@@ -221,7 +221,28 @@ namespace Valkyrie.EIR.Examples {
 #endif
         }
 
-        IEnumerator ContinousFire() {
+        #endregion
+
+        #region Private Methods
+
+#if EIR_INTERACTION
+        protected override void Interacting() {
+            base.Interacting();
+            if (grabbing) {
+                col.enabled = false;
+            } else {
+                col.enabled = true;
+            }
+#else
+        public void Interacting() {
+#endif
+        }
+
+        /// <summary>
+        /// Processes the continuous generation, configuration and firing of bullets.
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerator ProcessContinuousFire() {
             while (firing) {
                 for (int i = 0; i < shotsPerFire; i++) {
                     PerformShot();
@@ -230,10 +251,10 @@ namespace Valkyrie.EIR.Examples {
                 HapticPreset preset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.value, shotEMSLength, HapticPreset.LoopType.None, intensity);
                 HapticPreset halfPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.value, shotEMSLength, HapticPreset.LoopType.None, intensity * 0.75f);
 
-                haptics.CreateHapticPresetRunner(currentInteractors[0].transform.GetComponentInParent<InteractingBodyPart>().BodyPart, preset);
+                EIRManager.Instance.Haptics.CreateHapticPresetRunner(currentInteractors[0].transform.GetComponentInParent<InteractingBodyPart>().BodyPart, preset);
 
                 if (currentInteractors.Count > 1) {
-                    haptics.CreateHapticPresetRunner(currentInteractors[1].transform.GetComponentInParent<InteractingBodyPart>().BodyPart, halfPreset);
+                    EIRManager.Instance.Haptics.CreateHapticPresetRunner(currentInteractors[1].transform.GetComponentInParent<InteractingBodyPart>().BodyPart, halfPreset);
                 }
 #endif
                 yield return new WaitForSeconds(shotDelay);
@@ -242,6 +263,9 @@ namespace Valkyrie.EIR.Examples {
 
         }
 
+        /// <summary>
+        /// Configures and fires a bullet.
+        /// </summary>
         private void PerformShot() {
 
             Bullet bullet = Instantiate(bulletPrefab, barrelTip.position, barrelTip.rotation).GetComponent<Bullet>();
@@ -250,10 +274,10 @@ namespace Valkyrie.EIR.Examples {
                 + (barrelTip.TransformDirection(Vector3.left) * Random.Range(-bulletSpreadMax, bulletSpreadMax))
                 + (barrelTip.TransformDirection(Vector3.up) * Random.Range(-bulletSpreadMax, bulletSpreadMax));
 
-            StartCoroutine(DestroyDelayed(bullet.gameObject));
+            StartCoroutine(DestroyBulletAfterDelay(bullet.gameObject));
             bullet.transform.SetParent(null);
 
-            // Play audio
+            // play audio
             if (audioSource == null) {
                 audioSource = this.GetComponent<AudioSource>();
 
@@ -264,22 +288,27 @@ namespace Valkyrie.EIR.Examples {
                 audioSource.pitch = Random.Range(minPitch, maxPitch);
             }
 
-            //Inform bullet it is fired
+            // inform bullet it is fired
             Bullet bulletScript = bullet.gameObject.GetComponent<Bullet>();
-            if (bulletScript != null && bulletsDisappearOnContact)
-                bulletScript.OnFired();
+            if (bulletScript != null && bulletsDisappearOnContact) bulletScript.Fire();
 
-            // Play particles
+            // play particles
             if (particles == null) particles = this.GetComponentInChildren<ParticleSystem>();
-            if (particles != null)
-                particles.Play();
+            if (particles != null) particles.Play();
         }
 
-        IEnumerator DestroyDelayed(GameObject rb) {
+        /// <summary>
+        /// Destroys the bullet gameobject after 3 seconds.
+        /// </summary>
+        /// <param name="bulletObject"></param>
+        /// <returns></returns>
+        private IEnumerator DestroyBulletAfterDelay(GameObject bulletObject) {
             yield return new WaitForSeconds(3);
-            if (rb != null && rb != null)
-                Destroy(rb);
+            if (bulletObject != null && bulletObject != null)
+                Destroy(bulletObject);
         }
+
+        #endregion
     }
 
 }

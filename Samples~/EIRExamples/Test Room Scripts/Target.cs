@@ -1,60 +1,58 @@
 using System.Collections;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 #if EIR_INTERACTION
 using Valkyrie.EIR.Interaction;
 #endif
+
 namespace Valkyrie.EIR.Examples {
+
+    /// <summary>
+    /// Example target object which generates a haptic force when struck.
+    /// </summary>
     public class Target : MonoBehaviour {
+
+        #region Serialized Variables
+
         [SerializeField]
         private bool moving, movingX;
+        [SerializeField]
+        private bool handsOnly;
+        [SerializeField]
+        private bool rollTarget;
+        [SerializeField]
+        private int scoreValue = 1;
+        [SerializeField]
+        private bool respawnFloating = false;
+        [SerializeField]
+        private bool outputDebugLog;
+
+        #endregion
+
+        #region Private Variables
 
         private Vector3 initPos;
         private Quaternion initRot;
         private float amplitude, period;
 
-        [SerializeField]
-        private bool handsOnly;
+        #endregion
 
-        [SerializeField]
-        private bool rollTarget;
-
-        [SerializeField]
-        private int scoreValue = 1;
-
-        [SerializeField]
-        private bool respawnFloating = false;
-
+        #region Unity Methods
 
         public virtual void Start() {
             amplitude = Random.Range(scoreValue * 0.5f, scoreValue * 2f);
             period = Random.Range(2f, 5f);
-            initPos = this.transform.position;
-            initRot = this.transform.rotation;
+            initPos = transform.position;
+            initRot = transform.rotation;
         }
 
         private void Update() {
 
             if (moving) {
                 transform.position = new Vector3(initPos.x, initPos.y + amplitude * Mathf.Sin(Time.time * 2 * Mathf.PI / period), initPos.z);
-            }
-            else if (movingX) {
+            } else if (movingX) {
                 transform.position = new Vector3(initPos.x + amplitude * Mathf.Sin(Time.time * 2 * Mathf.PI / period), initPos.y, initPos.z);
             }
-        }
-
-        public virtual void RestartObject() {
-            // If collider was off - turn it back on
-            if (this.GetComponent<Collider>())
-                this.GetComponent<Collider>().enabled = true;
-
-            //Turn back on meshrenderer
-            if (GetComponent<MeshRenderer>())
-                GetComponent<MeshRenderer>().enabled = true;
-
-            // Re-initialise rotation
-            this.transform.rotation = initRot;
-            this.transform.position = initPos;
         }
 
         private void OnTriggerEnter(Collider other) {
@@ -65,13 +63,11 @@ namespace Valkyrie.EIR.Examples {
                     if (other.GetComponent<InteractingBodyPart>().BodyPart == BodyPart.leftHand || other.GetComponent<InteractingBodyPart>().BodyPart == BodyPart.rightHand)
                         ReactToCollision();
                 }
-            }
-            else {
-                Debug.Log($"[Target] Target position: {this.transform.position}");
-                Debug.Log($"[Target] Bullet position: {other.transform.position}");
-                Debug.Log($"[Target] Inverse point: {this.transform.InverseTransformPoint(other.transform.position)}");
-
-                ReactToCollision(this.transform.InverseTransformPoint(other.transform.position));
+            } else {
+                if (outputDebugLog) {
+                    Debug.Log($"[Target] Target position: {transform.position}. Bullet position: {other.transform.position}. Inverse point: {transform.InverseTransformPoint(other.transform.position)}");
+                }
+                ReactToCollision(transform.InverseTransformPoint(other.transform.position));
 
             }
 #else
@@ -79,15 +75,41 @@ namespace Valkyrie.EIR.Examples {
 #endif
         }
 
-        public virtual void ReactToCollision(object parameter = null) {
-            if (rollTarget)
-                StartCoroutine(Rolling(parameter));
-            else
-                StartCoroutine(Explosion());
+        #endregion
+
+        #region Public Methods
+
+        /// <summary>
+        /// Resets the target to its original configuration, position and orientation.
+        /// </summary>
+        public virtual void RestartObject() {
+            // If collider was off - turn it back on
+            if (GetComponent<Collider>()) GetComponent<Collider>().enabled = true;
+
+            //Turn back on meshrenderer
+            if (GetComponent<MeshRenderer>())
+                GetComponent<MeshRenderer>().enabled = true;
+
+            // Re-initialise rotation
+            transform.rotation = initRot;
+            transform.position = initPos;
         }
 
-        private IEnumerator Rolling(object parameter = null) {
-            float angle = this.transform.eulerAngles.x;
+        /// <summary>
+        /// Process the target's response mechanism, either make it roll or make it explode.
+        /// </summary>
+        /// <param name="parameter"></param>
+        public virtual void ReactToCollision(object parameter = null) {
+            if (rollTarget) StartCoroutine(RollTarget(parameter));
+            else ExplodeTarget();
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        private IEnumerator RollTarget(object parameter = null) {
+            float angle = transform.eulerAngles.x;
             ParticleSystem particles = GetComponent<ParticleSystem>();
             if (particles != null) {
                 ParticleSystem.ShapeModule shape = particles.shape;
@@ -97,23 +119,23 @@ namespace Valkyrie.EIR.Examples {
             }
             GetComponent<AudioSource>().Play();
             while (angle < 89) {
-                this.transform.rotation = Quaternion.Euler(this.transform.eulerAngles.x + 1, this.transform.eulerAngles.y, this.transform.eulerAngles.z);
+                transform.rotation = Quaternion.Euler(transform.eulerAngles.x + 1, transform.eulerAngles.y, transform.eulerAngles.z);
                 yield return new WaitForEndOfFrame();
-                angle = this.transform.eulerAngles.x;
+                angle = transform.eulerAngles.x;
             }
             yield return new WaitForSeconds(3f);
-            this.transform.rotation = Quaternion.Euler(0, this.transform.eulerAngles.y, this.transform.eulerAngles.z);
+            transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, transform.eulerAngles.z);
             StopAllCoroutines();
         }
 
 
-        private IEnumerator Explosion() {
+        private async void ExplodeTarget() {
             GetComponent<ParticleSystem>().Play();
             GetComponent<MeshRenderer>().enabled = false;
 
             GetComponent<AudioSource>().Play();
 
-            yield return new WaitForSeconds(0.3f);
+            await Task.Delay(300);
 
             if (respawnFloating) {
                 if (GetComponent<MeshRenderer>())
@@ -121,14 +143,14 @@ namespace Valkyrie.EIR.Examples {
                 if (GetComponent<Collider>())
                     GetComponent<Collider>().enabled = false;
 
-                Invoke("RestartObject", 5);
+                await Task.Delay(5000);
+                RestartObject();
+            } else {
+                Destroy(gameObject);
             }
-            else {
-                Destroy(this.gameObject);
-            }
-
-
         }
+
+        #endregion
 
     }
 }

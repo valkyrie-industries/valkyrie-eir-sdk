@@ -6,15 +6,30 @@ using Valkyrie.EIR.Bluetooth;
 
 namespace Valkyrie.EIR.Examples {
 
+    /// <summary>
+    /// Example implementation of an EIR Device Selection UX.
+    /// </summary>
     public class EirDeviceSelection : MonoBehaviour {
 
 #if EIR_COMM
 
-        public GameObject buttonPrefab;
-        public Transform scrollView;
+        #region Serialized Variables
+
+        [SerializeField]
+        private GameObject buttonPrefab;
+        [SerializeField]
+        private Transform scrollView;
+
+        #endregion
+
+        #region Private Variables
 
         private List<Button> cachedButtons = new List<Button>();
         private List<string> macAddresses = new List<string>();
+
+        #endregion
+
+        #region Unity Methods
 
         private void OnEnable() {
 
@@ -26,7 +41,11 @@ namespace Valkyrie.EIR.Examples {
             InstantiateButtons(devices);
         }
 
-        public void InstantiateButtons(List<KeyValuePair<string, string>> devices) {
+        #endregion
+
+        #region Private Methods
+
+        private void InstantiateButtons(List<KeyValuePair<string, string>> devices) {
 
             Clear();
 
@@ -60,6 +79,8 @@ namespace Valkyrie.EIR.Examples {
             cachedButtons.Clear();
             macAddresses = new List<string>();
         }
+
+        #endregion
 
 #endif
     }

@@ -1,19 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 #if EIR_HAPTICS
 using Valkyrie.EIR.Haptics;
 #endif
 
 namespace Valkyrie.EIR.Examples {
+
+    /// <summary>
+    /// Example calibration button.
+    /// </summary>
     public class CalibrationButton : MonoBehaviour {
 
-        public bool isLeft;
+        #region Serialized Variables
 
-        private int handIndex;
+        [SerializeField]
+        private bool isLeft;
         [SerializeField]
         private GameObject label;
+
+        #endregion
+
+        #region Private Variables
+
+        private int handIndex;
+
+        #endregion
+
+        #region Unity Methods
 
         private void Start() {
             handIndex = isLeft ? 1 : 0;
@@ -23,6 +36,14 @@ namespace Valkyrie.EIR.Examples {
 #endif
         }
 
+        #endregion
+
+        #region Public Variables
+
+        /// <summary>
+        /// Increments or decrements the calibration for the set hand dependent on whether up is true or false.
+        /// </summary>
+        /// <param name="up"></param>
         public void UpdateCalibrationIndex(bool up) {
 #if EIR_HAPTICS
 
@@ -46,5 +67,7 @@ namespace Valkyrie.EIR.Examples {
             label.GetComponent<TextMeshProUGUI>().text = (currentIndex + 1).ToString(); // to count from 1 to 11, instead of 0 to 10
 			#endif
         }
+
+        #endregion
     }
 }
