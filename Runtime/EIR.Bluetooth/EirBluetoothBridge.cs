@@ -58,9 +58,10 @@ namespace Valkyrie.EIR.Bluetooth {
         private float readInterval;
         private List<IEirBluetooth> handlers = new List<IEirBluetooth>();
         
-        //TEMP
+        /// <summary>
+        /// Returns the name of the current connected bluetooth device, if available.
+        /// </summary>
         public static string deviceName { get; private set;}
-
 
         /// <summary>
         /// The current Bluetooth connection state.
@@ -74,6 +75,7 @@ namespace Valkyrie.EIR.Bluetooth {
 
         /// <summary>
         /// The activity state of the Bluetooth send routine.
+        /// If true, the characteristic write is actively being written to, if false no data is sent.
         /// </summary>
         public bool IsActive {
             get { return isActive; }
@@ -156,6 +158,12 @@ namespace Valkyrie.EIR.Bluetooth {
             eirBlu.CallStatic("startScan", searchFilter);
         }
 
+        /// <summary>
+        /// Scan for nearby EIR devices, and connect if only one is found.
+        /// If multiple devices are found, any UX calling this method should proceed to a device selection screen.
+        /// </summary>
+        /// <param name="auto"></param>
+        /// <returns></returns>
         public async Task<ConnectionStates> ScanAndConnect(bool auto = true) {
             autoConnect = auto;
 
@@ -271,7 +279,6 @@ namespace Valkyrie.EIR.Bluetooth {
         #endregion
 
         #region Event Handlers
-
 
         private void OnWrite(bool obj, bool obj2) {
             OnDataWritten?.Invoke(obj);
@@ -419,6 +426,7 @@ namespace Valkyrie.EIR.Bluetooth {
         #endregion
 
         #region Android Callbacks
+
         /// <summary>
         /// Bridge class facilitating communication between the Unity system and Android plugin's internal callbacks.
         /// This class acts as an intermediary, translating Android plugin events into Unity-compatible events.
@@ -539,7 +547,6 @@ namespace Valkyrie.EIR.Bluetooth {
                 OnLowBatteryDetectedEvent?.Invoke(lowBattery);
             }
         }
-
 
         #endregion
 

@@ -1,26 +1,33 @@
 ﻿using UnityEngine;
-using Valkyrie.EIR.Interaction;
-#if EIR_HAPTICS
-using Valkyrie.EIR.Haptics;
-#endif
 using Valkyrie.EIR.Utilities;
 
 namespace Valkyrie.EIR.Interaction.Interactables {
+
     /// <summary>
     /// Valkyrie Gravity Grab Interactable: checks the object's mass and acceleration.
     /// Every frame it sends this force to the InteractionManager, which then exerts EMS on the required hand.
     /// </summary>
-    public class KinematicGrabInteractable : GrabInteractable
-    {
+    public class KinematicGrabInteractable : GrabInteractable {
+
+        #region Serialized Variables
+
+        [SerializeField]
         public float mass;
+        [SerializeField]
         public Transform machineAttachmentPoint;
+        [SerializeField]
         public float minExtension = 0.1f;
+        [SerializeField]
         public EmsPhysicsMode emsPhysicsMode;
         [SerializeField]
         private float angleFraction = 0.5f;
 
-        private float accelerationMultiplier = ValkyrieEIRExtensionMethods.accelerationMultiplier;
-        private float massMultiplier = ValkyrieEIRExtensionMethods.massMultipier;
+        #endregion
+
+        #region Private Variables
+
+        private float accelerationMultiplier = ValkyrieEIRExtensionMethods.AccelerationMultiplier;
+        private float massMultiplier = ValkyrieEIRExtensionMethods.MassMultipier;
 
         private float height, headSize;
 
@@ -29,24 +36,28 @@ namespace Valkyrie.EIR.Interaction.Interactables {
         private float angle;
         private float forceAngle;
 
+        #endregion
 
-        public override void Update()
-        {
-            height = 1.75f;// Fitness.PlayerSettings.meanPlayerHeight;
+        #region Unity Methods
+
+        protected override void Update() {
+            height = 1.75f;
             headSize = height / 7.5f;
 
             base.Update();
         }
-        public override void Interacting()
-        {
+
+        #endregion
+
+        #region Private Methods
+
+        protected override void Interacting() {
 #if EIR_INTERACTION
-            if (grabbing)
-            {
+            if (grabbing) {
                 // 1. Calculate force of the object
                 Vector3 force = Vector3.zero;
 
-                switch (emsPhysicsMode)
-                {
+                switch (emsPhysicsMode) {
                     case EmsPhysicsMode.TensionBasedMass:
                         Vector3 tension = mass * (machineAttachmentPoint.position - transform.position).normalized;
                         force = tension;
@@ -56,30 +67,28 @@ namespace Valkyrie.EIR.Interaction.Interactables {
                     case EmsPhysicsMode.MassAndElbowAngle:
                     case EmsPhysicsMode.MassAndAccelerationScalar:
                     case EmsPhysicsMode.MassAndElbowAngleAndAccelerationScalar:
-                        Vector3 gravitationalForce = new Vector3(0, - mass, 0);
+                        Vector3 gravitationalForce = new Vector3(0, -mass, 0);
                         force = gravitationalForce;
                         break;
                 }
-                
+
                 // 2. Apply multipliers:
                 force *= massMultiplier;
 
                 // 3. Calculate acceleration
                 Vector3 acceleration = accelerationMultiplier * currentlyInteractingBodyPart.acceleration;
 
-                float kinematicForce = 0; 
+                float kinematicForce = 0;
 
                 // 4. Combine object force and acceleration
-                switch (emsPhysicsMode)
-                {
+                switch (emsPhysicsMode) {
                     case EmsPhysicsMode.MassOnly:
                         kinematicForce = force.magnitude;
                         break;
                     case EmsPhysicsMode.TensionBasedMass:
                         kinematicForce = (force - acceleration).magnitude;
                         // If the system is not tensed, then no force
-                        if ((machineAttachmentPoint.position - transform.position).magnitude < minExtension)
-                        {
+                        if ((machineAttachmentPoint.position - transform.position).magnitude < minExtension) {
                             kinematicForce *= (machineAttachmentPoint.position - transform.position).magnitude / minExtension;
                         }
                         break;
@@ -89,8 +98,8 @@ namespace Valkyrie.EIR.Interaction.Interactables {
                     case EmsPhysicsMode.MassAndElbowAngle:
                         kinematicForce = (force - acceleration).magnitude;
                         // Calculate the elbow position:
-                        elbowPosition = ElbowPosition(currentlyInteractingBodyPart, EIRManager.Instance.Interaction.InteractingBodyParts[(int)BodyPart.head].transform, headSize);
-                        angle = Vector3.Angle((currentlyInteractingBodyPart.position - elbowPosition),Vector3.down); // Angle between the force and the forearm
+                        elbowPosition = CalculateElbowPosition(currentlyInteractingBodyPart, EIRManager.Instance.Interaction.InteractingBodyParts[(int)BodyPart.head].transform, headSize);
+                        angle = Vector3.Angle((currentlyInteractingBodyPart.position - elbowPosition), Vector3.down); // Angle between the force and the forearm
                         forceAngle = Mathf.Clamp(Mathf.Sin(angle * Mathf.PI / 180.0f), 0, 1);
                         kinematicForce = kinematicForce * (1.0f - angleFraction) + kinematicForce * forceAngle * angleFraction;
                         break;
@@ -100,7 +109,7 @@ namespace Valkyrie.EIR.Interaction.Interactables {
                     case EmsPhysicsMode.MassAndElbowAngleAndAccelerationScalar:
                         kinematicForce = force.magnitude + acceleration.magnitude;
                         // Calculate the elbow position:
-                        elbowPosition = ElbowPosition(currentlyInteractingBodyPart, EIRManager.Instance.Interaction.InteractingBodyParts[(int)BodyPart.head].transform, headSize);
+                        elbowPosition = CalculateElbowPosition(currentlyInteractingBodyPart, EIRManager.Instance.Interaction.InteractingBodyParts[(int)BodyPart.head].transform, headSize);
                         angle = Vector3.Angle((currentlyInteractingBodyPart.position - elbowPosition), Vector3.down); // Angle between the force and the forearm
                         forceAngle = Mathf.Clamp(Mathf.Sin(angle * Mathf.PI / 180.0f) + angle * 0.002f, 0, 1);
                         kinematicForce = kinematicForce * (1.0f - angleFraction) + kinematicForce * forceAngle * angleFraction;
@@ -112,8 +121,7 @@ namespace Valkyrie.EIR.Interaction.Interactables {
 #endif
         }
 
-        private Vector3 ElbowPosition(InteractingBodyPart hand, Transform _head, float _headSize)
-        {
+        private Vector3 CalculateElbowPosition(InteractingBodyPart hand, Transform _head, float _headSize) {
 
             Vector3 handPosition = hand.transform.position;
             int isLeft = hand.BodyPart == BodyPart.leftHand ? 1 : -1; // which side of the neck the shoulder is
@@ -127,5 +135,8 @@ namespace Valkyrie.EIR.Interaction.Interactables {
 
             return _elbowPosition;
         }
+
+        #endregion
+
     }
 }

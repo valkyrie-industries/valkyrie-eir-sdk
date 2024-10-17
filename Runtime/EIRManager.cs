@@ -1,7 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 using Valkyrie.EIR.Utilities;
 #if EIR_COMM
 using Valkyrie.EIR.Bluetooth;
@@ -47,13 +45,13 @@ namespace Valkyrie.EIR {
 
         #region Events
 
-        // called when the EIR manager has been disposed, to notify any component which needs to be aware of this action.
+        // invoked when the EIR manager has been disposed, to notify any component which needs to be aware of this action.
         public Action OnDisposed;
 
 #if EIR_COMM
-        // called when the Bluetooth plugin is initialised, or fails to initialise.
+        // invoked when the Bluetooth plugin is initialised, or fails to initialise.
         public Action<bool> OnBluetoothInitialised;
-        // called when the user denies permissions for bluetooth.
+        // invoked when the user denies permissions for bluetooth.
         public Action OnPermissionsDenied;
 #endif
 
@@ -97,18 +95,18 @@ namespace Valkyrie.EIR {
 #if EIR_HAPTICS
             hapticManager.Reset();
 #endif
-
         }
 
         private void OnApplicationQuit() {
 #if EIR_COMM
+            // on application quit, disconnect and dispose the EIR Bluetooth functionality cleanly.
             if (eirBluetoothBridge != null) eirBluetoothBridge.Disconnect();
 #endif
         }
 
         #endregion
 
-        #region Private Methods
+        #region Public Methods
 
         /// <summary>
         /// Initialises the EIR Manager and any managers required by the current configuration.
@@ -132,8 +130,6 @@ namespace Valkyrie.EIR {
 #endif
 #if EIR_COMM && EIR_HAPTICS
             EirBluetoothBridge.OnConnectionStateChanged += OnConnectionStateChanged;
-            DeviceManager.OnRequestDevices += OnRequestDevices;
-            DeviceManager.OnConnectionRequest += OnConnectionRequest;
             if (gameObject.GetComponent<MainThreadDispatcher>() == null) gameObject.AddComponent<MainThreadDispatcher>();
 
 #if UNITY_EDITOR
@@ -146,9 +142,16 @@ namespace Valkyrie.EIR {
             Initialised = true;
 #endif
         }
-        #endregion
 
-        #region Public Methods
+#if EIR_COMM
+        /// <summary>
+        /// Invoke the connect routine on the bluetooth bridge for the input address.
+        /// </summary>
+        /// <param name="address"></param>
+        public void ConnectEIRDevice(string address) {
+            _ = eirBluetoothBridge.Connect(address);
+        }
+#endif
 
 #if EIR_COMM && EIR_HAPTICS
         /// <summary>
@@ -206,8 +209,6 @@ namespace Valkyrie.EIR {
 #if EIR_HAPTICS
                 EirBluetoothBridge.OnConnectionStateChanged -= OnConnectionStateChanged;
 #endif
-                DeviceManager.OnRequestDevices -= OnRequestDevices;
-                DeviceManager.OnConnectionRequest -= OnConnectionRequest;
                 if (gameObject.GetComponent<MainThreadDispatcher>() != null) Destroy(gameObject.GetComponent<MainThreadDispatcher>());
                 BluetoothPermissions.OnPermissionsGranted -= OnPermissionsResult;
             }
@@ -291,28 +292,6 @@ namespace Valkyrie.EIR {
         public void OnInitialisationComplete(bool initialisd) {
             Debug.Log($"[EIR Manager] Initialisation {(initialisd ? "Complete" : "Failed")}");
             OnBluetoothInitialised?.Invoke(initialisd);
-        }
-
-        /// <summary>
-        /// Invoked on DeviceManager when it becomes active.
-        /// This function will pass it the device addresses and names to generate the required UI buttons.
-        /// </summary>
-        /// <param name="dm"></param>
-        private void OnRequestDevices(DeviceManager dm) {
-            List<KeyValuePair<string, string>> devices = new List<KeyValuePair<string, string>>();
-            foreach (BluetoothDeviceInfo device in eirBluetoothBridge.DeviceList.devices) {
-                devices.Add(new KeyValuePair<string, string>(device.address, device.name));
-            }
-            dm.InstantiateButtons(devices);
-        }
-
-        /// <summary>
-        /// Invoked on DeviceManager when a device is selected.
-        /// Will invoke the connect routine for the input address.
-        /// </summary>
-        /// <param name="address"></param>
-        private void OnConnectionRequest(string address) {
-            _ = eirBluetoothBridge.Connect(address);
         }
 
         /// <summary>

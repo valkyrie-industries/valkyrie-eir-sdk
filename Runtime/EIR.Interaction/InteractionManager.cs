@@ -1,53 +1,54 @@
 ﻿using System;
-using UnityEngine;
-#if EIR_HAPTICS
-using Valkyrie.EIR.Haptics;
-#endif
 
-namespace Valkyrie.EIR.Interaction
-{
+namespace Valkyrie.EIR.Interaction {
+
     /// <summary>
-    /// Valkyrie Interaction Manager is an interface between all the body parts, 
-    /// interactable objects and EMS force creator.
+    /// The Valkyrie Interaction Manager is an interface between all the body parts, 
+    /// interactable objects and can request the application of EMS/FES.
     /// </summary>
     [Serializable]
     public class InteractionManager {
 
+        #region Events
 
         public delegate void HapticRequestEventHandler(BodyPart bodyPart, float force, bool bypassCalibration);
         public event HapticRequestEventHandler HapticRequest;
 
-        // Global Access to all the body parts that take part in the exercise
-        private InteractingBodyPart[] interactingBodyParts;
+        #endregion
 
-        //This is the number of bodyparts we use
-        public static readonly int usedBodyParts = 3;
+        #region Constants
 
-        //This is the number of bodyparts in total
+        public const int UsedBodyParts = 3;
         public static int TotalBodyParts { get { return Enum.GetNames(typeof(BodyPart)).Length; } }
 
-        private float[] forces;
+        #endregion
 
-        public InteractionManager() {
-            UnityEngine.Debug.Log("[Interaction Manager] Interaction Manager Initialised");
-            interactingBodyParts = new InteractingBodyPart[usedBodyParts];
-            forces = new float[usedBodyParts - 1];
-            Interactable.OnForce += ApplyForce;
-            InteractingBodyPart.OnInteractingBodyPartAlive += OnInteractingBodyPartAlive;
-        }
+        #region Public Properties
 
+        /// <summary>
+        /// Returns all interacting body parts available for use.
+        /// </summary>
         public InteractingBodyPart[] InteractingBodyParts {
-            get 
-            { 
-                if (interactingBodyParts[0] == null) 
-                { 
-                    InteractingBodyPart[] ints = GameObject.FindObjectsOfType<InteractingBodyPart>(); 
-                    if (ints != null) interactingBodyParts = OrganiseBodyParts(ints); 
-                } 
+            get {
+                if (interactingBodyParts[0] == null) {
+                    InteractingBodyPart[] ints = UnityEngine.GameObject.FindObjectsOfType<InteractingBodyPart>();
+                    if (ints != null) interactingBodyParts = OrganiseBodyParts(ints);
+                }
 
-                return interactingBodyParts; 
+                return interactingBodyParts;
             }
         }
+
+        #endregion
+
+        #region Private Variables
+
+        private InteractingBodyPart[] interactingBodyParts;
+        private float[] forces;
+
+        #endregion
+
+        #region Private Methods
 
         private InteractingBodyPart[] OrganiseBodyParts(InteractingBodyPart[] unorganised) {
             InteractingBodyPart[] ints = new InteractingBodyPart[unorganised.Length];
@@ -57,8 +58,25 @@ namespace Valkyrie.EIR.Interaction
             return ints;
         }
 
+        #endregion
+
+        #region Event Handlers
+
         /// <summary>
-        /// When a body part is initialised, record it in the usedbodyparts array.
+        /// Invoked when a force application has been requested for a particular body part.
+        /// </summary>
+        /// <param name="bodyPart"></param>
+        /// <param name="force"></param>
+        /// <param name="_bypassCalibration"></param>
+        private void OnApplyForceReqested(BodyPart bodyPart, float force, bool _bypassCalibration = false) {
+            if ((int)bodyPart > forces.Length - 1)
+                return;
+            forces[(int)bodyPart] = force;
+            HapticRequest?.Invoke(bodyPart, force, _bypassCalibration);
+        }
+
+        /// <summary>
+        /// Invoked when a body part is initialised, record it in the usedbodyparts array.
         /// </summary>
         /// <param name="i"></param>
         private void OnInteractingBodyPartAlive(InteractingBodyPart i) {
@@ -66,17 +84,21 @@ namespace Valkyrie.EIR.Interaction
             interactingBodyParts[(int)i.BodyPart] = i;
         }
 
+        #endregion
+
+        #region Constructor
+
         /// <summary>
-        /// Todo: move this to the ApplyForce event handler once SkiTarget has been addressed.
+        /// Constructs an InteractionManager object
         /// </summary>
-        /// <param name="bodyPart"></param>
-        /// <param name="force"></param>
-        /// <param name="_bypassCalibration"></param>
-        public void ApplyForce(BodyPart bodyPart, float force, bool _bypassCalibration = false) {
-            if ((int)bodyPart > forces.Length - 1)
-                return;
-            forces[(int)bodyPart] = force;
-            HapticRequest?.Invoke(bodyPart, force, _bypassCalibration);
+        public InteractionManager() {
+            UnityEngine.Debug.Log("[Interaction Manager] Interaction Manager Initialised");
+            interactingBodyParts = new InteractingBodyPart[UsedBodyParts];
+            forces = new float[UsedBodyParts - 1];
+            Interactable.OnForce += OnApplyForceReqested;
+            InteractingBodyPart.OnInteractingBodyPartAlive += OnInteractingBodyPartAlive;
         }
+
+        #endregion
     }
 }

@@ -1,18 +1,28 @@
 using TMPro;
 using UnityEngine;
 
-namespace Valkyrie.EIR.Haptics {
+namespace Valkyrie.EIR.Examples {
 
     /// <summary>
-    /// Output class to interface between the PlayerSettings class and the Quick Menu's EIR Bands state.
+    /// Output class to interface between the PlayerSettings class and a UX EIR Bands state.
     /// </summary>
     public class CalibrationOutput : MonoBehaviour {
+
+        #region Serialized Variables
 
         [SerializeField]
         private bool isLeft;
 
+        #endregion
+
+        #region Private Variables
+
         private TextMeshProUGUI text;
         private int prevValue = 0;
+
+        #endregion
+
+        #region Unity Methods
 
         private void Update() {
 #if EIR_HAPTICS
@@ -27,5 +37,8 @@ namespace Valkyrie.EIR.Haptics {
             }
 #endif
         }
+
+        #endregion
+
     }
 }

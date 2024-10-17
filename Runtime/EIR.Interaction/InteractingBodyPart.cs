@@ -1,12 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
-#if EIR_HAPTICS
-using Valkyrie.EIR.Haptics;
-#endif
 
-namespace Valkyrie.EIR.Interaction
-{
+namespace Valkyrie.EIR.Interaction {
 
     /// <summary>
     /// Body part for physical interaction with objects.
@@ -15,39 +11,47 @@ namespace Valkyrie.EIR.Interaction
     /// </summary>
     public class InteractingBodyPart : MonoBehaviour {
 
+        #region Delegates
+
         public delegate void InteractingBodyPartAliveEventHandler(InteractingBodyPart i);
+
+        #endregion
+
+        #region Events
+
         public static InteractingBodyPartAliveEventHandler OnInteractingBodyPartAlive;
 
+        #endregion
+
+        #region Public Properties
+
+        /// <summary>
+        /// Returns the BodyPart associated with this InteractingBodyPart.
+        /// </summary>
         public BodyPart BodyPart { get { return bodyPart; } }
 
-        [SerializeField]
-        private BodyPart bodyPart;
-
-        #region Dynamic properties
         /// <summary>
-        /// The position of the object.
+        /// Returns the position of the object.
         /// </summary>
         public Vector3 position {
             get => transform.position;
         }
         /// <summary>
-        /// The velocity of the object.
+        /// Returns the velocity of the object.
         /// </summary>
         public Vector3 velocity {
             get => m_velocity;
         }
-        private Vector3 m_velocity;
 
         /// <summary>
-        /// The velocity of the object.
+        /// Returns the average velocity of the object.
         /// </summary>
         public Vector3 averageVelocity {
             get => (position - lastPosition) / Time.deltaTime;
         }
 
-
         /// <summary>
-        /// The accleration of the object.
+        /// Returns the accleration of the object.
         /// </summary>
         public Vector3 acceleration {
             //get => (velocity - lastVelocity) / Time.deltaTime; // Smooth it
@@ -57,35 +61,32 @@ namespace Valkyrie.EIR.Interaction
             }
         }
 
-        private Vector3 m_acceleration;
-
         /// <summary>
-        /// The rotation of the object.
+        /// Returns the rotation of the object, expressed as a Quaternion.
         /// </summary>
         public Quaternion rotation {
             get => transform.rotation;
         }
 
         /// <summary>
-        /// The angular velocity of the object.
+        /// Returns the angular velocity of the object.
         /// </summary>
         public Quaternion angularVelocity {
             get => m_angularVelocity;
         }
-        private Quaternion m_angularVelocity;
 
+        /// <summary>
+        /// Returns the smoothed velocity of the object.
+        /// </summary>
         public float velocitySmooth {
             get => m_velocitySmooth;
             set => m_velocitySmooth = value;
         }
-        private float m_velocitySmooth;
-        #endregion
 
-        #region Interaction Properties
         /// <summary>
         /// If the body part is gripping. Available for hands
         /// </summary>
-        public bool grip {
+        public bool Grip {
             get {
                 m_grip = false;
                 var controller = GetComponent<XRController>();
@@ -103,12 +104,29 @@ namespace Valkyrie.EIR.Interaction
 
             }
         }
-        private bool m_grip;
 
         #endregion
 
+        #region Serialized Variables
+
+        [SerializeField]
+        private BodyPart bodyPart;
+
+        #endregion
+
+        #region Private Variables
+
+        private Vector3 m_velocity;
+        private Vector3 m_acceleration;
+        private Quaternion m_angularVelocity;
+        private float m_velocitySmooth;
+        private bool m_grip;
         private Vector3 lastPosition;
         private Vector3 lastVelocity;
+
+        #endregion
+
+        #region Unity Methods
 
         private void Awake() {
             OnInteractingBodyPartAlive?.Invoke(this);
@@ -120,8 +138,6 @@ namespace Valkyrie.EIR.Interaction
             lastPosition = transform.position;
         }
 
-        public void Grip(bool _grip) {
-            grip = _grip;
-        }
+        #endregion
     }
 }

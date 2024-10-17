@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Android;
@@ -7,13 +6,27 @@ namespace Valkyrie.EIR.Bluetooth {
 
     public class BluetoothPermissions {
 
+        #region Events
+
         public static System.Action<bool> OnPermissionsGranted;
+
+        #endregion
+
+        #region Constants
 
         private const string DontAskKey = "PERMISSIONS_DENIED_DONTASK";
 
-        public static void AskForPermissions() {
-#if UNITY_ANDROID
+        #endregion
 
+        #region Public Methods
+
+        /// <summary>
+        /// Requests the necessary permissions to run the EIR Bluetooth functionality.
+        /// These permissions are: android.permission.BLUETOOTH_SCAN, android.permission.BLUETOOTH_CONNECT, android.permission_ACCESS_FINE_LOCATION.
+        /// </summary>
+        public static void AskForPermissions() {
+
+#if UNITY_ANDROID
 
             Debug.Log("[EIR Manager] Requesting Permissions...");
             List<string> permissions = new List<string>();
@@ -33,8 +46,7 @@ namespace Valkyrie.EIR.Bluetooth {
             if (!Permission.HasUserAuthorizedPermission("android.permission.ACCESS_FINE_LOCATION")) {
                 permissions.Add("android.permission.ACCESS_FINE_LOCATION");
                 Debug.Log("[EIR Manager] Permission: ACCESS_FINE_LOCATION");
-            }
-            else {
+            } else {
                 if (PlayerPrefs.HasKey(DontAskKey)) PlayerPrefs.DeleteKey(DontAskKey);
 
             }
@@ -57,6 +69,13 @@ namespace Valkyrie.EIR.Bluetooth {
                 OnPermissionsGranted?.Invoke(true);
             }
         }
+#endif
+
+        #endregion
+
+        #region Private Methods
+
+#if UNITY_ANDROID
 
         private static void PermissionCallbacks_PermissionDenied(string msg) {
             Debug.Log("[EIR Manager] Permissions denied.");
@@ -77,6 +96,7 @@ namespace Valkyrie.EIR.Bluetooth {
             OnPermissionsGranted?.Invoke(true);
 #endif
         }
-    }
+        #endregion
 
+    }
 }

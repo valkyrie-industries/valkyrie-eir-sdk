@@ -1,25 +1,29 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Valkyrie.EIR.Bluetooth;
 
-namespace Valkyrie.EIR.Bluetooth {
+namespace Valkyrie.EIR.Examples {
 
-    public class DeviceManager : MonoBehaviour {
+    public class EirDeviceSelection : MonoBehaviour {
 
 #if EIR_COMM
 
         public GameObject buttonPrefab;
         public Transform scrollView;
-        public static Action<DeviceManager> OnRequestDevices;
-        public static Action<string> OnConnectionRequest;
 
         private List<Button> cachedButtons = new List<Button>();
         private List<string> macAddresses = new List<string>();
 
         private void OnEnable() {
-            OnRequestDevices?.Invoke(this);
+
+            List<KeyValuePair<string, string>> devices = new List<KeyValuePair<string, string>>();
+            foreach (BluetoothDeviceInfo device in EIRManager.Instance.Communication.DeviceList.devices) {
+                devices.Add(new KeyValuePair<string, string>(device.address, device.name));
+            }
+
+            InstantiateButtons(devices);
         }
 
         public void InstantiateButtons(List<KeyValuePair<string, string>> devices) {
@@ -46,7 +50,7 @@ namespace Valkyrie.EIR.Bluetooth {
 
         private void OnDeviceSelected(Button clickedButton) {
             int index = cachedButtons.IndexOf(clickedButton);
-            OnConnectionRequest?.Invoke(macAddresses[index]);
+            EIRManager.Instance.ConnectEIRDevice(macAddresses[index]);
         }
 
         private void Clear() {

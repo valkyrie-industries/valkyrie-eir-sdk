@@ -1,14 +1,20 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+#if EIR_COMM
 using Valkyrie.EIR.Bluetooth;
+#endif
 
 namespace Valkyrie.EIR.Examples {
 
     /// <summary>
     /// Manages an output display to visualise the connection and battery state of an EIR device, dependent on the Communication Manager reading the required characteristic.
     /// </summary>
+#if EIR_COMM
     public class BatteryIndicator : MonoBehaviour, IEirBluetooth {
+#else
+    public class BatteryIndicator : MonoBehaviour {
+#endif
 
         #region Serialized Variables
 
@@ -32,6 +38,7 @@ namespace Valkyrie.EIR.Examples {
 
         #region Unity Methods
 
+#if EIR_COMM
         private void OnEnable() {
             EIRManager.Instance.Communication.RegisterHandler(this);
             SetIndication(false, EIRManager.Instance.Communication.Vitals);
@@ -41,11 +48,13 @@ namespace Valkyrie.EIR.Examples {
         private void OnDisable() {
             EIRManager.Instance.Communication.UnregisterHandler(this);
         }
+#endif
 
         #endregion
 
         #region Private Methods
 
+#if EIR_COMM
         /// <summary>
         /// Sets the indicator values for each device.
         /// </summary>
@@ -110,9 +119,13 @@ namespace Valkyrie.EIR.Examples {
             if (!panel.gameObject.activeSelf) panel.gameObject.SetActive(true);
 
         }
+#endif
+
         #endregion
 
         #region Interface Implementation
+
+#if EIR_COMM
 
         public void OnBluetoothEnable() {
             Enable();
@@ -132,6 +145,8 @@ namespace Valkyrie.EIR.Examples {
             Disable();
         }
 
-        #endregion
+#endif
+
+#endregion
     }
 }

@@ -1,41 +1,57 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Valkyrie.EIR.Utilities;
-using Valkyrie.EIR.Interaction;
-#if EIR_HAPTICS
-using Valkyrie.EIR.Haptics;
-#endif
 
-namespace Valkyrie.EIR.Interaction.Interactables
-{
+namespace Valkyrie.EIR.Interaction.Interactables {
+
     /// <summary>
     /// Checks if it is hit by the hand and sends 
     /// short impulse of various envelopes to the Interaction Manager
     /// </summary>  
-    public class HitInteractable : TouchInteractable
-    {
-        public readonly float forceCoefficient = ValkyrieEIRExtensionMethods.hitForceMultiplier;
+    public class HitInteractable : TouchInteractable {
 
-        public enum Envelope { Square, Triangular, ExpDecay, ExpGrowth, Sin };
+        #region Enums
+        public enum Envelope {
+            Square,
+            Triangular,
+            ExpDecay,
+            ExpGrowth,
+            Sin
+        };
 
-        public Envelope hitEnvelope = Envelope.Square;
+
+        #endregion
+
+        #region Constants
+
+        public readonly float forceCoefficient = ValkyrieEIRExtensionMethods.HitForceMultiplier;
+
+        #endregion
+
+        #region Serialized Variables
+
+        [SerializeField]
+        private Envelope hitEnvelope = Envelope.Square;
+
+        #endregion
+
+        #region Private Variables
 
         private bool hitIsRunning;
 
-        public override void TouchInteraction(Vector3 velocity)
-        {
+        #endregion
+
+        #region Private Methods
+
+        protected override void TouchInteraction(Vector3 velocity) {
             StartCoroutine(PerformHit(velocity, currentlyInteractingBodyPart.BodyPart));
         }
 
-        private IEnumerator PerformHit(Vector3 velocity, BodyPart bodyPart)
-        {
+        private IEnumerator PerformHit(Vector3 velocity, BodyPart bodyPart) {
             float t = Time.realtimeSinceStartup;
-            while ((Time.realtimeSinceStartup - t) < interactionDuration)
-            {
+            while ((Time.realtimeSinceStartup - t) < interactionDuration) {
                 hitIsRunning = true;
-                switch (hitEnvelope)
-                {
+                switch (hitEnvelope) {
                     case Envelope.Square:
                         InvokeOnForce(bodyPart, forceCoefficient * velocity.magnitude);
                         break;
@@ -44,7 +60,7 @@ namespace Valkyrie.EIR.Interaction.Interactables
                         InvokeOnForce(bodyPart, forceCoefficient * velocity.magnitude * slope);
                         break;
                     case Envelope.ExpDecay:
-                        float expSlope = - 3.0f * (Time.realtimeSinceStartup - t) / interactionDuration;
+                        float expSlope = -3.0f * (Time.realtimeSinceStartup - t) / interactionDuration;
                         InvokeOnForce(bodyPart, forceCoefficient * velocity.magnitude * Mathf.Exp(expSlope));
                         break;
                 }
@@ -59,5 +75,7 @@ namespace Valkyrie.EIR.Interaction.Interactables
             if (bodyPart == currentlyInteractingBodyPart.BodyPart && !hitIsRunning)
                 currentlyInteractingBodyPart = null;
         }
+
+        #endregion
     }
 }

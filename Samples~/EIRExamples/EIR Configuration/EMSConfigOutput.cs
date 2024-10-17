@@ -1,17 +1,32 @@
 using TMPro;
 using UnityEngine;
+#if EIR_HAPTICS
+using Valkyrie.EIR.Haptics;
+#endif
 
-namespace Valkyrie.EIR.Haptics {
+namespace Valkyrie.EIR.Examples {
 
     /// <summary>
     /// Output class to interface between the HapticManager and the Quick Menu's EMS state.
     /// </summary>
     public class EMSConfigOutput : MonoBehaviour {
 
+        #region Serialized Variables
+
         [SerializeField]
         private TextMeshProUGUI[] text;
 
+        #endregion
+
+        #region Private Variables
+
+#if EIR_HAPTICS
         private HapticManager haptic;
+#endif
+
+        #endregion
+
+        #region Unity Methods
 
         private void Update() {
 #if EIR_HAPTICS
@@ -24,5 +39,7 @@ namespace Valkyrie.EIR.Haptics {
             }
 #endif
         }
+
+        #endregion
     }
 }

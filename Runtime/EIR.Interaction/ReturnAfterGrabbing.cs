@@ -13,12 +13,25 @@ namespace Valkyrie.EIR.Interaction {
     [RequireComponent(typeof(UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable))]
     public class ReturnAfterGrabbing : MonoBehaviour {
 
+        #region Events
+
+        public delegate void EventHandler(float distanceFromHome);
+        public static event EventHandler ReturnedToOrigin;
+
+        #endregion
+
+        #region Serialized Variables
+
         [SerializeField]
         private GameObject homeSpot;
         [SerializeField]
         private bool notRigidBodyControlled;
         [SerializeField]
         private float allowedDistance = 0.5f;
+
+        #endregion
+
+        #region Private Variables
 
         private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable xRGrabInteractable;
         private Rigidbody rig;
@@ -34,8 +47,15 @@ namespace Valkyrie.EIR.Interaction {
         private bool initialIsKinematic;
         private bool initialUseGravity;
 
-        public delegate void EventHandler(float distanceFromHome);
-        public static event EventHandler ReturnedToOrigin;
+        #endregion
+
+        #region Unity Events
+
+        public UnityEvent OnReturn;
+
+        #endregion
+
+        #region Unity Methods
 
         private void OnEnable() {
             checkPosition = true;
@@ -58,11 +78,13 @@ namespace Valkyrie.EIR.Interaction {
             }
         }
 
-        public UnityEvent OnReturn;
-
         private void OnDisable() {
             checkPosition = false;
         }
+
+        #endregion
+
+        #region Public Methods
 
         /// <summary>
         /// Set the grab interactable rigidbody kinematic.
@@ -121,6 +143,10 @@ namespace Valkyrie.EIR.Interaction {
             OnReturn?.Invoke();
         }
 
+        #endregion
+
+        #region Private Methods
+
         /// <summary>
         /// check whether the gameobject has the requisite components, and throw an exception if not.
         /// </summary>
@@ -173,5 +199,7 @@ namespace Valkyrie.EIR.Interaction {
             }
             while (true);
         }
+
+        #endregion
     }
 }

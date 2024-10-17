@@ -85,7 +85,7 @@ namespace Valkyrie.EIR.Examples
                 foreach (Arrow a in arrows)
                 {
                     GrabInteractable aGrabInteractable = a.GetComponent<GrabInteractable>();
-                    if (aGrabInteractable.grabbing)
+                    if (aGrabInteractable.IsGrabbing)
                     {
                         if (Vector3.Distance(a.transform.position, midStringPoint.position) < 0.1f)
                         {
@@ -100,7 +100,7 @@ namespace Valkyrie.EIR.Examples
             }
 
             // Check if arrow is released
-            if (arrowOnBow && !arrowGrabInteractable.grabbing)
+            if (arrowOnBow && !arrowGrabInteractable.IsGrabbing)
             {
                 arrowOnBow = false;
                 FireArrow();
@@ -119,7 +119,7 @@ namespace Valkyrie.EIR.Examples
         {
             if (arrowGrabInteractable == null)
                 return;
-            if (arrowGrabInteractable.grabbing && arrowOnBow)
+            if (arrowGrabInteractable.IsGrabbing && arrowOnBow)
             {
                 direction = (transform.TransformPoint(initialMidPoint) - arrowToGrab.position);
                 float force = ValkyrieEIRExtensionMethods.Map(direction.magnitude, 0, 0.5f);

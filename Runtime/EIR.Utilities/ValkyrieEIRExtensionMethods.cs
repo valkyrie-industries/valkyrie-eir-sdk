@@ -1,32 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Valkyrie.EIR.Utilities
-{
+namespace Valkyrie.EIR.Utilities {
 
-    public enum EmsPhysicsMode { MassOnly, ResistanceBased, MassAndAccelerationVector, TensionBasedMass, MassAndElbowAngle, MassAndAccelerationScalar, MassAndElbowAngleAndAccelerationScalar };
-
-    public enum ControllerButtons {
-        menu,
-        a,
-        b,
-        trigger,
-        grip
-    }
-
-    public enum ControllerAxis {
-        primaryAxis
-    }
+    /// <summary>
+    /// Defines physics modes for the calculation of applicable EMS forces.
+    /// </summary>
+    public enum EmsPhysicsMode { 
+        MassOnly, 
+        ResistanceBased, 
+        MassAndAccelerationVector, 
+        TensionBasedMass, 
+        MassAndElbowAngle, 
+        MassAndAccelerationScalar, 
+        MassAndElbowAngleAndAccelerationScalar };
 
 
     /// <summary>
     /// Extension methods used throughout the codebase
     /// </summary>
     public static class ValkyrieEIRExtensionMethods {
-        public static readonly float accelerationMultiplier = 0.001f;
-        public static readonly float hitForceMultiplier = 0.015f;
-        public static readonly float massMultipier = 0.2f;
+
+        #region Constants
+
+        public static readonly float AccelerationMultiplier = 0.001f;
+        public static readonly float HitForceMultiplier = 0.015f;
+        public static readonly float MassMultipier = 0.2f;
+
+        #endregion
+
+        #region Mapping
 
         /// <summary>
         /// Maps the input between minimum and maximum values to 0,1 range.
@@ -47,6 +49,11 @@ namespace Valkyrie.EIR.Utilities
             return (value - fromSource) / (toSource - fromSource) * (toTarget - fromTarget) + fromTarget;
         }
 
+        /// <summary>
+        /// Maps the input to a specific ExpRange.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static float MapToExpRange(int value) {
             float output = 0;
             switch (value) {
@@ -78,19 +85,20 @@ namespace Valkyrie.EIR.Utilities
             return output;
         }
 
+        #endregion
+
+        #region Public Methods
+
         /// <summary>
         /// Search all of the children of this gameobject for a name that matches the input
         /// </summary>
         /// <param name="parent"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static GameObject FindChildByName(this GameObject parent, string name)
-        {
+        public static GameObject FindChildByName(this GameObject parent, string name) {
             Transform[] children = parent.GetComponentsInChildren<Transform>(true);
-            foreach (Transform child in children)
-            {
-                if (child.gameObject.name == name)
-                {
+            foreach (Transform child in children) {
+                if (child.gameObject.name == name) {
                     return child.gameObject;
                 }
             }
@@ -120,5 +128,6 @@ namespace Valkyrie.EIR.Utilities
             return size;
         }
 
+        #endregion
     }
 }

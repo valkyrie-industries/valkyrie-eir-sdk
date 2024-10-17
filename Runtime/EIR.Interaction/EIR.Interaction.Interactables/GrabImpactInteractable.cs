@@ -1,19 +1,19 @@
-using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 #if EIR_HAPTICS
 using Valkyrie.EIR.Haptics;
 #endif
 using Valkyrie.EIR.Utilities;
 
-namespace Valkyrie.EIR.Interaction.Interactables
-{
-    public class GrabImpactInteractable : GrabInteractable {
-        private Collider col;
-        protected Rigidbody rig;
+namespace Valkyrie.EIR.Interaction.Interactables {
 
+    /// <summary>
+    /// Extends GrabInteractable, listening for collisions whilst grabbing.
+    /// </summary>
+    public class GrabImpactInteractable : GrabInteractable {
+
+        #region Serialized Variables
 
         [Header("Grab Impact Interactable")]
         [SerializeField]
@@ -24,14 +24,22 @@ namespace Valkyrie.EIR.Interaction.Interactables
 #endif
         [SerializeField]
         private float presetTime = 0.1f;
-
-        private bool doCollisionCheck = false;
-
         [SerializeField]
         private Collider[] blackListedColliders;
 
+        #endregion
 
-        public override void Start() {
+        #region Private Variables
+
+        private Collider col;
+        protected Rigidbody rig;
+        private bool doCollisionCheck = false;
+
+        #endregion
+
+        #region Unity Methods
+
+        protected override void Start() {
             col = GetComponent<Collider>();
 
             if (col == null) Debug.LogError("[Grab Impact Interactable] No collider found on this gameobject", gameObject);
@@ -42,20 +50,25 @@ namespace Valkyrie.EIR.Interaction.Interactables
             base.Start();
         }
 
-        public override void Interacting() {
-            doCollisionCheck = !(!grabbing);
-        }
-
         private void FixedUpdate() {
             if (justGrabbed) {
                 SendZeroForce();
             }
 
             if (doCollisionCheck)
-                CheckForCollisionsWhileHolding();
+                CheckForCollisionsWhileGrabbing();
         }
 
-        void CheckForCollisionsWhileHolding() {
+        #endregion
+
+        #region Private Methods
+
+
+        protected override void Interacting() {
+            doCollisionCheck = !(!grabbing);
+        }
+
+        private void CheckForCollisionsWhileGrabbing() {
             Physics.SyncTransforms();
 
             int layerMask = ~LayerMask.GetMask("Hands");
@@ -107,6 +120,7 @@ namespace Valkyrie.EIR.Interaction.Interactables
 #endif
         }
 
+        #endregion
     }
 }
 

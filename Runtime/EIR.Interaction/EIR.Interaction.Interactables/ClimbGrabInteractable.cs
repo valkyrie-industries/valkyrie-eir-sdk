@@ -2,49 +2,54 @@
 using Unity.XR.CoreUtils;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-namespace Valkyrie.EIR.Interaction.Interactables
-{
+namespace Valkyrie.EIR.Interaction.Interactables {
+
     /// <summary>
     /// Checks if it is grabbed by the hand (the "currently interacting body part")
-    /// Public Bools: grabbing, justGrabbed, justDropped
     /// </summary>  
     [RequireComponent(typeof(XRGrabInteractable))]
-    public class ClimbGrabInteractable : GrabInteractable
-    {
+    public class ClimbGrabInteractable : GrabInteractable {
 
-        Vector3 justGrabbedPosition;
-        Vector3 previouslyGrabbedPosition = Vector3.zero;
+        #region Serialized Variables
 
         [SerializeField]
-        float multiplier = 100f;
+        private float multiplier = 100f;
 
-        XROrigin xrOrigin;
+        #endregion
 
-        public override void Start()
-        {
+        #region Private Variables
+
+        private Vector3 justGrabbedPosition;
+        private Vector3 previouslyGrabbedPosition = Vector3.zero;
+        private XROrigin xrOrigin;
+
+        #endregion
+
+        #region Unity Methods
+
+        protected override void Start() {
             xrOrigin = FindObjectOfType<XROrigin>();
             base.Start();
 
         }
 
-        public override void Update()
-        {
+        protected override void Update() {
             base.Update();
             if (justGrabbed)
                 justGrabbedPosition = xrOrigin.transform.position;
         }
 
+        #endregion
 
-        public override void Interacting()
-        {
-            if (grabbing)
-            {
-                
-                // 1. Calculate force of the object
+        #region Private Methods
+
+        protected override void Interacting() {
+            if (grabbing) {
+
+                // calculate force of the object
                 Vector3 force = Vector3.zero;
 
-                if (xrOrigin != null && !justGrabbed)
-                {
+                if (xrOrigin != null && !justGrabbed) {
                     force = (xrOrigin.transform.position - justGrabbedPosition) * multiplier; // need to make it a xrOrigin, because the hand is on the same place
 
                     Vector3 displacement = (currentlyInteractingBodyPart.transform.position - previouslyGrabbedPosition);
@@ -56,5 +61,7 @@ namespace Valkyrie.EIR.Interaction.Interactables
                 InvokeOnForce(currentlyInteractingBodyPart.BodyPart, force.magnitude);
             }
         }
+
+        #endregion
     }
 }

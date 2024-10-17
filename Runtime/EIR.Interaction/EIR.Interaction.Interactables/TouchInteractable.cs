@@ -1,9 +1,5 @@
 using System;
 using UnityEngine;
-using Valkyrie.EIR.Interaction;
-#if EIR_HAPTICS
-using Valkyrie.EIR.Haptics;
-#endif
 
 namespace Valkyrie.EIR.Interaction.Interactables {
     /// <summary>
@@ -12,12 +8,23 @@ namespace Valkyrie.EIR.Interaction.Interactables {
     /// </summary>
     public class TouchInteractable : Interactable {
 
+        #region Serialized Variables
+
         [SerializeField]
         protected float interactionDuration = 0.3f;
+
+        #endregion
+
+        #region Private Variables
+
         protected bool touched;
         protected bool partDependent = false;
 
-        public virtual void OnCollisionEnter(Collision collision) {
+        #endregion
+
+        #region Unity Methods
+
+        protected virtual void OnCollisionEnter(Collision collision) {
             try {
                 Collider collidedObject = collision.collider;
                 if (collidedObject == null) {
@@ -41,7 +48,24 @@ namespace Valkyrie.EIR.Interaction.Interactables {
             }
         }
 
-        public virtual void OnTriggerEnter(Collider collider) {
+        protected virtual void OnCollisionExit(Collision collision) {
+            try {
+                Collider collidedObject = collision.collider;
+                if (collidedObject == null) {
+                    Debug.LogError("[TouchInteractable.OnCollisionExit] Collision object is null.");
+                    return;
+                }
+
+                InteractingBodyPart bodyPart = collidedObject.GetComponent<InteractingBodyPart>();
+                if (bodyPart != null) {
+                    touched = false;
+                }
+            } catch (Exception ex) {
+                Debug.LogError($"[TouchInteractable.OnCollisionExit] {ex.Message}");
+            }
+        }
+
+        protected virtual void OnTriggerEnter(Collider collider) {
             Collider collidedObject = collider;
             InteractingBodyPart bodyPart = collidedObject.GetComponent<InteractingBodyPart>();
             if (bodyPart != null) {
@@ -58,25 +82,7 @@ namespace Valkyrie.EIR.Interaction.Interactables {
             }
         }
 
-        public virtual void OnCollisionExit(Collision collision) {
-            try {
-                Collider collidedObject = collision.collider;
-                if (collidedObject == null) {
-                    Debug.LogError("[TouchInteractable.OnCollisionExit] Collision object is null.");
-                    return;
-                }
-
-                InteractingBodyPart bodyPart = collidedObject.GetComponent<InteractingBodyPart>();
-                if (bodyPart != null) {
-                    touched = false;
-                }
-            }
-            catch (Exception ex) {
-                Debug.LogError($"[TouchInteractable.OnCollisionExit] {ex.Message}");
-            }
-        }
-
-        public virtual void OnTriggerExit(Collider collider) {
+        protected virtual void OnTriggerExit(Collider collider) {
             try {
                 Collider collidedObject = collider;
                 if (collidedObject == null) {
@@ -94,17 +100,22 @@ namespace Valkyrie.EIR.Interaction.Interactables {
             }
         }
 
-
-        public virtual void TouchInteraction(Vector3 velocity) {
-            // empty in base.
-        }
-
-        public virtual void TouchInteraction(Vector3 velocity, BodyPart part) {
-            // empty in base.
-        }
-
         protected void OnDisable() {
             touched = false;
         }
+
+        #endregion
+
+        #region Private Methods
+
+        protected virtual void TouchInteraction(Vector3 velocity) {
+            // empty in base.
+        }
+
+        protected virtual void TouchInteraction(Vector3 velocity, BodyPart part) {
+            // empty in base.
+        }
+
+        #endregion
     }
 }

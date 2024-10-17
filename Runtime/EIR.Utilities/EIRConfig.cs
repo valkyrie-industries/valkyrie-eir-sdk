@@ -5,7 +5,12 @@ namespace Valkyrie.EIR.Utilities {
 
     public enum BluetoothSendFrequency { EveryFrame, EverySecond, EveryThird }
 
+    /// <summary>
+    /// Configuration scriptable object to facilitate quick modification of EIR configration values.
+    /// </summary>
     public class EIRConfig : ScriptableObject {
+
+        #region Static Accessor
 
         private static EIRConfig instance;                        // Singleton instance. Only one EIR Config is permitted to exist.
 
@@ -25,6 +30,10 @@ namespace Valkyrie.EIR.Utilities {
             }
         }
 
+        #endregion
+
+        #region Public Properties
+
         public bool UsingHpt { get { return enableHapticsManager; } set { enableHapticsManager = value; } }
         public bool UsingCom { get { return enableBTEirBluetoothBridge; } set { enableBTEirBluetoothBridge = value; } }
         public bool UsingInt { get { return enableInteractionManager; } }
@@ -34,7 +43,12 @@ namespace Valkyrie.EIR.Utilities {
         public bool AutoInitiaise { get { return autoInitialise; } }    
 
         public bool UseOVRForVibrations { get { return useOVRForVibrations; } }
+        public bool OutputHapticDebug { get { return outputHapticDebug; } }
+        public BluetoothSendFrequency BluetoothSendFrequency { get { return bluetoothSendFrequency; } set { bluetoothSendFrequency = value; } }
 
+        #endregion
+
+        #region Serialized Variables
 
         [SerializeField] private bool enableHapticsManager;
         [SerializeField] private bool enableBTEirBluetoothBridge;
@@ -46,12 +60,8 @@ namespace Valkyrie.EIR.Utilities {
         [SerializeField] private string deviceFilter = "Valkyrie";
         [SerializeField] private bool autoInitialise = true;
         [SerializeField] private bool useOVRForVibrations;
+        [SerializeField] private BluetoothSendFrequency bluetoothSendFrequency;
 
-        public bool OutputHapticDebug { get { return outputHapticDebug; } }
-        public BluetoothSendFrequency BluetoothSendFrequency { get { return bluetoothSendFrequency; } set { bluetoothSendFrequency = value; } }
-        [SerializeField]
-        private BluetoothSendFrequency bluetoothSendFrequency;
-
-
+        #endregion
     }
 }

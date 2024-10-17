@@ -6,8 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Valkyrie.EIR.Utilities;
 
-namespace Valkyrie.EIR.Haptics
-{
+namespace Valkyrie.EIR.Haptics {
     /// <summary>
     /// Runs the provided HapticPreset in real time. Use by calling CreateHapticPresetRunner from the HapticsManager
     /// </summary>
@@ -61,20 +60,17 @@ namespace Valkyrie.EIR.Haptics
         /// Provide a time betweeen 0 and 1 and this will set the current preset to that mapped time
         /// </summary>
         /// <param name="newTime"></param>
-        public void SkipTo(float newTime)
-        {
+        public void SkipTo(float newTime) {
             newTime = Mathf.Clamp(newTime, 0, 1);
-            SetTimeStarted(timer.timeStarted - newTime.MapToRange(0, 1, 0, m_preset.totalSegmentTime));
+            SetTimeStarted(timer.TimeStarted - newTime.MapToRange(0, 1, 0, m_preset.totalSegmentTime));
         }
 
         /// <summary>
         /// Set the time this preset started         
         /// </summary>
         /// <param name="newTime"></param>
-        public void SetTimeStarted(float newTime)
-        {
-            if(newTime < Time.time - m_preset.totalSegmentTime)
-            {
+        public void SetTimeStarted(float newTime) {
+            if (newTime < Time.time - m_preset.totalSegmentTime) {
                 Debug.LogError("[Haptic Preset Runner] Cannot set start time that far back as it will cause the preset to instantly complete");
             }
 
@@ -151,7 +147,7 @@ namespace Valkyrie.EIR.Haptics
 
             //Begin main while loop
             while (!timer.IsTimeOver()) {
-                
+
                 //Wait for the frame and loop if we're paused.
                 timer.SetPauseState(paused);
 
@@ -161,20 +157,15 @@ namespace Valkyrie.EIR.Haptics
                 if (paused)
                     continue;
 
-                if(finalIntensity == -1)
-                {
+                if (finalIntensity == -1) {
                     //Are we further than the segment we're looking at? If so, increase index and cumulative time
-                    if (timer.GetTimeSinceStart() > cumulativeSegmentTime)
-                    {
+                    if (timer.GetTimeSinceStart() > cumulativeSegmentTime) {
                         //Only increase the index if we aren't over the maximum segments
-                        if (currentSegmentIndex < segments.Length - 1)
-                        {
+                        if (currentSegmentIndex < segments.Length - 1) {
                             //Debug.Log("Increased segment index");
                             currentSegmentIndex++;
                             cumulativeSegmentTime += segments[currentSegmentIndex].m_time;
-                        }
-                        else
-                        {
+                        } else {
                             //If we are over the maximum segments, break the while loop
                             break;
                         }
@@ -190,19 +181,15 @@ namespace Valkyrie.EIR.Haptics
                     //Debug.Log("Points: " + points.Item1 + " " + points.Item2);
                     //Debug.Log("Raw intensity: " + intensity);
                     //Debug.Log("Multiplied intensity: " + intensity * m_intensityMultiplier);
-                }
-                else
-                {
+                } else {
                     intensity = finalIntensity;
                 }
 
-                if (float.IsNaN(intensity))
-                {
+                if (float.IsNaN(intensity)) {
                     intensity = 0;
                 }
 
-                if (float.IsNaN(m_intensityMultiplier))
-                {
+                if (float.IsNaN(m_intensityMultiplier)) {
                     m_intensityMultiplier = 0;
                 }
 
@@ -216,15 +203,13 @@ namespace Valkyrie.EIR.Haptics
             //If we are looping, restart the coroutine
             if (m_preset.m_loopType != HapticPreset.LoopType.None) {
 
-                if(m_preset.m_loopType == HapticPreset.LoopType.LoopFinalIntensity)
-                {
+                if (m_preset.m_loopType == HapticPreset.LoopType.LoopFinalIntensity) {
                     finalIntensity = intensity;
                 }
 
                 //We could use another loop here instead but goto is cleaner here
                 goto start;
-            }
-            else {
+            } else {
                 Stop();
             }
 
@@ -238,8 +223,7 @@ namespace Valkyrie.EIR.Haptics
                         point1 = segments[currentSegmentIndex - 1].m_point2;
                     else
                         point1 = segments[segments.Length - 1].m_point2;
-                }
-                else
+                } else
                     point1 = segments[currentSegmentIndex].m_point1;
 
 
@@ -248,8 +232,7 @@ namespace Valkyrie.EIR.Haptics
                         point2 = segments[currentSegmentIndex + 1].m_point1;
                     else
                         point2 = segments[0].m_point1;
-                }
-                else
+                } else
                     point2 = segments[currentSegmentIndex].m_point2;
 
 

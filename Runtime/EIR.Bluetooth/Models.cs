@@ -1,11 +1,10 @@
-using System;
 
 namespace Valkyrie.EIR.Bluetooth {
 
     /// <summary>
     /// Defines a list of devices returned from the Bluetooth scan method.
     /// </summary>
-    [Serializable]
+    [System.Serializable]
     public class BluetoothDeviceList {
         public BluetoothDeviceInfo[] devices;
     }
@@ -13,7 +12,7 @@ namespace Valkyrie.EIR.Bluetooth {
     /// <summary>
     /// Defines a device returned from the Bluetooth scan method.
     /// </summary>
-    [Serializable]
+    [System.Serializable]
     public class BluetoothDeviceInfo {
         public string name;
         public string address;
@@ -23,7 +22,7 @@ namespace Valkyrie.EIR.Bluetooth {
     /// <summary>
     /// Device connection state and battery status for both EIR bands.
     /// </summary>
-    [Serializable]
+    [System.Serializable]
     public class DeviceVitals {
 
         // reminder: R Master, L Slave.

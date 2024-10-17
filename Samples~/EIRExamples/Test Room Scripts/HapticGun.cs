@@ -91,7 +91,7 @@ namespace Valkyrie.EIR.Examples {
         private bool bulletsDisappearOnContact = true;
 
 #if EIR_INTERACTION
-        public override void Start() {
+        protected override void Start() {
             base.Start();
 #else
         public void Start() {
@@ -121,7 +121,7 @@ namespace Valkyrie.EIR.Examples {
         }
 
 #if EIR_INTERACTION
-        public override void Interacting() {
+        protected override void Interacting() {
             base.Interacting();
             if (grabbing) {
                 col.enabled = false;

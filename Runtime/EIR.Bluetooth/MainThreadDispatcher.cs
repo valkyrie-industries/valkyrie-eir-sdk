@@ -6,13 +6,23 @@ namespace Valkyrie.EIR.Bluetooth {
 
     /// <summary>
     /// Class to dispatch actions called from threads other than the main thread within the Bluetooth Java plugin.
+    /// Some actions can only be called upon the main thread (e.g. Unity UX) and would otherwise fail to invoke.
     /// </summary>
     public class MainThreadDispatcher : MonoBehaviour {
 
-        private readonly List<System.Action> actions = new List<System.Action>();
+        #region Events
 
+        private readonly List<Action> actions = new List<Action>();
+
+        #endregion
+
+        #region Static Accessors
 
         private static MainThreadDispatcher Instance;
+
+        #endregion
+
+        #region Unity Methods
 
         private void Awake() {
             if (Instance == null) {
@@ -23,27 +33,6 @@ namespace Valkyrie.EIR.Bluetooth {
                 Destroy(gameObject);
             }
         }
-
-        /// <summary>
-        /// Run this action on the main thread.
-        /// </summary>
-        /// <param name="action"></param>
-        public static void RunOnMainThread(System.Action action) {
-            if (Instance != null) {
-                Instance.Run(action);
-            }
-        }
-
-        private void Run(System.Action action) {
-            if (action == null) {
-                return;
-            }
-
-            lock (actions) {
-                actions.Add(action);
-            }
-        }
-
         private void Update() {
             List<Action> actionsCopy;
             lock (actions) {
@@ -53,14 +42,37 @@ namespace Valkyrie.EIR.Bluetooth {
             foreach (var action in actionsCopy) {
                 try {
                     action?.Invoke();
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     Debug.LogError($"[EIR Bluetooth] Exception in MainThreadDispatcher action: {ex}");
                 }
             }
         }
 
+        #endregion
 
+        #region Public Methods
 
+        /// <summary>
+        /// Run the input action on the main thread.
+        /// This method should only be called from threads other than the main thread.
+        /// </summary>
+        /// <param name="action"></param>
+        public static void RunOnMainThread(Action action) {
+            if (Instance != null) {
+                Instance.Run(action);
+            }
+        }
+
+        #endregion
+
+        private void Run(Action action) {
+            if (action == null) {
+                return;
+            }
+
+            lock (actions) {
+                actions.Add(action);
+            }
+        }
     }
 }
