@@ -17,7 +17,7 @@
   "samples": [
     {
       "displayName": "EIR Examples",
-      "description": "Contains example implementations of EIR functionality.\n<i>Dependencies:</i>\n • <a href=\"com.unity3d.kharma:upmpackage/com.unity.inputsystem#1.11.2\">Unity Input System, 1.9.0</a>",
+      "description": "Contains example implementations of EIR functionality.\n<i>Dependencies:</i>\n • <a href=\"com.unity3d.kharma:upmpackage/com.unity.inputsystem\">Unity Input System, 1.9.0 or later.</a>",
       "path": "Samples~/EIRExamples"
     }
   ],
