@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Valkyrie.EIR.Examples {
 
     /// <summary>
-    /// Bullet projectile for haptic gun example.
+    /// Bullet projectile for HapticGun example.
     /// </summary>
     public class Bullet : MonoBehaviour {
 

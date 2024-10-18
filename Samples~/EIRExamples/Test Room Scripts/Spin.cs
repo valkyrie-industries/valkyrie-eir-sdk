@@ -1,22 +1,25 @@
 using UnityEngine;
 
-/// <summary>
-/// Rotates a gameobject over time.
-/// </summary>
-public class Spin : MonoBehaviour {
+namespace Valkyrie.EIR.Examples.Utilities {
 
-    #region Serialized Variables
+    /// <summary>
+    /// Rotates a gameobject over time.
+    /// </summary>
+    public class Spin : MonoBehaviour {
 
-    [SerializeField]
-    private float speed = 10;
+        #region Serialized Variables
 
-    #endregion
+        [SerializeField]
+        private float speed = 10;
 
-    #region Unity Methods
+        #endregion
 
-    private void Update() {
-        transform.Rotate(0, speed * Time.deltaTime, 0);
+        #region Unity Methods
+
+        private void Update() {
+            transform.Rotate(0, speed * Time.deltaTime, 0);
+        }
+
+        #endregion
     }
-
-    #endregion
 }
