@@ -277,7 +277,7 @@ namespace Valkyrie.EIR {
         /// <param name="force"></param>
         /// <param name="bypassCalibration"></param>
         private void OnHapticRequest(BodyPart bodyPart, float force, bool bypassCalibration) {
-            Debug.Log($"[EIR Manager] OnHapticRequest from Interaction system {(int)bodyPart} {force}");
+            if(EIRConfig.Instance.OutputHapticDebug) Debug.Log($"[EIR Manager] OnHapticRequest from Interaction system {(int)bodyPart} {force}");
             hapticManager.AddHapticIntensity((int)bodyPart, force, bypassCalibration);
         }
 #endif

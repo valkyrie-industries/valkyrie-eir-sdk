@@ -245,8 +245,6 @@ namespace Valkyrie.EIR.Haptics
                 return;
             }
 
-            Debug.Log("Intensity: " + intensities[bodyPart]);
-
             intensities[bodyPart] += intensity;
 
             mappedIntensities[bodyPart] = bypassCalibration ? (int)intensities[bodyPart] : (int)ClampMappedForce(bodyPart, intensities[bodyPart]);

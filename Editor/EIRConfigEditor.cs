@@ -8,7 +8,7 @@ namespace Valkyrie.EIR.Utilities {
     [CustomEditor(typeof(EIRConfig))]
     public class EIRConfigEditor : Editor {
 
-        [MenuItem("Valkyrie Tools/Highlight EIR Config")]
+        [MenuItem("EIR Tools/Highlight EIR Config")]
         static void CreateConfig() {
             string assetPath = "Assets/Resources/Valkyrie Config/EIRConfig.asset";
 
