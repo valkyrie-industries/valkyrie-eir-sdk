@@ -11,9 +11,6 @@ namespace Valkyrie.EIR.Examples {
     /// </summary>
     public class ConfigureEIR : MonoBehaviour {
 
-#if EIR_HAPTICS
-
-
         #region Constants
 
         public const int MIN_GAIN = 0;
@@ -21,15 +18,20 @@ namespace Valkyrie.EIR.Examples {
 
         #endregion
 
+
         #region Public Properties
 
+#if EIR_HAPTICS
         public int gain { get; private set; } = MIN_GAIN;
         public byte frequency { get; private set; } = HapticManager.CONST_FREQUENCY;
         public byte pulseWidth { get; private set; } = HapticManager.CONST_PULSE_WIDTH;
+#else
+        public int gain { get; private set; } = MIN_GAIN;
+        public byte frequency { get; private set; } = 100;
+        public byte pulseWidth { get; private set; } = 100;
+#endif
 
         #endregion
-
-#endif
 
         #region Private Variables
 
