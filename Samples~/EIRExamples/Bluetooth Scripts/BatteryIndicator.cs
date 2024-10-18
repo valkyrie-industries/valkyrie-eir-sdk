@@ -33,6 +33,7 @@ namespace Valkyrie.EIR.Examples {
         #region Private Variables
 
         private bool isActive;
+        private bool initialised;
 
         #endregion
 
