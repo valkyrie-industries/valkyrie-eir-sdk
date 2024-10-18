@@ -39,14 +39,19 @@ namespace Valkyrie.EIR.Examples {
         #region Unity Methods
 
 #if EIR_COMM
-        private void OnEnable() {
+        private void Update() {
+            if (initialised) return;
+            if (EIRManager.Instance == null) return;
             EIRManager.Instance.Communication.RegisterHandler(this);
             SetIndication(false, EIRManager.Instance.Communication.Vitals);
             SetIndication(true, EIRManager.Instance.Communication.Vitals);
+            initialised = true;
         }
 
         private void OnDisable() {
+            if (!initialised) return;
             EIRManager.Instance.Communication.UnregisterHandler(this);
+            initialised = false;
         }
 #endif
 
@@ -147,6 +152,6 @@ namespace Valkyrie.EIR.Examples {
 
 #endif
 
-#endregion
+        #endregion
     }
 }
