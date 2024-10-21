@@ -53,13 +53,11 @@ namespace Valkyrie.EIR.Utilities {
         private GUIStyle boldStyle;
         private bool isOVRPackageInstalled = false;
         private ListRequest listRequest;
-        //private bool hasInteractionPackage;
 
         private void OnEnable() {
 
             listRequest = Client.List(true);
             EditorApplication.update += CheckPackageManagerRequest;
-            //hasInteractionPackage = HasInteractionPackage();
 
             enableHapticsManager = serializedObject.FindProperty("enableHapticsManager");
             enableBTEirBluetoothBridge = serializedObject.FindProperty("enableBTEirBluetoothBridge");
@@ -73,27 +71,6 @@ namespace Valkyrie.EIR.Utilities {
             useOVRForVibrations = serializedObject.FindProperty("useOVRForVibrations");
         }
 
-        //private static bool HasInteractionPackage() {
-        //    string basePath = "Assets/Samples/Valkyrie EIR SDK";
-        //    string[] subfolders = AssetDatabase.GetSubFolders(basePath);
-
-        //    foreach (var subfolder in subfolders) {
-        //        string eirFolderPath = $"{subfolder}/EIRInteraction";
-        //        if (AssetDatabase.IsValidFolder(eirFolderPath)) {
-        //            return true;
-        //        }
-        //    }
-
-        //    foreach (var subfolder in subfolders) {
-        //        string eirFolderPath = $"{subfolder}/EIR Interaction";
-        //        if (AssetDatabase.IsValidFolder(eirFolderPath)) {
-        //            return true;
-        //        }
-        //    }
-
-        //    return false;
-        //}
-
         public override void OnInspectorGUI() {
 
             serializedObject.Update();
@@ -103,10 +80,7 @@ namespace Valkyrie.EIR.Utilities {
             EditorGUILayout.PropertyField(autoInitialise, new GUIContent("Auto Initialise (EIR Manager automatically initialises, otherwise call Initialise)"));
             EditorGUILayout.PropertyField(enableHapticsManager, new GUIContent("Enable Haptics Manager"));
             EditorGUILayout.PropertyField(enableBTEirBluetoothBridge, new GUIContent("Enable BT Communication Manager"));
-            //EditorGUI.BeginDisabledGroup(!hasInteractionPackage);
-            //if (!hasInteractionPackage) EditorGUILayout.LabelField("Interaction Package not installed.", EditorStyles.miniLabel);
             EditorGUILayout.PropertyField(enableInteractionManager, new GUIContent("Enable Interaction Manager"));
-            //EditorGUI.EndDisabledGroup();
             EditorGUILayout.Space(10);
             EditorGUILayout.LabelField("EIR Device Properties", EditorStyles.boldLabel);
             if (!enableBTEirBluetoothBridge.boolValue) EditorGUILayout.LabelField("EIR Bluetooth is not enabled.", EditorStyles.miniLabel);
@@ -114,7 +88,7 @@ namespace Valkyrie.EIR.Utilities {
             EditorGUILayout.PropertyField(bluetoothSendFrequency, new GUIContent("Bluetooth Send Frequency"));
             EditorGUILayout.PropertyField(outputHapticDebug, new GUIContent("Output Haptic Debug"));
             EditorGUILayout.PropertyField(ignoreCachedDevice, new GUIContent("Ignore Cached Device"));
-            EditorGUILayout.PropertyField(vitalsReadFrequency, new GUIContent("Vitals Read Interval (seconds)"));
+            EditorGUILayout.PropertyField(vitalsReadFrequency, new GUIContent("Vitals Read Interval (seconds) (min value: 1)"));
             EditorGUILayout.PropertyField(deviceFilter, new GUIContent("Device Filter (returns devices with name containing this)"));
             EditorGUI.EndDisabledGroup();
             EditorGUILayout.Space(10);
@@ -124,6 +98,8 @@ namespace Valkyrie.EIR.Utilities {
             EditorGUILayout.PropertyField(useOVRForVibrations, new GUIContent("Use OVR package for Vibrational Haptics"));
             EditorGUI.EndDisabledGroup();
 
+            if (vitalsReadFrequency.intValue < 1) vitalsReadFrequency.intValue = 1;
+
             serializedObject.ApplyModifiedProperties();
 
             UpdateScriptingDefines();
@@ -132,7 +108,7 @@ namespace Valkyrie.EIR.Utilities {
         private void CheckPackageManagerRequest() {
             if (listRequest.IsCompleted) {
                 if (listRequest.Status == StatusCode.Success) {
-                    // Check if the OVR package is installed
+                    // check if the OVR package is installed
                     foreach (var package in listRequest.Result) {
                         if (package.name.Contains("com.unity.xr.oculus")) {
                             isOVRPackageInstalled = true;
@@ -141,7 +117,7 @@ namespace Valkyrie.EIR.Utilities {
                     }
                 }
 
-                // Unsubscribe from the update event when done
+                // unsubscribe from the update event when done
                 EditorApplication.update -= CheckPackageManagerRequest;
             }
         }
@@ -166,10 +142,6 @@ namespace Valkyrie.EIR.Utilities {
             if (enableInteractionManager.boolValue != currentEnableInteraction) {
                 SetScriptingDefineSymbol("EIR_INTERACTION", enableInteractionManager.boolValue);
             }
-            //if (enableInteractionManager.boolValue == true && !hasInteractionPackage) {
-            //    enableInteractionManager.boolValue = false;
-            //    SetScriptingDefineSymbol("EIR_INTERACTION", false);
-            //}
 
             if (useOVRForVibrations.boolValue != currentEnableOVRVibrations) {
                 SetScriptingDefineSymbol("EIR_USE_OVR_VIBRATIONS", useOVRForVibrations.boolValue);
@@ -179,8 +151,7 @@ namespace Valkyrie.EIR.Utilities {
                 SetScriptingDefineSymbol("EIR_USE_OVR_VIBRATIONS", false);
             }
 
-
-            // Force the Project window to repaint
+            // force the Project window to repaint
             EditorApplication.RepaintProjectWindow();
         }
 
@@ -189,19 +160,19 @@ namespace Valkyrie.EIR.Utilities {
             BuildTargetGroup bt = EditorUserBuildSettings.selectedBuildTargetGroup;
             string defines = UnityEditor.PlayerSettings.GetScriptingDefineSymbolsForGroup(bt);
 
-            // Check if the define is already present
+            // check if the define is already present
             bool defineExists = defines.Contains(define);
 
-            // Add or remove the define based on the enable flag
+            // add or remove the define based on the enable flag
             if (enable && !defineExists) {
                 // Add the define only if it doesn't exist
                 defines += (string.IsNullOrEmpty(defines) ? "" : ";") + define;
             } else if (!enable && defineExists) {
-                // Remove the define only if it exists
+                // remove the define only if it exists
                 defines = defines.Replace(define + ";", "").Replace(define, "");
             }
 
-            // Set the updated defines
+            // set the updated defines
             UnityEditor.PlayerSettings.SetScriptingDefineSymbolsForGroup(bt, defines);
         }
 
