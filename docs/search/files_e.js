@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['target_2ecs_0',['Target.cs',['../d5/dec/_target_8cs.html',1,'']]],
-  ['teleportmanager_2ecs_1',['TeleportManager.cs',['../d4/dcf/_teleport_manager_8cs.html',1,'']]],
-  ['timer_2ecs_2',['Timer.cs',['../d3/d91/_timer_8cs.html',1,'']]],
-  ['touchinteractable_2ecs_3',['TouchInteractable.cs',['../d2/d1c/_touch_interactable_8cs.html',1,'']]]
+  ['simpleconnection_2ecs_0',['SimpleConnection.cs',['../de/d51/_simple_connection_8cs.html',1,'']]],
+  ['spin_2ecs_1',['Spin.cs',['../d4/d2f/_spin_8cs.html',1,'']]]
 ];

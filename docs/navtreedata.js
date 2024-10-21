@@ -25,7 +25,18 @@
 var NAVTREE =
 [
   [ "Valkyrie EIR SDK", "index.html", [
-    [ "valkyrie-eir-sdk", "d3/dcc/md__r_e_a_d_m_e.html", null ],
+    [ "LICENSE", "d1/dd7/md__c_1_2_git_2valkyrie-eir-sdk_2_l_i_c_e_n_s_e.html", [
+      [ "License", "d1/dd7/md__c_1_2_git_2valkyrie-eir-sdk_2_l_i_c_e_n_s_e.html#autotoc_md0", [
+        [ "You are free to:", "d1/dd7/md__c_1_2_git_2valkyrie-eir-sdk_2_l_i_c_e_n_s_e.html#autotoc_md1", null ],
+        [ "Under the following terms:", "d1/dd7/md__c_1_2_git_2valkyrie-eir-sdk_2_l_i_c_e_n_s_e.html#autotoc_md2", null ],
+        [ "Commercial Use:", "d1/dd7/md__c_1_2_git_2valkyrie-eir-sdk_2_l_i_c_e_n_s_e.html#autotoc_md3", null ],
+        [ "No additional restrictions:", "d1/dd7/md__c_1_2_git_2valkyrie-eir-sdk_2_l_i_c_e_n_s_e.html#autotoc_md4", null ],
+        [ "Notices:", "d1/dd7/md__c_1_2_git_2valkyrie-eir-sdk_2_l_i_c_e_n_s_e.html#autotoc_md5", [
+          [ "Full License Text", "d1/dd7/md__c_1_2_git_2valkyrie-eir-sdk_2_l_i_c_e_n_s_e.html#autotoc_md6", null ]
+        ] ]
+      ] ]
+    ] ],
+    [ "Valkyrie EIR SDK", "d8/d4a/md__c_1_2_git_2valkyrie-eir-sdk_2_r_e_a_d_m_e.html", null ],
     [ "Packages", "namespaces.html", [
       [ "Package List", "namespaces.html", "namespaces_dup" ],
       [ "Package Members", "namespacemembers.html", [
@@ -55,10 +66,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d4/da1/struct_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_segment.html#a0330c2d32c2825452cdd964908df7e7a",
-"d7/d50/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_simple_connection.html#a371e6842754a1d0e6ca994b14c7d80be",
-"db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#a04fed087df0aa68b2925842e03b5f78b",
-"df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#adcb7300d8deb14b0ae8b9459936f171a"
+"d4/d69/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_target.html#a863148f7dfbbc8171b510e2529b6a5d2",
+"d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html#ad38a7aeb38e81d7da0d34c6168961907",
+"db/da2/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_e_m_s_test_button.html#a6c074e1ecd7d91c64429f5d3a76baf6b",
+"df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#a863544bd49d65b93e8f8ab3f824be2ac"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

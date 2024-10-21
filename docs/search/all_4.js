@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['eir_20sdk_0',['valkyrie-eir-sdk',['../d3/dcc/md__r_e_a_d_m_e.html',1,'']]],
+  ['eir_20sdk_0',['Valkyrie EIR SDK',['../d8/d4a/md__c_1_2_git_2valkyrie-eir-sdk_2_r_e_a_d_m_e.html',1,'']]],
   ['eirbluetoothbridge_1',['EirBluetoothBridge',['../d6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge.html',1,'Valkyrie::EIR::Bluetooth']]],
   ['eirbluetoothbridge_2ecs_2',['EirBluetoothBridge.cs',['../d8/d7b/_eir_bluetooth_bridge_8cs.html',1,'']]],
   ['eirconfig_3',['EIRConfig',['../d0/d43/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_e_i_r_config.html',1,'Valkyrie::EIR::Utilities']]],

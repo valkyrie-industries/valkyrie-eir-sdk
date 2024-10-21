@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sdk_0',['valkyrie-eir-sdk',['../d3/dcc/md__r_e_a_d_m_e.html',1,'']]]
+  ['license_0',['LICENSE',['../d1/dd7/md__c_1_2_git_2valkyrie-eir-sdk_2_l_i_c_e_n_s_e.html',1,'']]]
 ];

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['valkyrie_0',['Valkyrie',['../db/dd5/namespace_valkyrie.html',1,'']]],
-  ['valkyrie_20eir_20sdk_1',['valkyrie-eir-sdk',['../d3/dcc/md__r_e_a_d_m_e.html',1,'']]],
+  ['valkyrie_20eir_20sdk_1',['Valkyrie EIR SDK',['../d8/d4a/md__c_1_2_git_2valkyrie-eir-sdk_2_r_e_a_d_m_e.html',1,'']]],
   ['valkyrie_3a_3aeir_2',['EIR',['../de/dba/namespace_valkyrie_1_1_e_i_r.html',1,'Valkyrie']]],
   ['valkyrie_3a_3aeir_3a_3abluetooth_3',['Bluetooth',['../d5/d9d/namespace_valkyrie_1_1_e_i_r_1_1_bluetooth.html',1,'Valkyrie::EIR']]],
   ['valkyrie_3a_3aeir_3a_3aexamples_4',['Examples',['../d8/d50/namespace_valkyrie_1_1_e_i_r_1_1_examples.html',1,'Valkyrie::EIR']]],

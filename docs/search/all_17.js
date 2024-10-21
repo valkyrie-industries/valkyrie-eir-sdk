@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zerotobridge_0',['zeroToBridge',['../d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#a5c9e727dfbe7118131572828bb822c79a609ddf25d0a6d53ec6974dcd1e7a57b5',1,'Valkyrie::EIR::Haptics::HapticPreset']]]
+  ['you_20are_20free_20to_3a_0',['You are free to:',['../d1/dd7/md__c_1_2_git_2valkyrie-eir-sdk_2_l_i_c_e_n_s_e.html#autotoc_md1',1,'']]]
 ];
