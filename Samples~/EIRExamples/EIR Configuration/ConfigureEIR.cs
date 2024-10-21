@@ -32,7 +32,7 @@ namespace Valkyrie.EIR.Examples {
         public byte pulseWidth { get; private set; } = 100;
 #endif
 
-       
+
         #endregion
 
         #region Private Variables
@@ -47,7 +47,7 @@ namespace Valkyrie.EIR.Examples {
         /// Modifies the gain by the input amount. Negative values will reduce the gain.
         /// </summary>
         /// <param name="modifier"></param>
-        [Obsolete("[ConfigureEIR] Although the device can be given a gain configuration, the device does not use it. This will be removed in a future update",false)]
+        [Obsolete("[ConfigureEIR] Although the device can be given a gain configuration, the device does not use it. This will be removed in a future update", false)]
         public void AlterGain(int modifier) {
             gain += modifier;
             gain = Mathf.Clamp(gain, MIN_GAIN, MAX_GAIN);
@@ -58,15 +58,13 @@ namespace Valkyrie.EIR.Examples {
         /// Modifies the frequency by the input amount. Negative values will reduce the frequency.
         /// </summary>
         /// <param name="modifier"></param>
-        public void AlterFrequency(int modifier)
-        {
-            // Calculate the new frequency using an int
+        public void AlterFrequency(int modifier) {
+            // calculate the new frequency using an int
             int newFrequency = frequency + modifier;
 
-            // Check for overflow or underflow
-            if (newFrequency > byte.MaxValue || newFrequency < HapticManager.MIN_FREQUENCY)
-            {
-                return;  // Prevent overflow/underflow
+            // check for overflow or underflow
+            if (newFrequency > byte.MaxValue || newFrequency < HapticManager.MIN_FREQUENCY) {
+                return;  // prevent overflow/underflow
             }
 
             frequency += (byte)modifier;
@@ -76,15 +74,13 @@ namespace Valkyrie.EIR.Examples {
         /// Modifies the pulse width by the input amount. Negative values will reduce the pulse width.
         /// </summary>
         /// <param name="modifier"></param>
-        public void AlterPulseWidth(int modifier)
-        {
-            // Calculate the new frequency using an int
+        public void AlterPulseWidth(int modifier) {
+            // calculate the new frequency using an int
             int newPulseWidth = pulseWidth + modifier;
 
-            // Check for overflow or underflow
-            if (newPulseWidth > byte.MaxValue || newPulseWidth < HapticManager.MIN_PULSE_WIDTH)
-            {
-                return;  // Prevent overflow/underflow
+            // check for overflow or underflow
+            if (newPulseWidth > byte.MaxValue || newPulseWidth < HapticManager.MIN_PULSE_WIDTH) {
+                return;  // prevent overflow/underflow
             }
 
             pulseWidth += (byte)modifier;
@@ -144,7 +140,8 @@ namespace Valkyrie.EIR.Examples {
 
             if (lockSettings) {
                 text.text = "Unlock settings";
-            } else {
+            }
+            else {
                 text.text = "Lock settings";
             }
 
