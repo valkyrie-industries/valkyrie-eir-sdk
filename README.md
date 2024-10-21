@@ -1,4 +1,4 @@
-# Valkyrie EIR SDK
+# ![Valkyrie Logo](https://github.com/valkyrie-industries/valkyrie-eir-sdk/blob/main/Documentation%20Assets~/Logo.png) Valkyrie EIR SDK
 
  The Valkyrie EIR SDK is a Unity extension which provides interface between Valkyrie EIR devices and your Unity Android application.
 
