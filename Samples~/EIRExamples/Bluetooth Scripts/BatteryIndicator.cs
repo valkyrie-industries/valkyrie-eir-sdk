@@ -83,9 +83,10 @@ namespace Valkyrie.EIR.Examples {
         /// <returns></returns>
         private Sprite GetSprite(bool connected, uint charge) {
             if (!connected) return sprites[5];
-            if (charge > 80) return sprites[4];
-            if (charge > 60) return sprites[3];
-            if (charge > 40) return sprites[2];
+            if (charge > 90) return sprites[4];
+            if (charge > 80) return sprites[3];
+            if (charge > 60) return sprites[2];
+            if (charge > 40) return sprites[1];
             if (charge > 20) return sprites[1];
             else return sprites[0];
         }
