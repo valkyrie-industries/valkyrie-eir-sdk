@@ -34,16 +34,42 @@ namespace Valkyrie.EIR.Utilities {
 
         #region Public Properties
 
+        /// <summary>
+        /// Enables the Valkyrie.EIR.Haptics namespace.
+        /// </summary>
         public bool UsingHpt { get { return enableHapticsManager; } set { enableHapticsManager = value; } }
+        /// <summary>
+        /// Enables the Valkyrie.EIR.Communication namespace.
+        /// </summary>
         public bool UsingCom { get { return enableBTEirBluetoothBridge; } set { enableBTEirBluetoothBridge = value; } }
+        /// <summary>
+        /// Enables the Valkyrie.EIR.Interaction namespace.
+        /// </summary>
         public bool UsingInt { get { return enableInteractionManager; } }
-        public bool IgnoreCache { get { return ignoreCachedDevice; } }
+        /// <summary>
+        /// EirBluetoothBridge.ReadDeviceVitals run interval when connected (seconds) (min value: 1).
+        /// </summary>
         public int VitalsReadInterval { get { return vitalsReadInterval; } }
+        /// <summary>
+        /// Returns only devices with with name containing the input filter.
+        /// </summary>
         public string DeviceFilter { get { return deviceFilter; } }
+        /// <summary>
+        /// Automatically calls EIRManager.Initialise if selected and the component is present in the scene. If unselected, EIRManager.Initialise must be called manually.
+        /// </summary>
         public bool AutoInitiaise { get { return autoInitialise; } }    
-
+        /// <summary>
+        /// (XR Only) Use Meta OVR plugin for controller haptic vibrations.
+        /// </summary>
         public bool UseOVRForVibrations { get { return useOVRForVibrations; } }
+        /// <summary>
+        /// Performs more verbose logging for haptic processes.
+        /// </summary>
         public bool OutputHapticDebug { get { return outputHapticDebug; } }
+        /// <summary>
+        /// The frequency in which EirBluetoothBridge.WriteBytesToDevice is called on a framerate dependent basis.
+        /// For XR projects, it is recommended to specify BluetoothSendFrequency as EverySecondFrame or EveryThirdFrame.
+        /// </summary>
         public BluetoothSendFrequency BluetoothSendFrequency { get { return bluetoothSendFrequency; } set { bluetoothSendFrequency = value; } }
 
         #endregion
