@@ -52,7 +52,7 @@ namespace Valkyrie.EIR.Utilities {
 
             AssetDatabase.CreateAsset(cfg, assetPath);
 
-            cfg.BluetoothSendFrequency = BluetoothSendFrequency.EverySecond;
+            cfg.BluetoothSendFrequency = BluetoothSendFrequency.EverySecondFrame;
 
             AssetDatabase.SaveAssets();
 

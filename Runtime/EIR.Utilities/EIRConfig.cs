@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Valkyrie.EIR.Utilities {
 
-    public enum BluetoothSendFrequency { EveryFrame, EverySecond, EveryThird }
+    public enum BluetoothSendFrequency { EveryFrame, EverySecondFrame, EveryThirdFrame }
 
     /// <summary>
     /// Configuration scriptable object to facilitate quick modification of EIR configration values.
