@@ -1,7 +1,7 @@
 {
   "name": "com.valkyrieindustries.eirsdk",
   "displayName": "Valkyrie EIR SDK",
-  "version": "0.3.6-preview",
+  "version": "0.3.7-preview",
   "unity": "2022.3",
   "unityRelease": "36f1",
   "description": "The Valkyrie EIR SDK provides interface between EIR devices and Unity.",
@@ -17,12 +17,12 @@
   "samples": [
     {
       "displayName": "EIR Examples",
-      "description": "Contains example implementations of EIR functionality.\n<i>Dependencies:</i>\n • <a href=\"com.unity3d.kharma:upmpackage/com.unity.inputsystem\">Unity Input System, 1.9.0 or later.</a>",
+      "description": "Contains example implementations of EIR functionality.\n<i>Dependencies:</i>\n • <a href=\"com.unity3d.kharma:upmpackage/com.unity.inputsystem\">Unity Input System, 1.9.0 or later.</a>\n • <a href=\"com.unity3d.kharma:upmpackage/com.unity.render-pipelines.universal\">Universal Render Pipeline, 14.0.11 or later.</a>",
       "path": "Samples~/EIRExamples"
     }
   ],
   "documentationUrl": "https://valkyrie-industries.github.io/valkyrie-eir-sdk/index.html",
-  "changelogUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/commits/v0.3.6-preview/",
+  "changelogUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/commits/v0.3.7-preview/",
   "licensesUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/blob/main/LICENSE",
   "dependencies": {
     "com.unity.modules.jsonserialize": "1.0.0",

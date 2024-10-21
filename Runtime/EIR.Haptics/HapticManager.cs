@@ -110,7 +110,7 @@ namespace Valkyrie.EIR.Haptics {
         #region Public Methods
 
         /// <summary>
-        /// Generates a haptic signal if on a valid send frame. This is dependent on the BluetoothSendFrequency set via EIR Config.
+        /// Generates a haptic signal if on a valid send frame. This is dependent on the BluetoothSendFrequency set via EIRConfig.
         /// </summary>
         /// <returns></returns>
         public sbyte[] GenerateHapticSignalForSendFrequency() {

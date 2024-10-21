@@ -163,12 +163,12 @@ namespace Valkyrie.EIR {
 
             Debug.Log($"[EIR Manager] Toggling BT Communication {(send ? "On" : "Off")}");
 
-            eirBluetoothBridge.IsActive = send;
-
             if (!send) {
                 hapticManager.Reset();
                 eirBluetoothBridge.WriteBytesToDevice(hapticManager.GenerateHapticSignal(), true);
             }
+
+            eirBluetoothBridge.IsActive = send;
         }
 
         /// <summary>
