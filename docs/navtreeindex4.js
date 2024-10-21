@@ -1,7 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#a863544bd49d65b93e8f8ab3f824be2ac":[2,0,0,0,2,2,1],
-"df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#a863544bd49d65b93e8f8ab3f824be2ac":[3,0,0,0,2,2,1],
 "df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#a8ff088daabf32bf8e1df973cb1d70daf":[2,0,0,0,2,2,6],
 "df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#a8ff088daabf32bf8e1df973cb1d70daf":[3,0,0,0,2,2,6],
 "df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#ab9dc469a1455393eb853dfd2a11deedb":[2,0,0,0,2,2,8],

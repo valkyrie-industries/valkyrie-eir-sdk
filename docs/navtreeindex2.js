@@ -1,7 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html#ad38a7aeb38e81d7da0d34c6168961907":[3,0,0,0,1,9,7],
-"d7/d2d/_move_to_scene_8cs.html":[4,0,2,0,3,1,4],
 "d7/d50/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_simple_connection.html":[2,0,0,0,1,24],
 "d7/d50/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_simple_connection.html":[3,0,0,0,1,24],
 "d7/d50/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_simple_connection.html#a0913c1aa21efaad90a4e7fda10fb8023":[2,0,0,0,1,24,2],
@@ -249,5 +247,7 @@ var NAVTREEINDEX2 =
 "db/d4b/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_bullet.html#af97951b829613b6cfb291ea90031781f":[2,0,0,0,1,5,0],
 "db/d4b/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_bullet.html#af97951b829613b6cfb291ea90031781f":[3,0,0,0,1,5,0],
 "db/da2/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_e_m_s_test_button.html":[2,0,0,0,1,14],
-"db/da2/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_e_m_s_test_button.html":[3,0,0,0,1,14]
+"db/da2/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_e_m_s_test_button.html":[3,0,0,0,1,14],
+"db/da2/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_e_m_s_test_button.html#a6c074e1ecd7d91c64429f5d3a76baf6b":[2,0,0,0,1,14,1],
+"db/da2/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_e_m_s_test_button.html#a6c074e1ecd7d91c64429f5d3a76baf6b":[3,0,0,0,1,14,1]
 };

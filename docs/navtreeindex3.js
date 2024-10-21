@@ -1,7 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"db/da2/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_e_m_s_test_button.html#a6c074e1ecd7d91c64429f5d3a76baf6b":[2,0,0,0,1,14,1],
-"db/da2/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_e_m_s_test_button.html#a6c074e1ecd7d91c64429f5d3a76baf6b":[3,0,0,0,1,14,1],
 "db/da2/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_e_m_s_test_button.html#ac507d918da8fcbddb8a0bb6e9cb289e8":[2,0,0,0,1,14,0],
 "db/da2/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_e_m_s_test_button.html#ac507d918da8fcbddb8a0bb6e9cb289e8":[3,0,0,0,1,14,0],
 "db/daa/_move_back_8cs.html":[4,0,2,0,3,1,3],
@@ -249,5 +247,7 @@ var NAVTREEINDEX3 =
 "df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#a23b07697360df496689bf22d9588361e":[2,0,0,0,2,2,0],
 "df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#a23b07697360df496689bf22d9588361e":[3,0,0,0,2,2,0],
 "df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#a6079a6af1a8d49d327eba392f1e4f2c3":[2,0,0,0,2,2,5],
-"df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#a6079a6af1a8d49d327eba392f1e4f2c3":[3,0,0,0,2,2,5]
+"df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#a6079a6af1a8d49d327eba392f1e4f2c3":[3,0,0,0,2,2,5],
+"df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#a863544bd49d65b93e8f8ab3f824be2ac":[2,0,0,0,2,2,1],
+"df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#a863544bd49d65b93e8f8ab3f824be2ac":[3,0,0,0,2,2,1]
 };
