@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System;
 #if EIR_HAPTICS
 using Valkyrie.EIR.Haptics;
 #endif
@@ -31,6 +32,7 @@ namespace Valkyrie.EIR.Examples {
         public byte pulseWidth { get; private set; } = 100;
 #endif
 
+       
         #endregion
 
         #region Private Variables
@@ -45,24 +47,46 @@ namespace Valkyrie.EIR.Examples {
         /// Modifies the gain by the input amount. Negative values will reduce the gain.
         /// </summary>
         /// <param name="modifier"></param>
+        [Obsolete("[ConfigureEIR] Although the device can be given a gain configuration, the device does not use it. This will be removed in a future update",false)]
         public void AlterGain(int modifier) {
             gain += modifier;
             gain = Mathf.Clamp(gain, MIN_GAIN, MAX_GAIN);
+            Debug.LogWarning("[ConfigureEIR] Although this can be called, the device does not recognise gain. This will be removed in a future update");
         }
 
         /// <summary>
-        /// Modifies the frequency by the input amount. Negative values will reduce the gain.
+        /// Modifies the frequency by the input amount. Negative values will reduce the frequency.
         /// </summary>
         /// <param name="modifier"></param>
-        public void AlterFrequency(int modifier) {
+        public void AlterFrequency(int modifier)
+        {
+            // Calculate the new frequency using an int
+            int newFrequency = frequency + modifier;
+
+            // Check for overflow or underflow
+            if (newFrequency > byte.MaxValue || newFrequency < HapticManager.MIN_FREQUENCY)
+            {
+                return;  // Prevent overflow/underflow
+            }
+
             frequency += (byte)modifier;
         }
 
         /// <summary>
-        /// Modifies the pulse width by the input amount. Negative values will reduce the gain.
+        /// Modifies the pulse width by the input amount. Negative values will reduce the pulse width.
         /// </summary>
         /// <param name="modifier"></param>
-        public void AlterPulseWidth(int modifier) {
+        public void AlterPulseWidth(int modifier)
+        {
+            // Calculate the new frequency using an int
+            int newPulseWidth = pulseWidth + modifier;
+
+            // Check for overflow or underflow
+            if (newPulseWidth > byte.MaxValue || newPulseWidth < HapticManager.MIN_PULSE_WIDTH)
+            {
+                return;  // Prevent overflow/underflow
+            }
+
             pulseWidth += (byte)modifier;
         }
 
