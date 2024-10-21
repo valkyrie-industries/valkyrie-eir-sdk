@@ -35,10 +35,15 @@ namespace Valkyrie.EIR.Utilities {
             if (File.Exists(customMainTemplatePath)) {
                 MergeGradleFile(customMainTemplatePath, mainTemplatePath);
             }
-
+            else {
+                Debug.LogError($"[VLK Build] Could not find custom gradle template at path {customMainTemplatePath}");
+            }
             // merge Gradle properties
             if (File.Exists(customPropertiesTemplatePath)) {
                 MergeGradleProperties(customPropertiesTemplatePath, propertiesTemplatePath);
+            }
+            else {
+                Debug.LogError($"[VLK Build] Could not find custom gradle properties at path {customPropertiesTemplatePath}");
             }
         }
 
@@ -140,6 +145,9 @@ namespace Valkyrie.EIR.Utilities {
 
                 targetDoc.Save(manifestPath);
                 Debug.Log($"[VLK Build] Merged {customManifestPath} into {manifestPath}");
+            }
+            else {
+                Debug.LogError($"[VLK Build] Could not find custom manifest at path {customManifestPath}");
             }
         }
 
