@@ -62,7 +62,7 @@ namespace Valkyrie.EIR.Haptics
 
         public HapticManager(GameObject runner) {
 
-            Debug.Log("[Haptic Manager] Haptic Manager initialised.");
+            Debug.Log($"[Haptic Manager] Haptic Manager initialised from {runner.name}.");
             runnerObject = runner;
             UpperLimits = new int[2] { 0, 0, };
             LowerLimits = new int[2] { 0, 0, };

@@ -91,8 +91,8 @@ namespace Valkyrie.EIR.Interaction {
         /// <summary>
         /// Constructs an InteractionManager object
         /// </summary>
-        public InteractionManager() {
-            UnityEngine.Debug.Log("[Interaction Manager] Interaction Manager Initialised");
+        public InteractionManager(UnityEngine.GameObject g) {
+            UnityEngine.Debug.Log($"[Interaction Manager] Interaction Manager Initialised from {g.name}.");
             interactingBodyParts = new InteractingBodyPart[UsedBodyParts];
             forces = new float[UsedBodyParts - 1];
             Interactable.OnForce += OnApplyForceReqested;
