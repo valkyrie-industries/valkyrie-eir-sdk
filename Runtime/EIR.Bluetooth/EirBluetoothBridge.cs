@@ -144,7 +144,7 @@ namespace Valkyrie.EIR.Bluetooth {
             callbackInstance.OnReadEvent += OnRead;
             callbackInstance.OnWriteEvent += OnWrite;
 
-            eirBlu.CallStatic("initialise", activity, callbackInstance, 3000l);
+            eirBlu.CallStatic("initialise", activity, callbackInstance, 3000L);
             initialised = true;
         }
 

@@ -118,7 +118,7 @@ namespace Valkyrie.EIR {
             hapticManager = new HapticManager(gameObject);
 #endif
 #if EIR_INTERACTION
-            interactionManager = new InteractionManager();
+            interactionManager = new InteractionManager(gameObject);
 #if EIR_HAPTICS
             interactionManager.HapticRequest += OnHapticRequest;
             Interactable.OnHapticPresetRequested += OnHapticPresetRequested;

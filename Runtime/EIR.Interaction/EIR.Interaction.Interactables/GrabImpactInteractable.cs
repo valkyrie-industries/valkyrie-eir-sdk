@@ -23,8 +23,6 @@ namespace Valkyrie.EIR.Interaction.Interactables {
         private HapticPreset.PresetType presetToRun = HapticPreset.PresetType.maximum;
 #endif
         [SerializeField]
-        private float presetTime = 0.1f;
-        [SerializeField]
         private Collider[] blackListedColliders;
 
         #endregion
