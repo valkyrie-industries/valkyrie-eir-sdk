@@ -19,6 +19,6 @@ var searchData=
   ['arrowbody_16',['ArrowBody',['../da/d23/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_arrow.html#abfd7495a0ac1269c3c14cba35b6327cd',1,'Valkyrie::EIR::Examples::Arrow']]],
   ['askforpermissions_17',['AskForPermissions',['../d0/dc5/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_bluetooth_permissions.html#a364cc4475b1ff822151b7dcea4b967d0',1,'Valkyrie::EIR::Bluetooth::BluetoothPermissions']]],
   ['attachmentpoint_18',['attachmentPoint',['../d2/d3b/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_pull_grab_interactable.html#a256c9e39bdd12b15611f5219cdb4dea2',1,'Valkyrie::EIR::Interaction::Interactables::PullGrabInteractable']]],
-  ['autoinitiaise_19',['AutoInitiaise',['../d0/d43/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_e_i_r_config.html#aa694c06bd3b618c972596f1b5890cb2c',1,'Valkyrie::EIR::Utilities::EIRConfig']]],
+  ['autoinitialise_19',['AutoInitialise',['../d0/d43/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_e_i_r_config.html#a86d79bfef51a8106ccc42b9936323398',1,'Valkyrie::EIR::Utilities::EIRConfig']]],
   ['averagevelocity_20',['averageVelocity',['../d7/d63/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interacting_body_part.html#ab55fa092c617534f73f0b1bcb0fd1741',1,'Valkyrie::EIR::Interaction::InteractingBodyPart']]]
 ];
