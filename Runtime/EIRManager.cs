@@ -69,7 +69,7 @@ namespace Valkyrie.EIR {
             Debug.Log("[EIR Manager] EIR Manager Starting...");
 
             DontDestroyOnLoad(this);
-            if (EIRConfig.Instance.AutoInitiaise) Initialise();
+            if (EIRConfig.Instance.AutoInitialise) Initialise();
         }
 
 

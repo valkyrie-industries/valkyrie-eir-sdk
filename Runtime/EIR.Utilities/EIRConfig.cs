@@ -37,15 +37,15 @@ namespace Valkyrie.EIR.Utilities {
         /// <summary>
         /// Enables the Valkyrie.EIR.Haptics namespace.
         /// </summary>
-        public bool UsingHpt { get { return enableHapticsManager; } set { enableHapticsManager = value; } }
+        public bool UsingHaptics { get { return enableHapticsManager; } set { enableHapticsManager = value; } }
         /// <summary>
         /// Enables the Valkyrie.EIR.Communication namespace.
         /// </summary>
-        public bool UsingCom { get { return enableBTEirBluetoothBridge; } set { enableBTEirBluetoothBridge = value; } }
+        public bool UsingBluetoothCommunication { get { return enableBTEirBluetoothBridge; } set { enableBTEirBluetoothBridge = value; } }
         /// <summary>
         /// Enables the Valkyrie.EIR.Interaction namespace.
         /// </summary>
-        public bool UsingInt { get { return enableInteractionManager; } }
+        public bool UsingInteraction { get { return enableInteractionManager; } }
         /// <summary>
         /// EirBluetoothBridge.ReadDeviceVitals run interval when connected (seconds) (min value: 1).
         /// </summary>
@@ -57,7 +57,7 @@ namespace Valkyrie.EIR.Utilities {
         /// <summary>
         /// Automatically calls EIRManager.Initialise if selected and the component is present in the scene. If unselected, EIRManager.Initialise must be called manually.
         /// </summary>
-        public bool AutoInitiaise { get { return autoInitialise; } }    
+        public bool AutoInitialise { get { return autoInitialise; } }    
         /// <summary>
         /// (XR Only) Use Meta OVR plugin for controller haptic vibrations.
         /// </summary>

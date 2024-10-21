@@ -63,8 +63,8 @@ namespace Valkyrie.EIR.Utilities {
             SetScriptingDefineSymbol("EIR_HAPTICS", true);
             SetScriptingDefineSymbol("EIR_COMM", true);
 
-            cfg.UsingHpt = true;
-            cfg.UsingCom = true;
+            cfg.UsingHaptics = true;
+            cfg.UsingBluetoothCommunication = true;
 
             Selection.activeObject = cfg;
 
