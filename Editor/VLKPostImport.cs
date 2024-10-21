@@ -52,6 +52,8 @@ namespace Valkyrie.EIR.Utilities {
 
             AssetDatabase.CreateAsset(cfg, assetPath);
 
+            cfg.BluetoothSendFrequency = BluetoothSendFrequency.EverySecond;
+
             AssetDatabase.SaveAssets();
 
             EditorUtility.FocusProjectWindow();
