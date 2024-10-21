@@ -2378,8 +2378,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   affectedParts: 01000000
-  presetType: 2
-  holdToTest: 1
+  presetType: 5
+  holdToTest: 0
 --- !u!114 &266889272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6804,8 +6804,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   affectedParts: 00000000
-  presetType: 2
-  holdToTest: 1
+  presetType: 5
+  holdToTest: 0
 --- !u!114 &905114592
 MonoBehaviour:
   m_ObjectHideFlags: 0
