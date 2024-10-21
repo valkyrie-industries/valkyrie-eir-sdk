@@ -9,6 +9,9 @@ using System.Xml;
 
 namespace Valkyrie.EIR.Utilities {
 
+    /// <summary>
+    /// Hooks into the Unity build process at the preprocess phase to merge requisite manifest and gradle settings.
+    /// </summary>
     public class VLKBuild : IPreprocessBuildWithReport {
         public int callbackOrder => 0;
 
@@ -20,6 +23,9 @@ namespace Valkyrie.EIR.Utilities {
             }
         }
 
+        /// <summary>
+        /// Merges custom gradle template and properties content required to configure the application with the requisite permissions and android extensions.
+        /// </summary>
         private void MergeGradleFiles() {
             string projectPath = Application.dataPath.Replace("/Assets", "");
             string gradlePath = Path.Combine(projectPath, "Assets", "Plugins", "Android");
@@ -47,6 +53,11 @@ namespace Valkyrie.EIR.Utilities {
             }
         }
 
+        /// <summary>
+        /// Performs the gradle file merge operation.
+        /// </summary>
+        /// <param name="sourcePath"></param>
+        /// <param name="targetPath"></param>
         private void MergeGradleFile(string sourcePath, string targetPath) {
 
             // read contents of both files
@@ -63,53 +74,11 @@ namespace Valkyrie.EIR.Utilities {
             Debug.Log($"[VLK Build] Merged {sourcePath} into {targetPath}");
         }
 
-        private string MergeBlock(string targetContent, string sourceContent, string blockName) {
-            string pattern = $@"(?s)(\b{blockName}\s*\{{)(.*?)(\}})";
-            var targetMatch = Regex.Match(targetContent, pattern);
-            var sourceMatch = Regex.Match(sourceContent, pattern);
-
-            if (sourceMatch.Success) {
-                string targetBlock = targetMatch.Success ? targetMatch.Groups[2].Value : "";
-                string sourceBlock = sourceMatch.Groups[2].Value;
-
-                var mergedBlock = MergeBlockContent(targetBlock, sourceBlock);
-
-                if (targetMatch.Success) {
-                    // Replace the target block with the merged block
-                    targetContent = Regex.Replace(targetContent, pattern, m => $"{m.Groups[1].Value}{mergedBlock}{m.Groups[3].Value}");
-                }
-                else {
-                    // Only append if the block is not already present
-                    targetContent += $"\n{sourceMatch.Groups[1].Value}\n{mergedBlock}\n{sourceMatch.Groups[3].Value}\n";
-                }
-            }
-
-            return targetContent;
-        }
-
-        private string MergeBlockContent(string targetBlock, string sourceBlock) {
-            var targetLines = new HashSet<string>(NormalizeLines(targetBlock));
-            var sourceLines = NormalizeLines(sourceBlock);
-
-            foreach (var line in sourceLines) {
-                if (!targetLines.Contains(line)) {
-                    targetBlock += "\n" + line;
-                    targetLines.Add(line);
-                }
-            }
-
-            return targetBlock.Trim();
-        }
-
-
-        private IEnumerable<string> NormalizeLines(string blockContent) {
-            var lines = blockContent.Split(new[] { '\n', '\r' }, System.StringSplitOptions.RemoveEmptyEntries);
-            for (int i = 0; i < lines.Length; i++) {
-                lines[i] = lines[i].Trim();
-            }
-            return lines;
-        }
-
+        /// <summary>
+        /// Performs the gradle properties file merge operation.
+        /// </summary>
+        /// <param name="sourcePath"></param>
+        /// <param name="targetPath"></param>
         private void MergeGradleProperties(string sourcePath, string targetPath) {
             var targetProperties = new HashSet<string>(File.ReadAllLines(targetPath));
             var sourceProperties = File.ReadAllLines(sourcePath);
@@ -123,6 +92,9 @@ namespace Valkyrie.EIR.Utilities {
             Debug.Log($"[VLK Build] Merged {sourcePath} into {targetPath}");
         }
 
+        /// <summary>
+        /// Performs the android manifest merge operation.
+        /// </summary>
         private void MergeAndroidManifest() {
             string projectPath = Application.dataPath.Replace("/Assets", "");
             string manifestPath = Path.Combine(projectPath, "Assets", "Plugins", "Android", "AndroidManifest.xml");
@@ -151,6 +123,77 @@ namespace Valkyrie.EIR.Utilities {
             }
         }
 
+        /// <summary>
+        /// Merges an individual code block.
+        /// </summary>
+        /// <param name="targetContent"></param>
+        /// <param name="sourceContent"></param>
+        /// <param name="blockName"></param>
+        /// <returns></returns>
+        private string MergeBlock(string targetContent, string sourceContent, string blockName) {
+            string pattern = $@"(?s)(\b{blockName}\s*\{{)(.*?)(\}})";
+            var targetMatch = Regex.Match(targetContent, pattern);
+            var sourceMatch = Regex.Match(sourceContent, pattern);
+
+            if (sourceMatch.Success) {
+                string targetBlock = targetMatch.Success ? targetMatch.Groups[2].Value : "";
+                string sourceBlock = sourceMatch.Groups[2].Value;
+
+                var mergedBlock = MergeBlockContent(targetBlock, sourceBlock);
+
+                if (targetMatch.Success) {
+                    // replace the target block with the merged block
+                    targetContent = Regex.Replace(targetContent, pattern, m => $"{m.Groups[1].Value}{mergedBlock}{m.Groups[3].Value}");
+                }
+                else {
+                    // only append if the block is not already present. Duplicate entries are removed within a later process if this for any reason fails.
+                    targetContent += $"\n{sourceMatch.Groups[1].Value}\n{mergedBlock}\n{sourceMatch.Groups[3].Value}\n";
+                }
+            }
+
+            return targetContent;
+        }
+
+        /// <summary>
+        /// Merges an individual piece of content within a block.
+        /// </summary>
+        /// <param name="targetBlock"></param>
+        /// <param name="sourceBlock"></param>
+        /// <returns></returns>
+        private string MergeBlockContent(string targetBlock, string sourceBlock) {
+            var targetLines = new HashSet<string>(NormalizeLines(targetBlock));
+            var sourceLines = NormalizeLines(sourceBlock);
+
+            foreach (var line in sourceLines) {
+                if (!targetLines.Contains(line)) {
+                    targetBlock += "\n" + line;
+                    targetLines.Add(line);
+                }
+            }
+
+            return targetBlock.Trim();
+        }
+
+        /// <summary>
+        /// Normalise line endings and empty content.
+        /// </summary>
+        /// <param name="blockContent"></param>
+        /// <returns></returns>
+        private IEnumerable<string> NormalizeLines(string blockContent) {
+            var lines = blockContent.Split(new[] { '\n', '\r' }, System.StringSplitOptions.RemoveEmptyEntries);
+            for (int i = 0; i < lines.Length; i++) {
+                lines[i] = lines[i].Trim();
+            }
+            return lines;
+        }
+
+        /// <summary>
+        /// Merges an individual Xml Node.
+        /// </summary>
+        /// <param name="targetDoc"></param>
+        /// <param name="targetNode"></param>
+        /// <param name="sourceNode"></param>
+        /// <param name="nsManager"></param>
         private void MergeXmlNodes(XmlDocument targetDoc, XmlNode targetNode, XmlNode sourceNode, XmlNamespaceManager nsManager) {
             foreach (XmlNode sourceChildNode in sourceNode.ChildNodes) {
                 if (sourceChildNode.NodeType == XmlNodeType.Element) {
@@ -172,6 +215,9 @@ namespace Valkyrie.EIR.Utilities {
             }
         }
 
+        /// <summary>
+        /// Evaluates the android manifest for any duplications post-merge and removes the duplicate entries.
+        /// </summary>
         private void RemoveDuplicateManifestEntries() {
             string manifestPath = Path.Combine(Application.dataPath.Replace("/Assets", ""), "Assets", "Plugins", "Android", "AndroidManifest.xml");
 
@@ -189,12 +235,12 @@ namespace Valkyrie.EIR.Utilities {
                 return;
             }
 
-            // Remove duplicates from the <manifest> node
+            // remove duplicates from the <manifest> node
             RemoveDuplicateNodes(manifestNode, "application");
             RemoveDuplicateNodes(manifestNode, "uses-permission");
             RemoveDuplicateNodes(manifestNode, "uses-feature");
 
-            // Remove duplicates within the <application> node
+            // remove duplicates within the <application> node
             XmlNode applicationNode = manifestNode.SelectSingleNode("application");
             if (applicationNode != null) {
                 RemoveDuplicateNodes(applicationNode, "activity");
@@ -202,11 +248,16 @@ namespace Valkyrie.EIR.Utilities {
                 RemoveDuplicateNodes(applicationNode, "meta-data");
             }
 
-            // Save the modified XML
+            // save the modified XML
             manifestDoc.Save(manifestPath);
             Debug.Log("[VLK Build] Removed duplicate entries from AndroidManifest.xml.");
         }
 
+        /// <summary>
+        /// Removes a duplicate xml node.
+        /// </summary>
+        /// <param name="parentNode"></param>
+        /// <param name="tagName"></param>
         private void RemoveDuplicateNodes(XmlNode parentNode, string tagName) {
             XmlNodeList nodeList = parentNode.SelectNodes(tagName);
             if (nodeList.Count <= 1) return;
@@ -226,6 +277,10 @@ namespace Valkyrie.EIR.Utilities {
             }
         }
 
+        /// <summary>
+        /// Returns an XML node's (string) signature.
+        /// </summary>
+        /// <param name="node"></param>
         private string GetNodeSignature(XmlNode node) {
             string signature = node.Name;
 

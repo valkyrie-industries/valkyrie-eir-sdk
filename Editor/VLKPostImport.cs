@@ -4,20 +4,28 @@ using UnityEngine;
 
 namespace Valkyrie.EIR.Utilities {
 
+    /// <summary>
+    /// Post-Import process which executes upon successful import of the com.valkyrieindustries.eirsdk package.
+    /// Generates and configures an EIR Config object.
+    /// </summary>
     public class VLKPostImport {
 
         [InitializeOnLoadMethod]
         private static void SubscribeToEvent() {
-            // This causes the method to be invoked after the Editor registers the new list of packages.
+            // this causes the method to be invoked after the Editor registers the new list of packages.
             Events.registeredPackages += OnRegisteredPackages;
         }
 
         private static void OnRegisteredPackages(PackageRegistrationEventArgs packageRegistrationEventArgs) {
+            Debug.Log($"[EIR SDK Deployment] Executing post-package-import process...");
             foreach (var package in packageRegistrationEventArgs.added) {
                 if (package.name == "com.valkyrieindustries.eirsdk") ExecutePostImportProcess();
             }
         }
 
+        /// <summary>
+        /// Upon package import, creates an EIRConfig asset (and any requisite directories) and sets it to the default configuration.
+        /// </summary>
         private static void ExecutePostImportProcess() {
 
             string assetPath = "Assets/Resources/Valkyrie Config/EIRConfig.asset";
@@ -49,9 +57,8 @@ namespace Valkyrie.EIR.Utilities {
             EditorUtility.FocusProjectWindow();
             Debug.Log("[EIR SDK Deployment] Setting Scripting Definitions..");
 
+            // set both haptics and communication to on by default, interaction remains optional.
             SetScriptingDefineSymbol("EIR_HAPTICS", true);
-
-
             SetScriptingDefineSymbol("EIR_COMM", true);
 
             cfg.UsingHpt = true;
@@ -60,24 +67,30 @@ namespace Valkyrie.EIR.Utilities {
             Selection.activeObject = cfg;
 
         }
+
+        /// <summary>
+        /// Enables or disables a scripting define (EIR_COMM etc) dependent on which modules are required.
+        /// </summary>
+        /// <param name="define"></param>
+        /// <param name="enable"></param>
         private static void SetScriptingDefineSymbol(string define, bool enable) {
             BuildTargetGroup bt = EditorUserBuildSettings.selectedBuildTargetGroup;
             string defines = UnityEditor.PlayerSettings.GetScriptingDefineSymbolsForGroup(bt);
 
-            // Check if the define is already present
+            // check if the define is already present
             bool defineExists = defines.Contains(define);
 
-            // Add or remove the define based on the enable flag
+            // add or remove the define based on the enable flag
             if (enable && !defineExists) {
-                // Add the define only if it doesn't exist
+                // add the define only if it doesn't exist
                 defines += (string.IsNullOrEmpty(defines) ? "" : ";") + define;
             }
             else if (!enable && defineExists) {
-                // Remove the define only if it exists
+                // remove the define only if it exists
                 defines = defines.Replace(define + ";", "").Replace(define, "");
             }
 
-            // Set the updated defines
+            // set the updated defines
             UnityEditor.PlayerSettings.SetScriptingDefineSymbolsForGroup(bt, defines);
         }
 
