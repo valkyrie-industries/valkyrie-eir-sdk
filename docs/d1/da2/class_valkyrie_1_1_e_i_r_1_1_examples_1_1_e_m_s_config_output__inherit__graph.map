@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Examples.EMSConfigOutput" name="Valkyrie.EIR.Examples.EMSConfigOutput">
+<area shape="rect" id="Node000001" title="Output class to interface between the HapticManager and the Quick Menu&#39;s EMS state." alt="" coords="5,80,233,123"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="63,5,175,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,48,122,80,116,80,116,48"/>
+</map>

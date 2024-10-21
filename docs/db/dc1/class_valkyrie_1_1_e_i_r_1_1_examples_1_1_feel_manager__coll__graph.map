@@ -1,0 +1,9 @@
+<map id="Valkyrie.EIR.Examples.FeelManager" name="Valkyrie.EIR.Examples.FeelManager">
+<area shape="rect" id="Node000001" title="Runs set feels from FeelLibrary as well as configuring EIR to whatever that feel requires." alt="" coords="5,188,191,231"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="37,5,148,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,47,100,188,95,188,91,48"/>
+<area shape="rect" id="Node000003" href="$d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html" title="Runs set feels from FeelLibrary as well as configuring EIR to whatever that feel requires." alt="" coords="115,81,300,124"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="124,39,180,79,177,83,121,43"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="176,137,121,189,118,186,173,133"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="317,95,327,103,318,110,301,113,300,108,316,105,321,103,314,99"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Haptics.HapticManager.StopHapticPresetRunner" name="Valkyrie.EIR.Haptics.HapticManager.StopHapticPresetRunner">
+<area shape="rect" id="Node000001" title="Stops all active haptic preset runners, or if a body part is input, only those which affect that body..." alt="" coords="241,5,461,48"/>
+<area shape="rect" id="Node000002" href="$d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#a6928aebc3e751f9277bdca1882ac2733" title="Stops the active &#39;feeling&#39;." alt="" coords="5,5,193,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,29,193,29,193,24,225,24"/>
+</map>

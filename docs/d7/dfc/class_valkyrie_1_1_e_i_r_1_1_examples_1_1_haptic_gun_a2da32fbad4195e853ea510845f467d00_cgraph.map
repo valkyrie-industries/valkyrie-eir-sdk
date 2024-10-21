@@ -1,0 +1,7 @@
+<map id="Valkyrie.EIR.Examples.HapticGun.SelectExited" name="Valkyrie.EIR.Examples.HapticGun.SelectExited">
+<area shape="rect" id="Node000001" title="Remove the deselected interactor from the list of current interactors." alt="" coords="5,5,204,48"/>
+<area shape="rect" id="Node000002" href="$d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html#ab87e81cf6ba6831a28027b7d954beb21" title="Resets gain, frequency and pulse width to default, and commands the EIR Bluetooth Bridge to send a co..." alt="" coords="252,5,468,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,24,236,24,236,29,204,29"/>
+<area shape="rect" id="Node000003" href="$db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#ac9528bf05df50ad7fc5eeff0107e3e18" title="Generates a config signal with the input gain, frequency and pulse width vales." alt="" coords="516,5,718,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="468,24,501,24,501,29,468,29"/>
+</map>

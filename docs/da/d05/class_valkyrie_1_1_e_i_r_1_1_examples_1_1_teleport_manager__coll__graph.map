@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Examples.TeleportManager" name="Valkyrie.EIR.Examples.TeleportManager">
+<area shape="rect" id="Node000001" title="Process teleportation around the Valkyrie EIR Example Room. Also enables/disables the Haptic preset b..." alt="" coords="5,80,212,123"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="53,5,164,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,48,111,80,106,80,106,48"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Haptics.HapticPreset" name="Valkyrie.EIR.Haptics.HapticPreset">
+<area shape="rect" id="Node000001" title="A series of segments and segments which dictate what intensities a HapticPresetRunner should output w..." alt="" coords="5,112,191,155"/>
+<area shape="rect" id="Node000002" href="$d4/da1/struct_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_segment.html" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,64,101,111,95,111,95,64"/>
+</map>

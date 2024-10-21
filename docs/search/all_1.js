@@ -1,12 +1,22 @@
 var searchData=
 [
   ['batteryindicator_0',['BatteryIndicator',['../d5/dbd/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_battery_indicator.html',1,'Valkyrie::EIR::Examples']]],
-  ['beginflight_1',['BeginFlight',['../da/d23/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_arrow.html#aef1bd670133b04a75b2e1034bdc10299',1,'Valkyrie::EIR::Examples::Arrow']]],
-  ['bluetoothdeviceinfo_2',['BluetoothDeviceInfo',['../db/d2b/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_bluetooth_device_info.html',1,'Valkyrie::EIR::Bluetooth']]],
-  ['bluetoothdevicelist_3',['BluetoothDeviceList',['../d6/dd1/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_bluetooth_device_list.html',1,'Valkyrie::EIR::Bluetooth']]],
-  ['bluetoothpermissions_4',['BluetoothPermissions',['../d0/dc5/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_bluetooth_permissions.html',1,'Valkyrie::EIR::Bluetooth']]],
-  ['bodypart_5',['BodyPart',['../d7/d63/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interacting_body_part.html#a6616271522493ccba115d56231818084',1,'Valkyrie::EIR::Interaction::InteractingBodyPart']]],
-  ['bow_6',['Bow',['../d7/da4/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_bow.html',1,'Valkyrie::EIR::Examples']]],
-  ['breakingtarget_7',['BreakingTarget',['../d8/df4/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_breaking_target.html',1,'Valkyrie::EIR::Examples']]],
-  ['bullet_8',['Bullet',['../db/d4b/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_bullet.html',1,'Valkyrie::EIR::Examples']]]
+  ['batteryindicator_2ecs_1',['BatteryIndicator.cs',['../d2/dca/_battery_indicator_8cs.html',1,'']]],
+  ['beginflight_2',['BeginFlight',['../da/d23/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_arrow.html#aef1bd670133b04a75b2e1034bdc10299',1,'Valkyrie::EIR::Examples::Arrow']]],
+  ['bluetoothdeviceinfo_3',['BluetoothDeviceInfo',['../db/d2b/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_bluetooth_device_info.html',1,'Valkyrie::EIR::Bluetooth']]],
+  ['bluetoothdevicelist_4',['BluetoothDeviceList',['../d6/dd1/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_bluetooth_device_list.html',1,'Valkyrie::EIR::Bluetooth']]],
+  ['bluetoothpermissions_5',['BluetoothPermissions',['../d0/dc5/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_bluetooth_permissions.html',1,'Valkyrie::EIR::Bluetooth']]],
+  ['bluetoothpermissions_2ecs_6',['BluetoothPermissions.cs',['../d2/d28/_bluetooth_permissions_8cs.html',1,'']]],
+  ['bluetoothsendfrequency_7',['BluetoothSendFrequency',['../d0/d43/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_e_i_r_config.html#a1fa3d9c5bd48d087c0398ecb75dc8410',1,'Valkyrie.EIR.Utilities.EIRConfig.BluetoothSendFrequency'],['../d6/d92/namespace_valkyrie_1_1_e_i_r_1_1_utilities.html#a4a1349392309c08ca7614d2b60bb7cf5',1,'Valkyrie.EIR.Utilities.BluetoothSendFrequency']]],
+  ['bodypart_8',['BodyPart',['../d7/d63/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interacting_body_part.html#a6616271522493ccba115d56231818084',1,'Valkyrie.EIR.Interaction.InteractingBodyPart.BodyPart'],['../de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7',1,'Valkyrie.EIR.BodyPart']]],
+  ['bodypart_2ecs_9',['BodyPart.cs',['../d3/d6c/_body_part_8cs.html',1,'']]],
+  ['bow_10',['Bow',['../d7/da4/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_bow.html',1,'Valkyrie::EIR::Examples']]],
+  ['bow_2ecs_11',['Bow.cs',['../d6/d55/_bow_8cs.html',1,'']]],
+  ['breakingtarget_12',['BreakingTarget',['../d8/df4/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_breaking_target.html',1,'Valkyrie::EIR::Examples']]],
+  ['breakingtarget_2ecs_13',['BreakingTarget.cs',['../d2/d2c/_breaking_target_8cs.html',1,'']]],
+  ['bridge_14',['bridge',['../d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#a5c9e727dfbe7118131572828bb822c79a98ac6b4b086b5a2f47677b15e786d9ba',1,'Valkyrie::EIR::Haptics::HapticPreset']]],
+  ['bridgetoone_15',['bridgeToOne',['../d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#a5c9e727dfbe7118131572828bb822c79ae6489ee7a9a976fda09d060452939a44',1,'Valkyrie::EIR::Haptics::HapticPreset']]],
+  ['bridgetozero_16',['bridgeToZero',['../d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#a5c9e727dfbe7118131572828bb822c79a60e85cb15ad49e1027b7e8a847208d29',1,'Valkyrie::EIR::Haptics::HapticPreset']]],
+  ['bullet_17',['Bullet',['../db/d4b/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_bullet.html',1,'Valkyrie::EIR::Examples']]],
+  ['bullet_2ecs_18',['Bullet.cs',['../d6/dde/_bullet_8cs.html',1,'']]]
 ];

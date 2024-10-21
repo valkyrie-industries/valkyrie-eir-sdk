@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Examples.SimpleConnection" name="Valkyrie.EIR.Examples.SimpleConnection">
+<area shape="rect" id="Node000001" title="Connects to the Valkyrie EIR in the background. Intended to be placed on a button with a text child...." alt="" coords="5,80,206,123"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="50,5,161,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,48,108,80,103,80,103,48"/>
+</map>

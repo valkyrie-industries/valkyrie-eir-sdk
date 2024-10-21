@@ -1,0 +1,7 @@
+<map id="Valkyrie.EIR.Utilities.Timer.SetStartTime" name="Valkyrie.EIR.Utilities.Timer.SetStartTime">
+<area shape="rect" id="Node000001" title="Sets the starting time of the timer in cases where the timer should not be started immediately." alt="" coords="483,5,666,48"/>
+<area shape="rect" id="Node000002" href="$df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#acae37016b651e0d7ebd6a876b012aa71" title="Set the time this preset started" alt="" coords="239,5,435,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="467,29,435,29,435,24,467,24"/>
+<area shape="rect" id="Node000003" href="$df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#adcb7300d8deb14b0ae8b9459936f171a" title="Provide a time betweeen 0 and 1 and this will set the current preset to that mapped time." alt="" coords="5,5,191,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="223,29,191,29,191,24,223,24"/>
+</map>

@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['piedisplay_0',['PieDisplay',['../d4/dc3/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_pie_display.html',1,'Valkyrie::EIR::Examples']]],
-  ['playfeeling_1',['PlayFeeling',['../d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#a28a551e91976bd26ab52d96c22674ae2',1,'Valkyrie::EIR::Examples::FeelManager']]],
-  ['position_2',['position',['../d7/d63/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interacting_body_part.html#a473cb1bc749cbf0edf5afcc41d0d0d56',1,'Valkyrie::EIR::Interaction::InteractingBodyPart']]],
-  ['previousstate_3',['PreviousState',['../d6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge.html#a25870fec8c3e3b00bcec4489ef43fcc7',1,'Valkyrie::EIR::Bluetooth::EirBluetoothBridge']]],
-  ['pullgrabinteractable_4',['PullGrabInteractable',['../d2/d3b/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_pull_grab_interactable.html',1,'Valkyrie::EIR::Interaction::Interactables']]]
+  ['name_0',['name',['../db/d2b/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_bluetooth_device_info.html#af2da69261c3534e941355dd22e4e84f3',1,'Valkyrie.EIR.Bluetooth.BluetoothDeviceInfo.name'],['../db/de6/struct_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_struct.html#ad3264e0e31f76be1687749acad642299',1,'Valkyrie.EIR.Examples.FeelStruct.name']]],
+  ['none_1',['None',['../d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#a8093394d3fb08d6bbe0efae6e58bf5b2a6adf97f83acf6453d4a6a4b1070f3754',1,'Valkyrie::EIR::Haptics::HapticPreset']]],
+  ['notconnected_2',['NotConnected',['../d5/d9d/namespace_valkyrie_1_1_e_i_r_1_1_bluetooth.html#a93480faefe11dd7ca6bfdffc3fe46d0ba4075072d219e061ca0f3124f8fbef463',1,'Valkyrie::EIR::Bluetooth']]],
+  ['notfound_3',['NotFound',['../d5/d9d/namespace_valkyrie_1_1_e_i_r_1_1_bluetooth.html#a93480faefe11dd7ca6bfdffc3fe46d0ba38c300f4fc9ce8a77aad4a30de05cad8',1,'Valkyrie::EIR::Bluetooth']]]
 ];

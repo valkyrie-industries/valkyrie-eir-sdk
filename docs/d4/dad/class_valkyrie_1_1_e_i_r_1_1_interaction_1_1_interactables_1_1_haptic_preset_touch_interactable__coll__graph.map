@@ -1,0 +1,9 @@
+<map id="Valkyrie.EIR.Interaction.Interactables.HapticPresetTouchInteractable" name="Valkyrie.EIR.Interaction.Interactables.HapticPresetTouchInteractable">
+<area shape="rect" id="Node000001" title="TouchInteractable that sends haptic preset at the touch of a bodypart." alt="" coords="5,229,217,288"/>
+<area shape="rect" id="Node000002" href="$d4/de0/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_touch_interactable.html" title="Checks if it is touched by the bodypart (the &quot;currently interacting body part&quot;) and sends TouchIntera..." alt="" coords="49,155,173,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,197,114,229,108,229,108,197"/>
+<area shape="rect" id="Node000003" href="$d2/dc4/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactable.html" title="Valkyrie Interactable: interacts with the body part and calculates the intensity of interaction...." alt="" coords="66,80,156,107"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="114,122,114,154,108,154,108,122"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="55,5,167,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="114,48,114,80,108,80,108,48"/>
+</map>

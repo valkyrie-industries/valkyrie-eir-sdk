@@ -1,0 +1,7 @@
+<map id="Valkyrie.EIR.Haptics.HapticManager.CreateHapticPresetRunner" name="Valkyrie.EIR.Haptics.HapticManager.CreateHapticPresetRunner">
+<area shape="rect" id="Node000001" title="Creates a new HapticPresetRunner instance that can be applied to a sigle body part and attaches it to..." alt="" coords="5,5,238,48"/>
+<area shape="rect" id="Node000002" href="$df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#af890a18e417e0456340193e407f67875" title="Initialise and start the haptic preset." alt="" coords="286,5,471,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,24,270,24,270,29,238,29"/>
+<area shape="rect" id="Node000003" href="$df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#a863544bd49d65b93e8f8ab3f824be2ac" title="Pauses or unpauses the preset runner." alt="" coords="519,5,712,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="471,24,503,24,503,29,471,29"/>
+</map>

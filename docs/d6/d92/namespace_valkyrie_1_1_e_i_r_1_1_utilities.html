@@ -27,11 +27,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../Logo~.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Valkyrie EIR SDK<span id="projectnumber">&#160;v0.3.5-preview</span>
+   <div id="projectname">Valkyrie EIR SDK<span id="projectnumber">&#160;v0.3.7-preview</span>
    </div>
-   <div id="projectbrief">valkyrie-vr.com</div>
   </td>
  </tr>
  </tbody>
@@ -116,36 +115,57 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d75/struct_valkyrie_1_1_e_i_r_1_1_utilities_1_1_timer.html">Timer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility class to handle timing operations. The timescale is linked to Unity's Time.time property.  <a href="../../dc/d75/struct_valkyrie_1_1_e_i_r_1_1_utilities_1_1_timer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>ValkyrieEIRExtensionMethods</b></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extension methods used throughout the codebase. <br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d62/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_valkyrie_e_i_r_extension_methods.html">ValkyrieEIRExtensionMethods</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extension methods used throughout the codebase.  <a href="../../d1/d62/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_valkyrie_e_i_r_extension_methods.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_v_l_k_build.html">VLKBuild</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hooks into the Unity build process at the preprocess phase to merge requisite manifest and gradle settings.  <a href="../../da/d64/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_v_l_k_build.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d32/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_v_l_k_post_import.html">VLKPostImport</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Post-Import process which executes upon successful import of the com.valkyrieindustries.eirsdk package. Generates and configures an <a class="el" href="../../de/dba/namespace_valkyrie_1_1_e_i_r.html">EIR</a> Config object.  <a href="../../de/d32/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_v_l_k_post_import.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a4a1349392309c08ca7614d2b60bb7cf5" id="r_a4a1349392309c08ca7614d2b60bb7cf5"><td class="memItemLeft" align="right" valign="top"><a id="a4a1349392309c08ca7614d2b60bb7cf5" name="a4a1349392309c08ca7614d2b60bb7cf5"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>BluetoothSendFrequency</b> { <b>EveryFrame</b>
-, <b>EverySecond</b>
-, <b>EveryThird</b>
+<tr class="memitem:a4a1349392309c08ca7614d2b60bb7cf5" id="r_a4a1349392309c08ca7614d2b60bb7cf5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a1349392309c08ca7614d2b60bb7cf5">BluetoothSendFrequency</a> { <a class="el" href="#a4a1349392309c08ca7614d2b60bb7cf5a84a9a3474f119832b09ff2c5f0819189">EveryFrame</a>
+, <a class="el" href="#a4a1349392309c08ca7614d2b60bb7cf5ae39bcc141ff8aa7c863286d77187d760">EverySecondFrame</a>
+, <a class="el" href="#a4a1349392309c08ca7614d2b60bb7cf5a9fbe66370d7e5ae374d1c88a97b98550">EveryThirdFrame</a>
  }</td></tr>
 <tr class="separator:a4a1349392309c08ca7614d2b60bb7cf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab6fe57ed6f76b2294eb9a74e7b9984a" id="r_aab6fe57ed6f76b2294eb9a74e7b9984a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab6fe57ed6f76b2294eb9a74e7b9984a">EmsPhysicsMode</a> { <br />
-&#160;&#160;<b>MassOnly</b>
-, <b>ResistanceBased</b>
-, <b>MassAndAccelerationVector</b>
-, <b>TensionBasedMass</b>
+&#160;&#160;<a class="el" href="#aab6fe57ed6f76b2294eb9a74e7b9984aa2a323caf71f2c5cc897f50933cd33af4">MassOnly</a>
+, <a class="el" href="#aab6fe57ed6f76b2294eb9a74e7b9984aa660f8a9a189fb8bbc80b77eef45f3127">ResistanceBased</a>
+, <a class="el" href="#aab6fe57ed6f76b2294eb9a74e7b9984aaf7deefcf007a5bc864ef756d69280197">MassAndAccelerationVector</a>
+, <a class="el" href="#aab6fe57ed6f76b2294eb9a74e7b9984aac5b62803a0773946ea21381564f03d96">TensionBasedMass</a>
 , <br />
-&#160;&#160;<b>MassAndElbowAngle</b>
-, <b>MassAndAccelerationScalar</b>
-, <b>MassAndElbowAngleAndAccelerationScalar</b>
+&#160;&#160;<a class="el" href="#aab6fe57ed6f76b2294eb9a74e7b9984aae8324242473c6516f68800b50108bf30">MassAndElbowAngle</a>
+, <a class="el" href="#aab6fe57ed6f76b2294eb9a74e7b9984aadc3ed5f44b4b3074230a9a5b2d0f7ae3">MassAndAccelerationScalar</a>
+, <a class="el" href="#aab6fe57ed6f76b2294eb9a74e7b9984aa755ab8a3930673496cb9a9cfbaa82a35">MassAndElbowAngleAndAccelerationScalar</a>
 <br />
  }</td></tr>
 <tr class="memdesc:aab6fe57ed6f76b2294eb9a74e7b9984a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines physics modes for the calculation of applicable EMS forces.  <a href="#aab6fe57ed6f76b2294eb9a74e7b9984a">More...</a><br /></td></tr>
 <tr class="separator:aab6fe57ed6f76b2294eb9a74e7b9984a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a4a1349392309c08ca7614d2b60bb7cf5" name="a4a1349392309c08ca7614d2b60bb7cf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a1349392309c08ca7614d2b60bb7cf5">&#9670;&#160;</a></span>BluetoothSendFrequency</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a4a1349392309c08ca7614d2b60bb7cf5">Valkyrie.EIR.Utilities.BluetoothSendFrequency</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4a1349392309c08ca7614d2b60bb7cf5a84a9a3474f119832b09ff2c5f0819189" name="a4a1349392309c08ca7614d2b60bb7cf5a84a9a3474f119832b09ff2c5f0819189"></a>EveryFrame&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a1349392309c08ca7614d2b60bb7cf5ae39bcc141ff8aa7c863286d77187d760" name="a4a1349392309c08ca7614d2b60bb7cf5ae39bcc141ff8aa7c863286d77187d760"></a>EverySecondFrame&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a1349392309c08ca7614d2b60bb7cf5a9fbe66370d7e5ae374d1c88a97b98550" name="a4a1349392309c08ca7614d2b60bb7cf5a9fbe66370d7e5ae374d1c88a97b98550"></a>EveryThirdFrame&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <a id="aab6fe57ed6f76b2294eb9a74e7b9984a" name="aab6fe57ed6f76b2294eb9a74e7b9984a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aab6fe57ed6f76b2294eb9a74e7b9984a">&#9670;&#160;</a></span>EmsPhysicsMode</h2>
 
@@ -159,6 +179,15 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Defines physics modes for the calculation of applicable EMS forces. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aab6fe57ed6f76b2294eb9a74e7b9984aa2a323caf71f2c5cc897f50933cd33af4" name="aab6fe57ed6f76b2294eb9a74e7b9984aa2a323caf71f2c5cc897f50933cd33af4"></a>MassOnly&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aab6fe57ed6f76b2294eb9a74e7b9984aa660f8a9a189fb8bbc80b77eef45f3127" name="aab6fe57ed6f76b2294eb9a74e7b9984aa660f8a9a189fb8bbc80b77eef45f3127"></a>ResistanceBased&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aab6fe57ed6f76b2294eb9a74e7b9984aaf7deefcf007a5bc864ef756d69280197" name="aab6fe57ed6f76b2294eb9a74e7b9984aaf7deefcf007a5bc864ef756d69280197"></a>MassAndAccelerationVector&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aab6fe57ed6f76b2294eb9a74e7b9984aac5b62803a0773946ea21381564f03d96" name="aab6fe57ed6f76b2294eb9a74e7b9984aac5b62803a0773946ea21381564f03d96"></a>TensionBasedMass&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aab6fe57ed6f76b2294eb9a74e7b9984aae8324242473c6516f68800b50108bf30" name="aab6fe57ed6f76b2294eb9a74e7b9984aae8324242473c6516f68800b50108bf30"></a>MassAndElbowAngle&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aab6fe57ed6f76b2294eb9a74e7b9984aadc3ed5f44b4b3074230a9a5b2d0f7ae3" name="aab6fe57ed6f76b2294eb9a74e7b9984aadc3ed5f44b4b3074230a9a5b2d0f7ae3"></a>MassAndAccelerationScalar&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aab6fe57ed6f76b2294eb9a74e7b9984aa755ab8a3930673496cb9a9cfbaa82a35" name="aab6fe57ed6f76b2294eb9a74e7b9984aa755ab8a3930673496cb9a9cfbaa82a35"></a>MassAndElbowAngleAndAccelerationScalar&#160;</td><td class="fielddoc"></td></tr>
+</table>
 
 </div>
 </div>
@@ -168,7 +197,7 @@ Enumerations</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../db/dd5/namespace_valkyrie.html">Valkyrie</a></li><li class="navelem"><a class="el" href="../../de/dba/namespace_valkyrie_1_1_e_i_r.html">EIR</a></li><li class="navelem"><a class="el" href="../../d6/d92/namespace_valkyrie_1_1_e_i_r_1_1_utilities.html">Utilities</a></li>
-    <li class="footer">Generated on Fri Oct 18 2024 14:24:11 for Valkyrie EIR SDK by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

@@ -1,0 +1,14 @@
+<map id="Valkyrie.EIR.Examples.ResistanceBandVisuals" name="Valkyrie.EIR.Examples.ResistanceBandVisuals">
+<area shape="rect" id="Node000001" title="Resistance band visuals. Controls the colour and visuals of the band during interaction." alt="" coords="991,9,1218,52"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,17,117,44"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,11,170,5,209,3,768,3,883,7,991,15,990,21,882,12,767,8,209,8,170,10,132,16"/>
+<area shape="rect" id="Node000006" href="$d2/dc4/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactable.html" title="Valkyrie Interactable: interacts with the body part and calculates the intensity of interaction...." alt="" coords="166,43,255,69"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="132,40,166,46,165,51,132,45"/>
+<area shape="rect" id="Node000003" href="$d4/d1b/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_calibration_pull_grab_interactable.html" title="Calibration Resistance Grab Interactable: checks how much it is stretched and with which force...." alt="" coords="660,43,872,101"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="888,55,990,42,991,47,888,60"/>
+<area shape="rect" id="Node000004" href="$d2/d3b/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_pull_grab_interactable.html" title="Resistance Grab Interactable: checks how much the resistance band is stretched and with how much forc..." alt="" coords="471,49,611,76"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="626,64,660,65,660,70,626,69"/>
+<area shape="rect" id="Node000005" href="$d9/da7/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_grab_interactable.html" title="Checks if it is grabbed by the hand (the &quot;currently interacting body part&quot;)" alt="" coords="305,44,422,71"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="438,57,471,58,471,63,438,62"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="271,54,304,54,304,59,271,59"/>
+</map>

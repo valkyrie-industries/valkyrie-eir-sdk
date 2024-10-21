@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Haptics.HapticPresetRunner.SetTimeStarted" name="Valkyrie.EIR.Haptics.HapticPresetRunner.SetTimeStarted">
+<area shape="rect" id="Node000001" title="Set the time this preset started" alt="" coords="239,5,435,48"/>
+<area shape="rect" id="Node000002" href="$df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#adcb7300d8deb14b0ae8b9459936f171a" title="Provide a time betweeen 0 and 1 and this will set the current preset to that mapped time." alt="" coords="5,5,191,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,29,191,29,191,24,223,24"/>
+</map>

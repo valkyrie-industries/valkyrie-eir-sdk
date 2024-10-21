@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Utilities.ValkyrieEIRExtensionMethods.SizeBasedOnCalibrationLevel" name="Valkyrie.EIR.Utilities.ValkyrieEIRExtensionMethods.SizeBasedOnCalibrationLevel">
+<area shape="rect" id="Node000001" title="Maps the size output between min and max based on the calibration level." alt="" coords="5,5,335,48"/>
+<area shape="rect" id="Node000002" href="$d1/d62/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_valkyrie_e_i_r_extension_methods.html#a8254a443c601351086132aeb679f4f6d" title="Maps the input between minimum and maximum values to a given range." alt="" coords="383,5,616,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="335,24,367,24,367,29,335,29"/>
+</map>

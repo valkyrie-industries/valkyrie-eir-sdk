@@ -1,5 +1,7 @@
 var class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interacting_body_part =
 [
+    [ "InteractingBodyPartAliveEventHandler", "d7/d63/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interacting_body_part.html#a941160549674b8da869ee0bb6d382d25", null ],
+    [ "OnInteractingBodyPartAlive", "d7/d63/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interacting_body_part.html#ae1649f52b7c073570a29cc3a34c51561", null ],
     [ "acceleration", "d7/d63/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interacting_body_part.html#aecea4550f99df4c98ff2d597d076b3ec", null ],
     [ "angularVelocity", "d7/d63/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interacting_body_part.html#a8e38395f5a32c0cb13313862114f7ee4", null ],
     [ "averageVelocity", "d7/d63/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interacting_body_part.html#ab55fa092c617534f73f0b1bcb0fd1741", null ],

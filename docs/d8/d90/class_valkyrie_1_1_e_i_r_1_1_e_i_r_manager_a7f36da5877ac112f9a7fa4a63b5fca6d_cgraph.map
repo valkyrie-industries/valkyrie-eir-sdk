@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.EIRManager.Dispose" name="Valkyrie.EIR.EIRManager.Dispose">
+<area shape="rect" id="Node000001" title="Shuts down and cleans up the EIR Manager." alt="" coords="5,5,181,48"/>
+<area shape="rect" id="Node000002" href="$d6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge.html#af996d717f30ed09ed02ac07a9ea7b74b" title="Terminate active connection." alt="" coords="229,5,412,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,24,213,24,213,29,181,29"/>
+</map>

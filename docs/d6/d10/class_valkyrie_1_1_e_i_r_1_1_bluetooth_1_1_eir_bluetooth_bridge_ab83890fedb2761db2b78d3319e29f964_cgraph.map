@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Bluetooth.EirBluetoothBridge.Connect" name="Valkyrie.EIR.Bluetooth.EirBluetoothBridge.Connect">
+<area shape="rect" id="Node000001" title="Connect to the device at the input mac address." alt="" coords="5,13,179,56"/>
+<area shape="rect" id="Node000002" href="$d6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge.html#a924b5175be3bf28163d2b2ee6d04a376" title=" " alt="" coords="227,5,458,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,32,211,32,211,37,179,37"/>
+</map>

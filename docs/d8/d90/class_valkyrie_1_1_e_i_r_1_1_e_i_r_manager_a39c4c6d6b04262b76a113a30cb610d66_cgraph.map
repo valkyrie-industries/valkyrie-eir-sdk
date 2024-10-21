@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.EIRManager.RequestPermissions" name="Valkyrie.EIR.EIRManager.RequestPermissions">
+<area shape="rect" id="Node000001" title="Requests bluetooth permisions. Will invoke permissions granted/permissions refused event." alt="" coords="5,5,181,48"/>
+<area shape="rect" id="Node000002" href="$d0/dc5/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_bluetooth_permissions.html#a364cc4475b1ff822151b7dcea4b967d0" title="Requests the necessary permissions to run the EIR Bluetooth functionality. These permissions are: and..." alt="" coords="229,5,441,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,24,213,24,213,29,181,29"/>
+</map>

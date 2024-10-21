@@ -1,0 +1,9 @@
+<map id="Valkyrie.EIR.Bluetooth.EirBluetoothBridge.Disconnect" name="Valkyrie.EIR.Bluetooth.EirBluetoothBridge.Disconnect">
+<area shape="rect" id="Node000001" title="Terminate active connection." alt="" coords="254,72,437,115"/>
+<area shape="rect" id="Node000002" href="$db/de4/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_menu_example.html#ad74b0804d58bb4d499a778cb71b5cca5" title="Connect or disconnect to a bluetooth device and update the input text object with the connection stat..." alt="" coords="9,5,202,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="251,70,184,51,186,46,253,65"/>
+<area shape="rect" id="Node000003" href="$d7/d50/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_simple_connection.html#a371e6842754a1d0e6ca994b14c7d80be" title="Invokes Scan and Connect on the EIR Bluetooth module if true (and not already connected),..." alt="" coords="5,72,206,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="238,96,206,96,206,91,238,91"/>
+<area shape="rect" id="Node000004" href="$d8/d90/class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager.html#a7f36da5877ac112f9a7fa4a63b5fca6d" title="Shuts down and cleans up the EIR Manager." alt="" coords="18,139,193,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="253,122,186,141,184,135,251,117"/>
+</map>

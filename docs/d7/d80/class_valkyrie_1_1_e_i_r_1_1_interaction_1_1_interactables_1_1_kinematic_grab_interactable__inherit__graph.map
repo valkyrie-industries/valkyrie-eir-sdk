@@ -1,0 +1,11 @@
+<map id="Valkyrie.EIR.Interaction.Interactables.KinematicGrabInteractable" name="Valkyrie.EIR.Interaction.Interactables.KinematicGrabInteractable">
+<area shape="rect" id="Node000001" title="Valkyrie Gravity Grab Interactable: checks the object&#39;s mass and acceleration. Every frame it sends t..." alt="" coords="5,229,260,272"/>
+<area shape="rect" id="Node000005" href="$d7/dfc/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_haptic_gun.html" title="Example gun that applies EMS force when fired." alt="" coords="21,320,244,347"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="135,288,135,319,130,319,130,288"/>
+<area shape="rect" id="Node000002" href="$d9/da7/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_grab_interactable.html" title="Checks if it is grabbed by the hand (the &quot;currently interacting body part&quot;)" alt="" coords="74,155,191,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,197,135,229,130,229,130,197"/>
+<area shape="rect" id="Node000003" href="$d2/dc4/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactable.html" title="Valkyrie Interactable: interacts with the body part and calculates the intensity of interaction...." alt="" coords="88,80,177,107"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="135,122,135,154,130,154,130,122"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="77,5,188,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="135,48,135,80,130,80,130,48"/>
+</map>

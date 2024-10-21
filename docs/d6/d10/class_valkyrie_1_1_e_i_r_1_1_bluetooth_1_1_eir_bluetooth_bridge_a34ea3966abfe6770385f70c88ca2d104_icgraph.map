@@ -1,0 +1,7 @@
+<map id="Valkyrie.EIR.Bluetooth.EirBluetoothBridge.WriteBytesToDevice" name="Valkyrie.EIR.Bluetooth.EirBluetoothBridge.WriteBytesToDevice">
+<area shape="rect" id="Node000001" title="Writes the input data to the EIR Bands&#39; write characteristic. If critical, will attempt to send the s..." alt="" coords="469,5,705,48"/>
+<area shape="rect" id="Node000002" href="$d8/d90/class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager.html#a77cfa018f236ff2c9dc10cf0fc8318c3" title="Toggles on or off the bluetooth data write. When enabled, sends a configuration signal to the connect..." alt="" coords="246,5,421,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="453,29,421,29,421,24,453,24"/>
+<area shape="rect" id="Node000003" href="$db/de4/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_menu_example.html#a5cd5a9aea1f4433b0b3c5a5996ae60d6" title="Enable or disable the write characteristic." alt="" coords="5,5,198,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="230,29,198,29,198,24,230,24"/>
+</map>

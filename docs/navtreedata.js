@@ -38,11 +38,16 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ],
+        [ "Enumerations", "functions_enum.html", null ],
         [ "Properties", "functions_prop.html", null ],
         [ "Events", "functions_evnt.html", null ]
       ] ]
+    ] ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ]
     ] ]
   ] ]
 ];
@@ -50,7 +55,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d7/dfc/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_haptic_gun.html#a2da32fbad4195e853ea510845f467d00"
+"d4/da1/struct_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_segment.html#a0330c2d32c2825452cdd964908df7e7a",
+"d7/d50/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_simple_connection.html#a371e6842754a1d0e6ca994b14c7d80be",
+"db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#a04fed087df0aa68b2925842e03b5f78b",
+"df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#adcb7300d8deb14b0ae8b9459936f171a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

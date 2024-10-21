@@ -1,0 +1,19 @@
+<map id="Valkyrie.EIR.Interaction.Interactables.GrabInteractable" name="Valkyrie.EIR.Interaction.Interactables.GrabInteractable">
+<area shape="rect" id="Node000001" title="Checks if it is grabbed by the hand (the &quot;currently interacting body part&quot;)" alt="" coords="302,105,498,148"/>
+<area shape="rect" id="Node000004" href="$d6/d75/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_climb_grab_interactable.html" title="Checks if it is grabbed by the hand (the &quot;currently interacting body part&quot;)" alt="" coords="558,5,789,48"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="456,96,545,58,581,46,582,51,547,62,459,101"/>
+<area shape="rect" id="Node000005" href="$d1/d7e/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_grab_impact_interactable.html" title="Extends GrabInteractable, listening for collisions whilst grabbing." alt="" coords="555,72,792,115"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="514,110,555,105,555,110,514,115"/>
+<area shape="rect" id="Node000006" href="$d7/d91/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_kinematic_grab_interactable.html" title="Valkyrie Gravity Grab Interactable: checks the object&#39;s mass and acceleration. Every frame it sends t..." alt="" coords="546,139,801,181"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="514,138,546,142,546,147,513,143"/>
+<area shape="rect" id="Node000008" href="$d2/d3b/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_pull_grab_interactable.html" title="Resistance Grab Interactable: checks how much the resistance band is stretched and with how much forc..." alt="" coords="564,205,783,248"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="459,153,547,191,582,202,581,207,545,196,456,158"/>
+<area shape="rect" id="Node000002" href="$d2/dc4/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactable.html" title="Valkyrie Interactable: interacts with the body part and calculates the intensity of interaction...." alt="" coords="165,113,254,140"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="269,124,301,124,301,129,269,129"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,113,117,140"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="132,124,164,124,164,129,132,129"/>
+<area shape="rect" id="Node000007" href="$d7/dfc/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_haptic_gun.html" title="Example gun that applies EMS force when fired." alt="" coords="849,147,1071,173"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="816,157,848,157,848,163,816,163"/>
+<area shape="rect" id="Node000009" href="$d4/d1b/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_calibration_pull_grab_interactable.html" title="Calibration Resistance Grab Interactable: checks how much it is stretched and with which force...." alt="" coords="854,197,1066,256"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="799,224,853,224,853,229,799,229"/>
+</map>

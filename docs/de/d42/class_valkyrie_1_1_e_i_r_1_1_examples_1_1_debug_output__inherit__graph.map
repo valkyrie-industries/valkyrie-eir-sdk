@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Examples.DebugOutput" name="Valkyrie.EIR.Examples.DebugOutput">
+<area shape="rect" id="Node000001" title="Simple output script for calibration and mapped intensity values." alt="" coords="5,80,204,123"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="49,5,160,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,48,107,80,102,80,102,48"/>
+</map>

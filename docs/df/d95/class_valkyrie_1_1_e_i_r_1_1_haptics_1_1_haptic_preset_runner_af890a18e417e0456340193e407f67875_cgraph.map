@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Haptics.HapticPresetRunner.SetupRunner" name="Valkyrie.EIR.Haptics.HapticPresetRunner.SetupRunner">
+<area shape="rect" id="Node000001" title="Initialise and start the haptic preset." alt="" coords="5,5,191,48"/>
+<area shape="rect" id="Node000002" href="$df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#a863544bd49d65b93e8f8ab3f824be2ac" title="Pauses or unpauses the preset runner." alt="" coords="239,5,432,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,24,223,24,223,29,191,29"/>
+</map>

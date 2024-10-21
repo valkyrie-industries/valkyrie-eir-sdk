@@ -1,0 +1,9 @@
+<map id="Valkyrie.EIR.Interaction.Interactables.HitInteractable" name="Valkyrie.EIR.Interaction.Interactables.HitInteractable">
+<area shape="rect" id="Node000001" title="Checks if it is hit by the hand and sends short impulse of various envelopes to the Interaction Manag..." alt="" coords="5,229,191,272"/>
+<area shape="rect" id="Node000002" href="$d4/de0/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_touch_interactable.html" title="Checks if it is touched by the bodypart (the &quot;currently interacting body part&quot;) and sends TouchIntera..." alt="" coords="36,155,160,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,197,101,229,95,229,95,197"/>
+<area shape="rect" id="Node000003" href="$d2/dc4/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactable.html" title="Valkyrie Interactable: interacts with the body part and calculates the intensity of interaction...." alt="" coords="53,80,143,107"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="101,122,101,154,95,154,95,122"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="42,5,154,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="101,48,101,80,95,80,95,48"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="Valkyrie.EIR.Haptics.HapticPreset.CreateDefaultPreset" name="Valkyrie.EIR.Haptics.HapticPreset.CreateDefaultPreset">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,72,191,115"/>
+<area shape="rect" id="Node000002" href="$d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#ab95527a90f121783724fb677714dd296" title=" " alt="" coords="239,5,435,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,69,243,50,244,55,177,74"/>
+<area shape="rect" id="Node000003" href="$d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#a196c267e2f32148f0aebaf15cc509d56" title=" " alt="" coords="244,72,430,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="191,91,229,91,229,96,191,96"/>
+<area shape="rect" id="Node000004" href="$d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#a697089308b8b035459b272cfc490cb13" title=" " alt="" coords="244,139,430,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="177,113,244,131,243,137,176,118"/>
+</map>

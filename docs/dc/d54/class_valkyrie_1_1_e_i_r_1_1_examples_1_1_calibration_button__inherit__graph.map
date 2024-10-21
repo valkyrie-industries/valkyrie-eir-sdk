@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Examples.CalibrationButton" name="Valkyrie.EIR.Examples.CalibrationButton">
+<area shape="rect" id="Node000001" title="Example calibration button." alt="" coords="5,80,228,123"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="61,5,172,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,48,119,80,114,80,114,48"/>
+</map>

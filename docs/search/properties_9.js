@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['timealloted_0',['TimeAlloted',['../dc/d75/struct_valkyrie_1_1_e_i_r_1_1_utilities_1_1_timer.html#afb3a7027ee0bb324ae0b63a140b9b6f1',1,'Valkyrie::EIR::Utilities::Timer']]],
-  ['timestarted_1',['TimeStarted',['../dc/d75/struct_valkyrie_1_1_e_i_r_1_1_utilities_1_1_timer.html#ab1b5194480ab432cd0c22a30876363b4',1,'Valkyrie::EIR::Utilities::Timer']]]
+  ['m_5faffectedbodyparts_0',['m_affectedBodyParts',['../df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#a8ff088daabf32bf8e1df973cb1d70daf',1,'Valkyrie::EIR::Haptics::HapticPresetRunner']]],
+  ['mappedintensities_1',['MappedIntensities',['../db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#a7419a92bbc4ced94cdc47931b186beb6',1,'Valkyrie::EIR::Haptics::HapticManager']]]
 ];

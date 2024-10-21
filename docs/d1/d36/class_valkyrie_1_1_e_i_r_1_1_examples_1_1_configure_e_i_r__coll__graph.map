@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Examples.ConfigureEIR" name="Valkyrie.EIR.Examples.ConfigureEIR">
+<area shape="rect" id="Node000001" title="Configures EIR with values it&#39;s provided or values you set or to default." alt="" coords="5,80,245,107"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="69,5,181,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,48,128,80,122,80,122,48"/>
+</map>

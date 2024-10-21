@@ -1,0 +1,13 @@
+<map id="Valkyrie.EIR.Interaction.Interactables.HapticPresetTouchInteractable.TouchInteraction" name="Valkyrie.EIR.Interaction.Interactables.HapticPresetTouchInteractable.TouchInteraction">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,101,217,160"/>
+<area shape="rect" id="Node000002" href="$d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#addd1d352ca87aa270ca5bb1ed5da2bf2" title=" " alt="" coords="276,72,462,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,113,260,106,261,112,218,118"/>
+<area shape="rect" id="Node000006" href="$d2/dc4/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactable.html#a2f5f74660e1d7a2e0816d80d03f0f31c" title="Asks the HapticManager to create a HapticPresetRunner with the input HapticPreset." alt="" coords="265,139,473,197"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="218,143,250,148,249,153,217,149"/>
+<area shape="rect" id="Node000003" href="$d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#ab95527a90f121783724fb677714dd296" title=" " alt="" coords="521,5,717,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="451,69,521,50,523,55,452,74"/>
+<area shape="rect" id="Node000004" href="$d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#a196c267e2f32148f0aebaf15cc509d56" title=" " alt="" coords="526,72,712,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="462,91,511,91,511,96,462,96"/>
+<area shape="rect" id="Node000005" href="$d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#a697089308b8b035459b272cfc490cb13" title=" " alt="" coords="526,139,712,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="452,113,523,132,521,137,451,118"/>
+</map>

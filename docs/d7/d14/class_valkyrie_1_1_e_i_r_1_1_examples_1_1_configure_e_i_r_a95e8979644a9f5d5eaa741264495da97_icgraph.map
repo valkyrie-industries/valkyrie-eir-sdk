@@ -1,0 +1,10 @@
+<map id="Valkyrie.EIR.Examples.ConfigureEIR.Configure" name="Valkyrie.EIR.Examples.ConfigureEIR.Configure">
+<area shape="rect" id="Node000001" title="Sets the gain, frequency and pulse width to the input values, and commands the EIR Bluetooth Bridge t..." alt="" coords="485,35,701,77"/>
+<area shape="rect" id="Node000002" href="$d7/dfc/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_haptic_gun.html#a20917c6c79aea41aefa2b355e491617d" title="Activate the gun, and begin firing if on rapid fire, or fire one bullet if not." alt="" coords="5,5,204,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="469,51,204,35,204,30,470,46"/>
+<area shape="rect" id="Node000003" href="$d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#a28a551e91976bd26ab52d96c22674ae2" title="Plays the &#39;feeling&#39; which corresponds to the input ID." alt="" coords="252,64,437,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="470,73,438,77,437,72,469,68"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="239,62,194,51,195,46,240,57"/>
+<area shape="rect" id="Node000004" href="$d2/dfe/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_button.html#a7eed39537f02a09c1b8560ce71ef6233" title=" " alt="" coords="12,72,197,115"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="236,92,198,93,198,88,236,86"/>
+</map>

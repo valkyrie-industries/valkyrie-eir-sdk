@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Utilities.ValkyrieEIRExtensionMethods.ColorBasedOnCalibrationLevel" name="Valkyrie.EIR.Utilities.ValkyrieEIRExtensionMethods.ColorBasedOnCalibrationLevel">
+<area shape="rect" id="Node000001" title="Maps the color output between green and black based on the calibration level. Colour range: 0 &#45; green..." alt="" coords="280,5,614,48"/>
+<area shape="rect" id="Node000002" href="$d6/dcc/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_resistance_band_visuals.html#aae10a8ef6cdc6177ba4da79cf421e368" title="Modifies the size and colour of the band from the calibration value." alt="" coords="5,5,232,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="264,29,232,29,232,24,264,24"/>
+</map>

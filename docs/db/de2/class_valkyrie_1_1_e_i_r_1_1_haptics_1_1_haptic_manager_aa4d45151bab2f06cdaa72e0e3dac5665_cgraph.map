@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Haptics.HapticManager.GenerateHapticSignalForSendFrequency" name="Valkyrie.EIR.Haptics.HapticManager.GenerateHapticSignalForSendFrequency">
+<area shape="rect" id="Node000001" title="Generates a haptic signal if on a valid send frame. This is dependent on the BluetoothSendFrequency s..." alt="" coords="5,5,227,64"/>
+<area shape="rect" id="Node000002" href="$db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#aa1b91587983fcc8f95341bd453c26a22" title="Reset the mapped intensities to 0 once the signal has been sent." alt="" coords="275,13,460,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="227,32,259,32,259,37,227,37"/>
+</map>

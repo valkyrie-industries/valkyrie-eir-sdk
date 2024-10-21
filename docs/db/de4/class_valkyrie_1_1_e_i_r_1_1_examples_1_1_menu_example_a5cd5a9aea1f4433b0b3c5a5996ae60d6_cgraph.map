@@ -1,0 +1,11 @@
+<map id="Valkyrie.EIR.Examples.MenuExample.ToggleEMS" name="Valkyrie.EIR.Examples.MenuExample.ToggleEMS">
+<area shape="rect" id="Node000001" title="Enable or disable the write characteristic." alt="" coords="5,72,198,115"/>
+<area shape="rect" id="Node000002" href="$d8/d90/class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager.html#a77cfa018f236ff2c9dc10cf0fc8318c3" title="Toggles on or off the bluetooth data write. When enabled, sends a configuration signal to the connect..." alt="" coords="246,72,421,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,91,230,91,230,96,198,96"/>
+<area shape="rect" id="Node000003" href="$db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#a1d51d77f6153236ea1eaeaabbf9089f9" title="Generates a haptic signal from the currently mapped intensities." alt="" coords="486,5,688,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="417,69,488,50,489,55,418,74"/>
+<area shape="rect" id="Node000004" href="$db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#aa1b91587983fcc8f95341bd453c26a22" title="Reset the mapped intensities to 0 once the signal has been sent." alt="" coords="494,72,680,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="421,91,479,91,479,96,421,96"/>
+<area shape="rect" id="Node000005" href="$d6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge.html#a34ea3966abfe6770385f70c88ca2d104" title="Writes the input data to the EIR Bands&#39; write characteristic. If critical, will attempt to send the s..." alt="" coords="469,139,705,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="418,113,489,132,488,137,417,118"/>
+</map>

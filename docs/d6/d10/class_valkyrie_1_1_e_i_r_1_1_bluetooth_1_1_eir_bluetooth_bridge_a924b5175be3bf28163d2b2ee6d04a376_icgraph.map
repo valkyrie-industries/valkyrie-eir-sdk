@@ -1,0 +1,9 @@
+<map id="Valkyrie.EIR.Bluetooth.EirBluetoothBridge.OnConnectionStateChangedEventHandler" name="Valkyrie.EIR.Bluetooth.EirBluetoothBridge.OnConnectionStateChangedEventHandler">
+<area shape="rect" id="Node000001" title=" " alt="" coords="496,31,727,89"/>
+<area shape="rect" id="Node000002" href="$d6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge.html#ab83890fedb2761db2b78d3319e29f964" title="Connect to the device at the input mac address." alt="" coords="252,5,425,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="480,47,425,40,426,35,481,41"/>
+<area shape="rect" id="Node000004" href="$d6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge.html#ad26865d5d2b3c0e185fb7ca40cc43148" title="Scan for nearby EIR devices, and connect if only one is found. If multiple devices are found,..." alt="" coords="229,72,448,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="481,79,449,83,448,77,480,73"/>
+<area shape="rect" id="Node000003" href="$d8/d90/class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager.html#acb3e27c2cde858a8df6fb5eaa7da75c5" title="Invoke the connect routine on the bluetooth bridge for the input address." alt="" coords="5,5,181,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="236,29,181,29,181,24,236,24"/>
+</map>

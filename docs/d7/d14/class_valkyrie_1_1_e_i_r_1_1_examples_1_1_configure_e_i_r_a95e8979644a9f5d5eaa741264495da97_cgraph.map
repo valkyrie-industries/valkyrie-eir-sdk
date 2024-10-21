@@ -1,0 +1,8 @@
+<map id="Valkyrie.EIR.Examples.ConfigureEIR.Configure" name="Valkyrie.EIR.Examples.ConfigureEIR.Configure">
+<area shape="rect" id="Node000001" title="Sets the gain, frequency and pulse width to the input values, and commands the EIR Bluetooth Bridge t..." alt="" coords="5,35,222,77"/>
+<area shape="rect" id="Node000002" href="$d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html#a9fa6f69857fb0403a73613de3885e8ef" title="Commands the EIR Bluetooth Bridge to send a config signal to the connected device with the current se..." alt="" coords="270,5,486,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,41,254,38,254,43,222,47"/>
+<area shape="rect" id="Node000003" href="$db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#ac9528bf05df50ad7fc5eeff0107e3e18" title="Generates a config signal with the input gain, frequency and pulse width vales." alt="" coords="534,35,736,77"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="222,56,270,57,486,57,519,57,519,62,486,63,270,63,222,62"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="487,36,519,40,518,45,486,42"/>
+</map>

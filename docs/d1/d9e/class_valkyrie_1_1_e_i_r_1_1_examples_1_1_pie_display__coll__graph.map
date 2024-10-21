@@ -1,0 +1,7 @@
+<map id="Valkyrie.EIR.Examples.PieDisplay" name="Valkyrie.EIR.Examples.PieDisplay">
+<area shape="rect" id="Node000001" title="Overrides EMSDisplay example and visualises as a pie." alt="" coords="5,155,185,197"/>
+<area shape="rect" id="Node000002" href="$d9/d99/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_e_m_s_display.html" title="Example visual output for EMS signal levels." alt="" coords="48,80,142,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,122,98,154,92,154,92,122"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="39,5,151,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="98,48,98,80,92,80,92,48"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="Valkyrie.EIR.Interaction.Interactables.GrabInteractable" name="Valkyrie.EIR.Interaction.Interactables.GrabInteractable">
+<area shape="rect" id="Node000001" title="Checks if it is grabbed by the hand (the &quot;currently interacting body part&quot;)" alt="" coords="5,155,202,197"/>
+<area shape="rect" id="Node000002" href="$d2/dc4/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactable.html" title="Valkyrie Interactable: interacts with the body part and calculates the intensity of interaction...." alt="" coords="59,80,148,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,122,106,154,101,154,101,122"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="48,5,159,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="106,48,106,80,101,80,101,48"/>
+</map>

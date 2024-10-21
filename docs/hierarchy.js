@@ -12,6 +12,7 @@ var hierarchy =
       [ "Valkyrie.EIR.Utilities.EIRConfigEditor", "d7/d13/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_e_i_r_config_editor.html", null ]
     ] ],
     [ "Valkyrie.EIR.Bluetooth.EirBluetoothBridge", "d6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge.html", null ],
+    [ "Valkyrie.EIR.Examples.FeelLibrary", "d2/d8b/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_library.html", null ],
     [ "Valkyrie.EIR.Examples.FeelStruct", "db/de6/struct_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_struct.html", null ],
     [ "Valkyrie.EIR.Haptics.HapticManager", "db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html", null ],
     [ "Valkyrie.EIR.Haptics.HapticPreset", "d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html", null ],
@@ -86,5 +87,6 @@ var hierarchy =
       [ "Valkyrie.EIR.Utilities.EIRConfig", "d0/d43/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_e_i_r_config.html", null ]
     ] ],
     [ "Valkyrie.EIR.Utilities.Timer", "dc/d75/struct_valkyrie_1_1_e_i_r_1_1_utilities_1_1_timer.html", null ],
+    [ "Valkyrie.EIR.Utilities.ValkyrieEIRExtensionMethods", "d1/d62/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_valkyrie_e_i_r_extension_methods.html", null ],
     [ "Valkyrie.EIR.Utilities.VLKPostImport", "de/d32/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_v_l_k_post_import.html", null ]
 ];

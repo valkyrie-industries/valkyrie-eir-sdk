@@ -1,0 +1,30 @@
+<map id="Valkyrie.EIR.Examples.HapticGun.Activate" name="Valkyrie.EIR.Examples.HapticGun.Activate">
+<area shape="rect" id="Node000001" title="Activate the gun, and begin firing if on rapid fire, or fire one bullet if not." alt="" coords="5,240,204,283"/>
+<area shape="rect" id="Node000002" href="$d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html#a95e8979644a9f5d5eaa741264495da97" title="Sets the gain, frequency and pulse width to the input values, and commands the EIR Bluetooth Bridge t..." alt="" coords="493,205,709,248"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,252,477,233,478,238,204,257"/>
+<area shape="rect" id="Node000005" href="$d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#addd1d352ca87aa270ca5bb1ed5da2bf2" title=" " alt="" coords="252,105,437,148"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="143,237,290,154,293,158,146,242"/>
+<area shape="rect" id="Node000009" href="$db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#a0a5e040dc26f8a156155019721c81d68" title="Creates a new HapticPresetRunner instance that can be applied to a sigle body part and attaches it to..." alt="" coords="485,339,717,381"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="147,281,197,304,252,323,363,344,470,354,469,359,362,349,251,328,195,308,145,286"/>
+<area shape="rect" id="Node000012" href="$d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#a28a551e91976bd26ab52d96c22674ae2" title="Plays the &#39;feeling&#39; which corresponds to the input ID." alt="" coords="252,271,437,313"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="204,271,237,276,236,281,204,277"/>
+<area shape="rect" id="Node000003" href="$d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html#a9fa6f69857fb0403a73613de3885e8ef" title="Commands the EIR Bluetooth Bridge to send a config signal to the connected device with the current se..." alt="" coords="765,176,982,219"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="710,212,750,208,750,213,710,218"/>
+<area shape="rect" id="Node000004" href="$db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#ac9528bf05df50ad7fc5eeff0107e3e18" title="Generates a config signal with the input gain, frequency and pulse width vales." alt="" coords="1030,205,1232,248"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="710,227,765,228,982,228,1014,227,1014,233,982,233,765,233,710,232"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="982,207,1015,211,1014,216,982,212"/>
+<area shape="rect" id="Node000006" href="$d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#ab95527a90f121783724fb677714dd296" title=" " alt="" coords="503,5,699,48"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="386,102,484,58,503,51,505,56,486,62,388,107"/>
+<area shape="rect" id="Node000007" href="$d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#a196c267e2f32148f0aebaf15cc509d56" title=" " alt="" coords="508,72,694,115"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="437,112,493,105,494,110,438,117"/>
+<area shape="rect" id="Node000008" href="$d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#a697089308b8b035459b272cfc490cb13" title=" " alt="" coords="508,139,694,181"/>
+<area shape="poly" id="edge8_Node000005_Node000008" title=" " alt="" coords="438,136,494,143,493,149,437,141"/>
+<area shape="rect" id="Node000010" href="$df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#af890a18e417e0456340193e407f67875" title="Initialise and start the haptic preset." alt="" coords="781,339,966,381"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="718,357,765,357,765,363,718,363"/>
+<area shape="rect" id="Node000011" href="$df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#a863544bd49d65b93e8f8ab3f824be2ac" title="Pauses or unpauses the preset runner." alt="" coords="1034,339,1228,381"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="967,357,1019,357,1019,363,967,363"/>
+<area shape="poly" id="edge13_Node000012_Node000002" title=" " alt="" coords="430,267,499,250,500,255,432,273"/>
+<area shape="poly" id="edge14_Node000012_Node000009" title=" " alt="" coords="429,311,504,332,502,337,427,317"/>
+<area shape="rect" id="Node000013" href="$d2/d8b/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_library.html#a476b9e414a3b048e6785d4ee6f8cc6d4" title="Retrieve the feel corresponding to the input id." alt="" coords="508,272,694,315"/>
+<area shape="poly" id="edge15_Node000012_Node000013" title=" " alt="" coords="437,290,493,290,493,295,437,295"/>
+</map>

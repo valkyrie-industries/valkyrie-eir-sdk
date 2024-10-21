@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Interaction.Interactables.GrabInteractable.SendZeroForce" name="Valkyrie.EIR.Interaction.Interactables.GrabInteractable.SendZeroForce">
+<area shape="rect" id="Node000001" title="Sends zero force to the currently interacting body part, if one is available." alt="" coords="5,5,206,64"/>
+<area shape="rect" id="Node000002" href="$d2/dc4/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactable.html#a41bab9bd1f1c0e3a1a16b06de4e38002" title="Invokes force on the input body part. HapticManager will generate a HapticPresetRunner with the given..." alt="" coords="254,13,436,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,32,238,32,238,37,206,37"/>
+</map>

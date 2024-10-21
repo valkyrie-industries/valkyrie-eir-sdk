@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Utilities.VLKBuild" name="Valkyrie.EIR.Utilities.VLKBuild">
+<area shape="rect" id="Node000001" title="Hooks into the Unity build process at the preprocess phase to merge requisite manifest and gradle set..." alt="" coords="5,80,206,107"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="12,5,199,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,48,108,80,103,80,103,48"/>
+</map>

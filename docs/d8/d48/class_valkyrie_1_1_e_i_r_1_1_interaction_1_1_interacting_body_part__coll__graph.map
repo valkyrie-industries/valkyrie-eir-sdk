@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Interaction.InteractingBodyPart" name="Valkyrie.EIR.Interaction.InteractingBodyPart">
+<area shape="rect" id="Node000001" title="Body part for physical interaction with objects. Associated with the tracked device on the same gameo..." alt="" coords="5,80,169,123"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="31,5,143,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,48,90,80,84,80,84,48"/>
+</map>

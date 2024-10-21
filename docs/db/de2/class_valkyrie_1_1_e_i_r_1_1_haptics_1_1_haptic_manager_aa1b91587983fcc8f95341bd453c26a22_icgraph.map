@@ -1,0 +1,9 @@
+<map id="Valkyrie.EIR.Haptics.HapticManager.Reset" name="Valkyrie.EIR.Haptics.HapticManager.Reset">
+<area shape="rect" id="Node000001" title="Reset the mapped intensities to 0 once the signal has been sent." alt="" coords="515,51,700,93"/>
+<area shape="rect" id="Node000002" href="$db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#aa4d45151bab2f06cdaa72e0e3dac5665" title="Generates a haptic signal if on a valid send frame. This is dependent on the BluetoothSendFrequency s..." alt="" coords="246,5,467,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="499,59,467,54,468,48,500,53"/>
+<area shape="rect" id="Node000003" href="$d8/d90/class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager.html#a77cfa018f236ff2c9dc10cf0fc8318c3" title="Toggles on or off the bluetooth data write. When enabled, sends a configuration signal to the connect..." alt="" coords="269,88,444,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="500,91,445,99,444,94,499,85"/>
+<area shape="rect" id="Node000004" href="$db/de4/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_menu_example.html#a5cd5a9aea1f4433b0b3c5a5996ae60d6" title="Enable or disable the write characteristic." alt="" coords="5,88,198,131"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="253,112,198,112,198,107,253,107"/>
+</map>

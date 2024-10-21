@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Interaction.Interactable.Interacting" name="Valkyrie.EIR.Interaction.Interactable.Interacting">
+<area shape="rect" id="Node000001" title="Runs each frame, locked to the Update loop." alt="" coords="217,5,380,48"/>
+<area shape="rect" id="Node000002" href="$d2/dc4/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactable.html#aba7a65930255f0e4f12b68377d9646f2" title=" " alt="" coords="5,5,169,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,29,169,29,169,24,201,24"/>
+</map>

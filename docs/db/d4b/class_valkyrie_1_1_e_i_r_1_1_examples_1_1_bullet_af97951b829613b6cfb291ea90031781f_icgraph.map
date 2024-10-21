@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Examples.Bullet.Fire" name="Valkyrie.EIR.Examples.Bullet.Fire">
+<area shape="rect" id="Node000001" title="Marks the bullet as fired." alt="" coords="252,13,471,40"/>
+<area shape="rect" id="Node000002" href="$d7/dfc/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_haptic_gun.html#ad5929103a579094879770d26ac9f00dc" title="Runs each frame, locked to the Update loop." alt="" coords="5,5,204,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,29,204,29,204,24,236,24"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="Valkyrie.EIR.Examples.ResistanceBandVisuals.InitialiseVisuals" name="Valkyrie.EIR.Examples.ResistanceBandVisuals.InitialiseVisuals">
+<area shape="rect" id="Node000001" title="Modifies the size and colour of the band from the calibration value." alt="" coords="5,72,232,115"/>
+<area shape="rect" id="Node000002" href="$d1/d62/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_valkyrie_e_i_r_extension_methods.html#a1115cf8f97cb6a36df04806032ffd039" title="Maps the color output between green and black based on the calibration level. Colour range: 0 &#45; green..." alt="" coords="280,5,614,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="224,69,279,57,320,49,321,54,280,63,225,74"/>
+<area shape="rect" id="Node000003" href="$d1/d62/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_valkyrie_e_i_r_extension_methods.html#a2b1961d92f491711bf08f709aaa67204" title="Maps the input to a specific ExpRange." alt="" coords="319,72,575,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="232,91,303,91,303,96,232,96"/>
+<area shape="rect" id="Node000004" href="$d1/d62/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_valkyrie_e_i_r_extension_methods.html#a6c4cf23605347efae628c6edfe090f5c" title="Maps the size output between min and max based on the calibration level." alt="" coords="282,139,612,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="225,113,280,124,321,132,320,138,279,129,224,118"/>
+<area shape="rect" id="Node000005" href="$d1/d62/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_valkyrie_e_i_r_extension_methods.html#a8254a443c601351086132aeb679f4f6d" title="Maps the input between minimum and maximum values to a given range." alt="" coords="662,139,895,181"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="612,157,646,157,646,163,612,163"/>
+</map>

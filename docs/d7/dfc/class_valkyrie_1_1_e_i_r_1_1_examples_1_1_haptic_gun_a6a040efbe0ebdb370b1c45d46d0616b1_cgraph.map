@@ -1,0 +1,7 @@
+<map id="Valkyrie.EIR.Examples.HapticGun.ResetConfigurationWithDelay" name="Valkyrie.EIR.Examples.HapticGun.ResetConfigurationWithDelay">
+<area shape="rect" id="Node000001" title="Resets the gun to its default configuration after the input delay (ms)." alt="" coords="5,5,228,48"/>
+<area shape="rect" id="Node000002" href="$d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html#ab87e81cf6ba6831a28027b7d954beb21" title="Resets gain, frequency and pulse width to default, and commands the EIR Bluetooth Bridge to send a co..." alt="" coords="276,5,492,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,24,260,24,260,29,228,29"/>
+<area shape="rect" id="Node000003" href="$db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#ac9528bf05df50ad7fc5eeff0107e3e18" title="Generates a config signal with the input gain, frequency and pulse width vales." alt="" coords="540,5,742,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="492,24,525,24,525,29,492,29"/>
+</map>

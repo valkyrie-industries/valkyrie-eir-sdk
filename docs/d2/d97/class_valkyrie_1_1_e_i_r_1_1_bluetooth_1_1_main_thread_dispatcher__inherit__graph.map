@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Bluetooth.MainThreadDispatcher" name="Valkyrie.EIR.Bluetooth.MainThreadDispatcher">
+<area shape="rect" id="Node000001" title="Class to dispatch actions called from threads other than the main thread within the Bluetooth Java pl..." alt="" coords="5,80,191,123"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="42,5,154,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,48,101,80,95,80,95,48"/>
+</map>

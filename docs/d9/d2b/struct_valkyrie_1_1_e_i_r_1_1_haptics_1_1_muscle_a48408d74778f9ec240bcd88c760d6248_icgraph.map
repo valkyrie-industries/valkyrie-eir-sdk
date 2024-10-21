@@ -1,0 +1,9 @@
+<map id="Valkyrie.EIR.Haptics.Muscle.Equals" name="Valkyrie.EIR.Haptics.Muscle.Equals">
+<area shape="rect" id="Node000001" title=" " alt="" coords="310,64,503,107"/>
+<area shape="rect" id="Node000002" href="$d9/d2b/struct_valkyrie_1_1_e_i_r_1_1_haptics_1_1_muscle.html#ac71a3aa6988feb687f4ca5dc961c83c4" title=" " alt="" coords="37,5,230,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="294,64,230,50,231,45,295,59"/>
+<area shape="rect" id="Node000003" href="$d9/d2b/struct_valkyrie_1_1_e_i_r_1_1_haptics_1_1_muscle.html#aeebf85c168e238c889489f4290f93a3a" title=" " alt="" coords="7,72,260,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="294,88,260,88,260,83,294,83"/>
+<area shape="rect" id="Node000004" href="$d9/d2b/struct_valkyrie_1_1_e_i_r_1_1_haptics_1_1_muscle.html#a729ebdb3b8dba289e338d8a0bb9ba102" title=" " alt="" coords="5,123,262,149"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="295,109,210,125,209,119,294,103"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="Valkyrie.EIR.Examples.FeelLibrary.RequestFeel" name="Valkyrie.EIR.Examples.FeelLibrary.RequestFeel">
+<area shape="rect" id="Node000001" title="Retrieve the feel corresponding to the input id." alt="" coords="485,39,670,81"/>
+<area shape="rect" id="Node000002" href="$d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#a28a551e91976bd26ab52d96c22674ae2" title="Plays the &#39;feeling&#39; which corresponds to the input ID." alt="" coords="252,39,437,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="470,63,438,63,438,57,470,57"/>
+<area shape="rect" id="Node000003" href="$d7/dfc/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_haptic_gun.html#a20917c6c79aea41aefa2b355e491617d" title="Activate the gun, and begin firing if on rapid fire, or fire one bullet if not." alt="" coords="5,5,204,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="236,48,204,43,204,38,237,42"/>
+<area shape="rect" id="Node000004" href="$d2/dfe/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_button.html#a7eed39537f02a09c1b8560ce71ef6233" title=" " alt="" coords="12,72,197,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="237,78,198,83,197,78,236,72"/>
+</map>

@@ -1,0 +1,25 @@
+<map id="Valkyrie.EIR.Interaction.Interactable" name="Valkyrie.EIR.Interaction.Interactable">
+<area shape="rect" id="Node000001" title="Valkyrie Interactable: interacts with the body part and calculates the intensity of interaction...." alt="" coords="165,209,328,252"/>
+<area shape="rect" id="Node000003" href="$d9/da7/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_grab_interactable.html" title="Checks if it is grabbed by the hand (the &quot;currently interacting body part&quot;)" alt="" coords="380,139,576,181"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="332,202,404,179,406,185,334,207"/>
+<area shape="rect" id="Node000010" href="$d4/de0/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_touch_interactable.html" title="Checks if it is touched by the bodypart (the &quot;currently interacting body part&quot;) and sends TouchIntera..." alt="" coords="376,280,579,323"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="334,255,406,277,404,282,332,260"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,217,117,244"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,228,164,228,164,233,132,233"/>
+<area shape="rect" id="Node000004" href="$d6/d75/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_climb_grab_interactable.html" title="Checks if it is grabbed by the hand (the &quot;currently interacting body part&quot;)" alt="" coords="639,5,870,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="516,127,567,91,626,58,656,46,658,51,628,62,569,95,519,131"/>
+<area shape="rect" id="Node000005" href="$d1/d7e/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_grab_impact_interactable.html" title="Extends GrabInteractable, listening for collisions whilst grabbing." alt="" coords="636,72,873,115"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="583,132,662,113,664,118,584,137"/>
+<area shape="rect" id="Node000006" href="$d7/d91/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_kinematic_grab_interactable.html" title="Valkyrie Gravity Grab Interactable: checks the object&#39;s mass and acceleration. Every frame it sends t..." alt="" coords="627,139,882,181"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="592,157,627,157,627,163,592,163"/>
+<area shape="rect" id="Node000008" href="$d2/d3b/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_pull_grab_interactable.html" title="Resistance Grab Interactable: checks how much the resistance band is stretched and with how much forc..." alt="" coords="645,205,864,248"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="584,183,664,202,662,207,583,188"/>
+<area shape="rect" id="Node000007" href="$d7/dfc/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_haptic_gun.html" title="Example gun that applies EMS force when fired." alt="" coords="930,147,1152,173"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="897,157,929,157,929,163,897,163"/>
+<area shape="rect" id="Node000009" href="$d4/d1b/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_calibration_pull_grab_interactable.html" title="Calibration Resistance Grab Interactable: checks how much it is stretched and with which force...." alt="" coords="935,197,1147,256"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="880,224,934,224,934,229,880,229"/>
+<area shape="rect" id="Node000011" href="$d7/de1/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_haptic_preset_touch_interactable.html" title="TouchInteractable that sends haptic preset at the touch of a bodypart." alt="" coords="649,272,860,331"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="595,299,648,299,648,304,595,304"/>
+<area shape="rect" id="Node000012" href="$df/d22/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_hit_interactable.html" title="Checks if it is hit by the hand and sends short impulse of various envelopes to the Interaction Manag..." alt="" coords="662,355,847,397"/>
+<area shape="poly" id="edge11_Node000010_Node000012" title=" " alt="" coords="572,325,628,340,670,351,669,357,627,345,571,330"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="Valkyrie.EIR.EIRManager" name="Valkyrie.EIR.EIRManager">
+<area shape="rect" id="Node000001" title="Facade class to manage the instantiation and interaction between the three management classes require..." alt="" coords="5,172,177,199"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="30,5,141,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,47,93,171,88,172,84,47"/>
+<area shape="rect" id="Node000003" href="$d8/d90/class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager.html" title="Facade class to manage the instantiation and interaction between the three management classes require..." alt="" coords="107,81,278,108"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="118,39,176,79,173,83,115,43"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="168,120,107,173,104,169,165,116"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="295,88,305,95,296,101,279,104,278,99,294,96,299,95,292,92"/>
+</map>

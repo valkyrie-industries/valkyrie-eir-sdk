@@ -1,0 +1,7 @@
+<map id="Valkyrie.EIR.Examples.Target" name="Valkyrie.EIR.Examples.Target">
+<area shape="rect" id="Node000001" title="Example target object which generates a haptic force when struck." alt="" coords="13,80,209,107"/>
+<area shape="rect" id="Node000003" href="$d8/df4/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_breaking_target.html" title="Example breakable target object which generates a haptic force when destroyed." alt="" coords="5,155,217,197"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="114,122,114,154,108,154,108,122"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="55,5,167,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,48,114,80,108,80,108,48"/>
+</map>

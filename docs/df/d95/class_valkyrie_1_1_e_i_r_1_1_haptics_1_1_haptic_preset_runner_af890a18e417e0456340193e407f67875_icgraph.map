@@ -1,0 +1,16 @@
+<map id="Valkyrie.EIR.Haptics.HapticPresetRunner.SetupRunner" name="Valkyrie.EIR.Haptics.HapticPresetRunner.SetupRunner">
+<area shape="rect" id="Node000001" title="Initialise and start the haptic preset." alt="" coords="778,68,964,111"/>
+<area shape="rect" id="Node000002" href="$db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#a0a5e040dc26f8a156155019721c81d68" title="Creates a new HapticPresetRunner instance that can be applied to a sigle body part and attaches it to..." alt="" coords="498,35,730,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="763,78,730,74,731,68,763,73"/>
+<area shape="rect" id="Node000007" href="$db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#ae5a12b7ef464d1e3f8207b98df18a663" title="Creates a new HapticPresetRunner instance that can be applied to multiple body parts and attaches it ..." alt="" coords="498,101,730,144"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="763,106,731,110,730,105,763,101"/>
+<area shape="rect" id="Node000003" href="$d7/dfc/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_haptic_gun.html#a20917c6c79aea41aefa2b355e491617d" title="Activate the gun, and begin firing if on rapid fire, or fire one bullet if not." alt="" coords="5,5,204,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="507,34,450,25,394,21,351,22,252,25,204,26,204,21,252,20,351,16,394,16,450,20,507,28"/>
+<area shape="rect" id="Node000004" href="$d7/dfc/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_haptic_gun.html#ad5929103a579094879770d26ac9f00dc" title="Runs each frame, locked to the Update loop." alt="" coords="252,35,450,77"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="482,59,450,59,450,53,482,53"/>
+<area shape="rect" id="Node000005" href="$d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#a28a551e91976bd26ab52d96c22674ae2" title="Plays the &#39;feeling&#39; which corresponds to the input ID." alt="" coords="258,101,444,144"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="513,84,439,103,437,98,512,79"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="268,98,251,92,153,51,155,46,253,87,270,93"/>
+<area shape="rect" id="Node000006" href="$d2/dfe/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_button.html#a7eed39537f02a09c1b8560ce71ef6233" title=" " alt="" coords="12,101,197,144"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="243,125,198,125,198,120,243,120"/>
+</map>
