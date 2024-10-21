@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,19 +12,38 @@ namespace Valkyrie.EIR.Haptics {
     [Serializable]
     public class HapticPresetRunner : MonoBehaviour {
 
+        #region Events
+
         public delegate void OnHapticPresetRequestEventHandler(int bodyPart, float intensity);
         public static event OnHapticPresetRequestEventHandler OnHapticPresetRequest;
 
+        #endregion
+
+        #region Pubic Properties
+
         public List<BodyPart> m_affectedBodyParts { get; private set; } = new List<BodyPart>();     // which body parts will this preset affect during execution.
-
-        public HapticPreset m_preset;                                                               // the preset this runner is running.
-
-        public float m_intensityMultiplier;                                                         // the multiplier that affects this runner's intensity.
-
         public bool paused { get; private set; } = false;                                                                // temporarilly halts execution of the preset.
+
+        #endregion
+
+        #region Serialized Variables
+
+        [SerializeField]
+        private HapticPreset m_preset;                                                               // the preset this runner is running.
+        [SerializeField]
+        private float m_intensityMultiplier;                                                         // the multiplier that affects this runner's intensity.
+
+        #endregion
+
+        #region Private Variables
+
         private IEnumerator coroutine;                                                              // the active running coroutine, either the Execute routine or the Stop routine.
 
         private Timer timer;
+
+        #endregion
+
+        #region Public Methods
 
         /// <summary>
         /// Initialise and start the haptic preset.
@@ -95,6 +113,10 @@ namespace Valkyrie.EIR.Haptics {
             }
         }
 
+        #endregion
+
+        #region Private Methods
+
         /// <summary>
         /// on scene change, stop the haptic preset execution.
         /// </summary>
@@ -135,58 +157,54 @@ namespace Valkyrie.EIR.Haptics {
                 yield break;
             }
 
-            //Set up the timer and pause if needed
+            // set up the timer and pause if needed
             timer = new Timer(m_preset.totalSegmentTime);
             timer.SetPauseState(paused);
 
-            //Cache the segments for easy access
+            // cache the segments for easy access
             HapticSegment[] segments = m_preset.m_segments;
 
-            //Total time in the segments we've done so far
+            // total time in the segments we've done so far
             float cumulativeSegmentTime = segments[0].m_time;
 
-            //which segment we're currently on
+            // which segment we're currently on
             int currentSegmentIndex = 0;
 
             float intensity = 0;
 
-            //Begin main while loop
+            // begin main while loop
             while (!timer.IsTimeOver() || !timer.IsTiming) {
 
-                //Wait for the frame and loop if we're paused.
+                // wait for the frame and loop if we're paused.
                 timer.SetPauseState(paused);
                 timer.SetIsTiming(!paused);
 
-                //Waiting for the end of the frame ensures we're not constantly while looping
+                // waiting for the end of the frame ensures we're not constantly while looping
                 yield return new WaitForEndOfFrame();
 
                 if (paused)
                     continue;
 
                 if (finalIntensity == -1) {
-                    //Are we further than the segment we're looking at? If so, increase index and cumulative time
+                    // are we further than the segment we're looking at? If so, increase index and cumulative time
                     if (timer.GetTimeSinceStart() > cumulativeSegmentTime) {
-                        //Only increase the index if we aren't over the maximum segments
+                        // only increase the index if we aren't over the maximum segments
                         if (currentSegmentIndex < segments.Length - 1) {
-                            //Debug.Log("Increased segment index");
+                            // debug.Log("Increased segment index");
                             currentSegmentIndex++;
                             cumulativeSegmentTime += segments[currentSegmentIndex].m_time;
                         } else {
-                            //If we are over the maximum segments, break the while loop
+                            // if we are over the maximum segments, break the while loop
                             break;
                         }
                     }
 
-                    //Check for bridges and find the intensity points
+                    // check for bridges and find the intensity points
                     (float, float) points = BridgeAndPointCheck();
 
-                    //Find intensity by mapping the time across the segment to the 2 intensities
+                    // find the intensity by mapping the time across the segment to the 2 intensities
                     intensity = ValkyrieEIRExtensionMethods.MapToRange(timer.GetTimeSinceStart(), cumulativeSegmentTime - segments[currentSegmentIndex].m_time, cumulativeSegmentTime, points.Item1, points.Item2);
                     intensity = Mathf.Clamp(intensity, 0, 1);
-
-                    //Debug.Log("Points: " + points.Item1 + " " + points.Item2);
-                    //Debug.Log("Raw intensity: " + intensity);
-                    //Debug.Log("Multiplied intensity: " + intensity * m_intensityMultiplier);
                 } else {
                     intensity = finalIntensity;
                 }
@@ -199,27 +217,26 @@ namespace Valkyrie.EIR.Haptics {
                     m_intensityMultiplier = 0;
                 }
 
-                //Send out a signal to each part that we affect
+                // send out a signal to each part that we affect
                 for (int i = 0; i < m_affectedBodyParts.Count; i++) {
-                    //Debug.Log("sending intensity of " + intensity * m_intensityMultiplier);
                     OnHapticPresetRequest?.Invoke((int)m_affectedBodyParts[i], intensity * m_intensityMultiplier);
                 }
             }
 
-            //If we are looping, restart the coroutine
+            // if we are looping, restart the coroutine
             if (m_preset.m_loopType != HapticPreset.LoopType.None) {
 
                 if (m_preset.m_loopType == HapticPreset.LoopType.LoopFinalIntensity) {
                     finalIntensity = intensity;
                 }
 
-                //We could use another loop here instead but goto is cleaner here
+                // we could use another loop here instead but goto is cleaner here
                 goto start;
             } else {
                 Stop();
             }
 
-            //Local function that finds the bridges or points needed
+            // local function that finds the bridges or points needed
             (float, float) BridgeAndPointCheck() {
                 float point1;
                 float point2;
@@ -246,5 +263,8 @@ namespace Valkyrie.EIR.Haptics {
             }
 
         }
+
+        #endregion
+
     }
 }
