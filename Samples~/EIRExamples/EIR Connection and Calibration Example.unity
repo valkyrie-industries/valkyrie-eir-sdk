@@ -1277,16 +1277,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: EIR Examples
       objectReference: {fileID: 0}
-    - target: {fileID: 8674474378208630813, guid: dc257b5ba0f1f1848914547b30ccc256,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -12.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8674474378208630813, guid: dc257b5ba0f1f1848914547b30ccc256,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -21.4
-      objectReference: {fileID: 0}
     - target: {fileID: 8691733766196773756, guid: dc257b5ba0f1f1848914547b30ccc256,
         type: 3}
       propertyPath: m_SizeDelta.y
