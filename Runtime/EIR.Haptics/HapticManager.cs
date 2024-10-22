@@ -228,15 +228,18 @@ namespace Valkyrie.EIR.Haptics {
         /// </summary>
         /// <param name="isLeft"></param>
         /// <param name="index"></param>
-        public void ModifyCalibrationByIndex(bool isLeft, int index) {
-
+        public void ModifyCalibrationByIndex(bool isLeft, int index)
+        {
             float[] minMax = GetLowerUpperLimitForIndex(index, 2);
 
-            LowerLimits[isLeft ? 1 : 0] = (int)minMax[0];
-            UpperLimits[isLeft ? 1 : 0] = (int)minMax[1];
+            int deviceIndex = isLeft ? 1 : 0;
+
+            LowerLimits[deviceIndex] = (int)minMax[0];
+            UpperLimits[deviceIndex] = (int)minMax[1];
+
+            CalibrationIndex[deviceIndex] = index;
 
             CalibrationUpdated?.Invoke(CalibrationIndex[1], CalibrationIndex[0]);
-
         }
 
         #endregion
