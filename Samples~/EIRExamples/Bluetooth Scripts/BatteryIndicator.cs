@@ -18,7 +18,7 @@ namespace Valkyrie.EIR.Examples {
 
         #region Serialized Variables
 
-        [SerializeField] private Sprite[] sprites;
+        [SerializeField] private Sprite sprUnknown,sprFull,spr80,spr60,spr40,spr20,sprEmpty;
 
         [SerializeField] private Image leftIndicator;
         [SerializeField] private Image rightIndicator;
@@ -82,13 +82,13 @@ namespace Valkyrie.EIR.Examples {
         /// <param name="charge"></param>
         /// <returns></returns>
         private Sprite GetSprite(bool connected, uint charge) {
-            if (!connected) return sprites[5];
-            if (charge > 90) return sprites[4];
-            if (charge > 80) return sprites[3];
-            if (charge > 60) return sprites[2];
-            if (charge > 40) return sprites[1];
-            if (charge > 20) return sprites[1];
-            else return sprites[0];
+            if (!connected) return sprUnknown;
+            if (charge > 90) return sprFull;
+            if (charge > 80) return spr80;
+            if (charge > 60) return spr60;
+            if (charge > 40) return spr40;
+            if (charge > 15) return spr20;
+            else return sprEmpty;
         }
 
         /// <summary>
