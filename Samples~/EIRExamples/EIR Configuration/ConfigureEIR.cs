@@ -59,6 +59,7 @@ namespace Valkyrie.EIR.Examples {
         /// </summary>
         /// <param name="modifier"></param>
         public void AlterFrequency(int modifier) {
+#if EIR_HAPTICS
             // calculate the new frequency using an int
             int newFrequency = frequency + modifier;
 
@@ -68,6 +69,7 @@ namespace Valkyrie.EIR.Examples {
             }
 
             frequency += (byte)modifier;
+#endif
         }
 
         /// <summary>
@@ -75,6 +77,7 @@ namespace Valkyrie.EIR.Examples {
         /// </summary>
         /// <param name="modifier"></param>
         public void AlterPulseWidth(int modifier) {
+#if EIR_HAPTICS
             // calculate the new frequency using an int
             int newPulseWidth = pulseWidth + modifier;
 
@@ -84,6 +87,7 @@ namespace Valkyrie.EIR.Examples {
             }
 
             pulseWidth += (byte)modifier;
+#endif
         }
 
         /// <summary>
