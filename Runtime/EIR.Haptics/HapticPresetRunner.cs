@@ -36,7 +36,7 @@ namespace Valkyrie.EIR.Haptics
         /// <summary>
         /// Multiplies the output intensity
         /// </summary>
-        public float IntensityMultiplier { get { return m_intensityMultiplier; } set { return m_intensityMultiplier; } }
+        public float IntensityMultiplier { get { return m_intensityMultiplier; } set { m_intensityMultiplier = value; } }
 
         #endregion
 
