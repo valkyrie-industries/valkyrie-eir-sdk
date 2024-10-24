@@ -27,6 +27,7 @@ namespace Valkyrie.EIR.Examples {
         [SerializeField] private TextMeshProUGUI rightText;
 
         [SerializeField] private Image panel;
+        [SerializeField] private bool recolour;
 
         #endregion
 
@@ -72,7 +73,7 @@ namespace Valkyrie.EIR.Examples {
             i.sprite = GetSprite(connected, battery);
             TextMeshProUGUI t = isRight ? rightText : leftText;
             t.SetText(connected ? $"{battery}%" : "off");
-            i.color = connected ? (battery > 20 ? Color.white : Color.red) : Color.gray;
+            if (recolour) i.color = connected ? (battery > 20 ? Color.white : Color.red) : Color.gray;
         }
 
         /// <summary>
