@@ -51,6 +51,10 @@ namespace Valkyrie.EIR.Examples {
         private bool selectionStateEventFired = false;
         private bool connectionEstablished;
         private static bool attemptingConnection = false;
+        private Button button;
+        private TMP_Text tmp;
+        private Text txt;
+        private Image im;
 
         #endregion
 
@@ -64,6 +68,8 @@ namespace Valkyrie.EIR.Examples {
 
         private void Start() {
 #if EIR_COMM
+            GetButton();
+            GetText();
             StartCoroutine(ConnectNextFrame());
 #endif
         }
@@ -154,8 +160,9 @@ namespace Valkyrie.EIR.Examples {
 #if EIR_COMM
             attemptingConnection = true;
 
-            if (this.GetComponent<Button>() != null)
-                GetComponent<Button>().interactable = false;
+
+            if (button == null) GetButton();
+            button.interactable = false;
 
             if (LoadingIcon != null)
                 LoadingIcon.SetActive(true);
@@ -191,8 +198,8 @@ namespace Valkyrie.EIR.Examples {
                     }
                 case ConnectionStates.Connected: {
 
-                        if (this.GetComponent<Button>() != null)
-                            GetComponent<Button>().interactable = true;
+                        if (button == null) GetButton();
+                        button.interactable = true;
 
                         if (afterConnectionStageButton != null)
                             afterConnectionStageButton.interactable = true;
@@ -206,12 +213,23 @@ namespace Valkyrie.EIR.Examples {
                         MoveToNextUIStage();
                         break;
                     }
+                case ConnectionStates.Reconnecting:
 
+                    if (button == null) GetButton();
+                    button.interactable = false;
+
+                    ChangeText("Reconnecting...");
+                    connectionEstablished = false;
+                    attemptingConnection = true;
+
+                    if (afterConnectionStageButton != null)
+                        afterConnectionStageButton.interactable = false;
+                    break;
                 case ConnectionStates.NotConnected:
                 case ConnectionStates.NotFound: {
-                        // Make it interactable
-                        if (this.GetComponent<Button>() != null)
-                            GetComponent<Button>().interactable = true;
+
+                        if (button == null) GetButton();
+                        button.interactable = true;
 
                         if (LoadingIcon != null)
                             LoadingIcon.SetActive(false);
@@ -227,9 +245,9 @@ namespace Valkyrie.EIR.Examples {
                     }
                 case ConnectionStates.Connecting:
                 case ConnectionStates.Scanning: {
-                        // Make it non-interactable
-                        if (this.GetComponent<Button>() != null)
-                            GetComponent<Button>().interactable = false;
+
+                        if (button == null) GetButton();
+                        button.interactable = false;
 
 
                         ChangeText("Connecting...");
@@ -242,15 +260,36 @@ namespace Valkyrie.EIR.Examples {
 
         private void ChangeText(string text) {
             if (doTextChanges) {
-                if (GetComponentInChildren<Text>())
-                    GetComponentInChildren<Text>().text = text;
-                if (GetComponentInChildren<TMP_Text>())
-                    GetComponentInChildren<TMP_Text>().text = text;
+                if (txt != null) txt.text = text;
+                if (tmp != null) tmp.SetText(text);
             }
+        }
+
+        private void GetText() {
+            if (!doTextChanges) return;
+            if (GetComponentInChildren<Text>()) {
+                txt = GetComponentInChildren<Text>();
+            }
+            if (GetComponentInChildren<TMP_Text>()) {
+                tmp = GetComponentInChildren<TMP_Text>();
+            }
+            if (tmp == null && txt == null) throw new System.NullReferenceException("[Simple Connection] Text or TextMeshPro component required for output");
+        }
+
+        private void GetButton() {
+            if (GetComponent<Button>() != null) {
+                button = GetComponent<Button>();
+            } else throw new System.NullReferenceException("[Simple Connection] No Button assigned to SimpleConnection.");
+
         }
 
         private void ChangeIndicator(ConnectionStates state) {
             if (connectionIndicator != null) {
+
+                if (im == null && connectionIndicator.GetComponent<Image>() == null) {
+                    throw new System.NullReferenceException("[Simple Connection] Image component required for connectionIndicator");
+                }
+
                 if (connectionIndicator.GetComponent<Image>() != null) {
                     switch (state) {
                         case ConnectionStates.Connected:

@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valkyrie.EIR.Haptics;
 
-namespace Valkyrie.EIR.Examples {
+namespace Valkyrie.EIR.Examples
+{
 
     /// <summary>
     /// Runs set feels from FeelLibrary as well as configuring EIR to whatever that feel requires.
     /// </summary>
-    public class FeelManager : MonoBehaviour {
+    public class FeelManager : MonoBehaviour
+    {
 #if EIR_HAPTICS
 
         #region Static Accessors
@@ -248,6 +250,33 @@ namespace Valkyrie.EIR.Examples {
                 name = "SineOnce",
                 leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.sine,3,HapticPreset.LoopType.None),
                 rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.sine,3,HapticPreset.LoopType.None),
+                gain = ConfigureEIR.MIN_GAIN,
+                frequency = HapticManager.CONST_FREQUENCY,
+                pulseWidth = HapticManager.CONST_PULSE_WIDTH
+            },
+            new FeelStruct
+            {
+                name = "MaximumLoopLeft",
+                leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,1,HapticPreset.LoopType.Loop),
+                rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.minimum,1,HapticPreset.LoopType.Loop),
+                gain = ConfigureEIR.MIN_GAIN,
+                frequency = HapticManager.CONST_FREQUENCY,
+                pulseWidth = HapticManager.CONST_PULSE_WIDTH
+            },
+            new FeelStruct
+            {
+                name = "MaximumLoopRight",
+                leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.minimum,1,HapticPreset.LoopType.Loop),
+                rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,1,HapticPreset.LoopType.Loop),
+                gain = ConfigureEIR.MIN_GAIN,
+                frequency = HapticManager.CONST_FREQUENCY,
+                pulseWidth = HapticManager.CONST_PULSE_WIDTH
+            },
+            new FeelStruct
+            {
+                name = "MaximumLoopBoth",
+                leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,1,HapticPreset.LoopType.Loop),
+                rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,1,HapticPreset.LoopType.Loop),
                 gain = ConfigureEIR.MIN_GAIN,
                 frequency = HapticManager.CONST_FREQUENCY,
                 pulseWidth = HapticManager.CONST_PULSE_WIDTH
