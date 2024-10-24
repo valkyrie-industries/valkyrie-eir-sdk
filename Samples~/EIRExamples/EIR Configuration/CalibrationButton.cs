@@ -33,7 +33,7 @@ namespace Valkyrie.EIR.Examples {
             handIndex = isLeft ? 1 : 0;
 #if EIR_HAPTICS
             if (label != null && text == null) text = label.GetComponent<TextMeshProUGUI>();
-            if (text != null) {
+            if (text != null && EIRManager.Instance != null) {
                 Debug.Log($"[Calibration Button] Initialising with value {EIRManager.Instance.Haptics.CalibrationIndex[handIndex]}"); 
                 text.SetText((EIRManager.Instance.Haptics.CalibrationIndex[handIndex] + 1).ToString());
             }
