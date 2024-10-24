@@ -5,7 +5,8 @@ using UnityEngine.UI;
 using Valkyrie.EIR.Bluetooth;
 #endif
 
-namespace Valkyrie.EIR.Examples {
+namespace Valkyrie.EIR.Examples
+{
 
     /// <summary>
     /// Manages an output display to visualise the connection and battery state of an EIR device, dependent on the Communication Manager reading the required characteristic.
@@ -13,12 +14,13 @@ namespace Valkyrie.EIR.Examples {
 #if EIR_COMM
     public class BatteryIndicator : MonoBehaviour, IEirBluetooth {
 #else
-    public class BatteryIndicator : MonoBehaviour {
+    public class BatteryIndicator : MonoBehaviour
+    {
 #endif
 
         #region Serialized Variables
 
-        [SerializeField] private Sprite sprUnknown,sprFull,spr80,spr60,spr40,spr20,sprEmpty;
+        [SerializeField] private Sprite sprUnknown, sprFull, spr80, spr60, spr40, spr20, sprEmpty;
 
         [SerializeField] private Image leftIndicator;
         [SerializeField] private Image rightIndicator;
@@ -28,6 +30,11 @@ namespace Valkyrie.EIR.Examples {
 
         [SerializeField] private Image panel;
         [SerializeField] private bool recolour;
+
+        [SerializeField] private Color normalColour = Color.white;
+        [SerializeField] private Color notConnectedColour = Color.gray;
+        [SerializeField] private Color lowColor = Color.red;
+
 
         #endregion
 
