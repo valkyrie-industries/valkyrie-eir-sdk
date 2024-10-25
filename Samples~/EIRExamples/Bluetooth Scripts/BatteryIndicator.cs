@@ -5,8 +5,7 @@ using UnityEngine.UI;
 using Valkyrie.EIR.Bluetooth;
 #endif
 
-namespace Valkyrie.EIR.Examples
-{
+namespace Valkyrie.EIR.Examples {
 
     /// <summary>
     /// Manages an output display to visualise the connection and battery state of an EIR device, dependent on the Communication Manager reading the required characteristic.
@@ -14,8 +13,7 @@ namespace Valkyrie.EIR.Examples
 #if EIR_COMM
     public class BatteryIndicator : MonoBehaviour, IEirBluetooth {
 #else
-    public class BatteryIndicator : MonoBehaviour
-    {
+    public class BatteryIndicator : MonoBehaviour {
 #endif
 
         #region Serialized Variables
@@ -72,13 +70,13 @@ namespace Valkyrie.EIR.Examples
         /// <summary>
         /// Sets the indicator values for each device.
         /// </summary>
-        /// <param name="isRight"></param>
-        private void SetIndication(bool isRight, DeviceVitals deviceVitals) {
-            uint battery = isRight ? deviceVitals.RightBattery : deviceVitals.LeftBattery;
-            bool connected = isRight ? deviceVitals.RightConnected : deviceVitals.LeftConnected;
-            Image i = isRight ? rightIndicator : leftIndicator;
+        /// <param name="isLeft"></param>
+        private void SetIndication(bool isLeft, DeviceVitals deviceVitals) {
+            uint battery = isLeft ? deviceVitals.LeftBattery : deviceVitals.RightBattery;
+            bool connected = isLeft ? deviceVitals.LeftConnected : deviceVitals.RightConnected;
+            Image i = isLeft ? leftIndicator : rightIndicator;
             i.sprite = GetSprite(connected, battery);
-            TextMeshProUGUI t = isRight ? rightText : leftText;
+            TextMeshProUGUI t = isLeft ? leftText : rightText;
             t.SetText(connected ? $"{battery}%" : "off");
             if (recolour) i.color = connected ? (battery > 20 ? Color.white : Color.red) : Color.gray;
         }
@@ -113,7 +111,7 @@ namespace Valkyrie.EIR.Examples
             if (leftText.gameObject.activeSelf) leftText.gameObject.SetActive(false);
             if (rightText.gameObject.activeSelf) rightText.gameObject.SetActive(false);
 
-            if (panel.gameObject.activeSelf) panel.gameObject.SetActive(false);
+            if (panel != null && panel.gameObject.activeSelf) panel.gameObject.SetActive(false);
 
         }
 
@@ -131,7 +129,7 @@ namespace Valkyrie.EIR.Examples
             if (!leftText.gameObject.activeSelf) leftText.gameObject.SetActive(true);
             if (!rightText.gameObject.activeSelf) rightText.gameObject.SetActive(true);
 
-            if (!panel.gameObject.activeSelf) panel.gameObject.SetActive(true);
+            if (panel != null &&  !panel.gameObject.activeSelf) panel.gameObject.SetActive(true);
 
         }
 #endif
