@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using Valkyrie.EIR.Haptics;
+using System.Runtime.InteropServices;
 
 namespace Valkyrie.EIR.Examples
 {
@@ -40,6 +41,12 @@ namespace Valkyrie.EIR.Examples
 
         private ConfigureEIR configureEIR;
 
+        private int originalGain;
+        private int originalPulseWidth;
+        private int originalFrequency;
+
+        private bool usingCustomConf = false;
+
         #endregion
 
         #region Unity Methods
@@ -76,7 +83,20 @@ namespace Valkyrie.EIR.Examples
                 return;
             }
 
-            configureEIR.Configure(feel.gain, feel.frequency, feel.pulseWidth);
+            originalFrequency = configureEIR.frequency;
+            originalGain = configureEIR.gain;
+            originalPulseWidth = configureEIR.pulseWidth;
+
+            if(feel.gain == 0 && feel.frequency == 0 && feel.pulseWidth == 0)
+            {
+                //Do nothing! This feel has no configuration attached
+                usingCustomConf = false;
+            }
+            else
+            {
+                configureEIR.Configure(feel.gain, feel.frequency, feel.pulseWidth);
+                usingCustomConf = true;
+            }
 
             leftPreset = EIRManager.Instance.Haptics.CreateHapticPresetRunner(BodyPart.leftHand, feel.leftPreset);
             rightPreset = EIRManager.Instance.Haptics.CreateHapticPresetRunner(BodyPart.rightHand, feel.rightPreset);
@@ -93,7 +113,8 @@ namespace Valkyrie.EIR.Examples
         public void StopPlayingFeeling() {
             IsPlayingFeeling = false;
             EIRManager.Instance.Haptics.StopHapticPresetRunner();
-            configureEIR.ConfigureToDefault();
+            if(usingCustomConf)
+                configureEIR.Configure(originalGain, (byte)originalFrequency, (byte)originalPulseWidth);
             OnFeelingStatusChange?.Invoke(false);
         }
 
@@ -106,7 +127,8 @@ namespace Valkyrie.EIR.Examples
                 yield return new WaitForEndOfFrame();
             }
 
-            configureEIR.ConfigureToDefault();
+            if(usingCustomConf)
+                configureEIR.Configure(originalGain, (byte)originalFrequency, (byte)originalPulseWidth);
 
             OnFeelingStatusChange?.Invoke(false);
             IsPlayingFeeling = false;
@@ -259,27 +281,27 @@ namespace Valkyrie.EIR.Examples
                 name = "MaximumLoopLeft",
                 leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,1,HapticPreset.LoopType.Loop),
                 rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.minimum,1,HapticPreset.LoopType.Loop),
-                gain = ConfigureEIR.MIN_GAIN,
-                frequency = HapticManager.CONST_FREQUENCY,
-                pulseWidth = HapticManager.CONST_PULSE_WIDTH
+                gain = 0,
+                frequency = 0,
+                pulseWidth = 0
             },
             new FeelStruct
             {
                 name = "MaximumLoopRight",
                 leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.minimum,1,HapticPreset.LoopType.Loop),
                 rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,1,HapticPreset.LoopType.Loop),
-                gain = ConfigureEIR.MIN_GAIN,
-                frequency = HapticManager.CONST_FREQUENCY,
-                pulseWidth = HapticManager.CONST_PULSE_WIDTH
+                gain = 0,
+                frequency = 0,
+                pulseWidth = 0
             },
             new FeelStruct
             {
                 name = "MaximumLoopBoth",
                 leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,1,HapticPreset.LoopType.Loop),
                 rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,1,HapticPreset.LoopType.Loop),
-                gain = ConfigureEIR.MIN_GAIN,
-                frequency = HapticManager.CONST_FREQUENCY,
-                pulseWidth = HapticManager.CONST_PULSE_WIDTH
+                gain = 0,
+                frequency = 0,
+                pulseWidth = 0
             },
 
         };
