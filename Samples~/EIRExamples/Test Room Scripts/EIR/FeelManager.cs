@@ -3,7 +3,6 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using Valkyrie.EIR.Haptics;
-using System.Runtime.InteropServices;
 
 namespace Valkyrie.EIR.Examples
 {
@@ -279,29 +278,20 @@ namespace Valkyrie.EIR.Examples
             new FeelStruct
             {
                 name = "MaximumLoopLeft",
-                leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,1,HapticPreset.LoopType.Loop),
-                rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.minimum,1,HapticPreset.LoopType.Loop),
-                gain = 0,
-                frequency = 0,
-                pulseWidth = 0
+                leftPreset = new HapticPreset(new HapticSegment[]{HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.rise,0.4f)},HapticPreset.LoopType.LoopFinalIntensity),
+                rightPreset = new HapticPreset(new HapticSegment[]{HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.rise,0.4f)},HapticPreset.LoopType.LoopFinalIntensity),
             },
             new FeelStruct
             {
                 name = "MaximumLoopRight",
-                leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.minimum,1,HapticPreset.LoopType.Loop),
-                rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,1,HapticPreset.LoopType.Loop),
-                gain = 0,
-                frequency = 0,
-                pulseWidth = 0
+                leftPreset = new HapticPreset(new HapticSegment[]{HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.rise,0.4f)},HapticPreset.LoopType.LoopFinalIntensity),
+                rightPreset = new HapticPreset(new HapticSegment[]{HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.rise,0.4f)},HapticPreset.LoopType.LoopFinalIntensity),
             },
             new FeelStruct
             {
                 name = "MaximumLoopBoth",
-                leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,1,HapticPreset.LoopType.Loop),
-                rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.maximum,1,HapticPreset.LoopType.Loop),
-                gain = 0,
-                frequency = 0,
-                pulseWidth = 0
+                leftPreset = new HapticPreset(new HapticSegment[]{HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.rise,0.4f)},HapticPreset.LoopType.LoopFinalIntensity),
+                rightPreset = new HapticPreset(new HapticSegment[]{HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.rise,0.4f)},HapticPreset.LoopType.LoopFinalIntensity),
             },
 
         };
