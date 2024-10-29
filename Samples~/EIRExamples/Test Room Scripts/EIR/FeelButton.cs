@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Valkyrie.EIR.Examples {
+namespace Valkyrie.EIR.Examples
+{
 
     /// <summary>
     /// Button that communicates with FeelManager to play feelings
     /// </summary>
-    public class FeelButton : MonoBehaviour {
+    public class FeelButton : MonoBehaviour
+    {
 
         #region Serialized Variables
 
@@ -17,9 +19,14 @@ namespace Valkyrie.EIR.Examples {
 
         #region Unity Methods
 
-        private void Start() {
+        private void Start()
+        {
 #if EIR_HAPTICS
-            if (FeelManager.Instance != null) FeelManager.Instance.OnFeelingStatusChange += OnFeelingStatusEvent;
+            if (FeelManager.Instance != null)
+            {
+                FeelManager.Instance.OnFeelingStatusChange += OnFeelingStatusEvent;
+                button.interactable = !FeelManager.Instance.IsPlayingFeeling;
+            }
 #endif
         }
 #if EIR_HAPTICS
@@ -31,7 +38,8 @@ namespace Valkyrie.EIR.Examples {
 
         #region Public Methods
 
-        public void PlayFeeling(string feelID) {
+        public void PlayFeeling(string feelID)
+        {
 #if EIR_HAPTICS
             if (FeelManager.Instance != null) FeelManager.Instance.PlayFeeling(feelID);
             else Debug.Log($"[Feel Button] No FeelManager present in scene.");
@@ -41,7 +49,8 @@ namespace Valkyrie.EIR.Examples {
 
         #region Private Methods
 
-        private void OnFeelingStatusEvent(bool status) {
+        private void OnFeelingStatusEvent(bool status)
+        {
             button.interactable = !status;
         }
 
