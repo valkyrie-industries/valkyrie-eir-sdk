@@ -279,12 +279,12 @@ namespace Valkyrie.EIR.Examples
             {
                 name = "MaximumLoopLeft",
                 leftPreset = new HapticPreset(new HapticSegment[]{HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.rise,0.4f)},HapticPreset.LoopType.LoopFinalIntensity),
-                rightPreset = new HapticPreset(new HapticSegment[]{HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.rise,0.4f)},HapticPreset.LoopType.LoopFinalIntensity),
+                rightPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.minimum,1,HapticPreset.LoopType.Loop),
             },
             new FeelStruct
             {
                 name = "MaximumLoopRight",
-                leftPreset = new HapticPreset(new HapticSegment[]{HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.rise,0.4f)},HapticPreset.LoopType.LoopFinalIntensity),
+                leftPreset = HapticPreset.CreateDefaultPreset(HapticPreset.PresetType.minimum,1,HapticPreset.LoopType.Loop),
                 rightPreset = new HapticPreset(new HapticSegment[]{HapticPreset.CreateDefaultSegment(HapticPreset.SegmentType.rise,0.4f)},HapticPreset.LoopType.LoopFinalIntensity),
             },
             new FeelStruct
