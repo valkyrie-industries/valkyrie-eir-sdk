@@ -34,19 +34,22 @@ namespace Valkyrie.EIR.Bluetooth {
             if (!Permission.HasUserAuthorizedPermission("android.permission.BLUETOOTH_SCAN")) {
                 permissions.Add("android.permission.BLUETOOTH_SCAN");
                 Debug.Log("[EIR Manager] Permission: BLUETOOTH_SCAN");
-            } else {
+            }
+            else {
                 if (PlayerPrefs.HasKey(DontAskKey)) PlayerPrefs.DeleteKey(DontAskKey);
             }
             if (!Permission.HasUserAuthorizedPermission("android.permission.BLUETOOTH_CONNECT")) {
                 permissions.Add("android.permission.BLUETOOTH_CONNECT");
                 Debug.Log("[EIR Manager] Permission: BLUETOOTH_CONNECT");
-            } else {
+            }
+            else {
                 if (PlayerPrefs.HasKey(DontAskKey)) PlayerPrefs.DeleteKey(DontAskKey);
             }
             if (!Permission.HasUserAuthorizedPermission("android.permission.ACCESS_FINE_LOCATION")) {
                 permissions.Add("android.permission.ACCESS_FINE_LOCATION");
                 Debug.Log("[EIR Manager] Permission: ACCESS_FINE_LOCATION");
-            } else {
+            }
+            else {
                 if (PlayerPrefs.HasKey(DontAskKey)) PlayerPrefs.DeleteKey(DontAskKey);
 
             }
@@ -64,16 +67,17 @@ namespace Valkyrie.EIR.Bluetooth {
                 callbacks.PermissionDeniedAndDontAskAgain += PermissionCallbacks_PermissionDeniedAndDontAskAgain;
 
                 Permission.RequestUserPermissions(permissions.ToArray(), callbacks);
-            } else {
+            }
+            else {
                 Debug.Log("[EIR Manager] Permissions previously granted, proceeding.");
                 OnPermissionsGranted?.Invoke(true);
             }
         }
 #endif
 
-        #endregion
+            #endregion
 
-        #region Private Methods
+            #region Private Methods
 
 #if UNITY_ANDROID
 
@@ -83,8 +87,24 @@ namespace Valkyrie.EIR.Bluetooth {
         }
 
         private static void PermissionCallbacks_PermissionGranted(string msg) {
-            Debug.Log("[EIR Manager] Permissions granted.");
-            OnPermissionsGranted?.Invoke(true);
+
+            // check ALL permissions
+            bool allGranted = true;
+            if (!Permission.HasUserAuthorizedPermission("android.permission.BLUETOOTH_SCAN")) {
+                Debug.LogWarning("[EIR Manager] Warning: Permission \"BLUETOOTH_SCAN\" not granted.");
+                allGranted = false;
+            }
+            if (!Permission.HasUserAuthorizedPermission("android.permission.BLUETOOTH_CONNECT")) {
+                Debug.LogWarning("[EIR Manager] Warning: Permission \"BLUETOOTH_CONNECT\" not granted.");
+                allGranted = false;
+            }
+            if (!Permission.HasUserAuthorizedPermission("android.permission.ACCESS_FINE_LOCATION")) {
+                Debug.LogWarning("[EIR Manager] Warning: Permission \"ACCESS_FINE_LOCATION\" not granted.");
+                allGranted = false;
+            }
+
+            if (allGranted) Debug.Log("[EIR Manager] Permissions granted.");
+            OnPermissionsGranted?.Invoke(allGranted);
         }
 
         private static void PermissionCallbacks_PermissionDeniedAndDontAskAgain(string msg) {
