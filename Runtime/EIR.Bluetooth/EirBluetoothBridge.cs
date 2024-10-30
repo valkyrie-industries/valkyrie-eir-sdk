@@ -317,24 +317,27 @@ namespace Valkyrie.EIR.Bluetooth {
         }
 
         private void OnRead(byte[] obj) {
-            Debug.Log($"[EIR Bluetooth] Read bytes: {DecodeBytesToString(obj)}");
 
-            bool deviceRConnected = Convert.ToBoolean(obj[0]);
-            bool deviceLConnected = Convert.ToBoolean(obj[2]);
+            MainThreadDispatcher.RunOnMainThread(() => {
 
-            uint rBattery = Convert.ToUInt32(obj[1]);
-            uint lBattery = Convert.ToUInt32(obj[3]);
+                Debug.Log($"[EIR Bluetooth] Read bytes: {DecodeBytesToString(obj)}");
 
-            uint pulseWidth = Convert.ToUInt32(obj[4]);
-            uint pulseFrequency = Convert.ToUInt32(obj[5]);
+                bool deviceRConnected = Convert.ToBoolean(obj[0]);
+                bool deviceLConnected = Convert.ToBoolean(obj[2]);
 
-            deviceVitals.Update(deviceLConnected, deviceRConnected, lBattery, rBattery, pulseWidth, pulseFrequency);
+                uint rBattery = Convert.ToUInt32(obj[1]);
+                uint lBattery = Convert.ToUInt32(obj[3]);
 
-            foreach (IEirBluetooth handler in handlers) {
-                if (handler == null) continue;
-                handler.OnUpdateVitals(deviceVitals);
-            }
+                uint pulseWidth = Convert.ToUInt32(obj[4]);
+                uint pulseFrequency = Convert.ToUInt32(obj[5]);
 
+                deviceVitals.Update(deviceLConnected, deviceRConnected, lBattery, rBattery, pulseWidth, pulseFrequency);
+
+                foreach (IEirBluetooth handler in handlers) {
+                    if (handler == null) continue;
+                    handler.OnUpdateVitals(deviceVitals);
+                }
+            });
         }
 
         private void OnInitialisationComplete(bool success) {
