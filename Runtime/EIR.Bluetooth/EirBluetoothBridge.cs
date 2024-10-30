@@ -147,8 +147,26 @@ namespace Valkyrie.EIR.Bluetooth {
             callbackInstance.OnReadEvent += OnRead;
             callbackInstance.OnWriteEvent += OnWrite;
 
-            eirBlu.CallStatic("initialise", activity, callbackInstance, 3000L);
+            eirBlu.CallStatic("initialise", activity, callbackInstance, 1000L);
             initialised = true;
+        }
+
+        private void Dispose() {
+            if (callbackInstance != null) {
+                callbackInstance.OnInitialisationCompleteEvent -= OnInitialisationComplete;
+                callbackInstance.OnDeviceFoundEvent -= HandleDeviceFound;
+                callbackInstance.OnConnectedEvent -= OnConnected;
+                callbackInstance.OnDisconnectEvent -= OnDisconnected;
+                callbackInstance.OnReconnectionEvent -= OnReconnection;
+                callbackInstance.OnReadEvent -= OnRead;
+                callbackInstance.OnWriteEvent -= OnWrite;
+                callbackInstance = null;
+            }
+            deviceName = "";
+
+            Debug.Log("[EIR Bluetooth] Disposing");
+            initialised = false;
+            eirBlu.Dispose();
         }
 
         /// <summary>
@@ -185,7 +203,8 @@ namespace Valkyrie.EIR.Bluetooth {
                         OnConnectionStateChanged -= handler;
                         tcs.TrySetResult(connectionState);
                     }
-                } else {
+                }
+                else {
                     if (connectionState == ConnectionStates.Found || connectionState == ConnectionStates.NotFound || connectionState == ConnectionStates.Connected || connectionState == ConnectionStates.NotConnected || connectionState == ConnectionStates.Selection) {
                         OnConnectionStateChanged -= handler;
                         tcs.TrySetResult(connectionState);
@@ -321,8 +340,9 @@ namespace Valkyrie.EIR.Bluetooth {
         private void OnInitialisationComplete(bool success) {
             if (success) {
                 Debug.Log("[EIR Bluetooth] Initialisation completed.");
-                initialisationCallback(true);
-            } else {
+                if (initialisationCallback != null) initialisationCallback(true);
+            }
+            else {
                 throw new NotImplementedException("[EIR Bluetooth] Initialisation failure not yet implemented. In fact, even the plugin can't get here so if you're reading this, something went REALLY wrong!");
             }
         }
@@ -341,41 +361,53 @@ namespace Valkyrie.EIR.Bluetooth {
                 Debug.Log($"[EIR Bluetooth] Disconnection event detected. {(reconnecting ? "Attempting reconnection." : "No Reconnection required.")}");
                 ConnectionStates s = prevState;
 
-                if (reconnecting) {
-                    initialised = false;
+                Dispose();
 
-                    // dispose of existing instance first.
-                    callbackInstance = null;
-                    eirBlu.Dispose();
+                //if (!reconnecting) {
+                //    prevState = state;
+                //    state = ConnectionStates.NotConnected;
+                //    OnConnectionStateChanged?.Invoke(state);
+                //}
 
-                    Initialise(OnReinitialisedForReconnection);
-                } else {
-                    prevState = state;
-                    state = ConnectionStates.NotConnected;
-                    deviceName = "";
-                    OnConnectionStateChanged?.Invoke(state);
-                }
+                Initialise(reconnecting ? OnReinitialisedForReconnection : OnReinitialisedAfterDisconnection);
             });
+        }
+
+        private void OnReinitialisedAfterDisconnection(bool success) {
+            if (success) {
+                Debug.Log($"[EIR Bluetooth] Reinitialised from disconnection.");
+                prevState = state;
+                state = ConnectionStates.NotConnected;
+                deviceName = "";
+                OnConnectionStateChanged?.Invoke(state);
+            }
+            else {
+                Debug.LogError($"[EIR Bluetooth] System reinitialisation failure. Unable to restart bluetooth service.");
+            }
         }
 
         private void OnReinitialisedForReconnection(bool success) {
             if (success) {
-                Debug.Log($"[EIR Bluetooth] Reinitialised");
+                Debug.Log($"[EIR Bluetooth] Reinitialised for reconnection attempt.");
                 prevState = state;
                 state = ConnectionStates.Reconnecting;
                 deviceName = "";
                 OnConnectionStateChanged?.Invoke(state);
-            } else {
+            }
+            else {
                 Debug.LogError($"[EIR Bluetooth] System reinitialisation failure. Unable to restart bluetooth service.");
             }
         }
 
         private void OnReconnection(bool success) {
             MainThreadDispatcher.RunOnMainThread(() => {
-                Debug.Log($"[EIR Bluetooth] Reconnection event detected. {(success ? "Success." : "Failed.")}");
+                Debug.Log($"[EIR Bluetooth] Reconnection event detected. Reconnection {(success ? "succeeded." : "failed.")}");
                 ConnectionStates s = prevState;
                 prevState = state;
                 state = success ? s : ConnectionStates.NotConnected;
+                if (!success) {
+                    Initialise(null);
+                }
                 OnConnectionStateChanged?.Invoke(state);
             });
         }
@@ -407,16 +439,19 @@ namespace Valkyrie.EIR.Bluetooth {
                         if (autoConnect) {
                             state = ConnectionStates.Connecting;
                             eirBlu.CallStatic("connectToDevice", device.address);
-                        } else {
+                        }
+                        else {
                             state = ConnectionStates.Found;
                         }
                     }
-                } else if (deviceList.devices.Length > 1) {
+                }
+                else if (deviceList.devices.Length > 1) {
                     Debug.Log($"[EIR Bluetooth] {deviceList.devices.Length} devices found.");
                     state = ConnectionStates.Selection;
                     OnConnectionStateChanged?.Invoke(state);
 
-                } else {
+                }
+                else {
                     Debug.Log($"[EIR Bluetooth] No devices returned.");
 
                     state = ConnectionStates.NotFound;

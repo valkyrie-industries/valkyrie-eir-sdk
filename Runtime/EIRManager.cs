@@ -259,9 +259,10 @@ namespace Valkyrie.EIR {
         /// <param name="conState"></param>
         private void OnConnectionStateChanged(ConnectionStates conState) {
             if (conState == ConnectionStates.Connected) {
+                Debug.Log($"[EIR Manager] OnConnectionStateChanged(Connected). Sending Config Signal");
+                ToggleBluetoothSend(true);
                 eirBluetoothBridge.SendConfigSignal(hapticManager.GenerateConfigSignal());
                 eirBluetoothBridge.ReadDeviceVitals();
-                ToggleBluetoothSend(true);
             } else if (eirBluetoothBridge.PreviousState == ConnectionStates.Connected) {
                 hapticManager.SetUnconfigured();
                 ToggleBluetoothSend(false);
