@@ -36,6 +36,9 @@ namespace Valkyrie.EIR.Examples {
             if (label != null && text == null) text = label.GetComponent<TextMeshProUGUI>();
             if (text != null && EIRManager.Instance != null) {
                 if (EIRManager.Instance.Haptics != null && EIRManager.Instance.Haptics.CalibrationIndex != null) {
+                    if (EIRManager.Instance.Haptics.CalibrationIndex[handIndex] == 0) {
+                        UpdateCalibrationIndex(false); // resolve an edge case in which 0 doesn't trigger a pulse unless updated so (will clamp back to 0 from this function call).
+                    }
                     Debug.Log($"[Calibration Button] Initialising with value {EIRManager.Instance.Haptics.CalibrationIndex[handIndex]}");
                     lastValue = EIRManager.Instance.Haptics.CalibrationIndex[handIndex];
                     text.SetText((EIRManager.Instance.Haptics.CalibrationIndex[handIndex] + 1).ToString());
