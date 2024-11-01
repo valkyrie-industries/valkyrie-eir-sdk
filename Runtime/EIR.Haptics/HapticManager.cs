@@ -25,7 +25,7 @@ namespace Valkyrie.EIR.Haptics {
 
         #region Consts
 
-        public const byte MIN_FREQUENCY = 30;
+        public const byte MIN_FREQUENCY = 10;
         public const byte MIN_PULSE_WIDTH = 30;
         public const byte CONST_FREQUENCY = 100;
         public const byte CONST_PULSE_WIDTH = 100;

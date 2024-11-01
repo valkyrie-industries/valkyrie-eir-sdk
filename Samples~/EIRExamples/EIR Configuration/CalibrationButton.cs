@@ -24,6 +24,7 @@ namespace Valkyrie.EIR.Examples {
 
         private int handIndex;
         private TextMeshProUGUI text;
+        private int lastValue = 0;
 
         #endregion
 
@@ -34,8 +35,15 @@ namespace Valkyrie.EIR.Examples {
 #if EIR_HAPTICS
             if (label != null && text == null) text = label.GetComponent<TextMeshProUGUI>();
             if (text != null && EIRManager.Instance != null) {
-                Debug.Log($"[Calibration Button] Initialising with value {EIRManager.Instance.Haptics.CalibrationIndex[handIndex]}"); 
-                text.SetText((EIRManager.Instance.Haptics.CalibrationIndex[handIndex] + 1).ToString());
+                if (EIRManager.Instance.Haptics != null && EIRManager.Instance.Haptics.CalibrationIndex != null) {
+                    Debug.Log($"[Calibration Button] Initialising with value {EIRManager.Instance.Haptics.CalibrationIndex[handIndex]}");
+                    lastValue = EIRManager.Instance.Haptics.CalibrationIndex[handIndex];
+                    text.SetText((EIRManager.Instance.Haptics.CalibrationIndex[handIndex] + 1).ToString());
+                }
+                else {
+                    Debug.Log($"[Calibration Button] Initialising with last recorded value {lastValue}");
+                    text.SetText((lastValue + 1).ToString());
+                }
             }
 #endif
         }
@@ -60,6 +68,7 @@ namespace Valkyrie.EIR.Examples {
                     currentIndex -= 1;
             }
             EIRManager.Instance.Haptics.CalibrationIndex[handIndex] = currentIndex;
+            lastValue = currentIndex;
 
             if (EIRManager.Instance.Haptics == null) {
                 Debug.LogError("[Calibration Button] No HapticManager instance found.");
