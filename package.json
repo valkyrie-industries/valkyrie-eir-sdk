@@ -1,7 +1,7 @@
 {
   "name": "com.valkyrieindustries.eirsdk",
   "displayName": "Valkyrie EIR SDK",
-  "version": "0.3.8-preview",
+  "version": "0.3.9-experimental",
   "unity": "2022.3",
   "unityRelease": "36f1",
   "description": "The Valkyrie EIR SDK provides interface between EIR devices and Unity.",
@@ -22,7 +22,7 @@
     }
   ],
   "documentationUrl": "https://valkyrie-industries.github.io/valkyrie-eir-sdk/index.html",
-  "changelogUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/commits/v0.3.8-preview/",
+  "changelogUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/commits/v0.3.9-experimental/",
   "licensesUrl": "https://github.com/valkyrie-industries/valkyrie-eir-sdk/blob/main/LICENSE",
   "dependencies": {
     "com.unity.modules.jsonserialize": "1.0.0",
