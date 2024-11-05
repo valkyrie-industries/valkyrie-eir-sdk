@@ -31,7 +31,7 @@ namespace Valkyrie.EIR.Haptics
         public const byte MIN_PULSE_WIDTH = 30;
         public const byte CONST_FREQUENCY = 100;
         public const byte CONST_PULSE_WIDTH = 100;
-        public int CALIBRATION_INDEX_LENGTH { get { if (EIRConfig.Instance.UseDuodecimalIndex) return 20; else return 10; } }
+        public int CALIBRATION_INDEX_LENGTH { get { if (EIRConfig.Instance.UseDuodecimalIndex) return 19; else return 9; } }
 
         #endregion
 
