@@ -31,6 +31,7 @@ namespace Valkyrie.EIR.Bluetooth {
         private const string JAVA_CLASS_DEF = "com.valkyrieindustries.eirbluetooth.EirBluetooth";
         private const string JAVA_CALLBACK_DEF = "com.valkyrieindustries.eirbluetooth.EirBluetooth$EirBTCallbacks";
         private const string UNITY_ACTIVITY_DEF = "com.unity3d.player.UnityPlayer";
+        private const int CONNECTION_TIMEOUT = 3;
 
         #endregion
 
@@ -225,10 +226,9 @@ namespace Valkyrie.EIR.Bluetooth {
         /// </summary>
         /// <param name="macAddress"></param>
         public async Task<ConnectionStates> Connect(string macAddress) {
-
             TaskCompletionSource<ConnectionStates> tcs = new TaskCompletionSource<ConnectionStates>();
-
             OnConnectionStateChangedEventHandler handler = null;
+
             handler = (connectionState) => {
                 if (connectionState == ConnectionStates.Connected || connectionState == ConnectionStates.NotConnected) {
                     OnConnectionStateChanged -= handler;
@@ -239,6 +239,14 @@ namespace Valkyrie.EIR.Bluetooth {
             OnConnectionStateChanged += handler;
 
             eirBlu.CallStatic("connectToDevice", macAddress);
+
+            Task timeoutTask = Task.Delay(TimeSpan.FromSeconds(CONNECTION_TIMEOUT)).ContinueWith(_ => {
+                OnConnectionStateChanged -= handler;
+                tcs.TrySetResult(ConnectionStates.NotConnected);
+            });
+
+            Task completedTask = await Task.WhenAny(tcs.Task, timeoutTask);
+
             return await tcs.Task;
         }
 
