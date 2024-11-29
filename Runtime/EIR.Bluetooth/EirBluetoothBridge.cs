@@ -31,7 +31,6 @@ namespace Valkyrie.EIR.Bluetooth {
         private const string JAVA_CLASS_DEF = "com.valkyrieindustries.eirbluetooth.EirBluetooth";
         private const string JAVA_CALLBACK_DEF = "com.valkyrieindustries.eirbluetooth.EirBluetooth$EirBTCallbacks";
         private const string UNITY_ACTIVITY_DEF = "com.unity3d.player.UnityPlayer";
-        private const int CONNECTION_TIMEOUT = 3;
 
         #endregion
 
@@ -58,6 +57,7 @@ namespace Valkyrie.EIR.Bluetooth {
         private bool initialised;
         private float readInterval;
         private List<IEirBluetooth> handlers = new List<IEirBluetooth>();
+        private AndroidJavaObject activity;
 
         /// <summary>
         /// Returns the name of the current connected bluetooth device, if available.
@@ -131,7 +131,7 @@ namespace Valkyrie.EIR.Bluetooth {
 
             readInterval = EIRConfig.Instance.VitalsReadInterval;
 
-            AndroidJavaObject activity = new AndroidJavaClass(UNITY_ACTIVITY_DEF).GetStatic<AndroidJavaObject>("currentActivity");
+            activity = new AndroidJavaClass(UNITY_ACTIVITY_DEF).GetStatic<AndroidJavaObject>("currentActivity");
 
             if (activity == null) Debug.Log("[EIR Bluetooth] No activity");
             else Debug.Log($"[EIR Bluetooth] Activity: {activity}");
@@ -147,6 +147,7 @@ namespace Valkyrie.EIR.Bluetooth {
             callbackInstance.OnReconnectionEvent += OnReconnection;
             callbackInstance.OnReadEvent += OnRead;
             callbackInstance.OnWriteEvent += OnWrite;
+            callbackInstance.OnLocationEnabledEvent += OnLocationEnabled;
 
             eirBlu.CallStatic("initialise", activity, callbackInstance, 1000L);
             initialised = true;
@@ -193,6 +194,26 @@ namespace Valkyrie.EIR.Bluetooth {
         /// <param name="auto"></param>
         /// <returns></returns>
         public async Task<ConnectionStates> ScanAndConnect(bool auto = true) {
+
+            bool btRadioEnabled = IsBluetoothEnabled();
+            Debug.Log($"[EIR Bluetooth] BLE Enabled: {btRadioEnabled}");
+
+            if (!btRadioEnabled) {
+                bool enabled = await RequestEnableBluetooth();
+                if (!enabled) {
+                    return ConnectionStates.NotConnected;
+                }
+            }
+
+            bool preciseLocationEnabled = IsPreciseLocationEnabled();
+            Debug.Log($"[EIR Bluetooth] Precise Location Enabled: {preciseLocationEnabled}");
+            if (!preciseLocationEnabled) {
+                bool enabled = await RequestEnablePreciseLocation();
+                if (!enabled) {
+                    return ConnectionStates.NotConnected;
+                }
+            }
+
             autoConnect = auto;
 
             TaskCompletionSource<ConnectionStates> tcs = new TaskCompletionSource<ConnectionStates>();
@@ -204,8 +225,7 @@ namespace Valkyrie.EIR.Bluetooth {
                         OnConnectionStateChanged -= handler;
                         tcs.TrySetResult(connectionState);
                     }
-                }
-                else {
+                } else {
                     if (connectionState == ConnectionStates.Found || connectionState == ConnectionStates.NotFound || connectionState == ConnectionStates.Connected || connectionState == ConnectionStates.NotConnected || connectionState == ConnectionStates.Selection) {
                         OnConnectionStateChanged -= handler;
                         tcs.TrySetResult(connectionState);
@@ -219,6 +239,7 @@ namespace Valkyrie.EIR.Bluetooth {
             state = ConnectionStates.Scanning;
 
             return await tcs.Task;
+
         }
 
         /// <summary>
@@ -226,9 +247,10 @@ namespace Valkyrie.EIR.Bluetooth {
         /// </summary>
         /// <param name="macAddress"></param>
         public async Task<ConnectionStates> Connect(string macAddress) {
-            TaskCompletionSource<ConnectionStates> tcs = new TaskCompletionSource<ConnectionStates>();
-            OnConnectionStateChangedEventHandler handler = null;
 
+            TaskCompletionSource<ConnectionStates> tcs = new TaskCompletionSource<ConnectionStates>();
+
+            OnConnectionStateChangedEventHandler handler = null;
             handler = (connectionState) => {
                 if (connectionState == ConnectionStates.Connected || connectionState == ConnectionStates.NotConnected) {
                     OnConnectionStateChanged -= handler;
@@ -239,14 +261,6 @@ namespace Valkyrie.EIR.Bluetooth {
             OnConnectionStateChanged += handler;
 
             eirBlu.CallStatic("connectToDevice", macAddress);
-
-            Task timeoutTask = Task.Delay(TimeSpan.FromSeconds(CONNECTION_TIMEOUT)).ContinueWith(_ => {
-                OnConnectionStateChanged -= handler;
-                tcs.TrySetResult(ConnectionStates.NotConnected);
-            });
-
-            Task completedTask = await Task.WhenAny(tcs.Task, timeoutTask);
-
             return await tcs.Task;
         }
 
@@ -352,10 +366,13 @@ namespace Valkyrie.EIR.Bluetooth {
             if (success) {
                 Debug.Log("[EIR Bluetooth] Initialisation completed.");
                 if (initialisationCallback != null) initialisationCallback(true);
-            }
-            else {
+            } else {
                 throw new NotImplementedException("[EIR Bluetooth] Initialisation failure not yet implemented. In fact, even the plugin can't get here so if you're reading this, something went REALLY wrong!");
             }
+        }
+
+        private void OnLocationEnabled(bool enabled) {
+            Debug.Log($"[EIR Bluetooth] Location Enabled: {enabled}.");
         }
 
         private void OnConnected(string name) {
@@ -391,8 +408,7 @@ namespace Valkyrie.EIR.Bluetooth {
                 state = ConnectionStates.NotConnected;
                 deviceName = "";
                 OnConnectionStateChanged?.Invoke(state);
-            }
-            else {
+            } else {
                 Debug.LogError($"[EIR Bluetooth] System reinitialisation failure. Unable to restart bluetooth service.");
             }
         }
@@ -404,8 +420,7 @@ namespace Valkyrie.EIR.Bluetooth {
                 state = ConnectionStates.Reconnecting;
                 deviceName = "";
                 OnConnectionStateChanged?.Invoke(state);
-            }
-            else {
+            } else {
                 Debug.LogError($"[EIR Bluetooth] System reinitialisation failure. Unable to restart bluetooth service.");
             }
         }
@@ -450,19 +465,16 @@ namespace Valkyrie.EIR.Bluetooth {
                         if (autoConnect) {
                             state = ConnectionStates.Connecting;
                             eirBlu.CallStatic("connectToDevice", device.address);
-                        }
-                        else {
+                        } else {
                             state = ConnectionStates.Found;
                         }
                     }
-                }
-                else if (deviceList.devices.Length > 1) {
+                } else if (deviceList.devices.Length > 1) {
                     Debug.Log($"[EIR Bluetooth] {deviceList.devices.Length} devices found.");
                     state = ConnectionStates.Selection;
                     OnConnectionStateChanged?.Invoke(state);
 
-                }
-                else {
+                } else {
                     Debug.Log($"[EIR Bluetooth] No devices returned.");
 
                     state = ConnectionStates.NotFound;
@@ -494,6 +506,68 @@ namespace Valkyrie.EIR.Bluetooth {
             }
 
             return result.ToString();
+        }
+
+        /// <summary>
+        /// Returns the enabled state of the device's bluetooth radio.
+        /// </summary>
+        /// <returns></returns>
+        private bool IsBluetoothEnabled() {
+
+            using (AndroidJavaClass bluetoothAdapterClass = new AndroidJavaClass("android.bluetooth.BluetoothAdapter")) {
+                AndroidJavaObject bluetoothAdapter = bluetoothAdapterClass.CallStatic<AndroidJavaObject>("getDefaultAdapter");
+
+                if (bluetoothAdapter != null) {
+                    return bluetoothAdapter.Call<bool>("isEnabled");
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Returns true if both fine location permission is granted and the device's gps is enabled.
+        /// </summary>
+        /// <returns></returns>
+        private bool IsPreciseLocationEnabled() {
+            return PermissionsManager.HasFineLocation() && Input.location.isEnabledByUser;
+        }
+
+        /// <summary>
+        /// Requests to enable the device's bluetooth radio.
+        /// </summary>
+        /// <returns></returns>
+        private async Task<bool> RequestEnableBluetooth() {
+            if (activity == null) {
+                Debug.Log("[EIR Bluetooth] No activity");
+                return false;
+            }
+
+            TaskCompletionSource<bool> tcs = new TaskCompletionSource<bool>();
+
+            Action<bool> callback = (bool enabled) => {
+                tcs.TrySetResult(enabled);
+            };
+
+            eirBlu.CallStatic("initialise", activity, callbackInstance, 1000L);
+
+            return await tcs.Task;
+        }
+
+        private async Task<bool> RequestEnablePreciseLocation() {
+            if (activity == null) {
+                Debug.Log("[EIR Bluetooth] No activity");
+                return false;
+            }
+
+            TaskCompletionSource<bool> tcs = new TaskCompletionSource<bool>();
+
+            Action<bool> callback = (bool enabled) => {
+                tcs.TrySetResult(enabled);
+            };
+
+            eirBlu.CallStatic("requestLocation", activity);
+
+            return await tcs.Task;
         }
 
         #endregion
@@ -551,6 +625,8 @@ namespace Valkyrie.EIR.Bluetooth {
             /// </summary>
             public event Action<bool> OnLowBatteryDetectedEvent;
 
+            public event Action<bool> OnLocationEnabledEvent;
+
             /// <summary>
             /// Callback invoked when initialization of the plugin is complete.
             /// </summary>
@@ -589,6 +665,10 @@ namespace Valkyrie.EIR.Bluetooth {
             /// <param name="deviceName">Name of the connected device.</param>
             public void onConnectionEstablished(string deviceName) {
                 OnConnectedEvent?.Invoke(deviceName);
+            }
+
+            public void onLocationEnabled(bool enabled) {
+                OnLocationEnabledEvent?.Invoke(enabled);
             }
 
             /// <summary>

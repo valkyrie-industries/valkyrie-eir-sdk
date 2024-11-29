@@ -60,6 +60,14 @@ namespace Valkyrie.EIR.Utilities {
             if (permissions.Count > 0) { Permission.RequestUserPermissions(permissions.ToArray()); }
         }
 
+        public static bool HasFineLocation() {
+            return Permission.HasUserAuthorizedPermission(Permission.FineLocation);
+        }
+
+        public static void RequestFineLocation() {
+            Permission.RequestUserPermission(Permission.FineLocation);
+        }
+
         #endregion
     }
 }
