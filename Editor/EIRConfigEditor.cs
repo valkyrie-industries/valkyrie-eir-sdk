@@ -3,19 +3,24 @@ using UnityEditor.PackageManager.Requests;
 using UnityEditor.PackageManager;
 using UnityEngine;
 
-namespace Valkyrie.EIR.Utilities {
+namespace Valkyrie.EIR.Utilities
+{
 
     [CustomEditor(typeof(EIRConfig))]
-    public class EIRConfigEditor : Editor {
+    public class EIRConfigEditor : Editor
+    {
 
         [MenuItem("EIR Tools/Highlight EIR Config")]
-        static void CreateConfig() {
+        static void CreateConfig()
+        {
             string assetPath = "Assets/Resources/Valkyrie Config/EIRConfig.asset";
 
 
-            if (!AssetDatabase.IsValidFolder("Assets/Resources/Valkyrie Config")) {
+            if (!AssetDatabase.IsValidFolder("Assets/Resources/Valkyrie Config"))
+            {
                 Debug.Log($"Creating directory...");
-                if (!AssetDatabase.IsValidFolder("Assets/Resources")) {
+                if (!AssetDatabase.IsValidFolder("Assets/Resources"))
+                {
                     AssetDatabase.CreateFolder("Assets", "Resources");
                 }
                 AssetDatabase.CreateFolder("Assets/Resources", "Valkyrie Config");
@@ -24,7 +29,8 @@ namespace Valkyrie.EIR.Utilities {
 
             EIRConfig existingConfig = AssetDatabase.LoadAssetAtPath<EIRConfig>(assetPath);
 
-            if (existingConfig != null) {
+            if (existingConfig != null)
+            {
                 Selection.activeObject = existingConfig;
                 return;
             }
@@ -50,11 +56,13 @@ namespace Valkyrie.EIR.Utilities {
         private SerializedProperty deviceFilter;
         private SerializedProperty autoInitialise;
         private SerializedProperty useOVRForVibrations;
+        private SerializedProperty useDuodecimalIndex;
         private GUIStyle boldStyle;
         private bool isOVRPackageInstalled = false;
         private ListRequest listRequest;
 
-        private void OnEnable() {
+        private void OnEnable()
+        {
 
             listRequest = Client.List(true);
             EditorApplication.update += CheckPackageManagerRequest;
@@ -69,9 +77,11 @@ namespace Valkyrie.EIR.Utilities {
             deviceFilter = serializedObject.FindProperty("deviceFilter");
             autoInitialise = serializedObject.FindProperty("autoInitialise");
             useOVRForVibrations = serializedObject.FindProperty("useOVRForVibrations");
+            useDuodecimalIndex = serializedObject.FindProperty("useDuodecimalIndex");
         }
 
-        public override void OnInspectorGUI() {
+        public override void OnInspectorGUI()
+        {
 
             serializedObject.Update();
 
@@ -90,6 +100,7 @@ namespace Valkyrie.EIR.Utilities {
             EditorGUILayout.PropertyField(ignoreCachedDevice, new GUIContent("Ignore Cached Device"));
             EditorGUILayout.PropertyField(vitalsReadFrequency, new GUIContent("Vitals Read Interval (seconds) (min value: 1)"));
             EditorGUILayout.PropertyField(deviceFilter, new GUIContent("Device Filter (returns devices with name containing this)"));
+            EditorGUILayout.PropertyField(useDuodecimalIndex, new GUIContent("Use Duodecimal Indexing for Haptic Calibration"));
             EditorGUI.EndDisabledGroup();
             EditorGUILayout.Space(10);
             EditorGUI.BeginDisabledGroup(!isOVRPackageInstalled);
@@ -105,12 +116,17 @@ namespace Valkyrie.EIR.Utilities {
             UpdateScriptingDefines();
         }
 
-        private void CheckPackageManagerRequest() {
-            if (listRequest.IsCompleted) {
-                if (listRequest.Status == StatusCode.Success) {
+        private void CheckPackageManagerRequest()
+        {
+            if (listRequest.IsCompleted)
+            {
+                if (listRequest.Status == StatusCode.Success)
+                {
                     // check if the OVR package is installed
-                    foreach (var package in listRequest.Result) {
-                        if (package.name.Contains("com.unity.xr.oculus")) {
+                    foreach (var package in listRequest.Result)
+                    {
+                        if (package.name.Contains("com.unity.xr.oculus"))
+                        {
                             isOVRPackageInstalled = true;
                             break;
                         }
@@ -122,7 +138,8 @@ namespace Valkyrie.EIR.Utilities {
             }
         }
 
-        private void UpdateScriptingDefines() {
+        private void UpdateScriptingDefines()
+        {
 
             BuildTargetGroup bt = EditorUserBuildSettings.selectedBuildTargetGroup;
 
@@ -131,22 +148,27 @@ namespace Valkyrie.EIR.Utilities {
             bool currentEnableInteraction = UnityEditor.PlayerSettings.GetScriptingDefineSymbolsForGroup(bt).Contains("EIR_INTERACTION");
             bool currentEnableOVRVibrations = UnityEditor.PlayerSettings.GetScriptingDefineSymbolsForGroup(bt).Contains("EIR_USE_OVR_VIBRATIONS");
 
-            if (enableHapticsManager.boolValue != currentEnableHaptics) {
+            if (enableHapticsManager.boolValue != currentEnableHaptics)
+            {
                 SetScriptingDefineSymbol("EIR_HAPTICS", enableHapticsManager.boolValue);
             }
 
-            if (enableBTEirBluetoothBridge.boolValue != currentEnableComm) {
+            if (enableBTEirBluetoothBridge.boolValue != currentEnableComm)
+            {
                 SetScriptingDefineSymbol("EIR_COMM", enableBTEirBluetoothBridge.boolValue);
             }
 
-            if (enableInteractionManager.boolValue != currentEnableInteraction) {
+            if (enableInteractionManager.boolValue != currentEnableInteraction)
+            {
                 SetScriptingDefineSymbol("EIR_INTERACTION", enableInteractionManager.boolValue);
             }
 
-            if (useOVRForVibrations.boolValue != currentEnableOVRVibrations) {
+            if (useOVRForVibrations.boolValue != currentEnableOVRVibrations)
+            {
                 SetScriptingDefineSymbol("EIR_USE_OVR_VIBRATIONS", useOVRForVibrations.boolValue);
             }
-            if (useOVRForVibrations.boolValue == true && !isOVRPackageInstalled) {
+            if (useOVRForVibrations.boolValue == true && !isOVRPackageInstalled)
+            {
                 useOVRForVibrations.boolValue = false;
                 SetScriptingDefineSymbol("EIR_USE_OVR_VIBRATIONS", false);
             }
@@ -156,7 +178,8 @@ namespace Valkyrie.EIR.Utilities {
         }
 
 
-        private void SetScriptingDefineSymbol(string define, bool enable) {
+        private void SetScriptingDefineSymbol(string define, bool enable)
+        {
             BuildTargetGroup bt = EditorUserBuildSettings.selectedBuildTargetGroup;
             string defines = UnityEditor.PlayerSettings.GetScriptingDefineSymbolsForGroup(bt);
 
@@ -164,10 +187,13 @@ namespace Valkyrie.EIR.Utilities {
             bool defineExists = defines.Contains(define);
 
             // add or remove the define based on the enable flag
-            if (enable && !defineExists) {
+            if (enable && !defineExists)
+            {
                 // Add the define only if it doesn't exist
                 defines += (string.IsNullOrEmpty(defines) ? "" : ";") + define;
-            } else if (!enable && defineExists) {
+            }
+            else if (!enable && defineExists)
+            {
                 // remove the define only if it exists
                 defines = defines.Replace(define + ";", "").Replace(define, "");
             }

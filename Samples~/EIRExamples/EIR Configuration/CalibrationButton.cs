@@ -64,7 +64,7 @@ namespace Valkyrie.EIR.Examples {
 
             int currentIndex = EIRManager.Instance.Haptics.CalibrationIndex[handIndex];
             if (up) {
-                if (currentIndex < HapticManager.CALIBRATION_INDEX_LENGTH)
+                if (currentIndex < EIRManager.Instance.Haptics.CALIBRATION_INDEX_LENGTH)
                     currentIndex += 1;
             } else {
                 if (currentIndex > 0)

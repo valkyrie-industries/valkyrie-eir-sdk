@@ -1,26 +1,31 @@
 using System;
 using UnityEngine;
 
-namespace Valkyrie.EIR.Utilities {
+namespace Valkyrie.EIR.Utilities
+{
 
     public enum BluetoothSendFrequency { EveryFrame, EverySecondFrame, EveryThirdFrame }
 
     /// <summary>
     /// Configuration scriptable object to facilitate quick modification of EIR configration values.
     /// </summary>
-    public class EIRConfig : ScriptableObject {
+    public class EIRConfig : ScriptableObject
+    {
 
         #region Static Accessor
 
         private static EIRConfig instance;                        // Singleton instance. Only one EIR Config is permitted to exist.
 
-        public static EIRConfig Instance {                        // Get this instance, and load of not already loaded.
-            get {
+        public static EIRConfig Instance
+        {                        // Get this instance, and load of not already loaded.
+            get
+            {
                 if (instance != null) return instance;
                 {
                     EIRConfig loadedConfig = Resources.Load("Valkyrie Config/EIRConfig", typeof(EIRConfig)) as EIRConfig;
 
-                    if (loadedConfig == null) {
+                    if (loadedConfig == null)
+                    {
                         throw new Exception("[Valkyrie.EIR SDK] Failed to load EIRConfig from resources. Please generate an EIRConfig with Valkyrie Tools.");
                     }
 
@@ -51,13 +56,17 @@ namespace Valkyrie.EIR.Utilities {
         /// </summary>
         public int VitalsReadInterval { get { return vitalsReadInterval; } }
         /// <summary>
+        /// Use 0-19 (20 levels) for EIR Calibration. If false, use 0-10.
+        /// </summary>
+        public bool UseDuodecimalIndex { get { return useDuodecimalIndex; } }
+        /// <summary>
         /// Returns only devices with with name containing the input filter.
         /// </summary>
         public string DeviceFilter { get { return deviceFilter; } }
         /// <summary>
         /// Automatically calls EIRManager.Initialise if selected and the component is present in the scene. If unselected, EIRManager.Initialise must be called manually.
         /// </summary>
-        public bool AutoInitialise { get { return autoInitialise; } }    
+        public bool AutoInitialise { get { return autoInitialise; } }
         /// <summary>
         /// (XR Only) Use Meta OVR plugin for controller haptic vibrations.
         /// </summary>
@@ -87,7 +96,7 @@ namespace Valkyrie.EIR.Utilities {
         [SerializeField] private bool autoInitialise = true;
         [SerializeField] private bool useOVRForVibrations;
         [SerializeField] private BluetoothSendFrequency bluetoothSendFrequency;
-
+        [SerializeField] private bool useDuodecimalIndex;
         #endregion
     }
 }
