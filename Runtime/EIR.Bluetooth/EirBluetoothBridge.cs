@@ -149,7 +149,7 @@ namespace Valkyrie.EIR.Bluetooth {
             callbackInstance.OnWriteEvent += OnWrite;
             callbackInstance.OnLocationEnabledEvent += OnLocationEnabled;
 
-            eirBlu.CallStatic("initialise", activity, callbackInstance, 1000L);
+            eirBlu.CallStatic("initialise", activity, callbackInstance, EIRConfig.Instance.ConnectionTimeoutMs);
             initialised = true;
         }
 
