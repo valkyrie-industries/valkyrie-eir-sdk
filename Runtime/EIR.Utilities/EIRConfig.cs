@@ -1,31 +1,26 @@
 using System;
 using UnityEngine;
 
-namespace Valkyrie.EIR.Utilities
-{
+namespace Valkyrie.EIR.Utilities {
 
     public enum BluetoothSendFrequency { EveryFrame, EverySecondFrame, EveryThirdFrame }
 
     /// <summary>
     /// Configuration scriptable object to facilitate quick modification of EIR configration values.
     /// </summary>
-    public class EIRConfig : ScriptableObject
-    {
+    public class EIRConfig : ScriptableObject {
 
         #region Static Accessor
 
         private static EIRConfig instance;                        // Singleton instance. Only one EIR Config is permitted to exist.
 
-        public static EIRConfig Instance
-        {                        // Get this instance, and load of not already loaded.
-            get
-            {
+        public static EIRConfig Instance {                        // Get this instance, and load of not already loaded.
+            get {
                 if (instance != null) return instance;
                 {
                     EIRConfig loadedConfig = Resources.Load("Valkyrie Config/EIRConfig", typeof(EIRConfig)) as EIRConfig;
 
-                    if (loadedConfig == null)
-                    {
+                    if (loadedConfig == null) {
                         throw new Exception("[Valkyrie.EIR SDK] Failed to load EIRConfig from resources. Please generate an EIRConfig with Valkyrie Tools.");
                     }
 
@@ -64,6 +59,10 @@ namespace Valkyrie.EIR.Utilities
         /// </summary>
         public string DeviceFilter { get { return deviceFilter; } }
         /// <summary>
+        /// Returns the connection timeout (milleseconds).
+        /// </summary>
+        public long ConnectionTimeoutMs { get { return connectionTimeoutMs; } }
+        /// <summary>
         /// Automatically calls EIRManager.Initialise if selected and the component is present in the scene. If unselected, EIRManager.Initialise must be called manually.
         /// </summary>
         public bool AutoInitialise { get { return autoInitialise; } }
@@ -88,6 +87,8 @@ namespace Valkyrie.EIR.Utilities
         [SerializeField] private bool enableHapticsManager;
         [SerializeField] private bool enableBTEirBluetoothBridge;
         [SerializeField] private bool enableInteractionManager;
+
+        [SerializeField] private long connectionTimeoutMs = 5000L;
 
         [SerializeField] private bool outputHapticDebug;
         [SerializeField] private bool ignoreCachedDevice;
