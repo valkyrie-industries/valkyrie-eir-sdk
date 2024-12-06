@@ -15,7 +15,8 @@ namespace Valkyrie.EIR.Bluetooth {
         Reconnecting,
         Found,
         NotFound,
-        Selection
+        Selection,
+        Denied
     }
 
     /// <summary>
@@ -148,8 +149,9 @@ namespace Valkyrie.EIR.Bluetooth {
             callbackInstance.OnReadEvent += OnRead;
             callbackInstance.OnWriteEvent += OnWrite;
             callbackInstance.OnLocationEnabledEvent += OnLocationEnabled;
+            callbackInstance.OnConnectionDeniedEvent += OnConnectionDenied;
 
-            eirBlu.CallStatic("initialise", activity, callbackInstance, 1000L);
+            eirBlu.CallStatic("initialise", activity, callbackInstance, EIRConfig.Instance.ConnectionTimeoutMs);
             initialised = true;
         }
 
@@ -184,7 +186,7 @@ namespace Valkyrie.EIR.Bluetooth {
         public void Scan() {
             autoConnect = false;
             state = ConnectionStates.Scanning;
-            eirBlu.CallStatic("startScan", searchFilter);
+            eirBlu.CallStatic("startScan");
         }
 
         /// <summary>
@@ -235,7 +237,7 @@ namespace Valkyrie.EIR.Bluetooth {
 
             OnConnectionStateChanged += handler;
 
-            eirBlu.CallStatic("startScan", searchFilter);
+            eirBlu.CallStatic("startScan");
             state = ConnectionStates.Scanning;
 
             return await tcs.Task;
@@ -262,6 +264,13 @@ namespace Valkyrie.EIR.Bluetooth {
 
             eirBlu.CallStatic("connectToDevice", macAddress);
             return await tcs.Task;
+        }
+
+        public void IdentifyDevice(string macAddress) {
+#if UNITY_ANDROID && !UNITY_EDITOR
+            if (eirBlu != null) eirBlu.CallStatic("identifyDevice", macAddress);
+            state = ConnectionStates.NotConnected;
+#endif
         }
 
         /// <summary>
@@ -373,6 +382,12 @@ namespace Valkyrie.EIR.Bluetooth {
 
         private void OnLocationEnabled(bool enabled) {
             Debug.Log($"[EIR Bluetooth] Location Enabled: {enabled}.");
+        }
+
+        private void OnConnectionDenied() {
+            Debug.LogError($"[EIR Bluetooth] Connection to eir device denied.");
+            state = ConnectionStates.Denied;
+            OnConnectionStateChanged?.Invoke(state);
         }
 
         private void OnConnected(string name) {
@@ -625,7 +640,15 @@ namespace Valkyrie.EIR.Bluetooth {
             /// </summary>
             public event Action<bool> OnLowBatteryDetectedEvent;
 
+            /// <summary>
+            /// Event triggered when location is enabled on the device.
+            /// </summary>
             public event Action<bool> OnLocationEnabledEvent;
+
+            /// <summary>
+            /// Event triggered when a connection to an eir band device has been denied by the eir band firmware.
+            /// </summary>
+            public event Action OnConnectionDeniedEvent;
 
             /// <summary>
             /// Callback invoked when initialization of the plugin is complete.
@@ -698,6 +721,10 @@ namespace Valkyrie.EIR.Bluetooth {
             /// <param name="lowBattery">Indicates whether low battery is detected.</param>
             public void onLowBatteryDetected(bool lowBattery) {
                 OnLowBatteryDetectedEvent?.Invoke(lowBattery);
+            }
+
+            public void onConnectionDenied() {
+                OnConnectionDeniedEvent?.Invoke();
             }
         }
 
