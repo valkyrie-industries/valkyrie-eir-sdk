@@ -243,6 +243,20 @@ namespace Valkyrie.EIR.Examples {
 
                         break;
                     }
+                case ConnectionStates.Denied:
+                    if (button == null) GetButton();
+                    button.interactable = true;
+
+                    if (LoadingIcon != null)
+                        LoadingIcon.SetActive(false);
+
+                    ChangeText("Denied");
+                    connectionEstablished = false;
+                    attemptingConnection = false;
+
+                    if (afterConnectionStageButton != null)
+                        afterConnectionStageButton.interactable = false;
+                    break;
                 case ConnectionStates.Connecting:
                 case ConnectionStates.Scanning: {
 

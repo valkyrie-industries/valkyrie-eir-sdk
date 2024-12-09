@@ -223,12 +223,12 @@ namespace Valkyrie.EIR.Bluetooth {
             OnConnectionStateChangedEventHandler handler = null;
             handler = (connectionState) => {
                 if (auto) {
-                    if (connectionState == ConnectionStates.Connected || connectionState == ConnectionStates.NotConnected) {
+                    if (connectionState == ConnectionStates.Connected || connectionState == ConnectionStates.NotConnected || connectionState == ConnectionStates.Denied) {
                         OnConnectionStateChanged -= handler;
                         tcs.TrySetResult(connectionState);
                     }
                 } else {
-                    if (connectionState == ConnectionStates.Found || connectionState == ConnectionStates.NotFound || connectionState == ConnectionStates.Connected || connectionState == ConnectionStates.NotConnected || connectionState == ConnectionStates.Selection) {
+                    if (connectionState == ConnectionStates.Found || connectionState == ConnectionStates.NotFound || connectionState == ConnectionStates.Denied || connectionState == ConnectionStates.Connected || connectionState == ConnectionStates.NotConnected || connectionState == ConnectionStates.Selection) {
                         OnConnectionStateChanged -= handler;
                         tcs.TrySetResult(connectionState);
                     }
