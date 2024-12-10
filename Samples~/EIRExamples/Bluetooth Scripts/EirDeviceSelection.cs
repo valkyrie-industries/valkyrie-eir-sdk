@@ -41,6 +41,14 @@ namespace Valkyrie.EIR.Examples {
             InstantiateButtons(devices);
         }
 
+        private void Update() {
+            if (!EIRManager.Instance.Initialised) return;
+#if EIR_COMM
+            if (EIRManager.Instance.Communication == null) return;
+            CheckConnectionState(EIRManager.Instance.Communication.CurrentState);
+#endif
+        }
+
         #endregion
 
         #region Private Methods
@@ -64,6 +72,16 @@ namespace Valkyrie.EIR.Examples {
                 else {
                     Debug.LogWarning("[Device Manager] ButtonPrefab does not have a Button component.");
                 }
+            }
+        }
+
+        private void CheckConnectionState(ConnectionStates state) {
+            if (EIRManager.Instance == null || EIRManager.Instance.Communication == null)
+                return;
+
+            if (EIRManager.Instance.Communication.CurrentState == ConnectionStates.Denied) {
+                Debug.LogWarning("[Device Manager] Device Connection Denied.");
+                OnEnable();
             }
         }
 
