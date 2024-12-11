@@ -79,8 +79,8 @@ namespace Valkyrie.EIR.Examples {
             //if (connectionEstablished)
             //TODO: Make it do it once in a while (every second)
 #if EIR_COMM
-            if (EIRManager.Instance.Communication == null) return;
-            CheckConnectionState(EIRManager.Instance.Communication.CurrentState);
+            if (EIRManager.Instance.EirBluetooth == null) return;
+            CheckConnectionState(EIRManager.Instance.EirBluetooth.CurrentState);
 #endif
         }
 
@@ -95,7 +95,7 @@ namespace Valkyrie.EIR.Examples {
             Debug.Log("[SimpleConnection] Attempting connection...");
 #if EIR_COMM
 
-            if (EIRManager.Instance.Communication.IsConnected) {
+            if (EIRManager.Instance.EirBluetooth.IsConnected) {
                 Debug.Log("[SimpleConnection] Device is already connected");
                 return;
             }
@@ -112,7 +112,7 @@ namespace Valkyrie.EIR.Examples {
 #if EIR_COMM
             if (connect) {
                 Debug.Log("[SimpleConnection] Attempting connection via autoconnection");
-                if (EIRManager.Instance.Communication.IsConnected) {
+                if (EIRManager.Instance.EirBluetooth.IsConnected) {
                     Debug.Log("[SimpleConnection] Device is already connected");
                     return;
                 }
@@ -120,13 +120,13 @@ namespace Valkyrie.EIR.Examples {
                 if (!attemptingConnection)
                     ConnectionAsync();
             } else {
-                EIRManager.Instance.Communication.IsActive = false;
-                if (!EIRManager.Instance.Communication.IsConnected) {
+                EIRManager.Instance.EirBluetooth.IsActive = false;
+                if (!EIRManager.Instance.EirBluetooth.IsConnected) {
                     Debug.Log("[SimpleConnection] Device is already disconnected");
                     return;
                 }
                 Debug.Log("[SimpleConnection] Disconnecting device");
-                EIRManager.Instance.Communication.Disconnect();
+                EIRManager.Instance.EirBluetooth.Disconnect();
             }
 #endif
         }
@@ -148,8 +148,8 @@ namespace Valkyrie.EIR.Examples {
             if (!EIRManager.Instance.Initialised) {
                 throw new System.Exception("[SimpleConnection] EIR Manager is not initialised. Eir Config should be auto-initialising for this example script, check this is toggled.");
             } else {
-                if (EIRManager.Instance.Communication != null) {
-                    CheckConnectionState(EIRManager.Instance.Communication.CurrentState);
+                if (EIRManager.Instance.EirBluetooth != null) {
+                    CheckConnectionState(EIRManager.Instance.EirBluetooth.CurrentState);
                     if (connectAutomatically) Connect(true);
                 }
             }
@@ -169,7 +169,7 @@ namespace Valkyrie.EIR.Examples {
 
             ChangeText("Connecting...");
 
-            ConnectionStates state = await EIRManager.Instance.Communication.ScanAndConnect();
+            ConnectionStates state = await EIRManager.Instance.EirBluetooth.ScanAndConnect();
             CheckConnectionState(state);
             attemptingConnection = false;
 #endif
@@ -177,17 +177,17 @@ namespace Valkyrie.EIR.Examples {
 #if EIR_COMM
 
         private void CheckConnectionState(ConnectionStates state) {
-            if (EIRManager.Instance == null || EIRManager.Instance.Communication == null)
+            if (EIRManager.Instance == null || EIRManager.Instance.EirBluetooth == null)
                 return;
 
-            if (EIRManager.Instance.Communication.CurrentState != ConnectionStates.Selection) {
+            if (EIRManager.Instance.EirBluetooth.CurrentState != ConnectionStates.Selection) {
                 selectionStateEventFired = false;
             }
 
-            switch (EIRManager.Instance.Communication.CurrentState) {
+            switch (EIRManager.Instance.EirBluetooth.CurrentState) {
                 case ConnectionStates.Selection: {
                         if (takeFirstConnection) {
-                            _ = EIRManager.Instance.Communication.Connect(EIRManager.Instance.Communication.DeviceList.devices[0].address);
+                            _ = EIRManager.Instance.EirBluetooth.Connect(EIRManager.Instance.EirBluetooth.DeviceList.devices[0].address);
                         } else if (!selectionStateEventFired) {
                             OnSelectionState.Invoke();
                             selectionStateEventFired = true;
@@ -269,7 +269,7 @@ namespace Valkyrie.EIR.Examples {
                     }
             }
 
-            ChangeIndicator(EIRManager.Instance.Communication.CurrentState);
+            ChangeIndicator(EIRManager.Instance.EirBluetooth.CurrentState);
         }
 
         private void ChangeText(string text) {

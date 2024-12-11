@@ -47,7 +47,6 @@ namespace Valkyrie.EIR.Utilities {
         private SerializedProperty outputHapticDebug;
         private SerializedProperty ignoreCachedDevice;
         private SerializedProperty vitalsReadFrequency;
-        private SerializedProperty deviceFilter;
         private SerializedProperty autoInitialise;
         private SerializedProperty useOVRForVibrations;
         private SerializedProperty useDuodecimalIndex;
@@ -67,7 +66,6 @@ namespace Valkyrie.EIR.Utilities {
             outputHapticDebug = serializedObject.FindProperty("outputHapticDebug");
             ignoreCachedDevice = serializedObject.FindProperty("ignoreCachedDevice");
             vitalsReadFrequency = serializedObject.FindProperty("vitalsReadInterval");
-            deviceFilter = serializedObject.FindProperty("deviceFilter");
             autoInitialise = serializedObject.FindProperty("autoInitialise");
             useOVRForVibrations = serializedObject.FindProperty("useOVRForVibrations");
             useDuodecimalIndex = serializedObject.FindProperty("useDuodecimalIndex");
@@ -93,7 +91,6 @@ namespace Valkyrie.EIR.Utilities {
             EditorGUILayout.PropertyField(outputHapticDebug, new GUIContent("Output Haptic Debug"));
             EditorGUILayout.PropertyField(ignoreCachedDevice, new GUIContent("Ignore Cached Device"));
             EditorGUILayout.PropertyField(vitalsReadFrequency, new GUIContent("Vitals Read Interval (seconds) (min value: 1)"));
-            EditorGUILayout.PropertyField(deviceFilter, new GUIContent("Device Filter (returns devices with name containing this)"));
             EditorGUILayout.PropertyField(useDuodecimalIndex, new GUIContent("Use Duodecimal Indexing for Haptic Calibration"));
             EditorGUI.EndDisabledGroup();
             EditorGUILayout.Space(10);

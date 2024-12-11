@@ -55,10 +55,6 @@ namespace Valkyrie.EIR.Utilities {
         /// </summary>
         public bool UseDuodecimalIndex { get { return useDuodecimalIndex; } }
         /// <summary>
-        /// Returns only devices with with name containing the input filter.
-        /// </summary>
-        public string DeviceFilter { get { return deviceFilter; } }
-        /// <summary>
         /// Returns the connection timeout (milleseconds).
         /// </summary>
         public long ConnectionTimeoutMs { get { return connectionTimeoutMs; } }
@@ -93,7 +89,6 @@ namespace Valkyrie.EIR.Utilities {
         [SerializeField] private bool outputHapticDebug;
         [SerializeField] private bool ignoreCachedDevice;
         [SerializeField] private int vitalsReadInterval;
-        [SerializeField] private string deviceFilter = "Valkyrie";
         [SerializeField] private bool autoInitialise = true;
         [SerializeField] private bool useOVRForVibrations;
         [SerializeField] private BluetoothSendFrequency bluetoothSendFrequency;

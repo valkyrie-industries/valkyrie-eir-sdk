@@ -28,7 +28,7 @@ namespace Valkyrie.EIR {
         private HapticManager hapticManager;
 #endif
 #if EIR_COMM
-        public EirBluetoothBridge Communication { get { return eirBluetoothBridge; } }
+        public EirBluetoothBridge EirBluetooth { get { return eirBluetoothBridge; } }
         private EirBluetoothBridge eirBluetoothBridge;
 #endif
 #if EIR_INTERACTION
@@ -205,7 +205,7 @@ namespace Valkyrie.EIR {
 
 #if EIR_COMM
             if (eirBluetoothBridge != null) {
-                Communication.Disconnect();
+                EirBluetooth.Disconnect();
 #if EIR_HAPTICS
                 EirBluetoothBridge.OnConnectionStateChanged -= OnConnectionStateChanged;
 #endif

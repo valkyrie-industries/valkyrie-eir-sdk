@@ -103,7 +103,7 @@ namespace Valkyrie.EIR.Examples {
             }
 #if EIR_COMM && EIR_HAPTICS
 
-            EIRManager.Instance.Communication.SendConfigSignal(EIRManager.Instance.Haptics.GenerateConfigSignal(gain, frequency, pulseWidth));
+            EIRManager.Instance.EirBluetooth.SendConfigSignal(EIRManager.Instance.Haptics.GenerateConfigSignal(gain, frequency, pulseWidth));
 #endif
             this.gain = gain;
             this.frequency = frequency;
@@ -115,7 +115,7 @@ namespace Valkyrie.EIR.Examples {
         /// </summary>
         public void ConfigureToSet() {
 #if EIR_COMM && EIR_HAPTICS
-            EIRManager.Instance.Communication.SendConfigSignal(EIRManager.Instance.Haptics.GenerateConfigSignal(gain, frequency, pulseWidth));
+            EIRManager.Instance.EirBluetooth.SendConfigSignal(EIRManager.Instance.Haptics.GenerateConfigSignal(gain, frequency, pulseWidth));
 #endif
         }
 
@@ -126,7 +126,7 @@ namespace Valkyrie.EIR.Examples {
 
 #if EIR_HAPTICS
 #if EIR_COMM
-            EIRManager.Instance.Communication.SendConfigSignal(EIRManager.Instance.Haptics.GenerateConfigSignal(MIN_GAIN, HapticManager.CONST_FREQUENCY, HapticManager.CONST_PULSE_WIDTH));
+            EIRManager.Instance.EirBluetooth.SendConfigSignal(EIRManager.Instance.Haptics.GenerateConfigSignal(MIN_GAIN, HapticManager.CONST_FREQUENCY, HapticManager.CONST_PULSE_WIDTH));
 #endif
             gain = MIN_GAIN;
             frequency = HapticManager.CONST_FREQUENCY;

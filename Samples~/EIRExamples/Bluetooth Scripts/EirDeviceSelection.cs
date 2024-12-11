@@ -34,7 +34,7 @@ namespace Valkyrie.EIR.Examples {
         private void OnEnable() {
 
             List<KeyValuePair<string, string>> devices = new List<KeyValuePair<string, string>>();
-            foreach (BluetoothDeviceInfo device in EIRManager.Instance.Communication.DeviceList.devices) {
+            foreach (BluetoothDeviceInfo device in EIRManager.Instance.EirBluetooth.DeviceList.devices) {
                 devices.Add(new KeyValuePair<string, string>(device.address, device.name));
             }
 
@@ -44,8 +44,8 @@ namespace Valkyrie.EIR.Examples {
         private void Update() {
             if (!EIRManager.Instance.Initialised) return;
 #if EIR_COMM
-            if (EIRManager.Instance.Communication == null) return;
-            CheckConnectionState(EIRManager.Instance.Communication.CurrentState);
+            if (EIRManager.Instance.EirBluetooth == null) return;
+            CheckConnectionState(EIRManager.Instance.EirBluetooth.CurrentState);
 #endif
         }
 
@@ -76,10 +76,10 @@ namespace Valkyrie.EIR.Examples {
         }
 
         private void CheckConnectionState(ConnectionStates state) {
-            if (EIRManager.Instance == null || EIRManager.Instance.Communication == null)
+            if (EIRManager.Instance == null || EIRManager.Instance.EirBluetooth == null)
                 return;
 
-            if (EIRManager.Instance.Communication.CurrentState == ConnectionStates.Denied) {
+            if (EIRManager.Instance.EirBluetooth.CurrentState == ConnectionStates.Denied) {
                 Debug.LogWarning("[Device Manager] Device Connection Denied.");
                 OnEnable();
             }

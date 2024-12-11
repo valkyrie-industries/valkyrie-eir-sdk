@@ -49,15 +49,15 @@ namespace Valkyrie.EIR.Examples {
         private void Update() {
             if (initialised) return;
             if (EIRManager.Instance == null) return;
-            EIRManager.Instance.Communication.RegisterHandler(this);
-            SetIndication(false, EIRManager.Instance.Communication.Vitals);
-            SetIndication(true, EIRManager.Instance.Communication.Vitals);
+            EIRManager.Instance.EirBluetooth.RegisterHandler(this);
+            SetIndication(false, EIRManager.Instance.EirBluetooth.Vitals);
+            SetIndication(true, EIRManager.Instance.EirBluetooth.Vitals);
             initialised = true;
         }
 
         private void OnDisable() {
             if (!initialised) return;
-            EIRManager.Instance.Communication.UnregisterHandler(this);
+            EIRManager.Instance.EirBluetooth.UnregisterHandler(this);
             initialised = false;
         }
 #endif

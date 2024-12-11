@@ -54,7 +54,6 @@ namespace Valkyrie.EIR.Bluetooth {
         private bool autoConnect;
         private BluetoothDeviceList deviceList = new BluetoothDeviceList();
         private DeviceVitals deviceVitals = new DeviceVitals(false, false, 0, 0, 0, 0);
-        private string searchFilter = EIRConfig.Instance.DeviceFilter;
         private bool initialised;
         private float readInterval;
         private List<IEirBluetooth> handlers = new List<IEirBluetooth>();
@@ -142,7 +141,7 @@ namespace Valkyrie.EIR.Bluetooth {
             callbackInstance = new AndroidPluginCallback();
 
             callbackInstance.OnInitialisationCompleteEvent += OnInitialisationComplete;
-            callbackInstance.OnDeviceFoundEvent += HandleDeviceFound;
+            callbackInstance.OnDeviceFoundEvent += OnDevicesFound;
             callbackInstance.OnConnectedEvent += OnConnected;
             callbackInstance.OnDisconnectEvent += OnDisconnected;
             callbackInstance.OnReconnectionEvent += OnReconnection;
@@ -158,7 +157,7 @@ namespace Valkyrie.EIR.Bluetooth {
         private void Dispose() {
             if (callbackInstance != null) {
                 callbackInstance.OnInitialisationCompleteEvent -= OnInitialisationComplete;
-                callbackInstance.OnDeviceFoundEvent -= HandleDeviceFound;
+                callbackInstance.OnDeviceFoundEvent -= OnDevicesFound;
                 callbackInstance.OnConnectedEvent -= OnConnected;
                 callbackInstance.OnDisconnectEvent -= OnDisconnected;
                 callbackInstance.OnReconnectionEvent -= OnReconnection;
@@ -461,7 +460,7 @@ namespace Valkyrie.EIR.Bluetooth {
         /// Deserialises the device found response from the java plugin.
         /// </summary>
         /// <param name="jsonArray"></param>
-        private void HandleDeviceFound(string jsonArray) {
+        private void OnDevicesFound(string jsonArray) {
             jsonArray = string.Concat("{\"devices\":", jsonArray, "}");
             Debug.Log($"[EIR Bluetooth] Devices Found: {jsonArray}");
 
