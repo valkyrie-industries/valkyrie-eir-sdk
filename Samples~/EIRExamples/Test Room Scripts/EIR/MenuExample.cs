@@ -38,7 +38,7 @@ namespace Valkyrie.EIR.Examples {
         /// <param name="activate"></param>
         public void ToggleEMS(bool activate) {
 #if EIR_COMM && EIR_HAPTICS
-            EIRManager.Instance.ToggleBluetoothSend(!EIRManager.Instance.Communication.IsActive);
+            EIRManager.Instance.ToggleBluetoothSend(!EIRManager.Instance.EirBluetooth.IsActive);
 #endif
         }
 
@@ -52,11 +52,11 @@ namespace Valkyrie.EIR.Examples {
         /// <param name="text"></param>
         public void Connect(Text text) {
 #if EIR_COMM
-            if (!EIRManager.Instance.Communication.IsConnected) {
+            if (!EIRManager.Instance.EirBluetooth.IsConnected) {
                 text.text = "Connecting";
                 ConnectAsync(text);
             } else {
-                EIRManager.Instance.Communication.Disconnect();
+                EIRManager.Instance.EirBluetooth.Disconnect();
                 text.text = "Not Connected";
             }
 #endif
@@ -75,7 +75,7 @@ namespace Valkyrie.EIR.Examples {
             int handIndex = isLeft ? 1 : 0;
 
             int currentIndex = EIRManager.Instance.Haptics.CalibrationIndex[handIndex];
-            if (increase && currentIndex < HapticManager.CALIBRATION_INDEX_LENGTH) {
+            if (increase && currentIndex < EIRManager.Instance.Haptics.CALIBRATION_INDEX_LENGTH) {
                 currentIndex += 1;
             } else if (!increase && currentIndex > 0) {
                 currentIndex -= 1;
@@ -90,7 +90,7 @@ namespace Valkyrie.EIR.Examples {
 
 #if EIR_COMM
         private async void ConnectAsync(Text text) {
-            text.text = (await EIRManager.Instance.Communication.ScanAndConnect() == ConnectionStates.Connected ? "Disconnect" : "Connect");
+            text.text = (await EIRManager.Instance.EirBluetooth.ScanAndConnect() == ConnectionStates.Connected ? "Disconnect" : "Connect");
         }
 #endif
         #endregion

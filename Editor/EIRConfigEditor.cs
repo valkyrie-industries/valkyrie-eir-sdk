@@ -47,10 +47,10 @@ namespace Valkyrie.EIR.Utilities {
         private SerializedProperty outputHapticDebug;
         private SerializedProperty ignoreCachedDevice;
         private SerializedProperty vitalsReadFrequency;
-        private SerializedProperty deviceFilter;
         private SerializedProperty autoInitialise;
         private SerializedProperty useOVRForVibrations;
-        private GUIStyle boldStyle;
+        private SerializedProperty useDuodecimalIndex;
+        private SerializedProperty connectionTimeout;
         private bool isOVRPackageInstalled = false;
         private ListRequest listRequest;
 
@@ -66,9 +66,10 @@ namespace Valkyrie.EIR.Utilities {
             outputHapticDebug = serializedObject.FindProperty("outputHapticDebug");
             ignoreCachedDevice = serializedObject.FindProperty("ignoreCachedDevice");
             vitalsReadFrequency = serializedObject.FindProperty("vitalsReadInterval");
-            deviceFilter = serializedObject.FindProperty("deviceFilter");
             autoInitialise = serializedObject.FindProperty("autoInitialise");
             useOVRForVibrations = serializedObject.FindProperty("useOVRForVibrations");
+            useDuodecimalIndex = serializedObject.FindProperty("useDuodecimalIndex");
+            connectionTimeout = serializedObject.FindProperty("connectionTimeoutMs");
         }
 
         public override void OnInspectorGUI() {
@@ -86,10 +87,11 @@ namespace Valkyrie.EIR.Utilities {
             if (!enableBTEirBluetoothBridge.boolValue) EditorGUILayout.LabelField("EIR Bluetooth is not enabled.", EditorStyles.miniLabel);
             EditorGUI.BeginDisabledGroup(!enableBTEirBluetoothBridge.boolValue);
             EditorGUILayout.PropertyField(bluetoothSendFrequency, new GUIContent("Bluetooth Send Frequency"));
+            EditorGUILayout.PropertyField(connectionTimeout, new GUIContent("Connection Timeout (ms)"));
             EditorGUILayout.PropertyField(outputHapticDebug, new GUIContent("Output Haptic Debug"));
             EditorGUILayout.PropertyField(ignoreCachedDevice, new GUIContent("Ignore Cached Device"));
             EditorGUILayout.PropertyField(vitalsReadFrequency, new GUIContent("Vitals Read Interval (seconds) (min value: 1)"));
-            EditorGUILayout.PropertyField(deviceFilter, new GUIContent("Device Filter (returns devices with name containing this)"));
+            EditorGUILayout.PropertyField(useDuodecimalIndex, new GUIContent("Use Duodecimal Indexing for Haptic Calibration"));
             EditorGUI.EndDisabledGroup();
             EditorGUILayout.Space(10);
             EditorGUI.BeginDisabledGroup(!isOVRPackageInstalled);
@@ -167,7 +169,8 @@ namespace Valkyrie.EIR.Utilities {
             if (enable && !defineExists) {
                 // Add the define only if it doesn't exist
                 defines += (string.IsNullOrEmpty(defines) ? "" : ";") + define;
-            } else if (!enable && defineExists) {
+            }
+            else if (!enable && defineExists) {
                 // remove the define only if it exists
                 defines = defines.Replace(define + ";", "").Replace(define, "");
             }

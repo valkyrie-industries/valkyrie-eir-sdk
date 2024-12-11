@@ -51,13 +51,17 @@ namespace Valkyrie.EIR.Utilities {
         /// </summary>
         public int VitalsReadInterval { get { return vitalsReadInterval; } }
         /// <summary>
-        /// Returns only devices with with name containing the input filter.
+        /// Use 0-19 (20 levels) for EIR Calibration. If false, use 0-10.
         /// </summary>
-        public string DeviceFilter { get { return deviceFilter; } }
+        public bool UseDuodecimalIndex { get { return useDuodecimalIndex; } }
+        /// <summary>
+        /// Returns the connection timeout (milleseconds).
+        /// </summary>
+        public long ConnectionTimeoutMs { get { return connectionTimeoutMs; } }
         /// <summary>
         /// Automatically calls EIRManager.Initialise if selected and the component is present in the scene. If unselected, EIRManager.Initialise must be called manually.
         /// </summary>
-        public bool AutoInitialise { get { return autoInitialise; } }    
+        public bool AutoInitialise { get { return autoInitialise; } }
         /// <summary>
         /// (XR Only) Use Meta OVR plugin for controller haptic vibrations.
         /// </summary>
@@ -80,14 +84,15 @@ namespace Valkyrie.EIR.Utilities {
         [SerializeField] private bool enableBTEirBluetoothBridge;
         [SerializeField] private bool enableInteractionManager;
 
+        [SerializeField] private long connectionTimeoutMs = 5000L;
+
         [SerializeField] private bool outputHapticDebug;
         [SerializeField] private bool ignoreCachedDevice;
         [SerializeField] private int vitalsReadInterval;
-        [SerializeField] private string deviceFilter = "Valkyrie";
         [SerializeField] private bool autoInitialise = true;
         [SerializeField] private bool useOVRForVibrations;
         [SerializeField] private BluetoothSendFrequency bluetoothSendFrequency;
-
+        [SerializeField] private bool useDuodecimalIndex;
         #endregion
     }
 }

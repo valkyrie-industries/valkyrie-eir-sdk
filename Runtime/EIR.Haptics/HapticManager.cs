@@ -5,14 +5,16 @@ using System.Collections.Generic;
 using UnityEngine.Rendering;
 using Valkyrie.EIR.Utilities;
 
-namespace Valkyrie.EIR.Haptics {
+namespace Valkyrie.EIR.Haptics
+{
 
     /// <summary>
     /// Haptics Manager deals with calibration and EMS signals.
     /// It receives intensities and converts them into EMS-based messages (based on calibration values) and sends them to the Communication Manager.
     /// </summary>
     [Serializable]
-    public class HapticManager {
+    public class HapticManager
+    {
 
         public bool stopAllHapticSignals;
 
@@ -29,7 +31,7 @@ namespace Valkyrie.EIR.Haptics {
         public const byte MIN_PULSE_WIDTH = 30;
         public const byte CONST_FREQUENCY = 100;
         public const byte CONST_PULSE_WIDTH = 100;
-        public const int CALIBRATION_INDEX_LENGTH = 10;
+        public int CALIBRATION_INDEX_LENGTH { get { if (EIRConfig.Instance.UseDuodecimalIndex) return 19; else return 10; } }
 
         #endregion
 
@@ -61,9 +63,12 @@ namespace Valkyrie.EIR.Haptics {
         /// <summary>
         /// Returns the current config signal.
         /// </summary>
-        public ConfigSignalClass ConfigSignal {
-            get {
-                if (configSignal == null) {
+        public ConfigSignalClass ConfigSignal
+        {
+            get
+            {
+                if (configSignal == null)
+                {
                     configSignal = new ConfigSignalClass(0, CONST_FREQUENCY, CONST_PULSE_WIDTH);
                 }
                 return configSignal;
@@ -73,9 +78,16 @@ namespace Valkyrie.EIR.Haptics {
         /// <summary>
         /// Returns the current mapped intensity values (per device).
         /// </summary>
-        public int[] MappedIntensities {
+        public int[] MappedIntensities
+        {
             get { return mappedIntensities; }
         }
+
+        private float CalibrationMinMultiplier { get { return EIRConfig.Instance.UseDuodecimalIndex ? 0.15f : 0.5f; } }
+        private float CalibrationMinOffset { get { return EIRConfig.Instance.UseDuodecimalIndex ? 0.0f : 0.0f; } }
+        private float CalibrationMaxMultiplier { get { return EIRConfig.Instance.UseDuodecimalIndex ? 0.6235f : 2.15f; } }
+        private float CalibrationMaxOffset { get { return EIRConfig.Instance.UseDuodecimalIndex ? 30f : 40f; } }
+
 
         #endregion
 
@@ -86,10 +98,6 @@ namespace Valkyrie.EIR.Haptics {
         private float calibrationMin = 0;
         private float calibrationMax = 255.0f;
         private float calibrationMinStep = 10.0f;
-        private float calibrationMinMultiplier = 0.5f;
-        private float calibrationMinOffset = 0.0f;
-        private float calibrationMaxMultiplier = 2.15f;
-        private float calibrationMaxOffset = 40.0f;
 
         private GameObject runnerObject;
 
@@ -113,20 +121,25 @@ namespace Valkyrie.EIR.Haptics {
         /// Generates a haptic signal if on a valid send frame. This is dependent on the BluetoothSendFrequency set via EIRConfig.
         /// </summary>
         /// <returns></returns>
-        public sbyte[] GenerateHapticSignalForSendFrequency() {
+        public sbyte[] GenerateHapticSignalForSendFrequency()
+        {
             bool send = EIRConfig.Instance.BluetoothSendFrequency == BluetoothSendFrequency.EveryFrame;
 
-            if (!send) {
-                if (frameCounter == (int)EIRConfig.Instance.BluetoothSendFrequency) {
+            if (!send)
+            {
+                if (frameCounter == (int)EIRConfig.Instance.BluetoothSendFrequency)
+                {
                     send = true;
                     frameCounter = 0;
                 }
-                else {
+                else
+                {
                     frameCounter++;
                 }
             }
 
-            if (send) {
+            if (send)
+            {
                 HapticSignal signal = CreateHapticSignalFromIntensities(mappedIntensities);
 
                 Reset();
@@ -139,8 +152,10 @@ namespace Valkyrie.EIR.Haptics {
         /// <summary>
         /// Reset the mapped intensities to 0 once the signal has been sent.
         /// </summary>
-        public void Reset() {
-            for (int i = 0; i < intensities.Length; i++) {
+        public void Reset()
+        {
+            for (int i = 0; i < intensities.Length; i++)
+            {
                 intensities[i] = 0;
                 mappedIntensities[i] = 0;
             }
@@ -149,7 +164,8 @@ namespace Valkyrie.EIR.Haptics {
         /// <summary>
         /// Flags the connected EIR device as unconfigured.
         /// </summary>
-        public void SetUnconfigured() {
+        public void SetUnconfigured()
+        {
             configured = false;
         }
 
@@ -157,7 +173,8 @@ namespace Valkyrie.EIR.Haptics {
         /// Generates a haptic signal from the currently mapped intensities.
         /// </summary>
         /// <returns></returns>
-        public sbyte[] GenerateHapticSignal() {
+        public sbyte[] GenerateHapticSignal()
+        {
             HapticSignal signal = CreateHapticSignalFromIntensities(mappedIntensities);
             return getBytes(signal);
         }
@@ -170,15 +187,18 @@ namespace Valkyrie.EIR.Haptics {
         /// <param name="frequency"></param>
         /// <param name="pulseWidth"></param>
         /// <returns></returns>
-        public sbyte[] GenerateConfigSignal(int gain, byte frequency, byte pulseWidth) {
+        public sbyte[] GenerateConfigSignal(int gain, byte frequency, byte pulseWidth)
+        {
             Debug.Log("[Haptic Manager] Generating Config Signal");
-            try {
+            try
+            {
                 Debug.Log($"[Haptic Manager] Config Signal generated with gain: {gain} frequency: {frequency} pulse width: {pulseWidth}");
                 HapticSignal h = CreateConfigSignal(gain, frequency, pulseWidth);
                 configured = true;
                 return getBytes(h);
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 Debug.LogError($"[Haptic Manager] Config Signal Exception {e}");
                 configured = false;
                 throw e;
@@ -189,9 +209,11 @@ namespace Valkyrie.EIR.Haptics {
         /// Generates a config signal with the current gain, frequency and pulse width values.
         /// </summary>
         /// <returns></returns>
-        public sbyte[] GenerateConfigSignal() {
+        public sbyte[] GenerateConfigSignal()
+        {
             Debug.Log("[Haptic Manager] Generating Config Signal");
-            try {
+            try
+            {
 
                 ConfigSignalClass c = ConfigSignal;
                 Debug.Log($"[Haptic Manager] Config Signal generated with gain: {c.Gain} frequency: {c.Frequency} pulse width: {c.PulseWidth}");
@@ -199,7 +221,8 @@ namespace Valkyrie.EIR.Haptics {
                 configured = true;
                 return getBytes(h);
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 Debug.LogError($"[Haptic Manager] Config Signal Exception {e}");
                 configured = false;
                 throw e;
@@ -216,7 +239,8 @@ namespace Valkyrie.EIR.Haptics {
         /// <param name="lLimits"></param>
         /// <param name="uLimits"></param>
         /// <param name="cIndexes"></param>
-        public void SetCalibration(int[] lLimits, int[] uLimits, int[] cIndexes) {
+        public void SetCalibration(int[] lLimits, int[] uLimits, int[] cIndexes)
+        {
             Debug.Log("[Calibration] Setting calibration to " + uLimits[0] + ", & " + uLimits[1]);
             LowerLimits = lLimits;
             UpperLimits = uLimits;
@@ -230,7 +254,7 @@ namespace Valkyrie.EIR.Haptics {
         /// <param name="index"></param>
         public void ModifyCalibrationByIndex(bool isLeft, int index)
         {
-            float[] minMax = GetLowerUpperLimitForIndex(index, 2);
+            float[] minMax = GetLowerUpperLimitForIndex(index);
 
             int deviceIndex = isLeft ? 1 : 0;
 
@@ -252,11 +276,13 @@ namespace Valkyrie.EIR.Haptics {
         /// <param name="bodyPart"></param>
         /// <param name="intensity"></param>
         /// <param name="bypassCalibration"></param>
-        public void AddHapticIntensity(int bodyPart, float intensity, bool bypassCalibration = false) {
+        public void AddHapticIntensity(int bodyPart, float intensity, bool bypassCalibration = false)
+        {
 
             if (EIRConfig.Instance.OutputHapticDebug) Debug.Log($"[Haptic Manager] Adding Haptic Intensity for BodyPart {bodyPart} with intensity {intensity}");
 
-            if (bodyPart != 0 && bodyPart != 1) {
+            if (bodyPart != 0 && bodyPart != 1)
+            {
                 Debug.LogError("[HapticManager] Cannot send intensity to parts other than hands");
                 return;
             }
@@ -279,7 +305,8 @@ namespace Valkyrie.EIR.Haptics {
         /// <param name="beginActive"></param>
         /// <param name="keepAliveBetweenScenes"></param>
         /// <returns></returns>
-        public HapticPresetRunner CreateHapticPresetRunner(BodyPart affectedBodyPart, HapticPreset props, float intensityMultiplier = 1, bool beginActive = true, bool keepAliveBetweenScenes = false) {
+        public HapticPresetRunner CreateHapticPresetRunner(BodyPart affectedBodyPart, HapticPreset props, float intensityMultiplier = 1, bool beginActive = true, bool keepAliveBetweenScenes = false)
+        {
             HapticPresetRunner runner = runnerObject.AddComponent<HapticPresetRunner>();
             runners.Add(runner);
 
@@ -303,7 +330,8 @@ namespace Valkyrie.EIR.Haptics {
         /// <param name="beginActive"></param>
         /// <param name="keepAliveBetweenScenes"></param>
         /// <returns></returns>
-        public HapticPresetRunner CreateHapticPresetRunner(List<BodyPart> affectedBodyParts, HapticPreset props, float intensityMultiplier = 1, bool beginActive = true, bool keepAliveBetweenScenes = false) {
+        public HapticPresetRunner CreateHapticPresetRunner(List<BodyPart> affectedBodyParts, HapticPreset props, float intensityMultiplier = 1, bool beginActive = true, bool keepAliveBetweenScenes = false)
+        {
             HapticPresetRunner runner = runnerObject.AddComponent<HapticPresetRunner>();
             runners.Add(runner);
             runner.SetupRunner(affectedBodyParts, props, intensityMultiplier, beginActive, keepAliveBetweenScenes);
@@ -316,12 +344,15 @@ namespace Valkyrie.EIR.Haptics {
         /// </summary>
         /// <param name="affectedBodyPart"></param>
         /// <returns></returns>
-        public List<HapticPresetRunner> GetHapticPresetRunnerByLimb(BodyPart affectedBodyPart) {
+        public List<HapticPresetRunner> GetHapticPresetRunnerByLimb(BodyPart affectedBodyPart)
+        {
 
             List<HapticPresetRunner> correctRunners = new List<HapticPresetRunner>();
 
-            for (int i = 0; i < runners.Count; i++) {
-                if (runners[i].m_affectedBodyParts.Contains(affectedBodyPart) || (int)affectedBodyPart == -1) {
+            for (int i = 0; i < runners.Count; i++)
+            {
+                if (runners[i].m_affectedBodyParts.Contains(affectedBodyPart) || (int)affectedBodyPart == -1)
+                {
                     correctRunners.Add(runners[i]);
                 }
             }
@@ -333,10 +364,13 @@ namespace Valkyrie.EIR.Haptics {
         /// Stops all active haptic preset runners, or if a body part is input, only those which affect that body part.
         /// </summary>
         /// <param name="affectedBodyPart"></param>
-        public void StopHapticPresetRunner(BodyPart affectedBodyPart = (BodyPart)(-1)) {
+        public void StopHapticPresetRunner(BodyPart affectedBodyPart = (BodyPart)(-1))
+        {
 
-            for (int i = runners.Count - 1; i >= 0; i--) {
-                if (runners[i].m_affectedBodyParts.Contains(affectedBodyPart) || (int)affectedBodyPart == -1) {
+            for (int i = runners.Count - 1; i >= 0; i--)
+            {
+                if (runners[i].m_affectedBodyParts.Contains(affectedBodyPart) || (int)affectedBodyPart == -1)
+                {
                     runners[i].Stop();
                     runners.Remove(runners[i]);
                 }
@@ -347,11 +381,15 @@ namespace Valkyrie.EIR.Haptics {
         /// Stops all haptic preset runners affecting the input list of body parts.
         /// </summary>
         /// <param name="affectedBodyParts"></param>
-        public void StopHapticPresetRunner(List<BodyPart> affectedBodyParts) {
+        public void StopHapticPresetRunner(List<BodyPart> affectedBodyParts)
+        {
 
-            for (int i = runners.Count - 1; i >= 0; i--) {
-                for (int j = 0; j < affectedBodyParts.Count; j++) {
-                    if (runners[i].m_affectedBodyParts.Contains(affectedBodyParts[j])) {
+            for (int i = runners.Count - 1; i >= 0; i--)
+            {
+                for (int j = 0; j < affectedBodyParts.Count; j++)
+                {
+                    if (runners[i].m_affectedBodyParts.Contains(affectedBodyParts[j]))
+                    {
                         runners[i].Stop();
                         runners.Remove(runners[i]);
                     }
@@ -363,7 +401,8 @@ namespace Valkyrie.EIR.Haptics {
 
         #region Event Handlers
 
-        private void OnHapticPresetRequest(int bodyPart, float intensity) {
+        private void OnHapticPresetRequest(int bodyPart, float intensity)
+        {
             AddHapticIntensity(bodyPart, intensity);
         }
 
@@ -377,7 +416,8 @@ namespace Valkyrie.EIR.Haptics {
         /// <param name="part"></param>
         /// <param name="forceFraction"></param>
         /// <returns></returns>
-        private float ClampMappedForce(int part, float forceFraction) {
+        private float ClampMappedForce(int part, float forceFraction)
+        {
             // clamp it between 0.0 and 1.0;
             if (forceFraction <= 0)
                 return 0;
@@ -398,7 +438,8 @@ namespace Valkyrie.EIR.Haptics {
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        private HapticSignal CreateHapticSignalFromIntensities(int[] value) {
+        private HapticSignal CreateHapticSignalFromIntensities(int[] value)
+        {
             HapticSignal haptics = hapticSignal;
             haptics.config = 0;
 
@@ -414,27 +455,14 @@ namespace Valkyrie.EIR.Haptics {
         }
 
         /// <summary>
-        /// Calculates a minimum and maximum value for calibration using the given index.
+        /// Calculates a minimum and maximum value for calibration using the power of two for a given index
         /// </summary>
         /// <param name="index"></param>
         /// <param name="powerLaw"></param>
         /// <returns></returns>
-        private float[] GetLowerUpperLimitForIndex(int index, int powerLaw = 1) {
-            float[] minmax;
-            float min = 0;
-            float max = 0;
-            if (powerLaw == 1) {
-                float step = (calibrationMax - calibrationRange) / CALIBRATION_INDEX_LENGTH;
-                max = calibrationMin + index * step + calibrationRange;
-                min = calibrationMinStep * index;
-            }
-            else if (powerLaw == 2) {
-                min = calibrationMinOffset + calibrationMinMultiplier * index * index;
-                max = calibrationMaxOffset + calibrationMaxMultiplier * index * index;
-            }
-            minmax = new float[] { min, max };
-
-            return minmax;
+        private float[] GetLowerUpperLimitForIndex(int index)
+        {
+            return new float[] { CalibrationMinOffset + CalibrationMinMultiplier * index * index, CalibrationMaxOffset + CalibrationMaxMultiplier * index * index };
         }
 
         /// <summary>
@@ -444,11 +472,13 @@ namespace Valkyrie.EIR.Haptics {
         /// <param name="frequency"></param>
         /// <param name="pulse_width"></param>
         /// <returns></returns>
-        private HapticSignal CreateConfigSignal(int gain, byte frequency, byte pulse_width) {
+        private HapticSignal CreateConfigSignal(int gain, byte frequency, byte pulse_width)
+        {
             HapticSignal _haptics = hapticSignal;
             _haptics.config = 1;
 
-            switch (gain) {
+            switch (gain)
+            {
                 case 0:
                     _haptics.gain_0 = 0;
                     _haptics.gain_1 = 0;
@@ -477,7 +507,8 @@ namespace Valkyrie.EIR.Haptics {
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        private sbyte[] getBytes(HapticSignal str) {
+        private sbyte[] getBytes(HapticSignal str)
+        {
             int size = Marshal.SizeOf(str);
             byte[] arr = new byte[size];
 
@@ -487,7 +518,8 @@ namespace Valkyrie.EIR.Haptics {
             Marshal.FreeHGlobal(ptr);
 
             sbyte[] writeBytes = new sbyte[arr.Length];
-            for (int i = 0; i < arr.Length; i++) {
+            for (int i = 0; i < arr.Length; i++)
+            {
                 writeBytes[i] = (sbyte)arr[i];
             }
             return writeBytes;
@@ -500,7 +532,8 @@ namespace Valkyrie.EIR.Haptics {
         /// Generates a new Haptic Manager and sets the gameobject on which to run the Haptic Presets.
         /// </summary>
         /// <param name="runner"></param>
-        public HapticManager(GameObject runner) {
+        public HapticManager(GameObject runner)
+        {
 
             Debug.Log($"[Haptic Manager] Haptic Manager initialised from {runner.name}.");
             runnerObject = runner;
@@ -510,7 +543,8 @@ namespace Valkyrie.EIR.Haptics {
 
             runners = new List<HapticPresetRunner>();
 
-            hapticSignal = new HapticSignal {
+            hapticSignal = new HapticSignal
+            {
                 enableEms = 1,
                 config = 0
             };
@@ -522,12 +556,14 @@ namespace Valkyrie.EIR.Haptics {
 
         #region Serializable Classes
 
-        public class ConfigSignalClass {
+        public class ConfigSignalClass
+        {
             public int Gain;
             public byte Frequency;
             public byte PulseWidth;
 
-            public ConfigSignalClass(int gain, byte frequency, byte pulseWidth) {
+            public ConfigSignalClass(int gain, byte frequency, byte pulseWidth)
+            {
                 Gain = gain;
                 Frequency = frequency;
                 PulseWidth = pulseWidth;

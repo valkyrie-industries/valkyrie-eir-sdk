@@ -34,11 +34,19 @@ namespace Valkyrie.EIR.Examples {
         private void OnEnable() {
 
             List<KeyValuePair<string, string>> devices = new List<KeyValuePair<string, string>>();
-            foreach (BluetoothDeviceInfo device in EIRManager.Instance.Communication.DeviceList.devices) {
+            foreach (BluetoothDeviceInfo device in EIRManager.Instance.EirBluetooth.DeviceList.devices) {
                 devices.Add(new KeyValuePair<string, string>(device.address, device.name));
             }
 
             InstantiateButtons(devices);
+        }
+
+        private void Update() {
+            if (!EIRManager.Instance.Initialised) return;
+#if EIR_COMM
+            if (EIRManager.Instance.EirBluetooth == null) return;
+            CheckConnectionState(EIRManager.Instance.EirBluetooth.CurrentState);
+#endif
         }
 
         #endregion
@@ -64,6 +72,16 @@ namespace Valkyrie.EIR.Examples {
                 else {
                     Debug.LogWarning("[Device Manager] ButtonPrefab does not have a Button component.");
                 }
+            }
+        }
+
+        private void CheckConnectionState(ConnectionStates state) {
+            if (EIRManager.Instance == null || EIRManager.Instance.EirBluetooth == null)
+                return;
+
+            if (EIRManager.Instance.EirBluetooth.CurrentState == ConnectionStates.Denied) {
+                Debug.LogWarning("[Device Manager] Device Connection Denied.");
+                OnEnable();
             }
         }
 
