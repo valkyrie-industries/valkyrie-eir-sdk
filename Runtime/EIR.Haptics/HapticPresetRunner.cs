@@ -220,7 +220,10 @@ namespace Valkyrie.EIR.Haptics
                 yield return new WaitForEndOfFrame();
 
                 if (paused)
+                {
                     continue;
+                }
+
 
                 if (finalIntensity == -1)
                 {
@@ -230,13 +233,13 @@ namespace Valkyrie.EIR.Haptics
                         // only increase the index if we aren't over the maximum segments
                         if (currentSegmentIndex < segments.Length - 1)
                         {
-                            // debug.Log("Increased segment index");
                             currentSegmentIndex++;
                             cumulativeSegmentTime += segments[currentSegmentIndex].m_time;
                         }
                         else
                         {
                             // if we are over the maximum segments, break the while loop
+                            OutputIntensity();
                             break;
                         }
                     }
@@ -263,17 +266,12 @@ namespace Valkyrie.EIR.Haptics
                     m_intensityMultiplier = 0;
                 }
 
-                // send out a signal to each part that we affect
-                for (int i = 0; i < m_affectedBodyParts.Count; i++)
-                {
-                    OnHapticPresetRequest?.Invoke((int)m_affectedBodyParts[i], intensity * m_intensityMultiplier);
-                }
+                OutputIntensity();
             }
 
             // if we are looping, restart the coroutine
             if (m_preset.m_loopType != HapticPreset.LoopType.None)
             {
-
                 if (m_preset.m_loopType == HapticPreset.LoopType.LoopFinalIntensity)
                 {
                     finalIntensity = intensity;
@@ -285,6 +283,15 @@ namespace Valkyrie.EIR.Haptics
             else
             {
                 Stop();
+            }
+
+            void OutputIntensity()
+            {
+                // send out a signal to each part that we affect
+                for (int i = 0; i < m_affectedBodyParts.Count; i++)
+                {
+                    OnHapticPresetRequest?.Invoke((int)m_affectedBodyParts[i], intensity * m_intensityMultiplier);
+                }
             }
 
             // local function that finds the bridges or points needed
