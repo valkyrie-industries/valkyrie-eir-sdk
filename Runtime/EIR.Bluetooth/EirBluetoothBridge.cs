@@ -321,7 +321,6 @@ namespace Valkyrie.EIR.Bluetooth {
         /// </summary>
         /// <param name="handler"></param>
         public void RegisterHandler(IEirBluetooth handler) {
-            Debug.Log("[EIR BT] Registering Handler");
             handlers.Add(handler);
         }
 
@@ -331,6 +330,34 @@ namespace Valkyrie.EIR.Bluetooth {
         /// <param name="handler"></param>
         public void UnregisterHandler(IEirBluetooth handler) {
             handlers.Remove(handler);
+        }
+
+        /// <summary>
+        /// Returns the firmware version of the connected eir device.
+        /// </summary>
+        /// <returns></returns>
+        public string GetFirmwareVersion() {
+            if (state != ConnectionStates.Connected) {
+                Debug.LogWarning("[EIR Bluetooth] Cannot retrieve firmware version when no eir device is connected.");
+                return "";
+            }
+            string version = eirBlu.CallStatic<string>("GetFirmwareVersion");
+			Debug.Log($"[EIR Bluetooth] Firmware Version: {version}");
+            return version;
+        }
+
+        /// <summary>
+        /// Returns the hardware version of the connected eir device.
+        /// </summary>
+        /// <returns></returns>
+        public string GetHardwareVersion() {
+            if (state != ConnectionStates.Connected) {
+                Debug.LogWarning("[EIR Bluetooth] Cannot retrieve hardware version when no eir device is connected.");
+                return "";
+            }
+            string version = eirBlu.CallStatic<string>("GetHardwareVersion");
+			Debug.Log($"[EIR Bluetooth] Device Hardware Version: {version}");
+            return version;
         }
 
         #endregion
