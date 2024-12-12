@@ -58,6 +58,7 @@ namespace Valkyrie.EIR.Bluetooth {
         private float readInterval;
         private List<IEirBluetooth> handlers = new List<IEirBluetooth>();
         private AndroidJavaObject activity;
+        private double[] outputVoltages = new double[2] { 0, 0 };
 
         /// <summary>
         /// Returns the name of the current connected bluetooth device, if available.
@@ -306,6 +307,27 @@ namespace Valkyrie.EIR.Bluetooth {
         }
 
         /// <summary>
+        /// Reads device output voltages every frame as calculated by the EIR BLE plugin.
+        /// </summary>
+        public void ReadDeviceVoltageOutputs() {
+            if (state == ConnectionStates.Connected) {
+
+                // read voltage every frame
+                double[] voltages = eirBlu.CallStatic<double[]>("getVoltages");
+
+                // round to one decimal point and cache
+                outputVoltages[0] = Math.Round(voltages[0], 1);
+                outputVoltages[1] = Math.Round(voltages[1], 1);
+
+                // notify handlers
+                foreach (IEirBluetooth handler in handlers) {
+                    if (handler == null) continue;
+                    handler.OnUpdateVoltages(outputVoltages);
+                }
+            }
+        }
+
+        /// <summary>
         /// Writes the input data to the EIR Bands' write characteristic.
         /// If critical, will attempt to send the signal again the if the java plugin does not receive the 'data received' callback.
         /// </summary>
@@ -341,7 +363,7 @@ namespace Valkyrie.EIR.Bluetooth {
                 Debug.LogWarning("[EIR Bluetooth] Cannot retrieve firmware version when no eir device is connected.");
                 return "";
             }
-            string version = eirBlu.CallStatic<string>("GetFirmwareVersion");
+            string version = eirBlu.CallStatic<string>("getFirmwareVersion");
 			Debug.Log($"[EIR Bluetooth] Firmware Version: {version}");
             return version;
         }
@@ -355,7 +377,7 @@ namespace Valkyrie.EIR.Bluetooth {
                 Debug.LogWarning("[EIR Bluetooth] Cannot retrieve hardware version when no eir device is connected.");
                 return "";
             }
-            string version = eirBlu.CallStatic<string>("GetHardwareVersion");
+            string version = eirBlu.CallStatic<string>("getHardwareVersion");
 			Debug.Log($"[EIR Bluetooth] Device Hardware Version: {version}");
             return version;
         }

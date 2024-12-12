@@ -158,6 +158,9 @@ namespace Valkyrie.EIR.Examples {
             Disable();
         }
 
+        public void OnUpdateVoltages(double[] voltages) {
+            // discard.
+        }
 #endif
 
         #endregion

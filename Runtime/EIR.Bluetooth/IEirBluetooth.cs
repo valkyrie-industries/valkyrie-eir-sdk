@@ -22,5 +22,10 @@ namespace Valkyrie.EIR.Bluetooth {
         /// Invoked when the bluetooth activity state is set to false, disabling characteristic write.
         /// </summary>
         void OnBluetoothDisable();
+
+        /// <summary>
+        /// Invoked when the output voltage value changes.
+        /// </summary>
+        void OnUpdateVoltages(double[] outputVoltages);
     }
 }
