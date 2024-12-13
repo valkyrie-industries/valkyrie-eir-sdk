@@ -29,7 +29,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Valkyrie EIR SDK<span id="projectnumber">&#160;v0.3.7-preview</span>
+   <div id="projectname">Valkyrie EIR SDK<span id="projectnumber">&#160;v1.0.1</span>
    </div>
   </td>
  </tr>
@@ -154,9 +154,14 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a8ff088daabf32bf8e1df973cb1d70daf" id="r_a8ff088daabf32bf8e1df973cb1d70daf"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="../../de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7">BodyPart</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ff088daabf32bf8e1df973cb1d70daf">m_affectedBodyParts</a> = new List&lt;<a class="el" href="../../de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7">BodyPart</a>&gt;()<code> [get]</code></td></tr>
+<tr class="memdesc:a8ff088daabf32bf8e1df973cb1d70daf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Which body parts will this preset affect during execution.  <br /></td></tr>
 <tr class="separator:a8ff088daabf32bf8e1df973cb1d70daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adda731a1741793caa5e145095d69a3fc" id="r_adda731a1741793caa5e145095d69a3fc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adda731a1741793caa5e145095d69a3fc">paused</a> = false<code> [get]</code></td></tr>
+<tr class="memdesc:adda731a1741793caa5e145095d69a3fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Halts execution of the preset if true.  <br /></td></tr>
 <tr class="separator:adda731a1741793caa5e145095d69a3fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72169581039c2713bb620773ae6980f6" id="r_a72169581039c2713bb620773ae6980f6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72169581039c2713bb620773ae6980f6">IntensityMultiplier</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a72169581039c2713bb620773ae6980f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies the output intensity.  <br /></td></tr>
+<tr class="separator:a72169581039c2713bb620773ae6980f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="events" name="events"></a>
 Events</h2></td></tr>
@@ -416,6 +421,30 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
+<a id="a72169581039c2713bb620773ae6980f6" name="a72169581039c2713bb620773ae6980f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72169581039c2713bb620773ae6980f6">&#9670;&#160;</a></span>IntensityMultiplier</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Valkyrie.EIR.Haptics.HapticPresetRunner.IntensityMultiplier</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Multiplies the output intensity. </p>
+
+</div>
+</div>
 <a id="a8ff088daabf32bf8e1df973cb1d70daf" name="a8ff088daabf32bf8e1df973cb1d70daf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8ff088daabf32bf8e1df973cb1d70daf">&#9670;&#160;</a></span>m_affectedBodyParts</h2>
 
@@ -435,6 +464,8 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Which body parts will this preset affect during execution. </p>
 
 </div>
 </div>
@@ -457,6 +488,8 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Halts execution of the preset if true. </p>
 
 </div>
 </div>

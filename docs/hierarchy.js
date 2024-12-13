@@ -33,6 +33,7 @@ var hierarchy =
       [ "Valkyrie.EIR.Utilities.VLKBuild", "da/d64/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_v_l_k_build.html", null ]
     ] ],
     [ "MonoBehaviour", null, [
+      [ "HapticExample", "da/d1a/class_haptic_example.html", null ],
       [ "Valkyrie.EIR.Bluetooth.MainThreadDispatcher", "da/d48/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_main_thread_dispatcher.html", null ],
       [ "Valkyrie.EIR.EIRManager", "d8/d90/class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager.html", null ],
       [ "Valkyrie.EIR.Examples.Arrow", "da/d23/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_arrow.html", null ],

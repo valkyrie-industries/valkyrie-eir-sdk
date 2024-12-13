@@ -29,7 +29,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Valkyrie EIR SDK<span id="projectnumber">&#160;v0.3.7-preview</span>
+   <div id="projectname">Valkyrie EIR SDK<span id="projectnumber">&#160;v1.0.1</span>
    </div>
   </td>
  </tr>
@@ -137,6 +137,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab83890fedb2761db2b78d3319e29f964" id="r_ab83890fedb2761db2b78d3319e29f964"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="../../d5/d9d/namespace_valkyrie_1_1_e_i_r_1_1_bluetooth.html#a93480faefe11dd7ca6bfdffc3fe46d0b">ConnectionStates</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab83890fedb2761db2b78d3319e29f964">Connect</a> (string macAddress)</td></tr>
 <tr class="memdesc:ab83890fedb2761db2b78d3319e29f964"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect to the device at the input mac address.  <br /></td></tr>
 <tr class="separator:ab83890fedb2761db2b78d3319e29f964"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a733f5e2f5e446feb7c4fec84ec2bb335" id="r_a733f5e2f5e446feb7c4fec84ec2bb335"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a733f5e2f5e446feb7c4fec84ec2bb335">IdentifyDevice</a> (string macAddress)</td></tr>
+<tr class="separator:a733f5e2f5e446feb7c4fec84ec2bb335"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af996d717f30ed09ed02ac07a9ea7b74b" id="r_af996d717f30ed09ed02ac07a9ea7b74b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af996d717f30ed09ed02ac07a9ea7b74b">Disconnect</a> ()</td></tr>
 <tr class="memdesc:af996d717f30ed09ed02ac07a9ea7b74b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminate active connection.  <br /></td></tr>
 <tr class="separator:af996d717f30ed09ed02ac07a9ea7b74b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,6 +157,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3a3f139aa4ada08b0445c89ecf492874" id="r_a3a3f139aa4ada08b0445c89ecf492874"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a3f139aa4ada08b0445c89ecf492874">UnregisterHandler</a> (<a class="el" href="../../dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html">IEirBluetooth</a> handler)</td></tr>
 <tr class="memdesc:a3a3f139aa4ada08b0445c89ecf492874"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unregisters a handler of <a class="el" href="../../dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html">IEirBluetooth</a> interface.  <br /></td></tr>
 <tr class="separator:a3a3f139aa4ada08b0445c89ecf492874"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64afe2187f2e9713936e519a36ef2320" id="r_a64afe2187f2e9713936e519a36ef2320"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a64afe2187f2e9713936e519a36ef2320">GetFirmwareVersion</a> ()</td></tr>
+<tr class="memdesc:a64afe2187f2e9713936e519a36ef2320"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the firmware version of the connected eir device.  <br /></td></tr>
+<tr class="separator:a64afe2187f2e9713936e519a36ef2320"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a532533c86643531ad4e445fb501728b3" id="r_a532533c86643531ad4e445fb501728b3"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a532533c86643531ad4e445fb501728b3">GetHardwareVersion</a> ()</td></tr>
+<tr class="memdesc:a532533c86643531ad4e445fb501728b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the hardware version of the connected eir device.  <br /></td></tr>
+<tr class="separator:a532533c86643531ad4e445fb501728b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -268,6 +276,63 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="253,122,186,141,184,135,251,117"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="a64afe2187f2e9713936e519a36ef2320" name="a64afe2187f2e9713936e519a36ef2320"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64afe2187f2e9713936e519a36ef2320">&#9670;&#160;</a></span>GetFirmwareVersion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Valkyrie.EIR.Bluetooth.EirBluetoothBridge.GetFirmwareVersion </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the firmware version of the connected eir device. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a532533c86643531ad4e445fb501728b3" name="a532533c86643531ad4e445fb501728b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a532533c86643531ad4e445fb501728b3">&#9670;&#160;</a></span>GetHardwareVersion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Valkyrie.EIR.Bluetooth.EirBluetoothBridge.GetHardwareVersion </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the hardware version of the connected eir device. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a733f5e2f5e446feb7c4fec84ec2bb335" name="a733f5e2f5e446feb7c4fec84ec2bb335"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a733f5e2f5e446feb7c4fec84ec2bb335">&#9670;&#160;</a></span>IdentifyDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Valkyrie.EIR.Bluetooth.EirBluetoothBridge.IdentifyDevice </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>macAddress</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

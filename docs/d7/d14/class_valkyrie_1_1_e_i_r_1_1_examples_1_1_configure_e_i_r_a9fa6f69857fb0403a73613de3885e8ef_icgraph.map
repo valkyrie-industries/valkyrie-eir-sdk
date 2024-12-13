@@ -1,12 +1,16 @@
 <map id="Valkyrie.EIR.Examples.ConfigureEIR.ConfigureToSet" name="Valkyrie.EIR.Examples.ConfigureEIR.ConfigureToSet">
-<area shape="rect" id="Node000001" title="Commands the EIR Bluetooth Bridge to send a config signal to the connected device with the current se..." alt="" coords="749,35,966,77"/>
-<area shape="rect" id="Node000002" href="$d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html#a95e8979644a9f5d5eaa741264495da97" title="Sets the gain, frequency and pulse width to the input values, and commands the EIR Bluetooth Bridge t..." alt="" coords="485,35,701,77"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="734,59,702,59,702,53,734,53"/>
+<area shape="rect" id="Node000001" title="Commands the EIR Bluetooth Bridge to send a config signal to the connected device with the current se..." alt="" coords="751,97,968,140"/>
+<area shape="rect" id="Node000002" href="$d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html#a95e8979644a9f5d5eaa741264495da97" title="Sets the gain, frequency and pulse width to the input values, and commands the EIR Bluetooth Bridge t..." alt="" coords="487,64,703,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="736,106,704,102,704,96,736,100"/>
+<area shape="rect" id="Node000007" href="$dc/d46/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_button.html#a243b58e5e3235f45faeb30db09b94581" title=" " alt="" coords="487,131,703,173"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="736,137,704,141,704,136,736,132"/>
 <area shape="rect" id="Node000003" href="$d7/dfc/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_haptic_gun.html#a20917c6c79aea41aefa2b355e491617d" title="Activate the gun, and begin firing if on rapid fire, or fire one bullet if not." alt="" coords="5,5,204,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="469,51,204,35,204,30,470,46"/>
-<area shape="rect" id="Node000004" href="$d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#a28a551e91976bd26ab52d96c22674ae2" title="Plays the &#39;feeling&#39; which corresponds to the input ID." alt="" coords="252,64,437,107"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="470,73,438,77,437,72,469,68"/>
-<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="239,62,194,51,195,46,240,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="487,63,439,55,317,41,204,33,204,28,317,36,439,49,488,58"/>
+<area shape="rect" id="Node000004" href="$d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#a28a551e91976bd26ab52d96c22674ae2" title="Plays the &#39;feeling&#39; which corresponds to the input ID." alt="" coords="253,64,438,107"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="471,88,438,88,438,83,471,83"/>
+<area shape="rect" id="Node000006" href="$d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#a6928aebc3e751f9277bdca1882ac2733" title="Stops the active &#39;feeling&#39;." alt="" coords="252,131,439,173"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="499,114,429,133,427,127,498,109"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="239,62,195,51,196,46,241,57"/>
 <area shape="rect" id="Node000005" href="$d2/dfe/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_button.html#a7eed39537f02a09c1b8560ce71ef6233" title=" " alt="" coords="12,72,197,115"/>
-<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="236,92,198,93,198,88,236,86"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="237,92,198,93,197,88,237,86"/>
 </map>

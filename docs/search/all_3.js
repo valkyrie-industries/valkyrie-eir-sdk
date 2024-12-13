@@ -4,7 +4,7 @@ var searchData=
   ['debugoutput_1',['DebugOutput',['../d2/da0/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_debug_output.html',1,'Valkyrie::EIR::Examples']]],
   ['debugoutput_2ecs_2',['DebugOutput.cs',['../df/d6a/_debug_output_8cs.html',1,'']]],
   ['decrement_3',['Decrement',['../db/de4/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_menu_example.html#a2e390618e8f7ad31a82f224ce7da2b9c',1,'Valkyrie::EIR::Examples::MenuExample']]],
-  ['devicefilter_4',['DeviceFilter',['../d0/d43/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_e_i_r_config.html#a1815e8acefc1ec2fd9e819f8b5d3df95',1,'Valkyrie::EIR::Utilities::EIRConfig']]],
+  ['denied_4',['Denied',['../d5/d9d/namespace_valkyrie_1_1_e_i_r_1_1_bluetooth.html#a93480faefe11dd7ca6bfdffc3fe46d0ba58d036b9b7f0e7eb38cfb90f1cc70a73',1,'Valkyrie::EIR::Bluetooth']]],
   ['devicelist_5',['DeviceList',['../d6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge.html#a56d388bdf6a38458aeb4768aa962e666',1,'Valkyrie::EIR::Bluetooth::EirBluetoothBridge']]],
   ['devicename_6',['deviceName',['../d6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge.html#aa955d522db92428f6d4d322498abe06c',1,'Valkyrie::EIR::Bluetooth::EirBluetoothBridge']]],
   ['devices_7',['devices',['../d6/dd1/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_bluetooth_device_list.html#a450914b502cf1e49d631c3a63474ff71',1,'Valkyrie::EIR::Bluetooth::BluetoothDeviceList']]],

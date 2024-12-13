@@ -66,10 +66,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d4/d69/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_target.html#af6d00ffbdda023c50e2bdad8baa215f0",
-"d7/d50/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_simple_connection.html",
-"db/da2/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_e_m_s_test_button.html#ac507d918da8fcbddb8a0bb6e9cb289e8",
-"df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html#a8ff088daabf32bf8e1df973cb1d70daf"
+"d4/d3b/struct_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_signal.html#adac2d04933a0c58043ca3b008cd2fb12",
+"d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html#a6a82504a360a93ca63efdc811afe5de7",
+"db/d2b/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_bluetooth_device_info.html#ae47aff0632cfe01948523ab4c0b6ee71",
+"df/d18/_configure_e_i_r_8cs.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

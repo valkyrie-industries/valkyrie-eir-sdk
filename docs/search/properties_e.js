@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['upperlimits_0',['UpperLimits',['../db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#a7579dcf063768f766e36b84bcc38723e',1,'Valkyrie::EIR::Haptics::HapticManager']]],
-  ['useovrforvibrations_1',['UseOVRForVibrations',['../d0/d43/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_e_i_r_config.html#a02d27236d835db10e979f1201c5ce51e',1,'Valkyrie::EIR::Utilities::EIRConfig']]],
-  ['usingbluetoothcommunication_2',['UsingBluetoothCommunication',['../d0/d43/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_e_i_r_config.html#a99dd8ed1b15013f56e41dce5524a5b17',1,'Valkyrie::EIR::Utilities::EIRConfig']]],
-  ['usinghaptics_3',['UsingHaptics',['../d0/d43/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_e_i_r_config.html#a3110426d4c5583104c2b076261a31832',1,'Valkyrie::EIR::Utilities::EIRConfig']]],
-  ['usinginteraction_4',['UsingInteraction',['../d0/d43/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_e_i_r_config.html#a9d52f585b0e82bb466710903d23b00cb',1,'Valkyrie::EIR::Utilities::EIRConfig']]]
+  ['timealloted_0',['TimeAlloted',['../dc/d75/struct_valkyrie_1_1_e_i_r_1_1_utilities_1_1_timer.html#afb3a7027ee0bb324ae0b63a140b9b6f1',1,'Valkyrie::EIR::Utilities::Timer']]],
+  ['timestarted_1',['TimeStarted',['../dc/d75/struct_valkyrie_1_1_e_i_r_1_1_utilities_1_1_timer.html#ab1b5194480ab432cd0c22a30876363b4',1,'Valkyrie::EIR::Utilities::Timer']]],
+  ['totalbodyparts_2',['TotalBodyParts',['../d2/d52/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interaction_manager.html#a50cee7b7232e468c2b8ef4120a2323fc',1,'Valkyrie::EIR::Interaction::InteractionManager']]],
+  ['totalsegmenttime_3',['totalSegmentTime',['../d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#a361179e1cb635bd8dd4f5627edecbbd8',1,'Valkyrie::EIR::Haptics::HapticPreset']]]
 ];

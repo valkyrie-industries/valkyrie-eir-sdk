@@ -10,7 +10,7 @@ var class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager =
     [ "OnBluetoothInitialised", "d8/d90/class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager.html#a901e55760fc437023a33dba4b7b62d2a", null ],
     [ "OnDisposed", "d8/d90/class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager.html#a3d36be82f88f7f5b4a27127a54484bbd", null ],
     [ "OnPermissionsDenied", "d8/d90/class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager.html#a834ddb1f8bc1f5c9393d903f2774122f", null ],
-    [ "Communication", "d8/d90/class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager.html#ad0fa535f4e844edcdf38d44632e4f89e", null ],
+    [ "EirBluetooth", "d8/d90/class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager.html#ac2e65b38957e31d67295d46a6fb66c0a", null ],
     [ "Haptics", "d8/d90/class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager.html#a6db2b76b97ef098d4e01d86c25db67ea", null ],
     [ "Initialised", "d8/d90/class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager.html#acbcd2741eaae045d826413e8e3a1ee32", null ],
     [ "Interaction", "d8/d90/class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager.html#a5dd2524a3f07244c81a577f2104ee192", null ]

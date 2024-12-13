@@ -15,6 +15,7 @@ var namespace_valkyrie_1_1_e_i_r_1_1_bluetooth =
       [ "Reconnecting", "d5/d9d/namespace_valkyrie_1_1_e_i_r_1_1_bluetooth.html#a93480faefe11dd7ca6bfdffc3fe46d0ba80154864ebe36b3db0acd51f9b10f568", null ],
       [ "Found", "d5/d9d/namespace_valkyrie_1_1_e_i_r_1_1_bluetooth.html#a93480faefe11dd7ca6bfdffc3fe46d0ba5d695cc28c6a7ea955162fbdd0ae42b9", null ],
       [ "NotFound", "d5/d9d/namespace_valkyrie_1_1_e_i_r_1_1_bluetooth.html#a93480faefe11dd7ca6bfdffc3fe46d0ba38c300f4fc9ce8a77aad4a30de05cad8", null ],
-      [ "Selection", "d5/d9d/namespace_valkyrie_1_1_e_i_r_1_1_bluetooth.html#a93480faefe11dd7ca6bfdffc3fe46d0ba6ff9dd0d34f65181173c1e4bc39939de", null ]
+      [ "Selection", "d5/d9d/namespace_valkyrie_1_1_e_i_r_1_1_bluetooth.html#a93480faefe11dd7ca6bfdffc3fe46d0ba6ff9dd0d34f65181173c1e4bc39939de", null ],
+      [ "Denied", "d5/d9d/namespace_valkyrie_1_1_e_i_r_1_1_bluetooth.html#a93480faefe11dd7ca6bfdffc3fe46d0ba58d036b9b7f0e7eb38cfb90f1cc70a73", null ]
     ] ]
 ];

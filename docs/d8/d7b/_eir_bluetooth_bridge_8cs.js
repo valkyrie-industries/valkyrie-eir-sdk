@@ -10,6 +10,7 @@ var _eir_bluetooth_bridge_8cs =
       [ "Reconnecting", "d8/d7b/_eir_bluetooth_bridge_8cs.html#a93480faefe11dd7ca6bfdffc3fe46d0ba80154864ebe36b3db0acd51f9b10f568", null ],
       [ "Found", "d8/d7b/_eir_bluetooth_bridge_8cs.html#a93480faefe11dd7ca6bfdffc3fe46d0ba5d695cc28c6a7ea955162fbdd0ae42b9", null ],
       [ "NotFound", "d8/d7b/_eir_bluetooth_bridge_8cs.html#a93480faefe11dd7ca6bfdffc3fe46d0ba38c300f4fc9ce8a77aad4a30de05cad8", null ],
-      [ "Selection", "d8/d7b/_eir_bluetooth_bridge_8cs.html#a93480faefe11dd7ca6bfdffc3fe46d0ba6ff9dd0d34f65181173c1e4bc39939de", null ]
+      [ "Selection", "d8/d7b/_eir_bluetooth_bridge_8cs.html#a93480faefe11dd7ca6bfdffc3fe46d0ba6ff9dd0d34f65181173c1e4bc39939de", null ],
+      [ "Denied", "d8/d7b/_eir_bluetooth_bridge_8cs.html#a93480faefe11dd7ca6bfdffc3fe46d0ba58d036b9b7f0e7eb38cfb90f1cc70a73", null ]
     ] ]
 ];

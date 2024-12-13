@@ -79,5 +79,6 @@ var annotated_dup =
         ] ],
         [ "EIRManager", "d8/d90/class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager.html", "d8/d90/class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager" ]
       ] ]
-    ] ]
+    ] ],
+    [ "HapticExample", "da/d1a/class_haptic_example.html", null ]
 ];
