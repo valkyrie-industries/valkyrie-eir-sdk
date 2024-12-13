@@ -27,5 +27,10 @@ namespace Valkyrie.EIR.Bluetooth {
         /// Invoked when the output voltage value changes.
         /// </summary>
         void OnUpdateVoltages(double[] outputVoltages);
+
+        /// <summary>
+        /// Invoked when the eir bands are disconnected.
+        /// </summary>
+        void OnDisconnect();
     }
 }

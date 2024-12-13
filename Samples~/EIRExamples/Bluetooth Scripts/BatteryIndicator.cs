@@ -29,16 +29,10 @@ namespace Valkyrie.EIR.Examples {
         [SerializeField] private Image panel;
         [SerializeField] private bool recolour;
 
-        [SerializeField] private Color normalColour = Color.white;
-        [SerializeField] private Color notConnectedColour = Color.gray;
-        [SerializeField] private Color lowColor = Color.red;
-
-
         #endregion
 
         #region Private Variables
 
-        private bool isActive;
         private bool initialised;
 
         #endregion
@@ -96,42 +90,6 @@ namespace Valkyrie.EIR.Examples {
             if (charge > 15) return spr20;
             else return sprEmpty;
         }
-
-        /// <summary>
-        /// Disables the indicator if the devices are not in use.
-        /// </summary>
-        private void Disable() {
-            if (!isActive)
-                return;
-            isActive = false;
-
-            if (leftIndicator.gameObject.activeSelf) leftIndicator.gameObject.SetActive(false);
-            if (rightIndicator.gameObject.activeSelf) rightIndicator.gameObject.SetActive(false);
-
-            if (leftText.gameObject.activeSelf) leftText.gameObject.SetActive(false);
-            if (rightText.gameObject.activeSelf) rightText.gameObject.SetActive(false);
-
-            if (panel != null && panel.gameObject.activeSelf) panel.gameObject.SetActive(false);
-
-        }
-
-        /// <summary>
-        /// Enables the indicator if the devices are in use.
-        /// </summary>
-        private void Enable() {
-            if (isActive)
-                return;
-            isActive = true;
-
-            if (!leftIndicator.gameObject.activeSelf) leftIndicator.gameObject.SetActive(true);
-            if (!rightIndicator.gameObject.activeSelf) rightIndicator.gameObject.SetActive(true);
-
-            if (!leftText.gameObject.activeSelf) leftText.gameObject.SetActive(true);
-            if (!rightText.gameObject.activeSelf) rightText.gameObject.SetActive(true);
-
-            if (panel != null &&  !panel.gameObject.activeSelf) panel.gameObject.SetActive(true);
-
-        }
 #endif
 
         #endregion
@@ -141,7 +99,7 @@ namespace Valkyrie.EIR.Examples {
 #if EIR_COMM
 
         public void OnBluetoothEnable() {
-            Enable();
+            // discard.
         }
 
         public void OnWrite() {
@@ -149,17 +107,21 @@ namespace Valkyrie.EIR.Examples {
         }
 
         public void OnUpdateVitals(DeviceVitals vitals) {
-            Enable();
             SetIndication(false, vitals);
             SetIndication(true, vitals);
         }
 
         public void OnBluetoothDisable() {
-            Disable();
+            // discard.
         }
 
         public void OnUpdateVoltages(double[] voltages) {
             // discard.
+        }
+
+        public void OnDisconnect() {
+            SetIndication(false, new DeviceVitals(false, false, 0, 0, 0, 0));
+            SetIndication(true, new DeviceVitals(false, false, 0, 0, 0, 0));
         }
 #endif
 
