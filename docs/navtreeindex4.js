@@ -1,5 +1,11 @@
 var NAVTREEINDEX4 =
 {
+"de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7aa162787dff1327ae1ee90a43e6e0a2f7":[2,0,0,0,6,3],
+"de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7ac38809848b8ff11a735291d013bff7b7":[2,0,0,0,6,1],
+"de/dd6/namespace_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables.html":[2,0,0,0,3,0],
+"de/de0/_permissions_manager_8cs.html":[4,0,1,3,1],
+"de/de6/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_eir_device_selection.html":[2,0,0,0,1,11],
+"de/de6/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_eir_device_selection.html":[3,0,0,0,1,11],
 "df/d18/_configure_e_i_r_8cs.html":[4,0,2,0,2,3],
 "df/d22/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_hit_interactable.html":[2,0,0,0,3,0,5],
 "df/d22/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_hit_interactable.html":[3,0,0,0,3,0,5],

@@ -1,5 +1,9 @@
 var NAVTREEINDEX3 =
 {
+"db/d1e/_valkyrie_e_i_r_extension_methods_8cs.html#aab6fe57ed6f76b2294eb9a74e7b9984aaf7deefcf007a5bc864ef756d69280197":[4,0,1,3,3,1,2],
+"db/d2b/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_bluetooth_device_info.html":[2,0,0,0,0,0],
+"db/d2b/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_bluetooth_device_info.html":[3,0,0,0,0,0],
+"db/d2b/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_bluetooth_device_info.html#ae47aff0632cfe01948523ab4c0b6ee71":[2,0,0,0,0,0,2],
 "db/d2b/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_bluetooth_device_info.html#ae47aff0632cfe01948523ab4c0b6ee71":[3,0,0,0,0,0,2],
 "db/d2b/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_bluetooth_device_info.html#af04287a080b6597bf76a1b0ad2e2a9c8":[2,0,0,0,0,0,0],
 "db/d2b/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_bluetooth_device_info.html#af04287a080b6597bf76a1b0ad2e2a9c8":[3,0,0,0,0,0,0],
@@ -117,10 +121,12 @@ var NAVTREEINDEX3 =
 "dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a10c6130739d61d59afdca5d19c80ca5e":[3,0,0,0,0,5,0],
 "dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a1dc7e44b86ebad70598387c196b7b791":[2,0,0,0,0,5,2],
 "dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a1dc7e44b86ebad70598387c196b7b791":[3,0,0,0,0,5,2],
+"dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a24f3f293780780dc814d555b7e1703bf":[2,0,0,0,0,5,3],
+"dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a24f3f293780780dc814d555b7e1703bf":[3,0,0,0,0,5,3],
 "dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a39f789a2f25aedcfc98e9de799be783f":[2,0,0,0,0,5,1],
 "dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a39f789a2f25aedcfc98e9de799be783f":[3,0,0,0,0,5,1],
-"dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#af5ef4a9d60e8e8c3f66ab1a9f18c7b75":[2,0,0,0,0,5,3],
-"dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#af5ef4a9d60e8e8c3f66ab1a9f18c7b75":[3,0,0,0,0,5,3],
+"dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#af5ef4a9d60e8e8c3f66ab1a9f18c7b75":[2,0,0,0,0,5,4],
+"dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#af5ef4a9d60e8e8c3f66ab1a9f18c7b75":[3,0,0,0,0,5,4],
 "dc/d26/interface_valkyrie_1_1_e_i_r_1_1_haptics_1_1_i_calibration_object.html":[2,0,0,0,2,5],
 "dc/d26/interface_valkyrie_1_1_e_i_r_1_1_haptics_1_1_i_calibration_object.html":[3,0,0,0,2,5],
 "dc/d26/interface_valkyrie_1_1_e_i_r_1_1_haptics_1_1_i_calibration_object.html#a9b970b478b0e9e7fa2da8776030bc884":[2,0,0,0,2,5,0],
@@ -243,11 +249,5 @@ var NAVTREEINDEX3 =
 "de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7":[2,0,0,0,6],
 "de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7a243cb7db6712b11b8b8260dfb5798140":[2,0,0,0,6,0],
 "de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7a7d2e851c69f79ca07624d98bad6e1caa":[2,0,0,0,6,4],
-"de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7a96e89a298e0a9f469b9ae458d6afae9f":[2,0,0,0,6,2],
-"de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7aa162787dff1327ae1ee90a43e6e0a2f7":[2,0,0,0,6,3],
-"de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7ac38809848b8ff11a735291d013bff7b7":[2,0,0,0,6,1],
-"de/dd6/namespace_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables.html":[2,0,0,0,3,0],
-"de/de0/_permissions_manager_8cs.html":[4,0,1,3,1],
-"de/de6/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_eir_device_selection.html":[2,0,0,0,1,11],
-"de/de6/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_eir_device_selection.html":[3,0,0,0,1,11]
+"de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7a96e89a298e0a9f469b9ae458d6afae9f":[2,0,0,0,6,2]
 };

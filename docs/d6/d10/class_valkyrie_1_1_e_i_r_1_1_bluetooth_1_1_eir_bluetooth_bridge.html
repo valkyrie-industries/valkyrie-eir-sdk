@@ -148,6 +148,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa95b826c11b16f08e57aeabfacc70e08" id="r_aa95b826c11b16f08e57aeabfacc70e08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa95b826c11b16f08e57aeabfacc70e08">ReadDeviceVitals</a> ()</td></tr>
 <tr class="memdesc:aa95b826c11b16f08e57aeabfacc70e08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the device vitals dependent on the read interval frequency. This function should be called from an update loop.  <br /></td></tr>
 <tr class="separator:aa95b826c11b16f08e57aeabfacc70e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa28bced004bc932bdac7cc38209934a4" id="r_aa28bced004bc932bdac7cc38209934a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa28bced004bc932bdac7cc38209934a4">ReadDeviceVoltageOutputs</a> ()</td></tr>
+<tr class="memdesc:aa28bced004bc932bdac7cc38209934a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads device output voltages every frame as calculated by the <a class="el" href="../../de/dba/namespace_valkyrie_1_1_e_i_r.html">EIR</a> BLE plugin.  <br /></td></tr>
+<tr class="separator:aa28bced004bc932bdac7cc38209934a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34ea3966abfe6770385f70c88ca2d104" id="r_a34ea3966abfe6770385f70c88ca2d104"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34ea3966abfe6770385f70c88ca2d104">WriteBytesToDevice</a> (sbyte[] data, bool critical=false)</td></tr>
 <tr class="memdesc:a34ea3966abfe6770385f70c88ca2d104"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the input data to the <a class="el" href="../../de/dba/namespace_valkyrie_1_1_e_i_r.html">EIR</a> Bands' write characteristic. If critical, will attempt to send the signal again the if the java plugin does not receive the 'data received' callback.  <br /></td></tr>
 <tr class="separator:a34ea3966abfe6770385f70c88ca2d104"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -402,6 +405,35 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Reads the device vitals dependent on the read interval frequency. This function should be called from an update loop. </p>
+
+</div>
+</div>
+<a id="aa28bced004bc932bdac7cc38209934a4" name="aa28bced004bc932bdac7cc38209934a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa28bced004bc932bdac7cc38209934a4">&#9670;&#160;</a></span>ReadDeviceVoltageOutputs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Valkyrie.EIR.Bluetooth.EirBluetoothBridge.ReadDeviceVoltageOutputs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reads device output voltages every frame as calculated by the <a class="el" href="../../de/dba/namespace_valkyrie_1_1_e_i_r.html">EIR</a> BLE plugin. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge_aa28bced004bc932bdac7cc38209934a4_cgraph.png" border="0" usemap="#ad6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge_aa28bced004bc932bdac7cc38209934a4_cgraph" alt=""/></div>
+<map name="ad6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge_aa28bced004bc932bdac7cc38209934a4_cgraph" id="ad6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge_aa28bced004bc932bdac7cc38209934a4_cgraph">
+<area shape="rect" title="Reads device output voltages every frame as calculated by the EIR BLE plugin." alt="" coords="5,5,238,64"/>
+<area shape="rect" href="../../dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a24f3f293780780dc814d555b7e1703bf" title="Invoked when the output voltage value changes." alt="" coords="286,13,475,56"/>
+<area shape="poly" title=" " alt="" coords="238,32,270,32,270,37,238,37"/>
+</map>
+</div>
 
 </div>
 </div>

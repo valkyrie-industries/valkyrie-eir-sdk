@@ -1,0 +1,5 @@
+<map id="Valkyrie.EIR.Bluetooth.EirBluetoothBridge.ReadDeviceVoltageOutputs" name="Valkyrie.EIR.Bluetooth.EirBluetoothBridge.ReadDeviceVoltageOutputs">
+<area shape="rect" id="Node000001" title="Reads device output voltages every frame as calculated by the EIR BLE plugin." alt="" coords="5,5,238,64"/>
+<area shape="rect" id="Node000002" href="$dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a24f3f293780780dc814d555b7e1703bf" title="Invoked when the output voltage value changes." alt="" coords="286,13,475,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,32,270,32,270,37,238,37"/>
+</map>

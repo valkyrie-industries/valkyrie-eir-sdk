@@ -9,6 +9,7 @@ var class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge =
     [ "Initialise", "d6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge.html#a7235278b8848af05b074c089edad7b68", null ],
     [ "OnConnectionStateChangedEventHandler", "d6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge.html#a924b5175be3bf28163d2b2ee6d04a376", null ],
     [ "ReadDeviceVitals", "d6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge.html#aa95b826c11b16f08e57aeabfacc70e08", null ],
+    [ "ReadDeviceVoltageOutputs", "d6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge.html#aa28bced004bc932bdac7cc38209934a4", null ],
     [ "RegisterHandler", "d6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge.html#adaefea9dd7c2d3d7b47940d69a7913ed", null ],
     [ "Scan", "d6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge.html#ac219eabdd01ab362d3ada2ad858399cf", null ],
     [ "ScanAndConnect", "d6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge.html#ad26865d5d2b3c0e185fb7ca40cc43148", null ],
