@@ -67,9 +67,9 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "d4/d3b/struct_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_signal.html#adac2d04933a0c58043ca3b008cd2fb12",
-"d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html#a4b7cc3cadb90c1e2bf014fdb1a0ff566",
-"db/d1e/_valkyrie_e_i_r_extension_methods_8cs.html#aab6fe57ed6f76b2294eb9a74e7b9984aaf7deefcf007a5bc864ef756d69280197",
-"de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7aa162787dff1327ae1ee90a43e6e0a2f7"
+"d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html#a38ff5f6fbe064d58969df64dc21b83d0",
+"db/d1e/_valkyrie_e_i_r_extension_methods_8cs.html#aab6fe57ed6f76b2294eb9a74e7b9984aadc3ed5f44b4b3074230a9a5b2d0f7ae3",
+"de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

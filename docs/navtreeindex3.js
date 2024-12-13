@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"db/d1e/_valkyrie_e_i_r_extension_methods_8cs.html#aab6fe57ed6f76b2294eb9a74e7b9984aadc3ed5f44b4b3074230a9a5b2d0f7ae3":[4,0,1,3,3,1,5],
+"db/d1e/_valkyrie_e_i_r_extension_methods_8cs.html#aab6fe57ed6f76b2294eb9a74e7b9984aae8324242473c6516f68800b50108bf30":[4,0,1,3,3,1,4],
 "db/d1e/_valkyrie_e_i_r_extension_methods_8cs.html#aab6fe57ed6f76b2294eb9a74e7b9984aaf7deefcf007a5bc864ef756d69280197":[4,0,1,3,3,1,2],
 "db/d2b/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_bluetooth_device_info.html":[2,0,0,0,0,0],
 "db/d2b/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_bluetooth_device_info.html":[3,0,0,0,0,0],
@@ -119,14 +121,16 @@ var NAVTREEINDEX3 =
 "dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html":[3,0,0,0,0,5],
 "dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a10c6130739d61d59afdca5d19c80ca5e":[2,0,0,0,0,5,0],
 "dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a10c6130739d61d59afdca5d19c80ca5e":[3,0,0,0,0,5,0],
-"dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a1dc7e44b86ebad70598387c196b7b791":[2,0,0,0,0,5,2],
-"dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a1dc7e44b86ebad70598387c196b7b791":[3,0,0,0,0,5,2],
-"dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a24f3f293780780dc814d555b7e1703bf":[2,0,0,0,0,5,3],
-"dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a24f3f293780780dc814d555b7e1703bf":[3,0,0,0,0,5,3],
+"dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a1dc7e44b86ebad70598387c196b7b791":[2,0,0,0,0,5,3],
+"dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a1dc7e44b86ebad70598387c196b7b791":[3,0,0,0,0,5,3],
+"dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a239f60a77fe3ac8f21afa5c2382cb39f":[2,0,0,0,0,5,2],
+"dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a239f60a77fe3ac8f21afa5c2382cb39f":[3,0,0,0,0,5,2],
+"dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a24f3f293780780dc814d555b7e1703bf":[2,0,0,0,0,5,4],
+"dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a24f3f293780780dc814d555b7e1703bf":[3,0,0,0,0,5,4],
 "dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a39f789a2f25aedcfc98e9de799be783f":[2,0,0,0,0,5,1],
 "dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a39f789a2f25aedcfc98e9de799be783f":[3,0,0,0,0,5,1],
-"dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#af5ef4a9d60e8e8c3f66ab1a9f18c7b75":[2,0,0,0,0,5,4],
-"dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#af5ef4a9d60e8e8c3f66ab1a9f18c7b75":[3,0,0,0,0,5,4],
+"dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#af5ef4a9d60e8e8c3f66ab1a9f18c7b75":[2,0,0,0,0,5,5],
+"dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#af5ef4a9d60e8e8c3f66ab1a9f18c7b75":[3,0,0,0,0,5,5],
 "dc/d26/interface_valkyrie_1_1_e_i_r_1_1_haptics_1_1_i_calibration_object.html":[2,0,0,0,2,5],
 "dc/d26/interface_valkyrie_1_1_e_i_r_1_1_haptics_1_1_i_calibration_object.html":[3,0,0,0,2,5],
 "dc/d26/interface_valkyrie_1_1_e_i_r_1_1_haptics_1_1_i_calibration_object.html#a9b970b478b0e9e7fa2da8776030bc884":[2,0,0,0,2,5,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX3 =
 "de/d6d/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_calibration_button.html#a021339b9a7f5749a5a8a4675dc0679af":[3,0,0,0,1,6,0],
 "de/d85/_e_i_r_config_editor_8cs.html":[4,0,0,0],
 "de/d92/_haptic_preset_touch_interactable_8cs.html":[4,0,1,2,0,4],
-"de/dba/namespace_valkyrie_1_1_e_i_r.html":[2,0,0,0],
-"de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7":[2,0,0,0,6],
-"de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7a243cb7db6712b11b8b8260dfb5798140":[2,0,0,0,6,0],
-"de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7a7d2e851c69f79ca07624d98bad6e1caa":[2,0,0,0,6,4],
-"de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7a96e89a298e0a9f469b9ae458d6afae9f":[2,0,0,0,6,2]
+"de/dba/namespace_valkyrie_1_1_e_i_r.html":[2,0,0,0]
 };
