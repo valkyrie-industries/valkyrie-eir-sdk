@@ -22,7 +22,7 @@ namespace Valkyrie.EIR.Examples
 
         #region Public Properties
 
-        public bool IsPlayingFeeling { get; private set; }
+        public bool IsPlayingFeeling { get; protected set; }
 
         #endregion
 
@@ -35,16 +35,16 @@ namespace Valkyrie.EIR.Examples
 
         #region Private Variables
 
-        private HapticPresetRunner leftPreset;
-        private HapticPresetRunner rightPreset;
+        protected HapticPresetRunner leftPreset;
+        protected HapticPresetRunner rightPreset;
 
-        private ConfigureEIR configureEIR;
+        protected ConfigureEIR configureEIR;
 
-        private int originalGain;
-        private int originalPulseWidth;
-        private int originalFrequency;
+        protected int originalGain;
+        protected int originalPulseWidth;
+        protected int originalFrequency;
 
-        private bool usingCustomConf = false;
+        protected bool usingCustomConf = false;
 
         #endregion
 
@@ -71,7 +71,7 @@ namespace Valkyrie.EIR.Examples
         /// Plays the 'feeling' which corresponds to the input ID.
         /// </summary>
         /// <param name="feelID"></param>
-        public void PlayFeeling(string feelID) {
+        public virtual void PlayFeeling(string feelID) {
             if (IsPlayingFeeling)
                 return;
 
@@ -109,7 +109,7 @@ namespace Valkyrie.EIR.Examples
         /// <summary>
         /// Stops the active 'feeling'.
         /// </summary>
-        public void StopPlayingFeeling() {
+        public virtual void StopPlayingFeeling() {
             IsPlayingFeeling = false;
             EIRManager.Instance.Haptics.StopHapticPresetRunner();
             if(usingCustomConf)
