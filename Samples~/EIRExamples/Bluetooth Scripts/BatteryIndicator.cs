@@ -28,6 +28,9 @@ namespace Valkyrie.EIR.Examples {
 
         [SerializeField] private Image panel;
         [SerializeField] private bool recolour;
+        [SerializeField] private Color standardColor = Color.white;
+        [SerializeField] private Color lowBattColor = Color.red;
+        [SerializeField] private Color disconnectedColor = Color.gray;
 
         #endregion
 
@@ -72,7 +75,7 @@ namespace Valkyrie.EIR.Examples {
             i.sprite = GetSprite(connected, battery);
             TextMeshProUGUI t = isLeft ? leftText : rightText;
             t.SetText(connected ? $"{battery}%" : "off");
-            if (recolour) i.color = connected ? (battery > 20 ? Color.white : Color.red) : Color.gray;
+            if (recolour) i.color = connected ? (battery > 20 ? standardColor :lowBattColor) : disconnectedColor;
         }
 
         /// <summary>

@@ -282,6 +282,11 @@ namespace Valkyrie.EIR.Bluetooth {
             if (eirBlu != null) eirBlu.CallStatic("disconnect");
             state = ConnectionStates.NotConnected;
 #endif
+
+            foreach (IEirBluetooth handler in handlers) {
+                if (handler == null) continue;
+                handler.OnDisconnect();
+            }
         }
 
         /// <summary>
