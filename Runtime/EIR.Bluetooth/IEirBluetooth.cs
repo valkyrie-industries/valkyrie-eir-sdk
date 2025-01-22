@@ -32,5 +32,11 @@ namespace Valkyrie.EIR.Bluetooth {
         /// Invoked when the eir bands are disconnected.
         /// </summary>
         void OnDisconnect();
+
+
+        /// <summary>
+        /// Invoked when the eir band battery levels drop below 20%.
+        /// </summary>
+        void OnLowBatteryDetected();
     }
 }

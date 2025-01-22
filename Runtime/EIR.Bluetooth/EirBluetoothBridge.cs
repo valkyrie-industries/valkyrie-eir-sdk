@@ -148,6 +148,7 @@ namespace Valkyrie.EIR.Bluetooth {
             callbackInstance.OnReconnectionEvent += OnReconnection;
             callbackInstance.OnReadEvent += OnRead;
             callbackInstance.OnWriteEvent += OnWrite;
+            callbackInstance.OnLowBatteryDetectedEvent += OnLowBatteryDetected;
             callbackInstance.OnLocationEnabledEvent += OnLocationEnabled;
             callbackInstance.OnConnectionDeniedEvent += OnConnectionDenied;
 
@@ -164,6 +165,9 @@ namespace Valkyrie.EIR.Bluetooth {
                 callbackInstance.OnReconnectionEvent -= OnReconnection;
                 callbackInstance.OnReadEvent -= OnRead;
                 callbackInstance.OnWriteEvent -= OnWrite;
+                callbackInstance.OnLowBatteryDetectedEvent -= OnLowBatteryDetected;
+                callbackInstance.OnLocationEnabledEvent -= OnLocationEnabled;
+                callbackInstance.OnConnectionDeniedEvent -= OnConnectionDenied;
                 callbackInstance = null;
             }
             deviceName = "";
@@ -437,6 +441,19 @@ namespace Valkyrie.EIR.Bluetooth {
 
         private void OnLocationEnabled(bool enabled) {
             Debug.Log($"[EIR Bluetooth] Location Enabled: {enabled}.");
+        }
+
+        private void OnLowBatteryDetected(bool low) {
+
+            MainThreadDispatcher.RunOnMainThread(() => {
+
+                Debug.Log($"[EIR Bluetooth] Low Battery Detected: {low}.");
+            if (!low) return;
+            foreach (IEirBluetooth handler in handlers) {
+                if (handler == null) continue;
+                handler.OnLowBatteryDetected();
+            }
+            });
         }
 
         private void OnConnectionDenied() {

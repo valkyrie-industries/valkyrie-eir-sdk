@@ -32,6 +32,8 @@ namespace Valkyrie.EIR.Examples {
         [SerializeField] private Color lowBattColor = Color.red;
         [SerializeField] private Color disconnectedColor = Color.gray;
 
+        [SerializeField] private GameObject lowBatteryNotification;
+
         #endregion
 
         #region Private Variables
@@ -97,6 +99,17 @@ namespace Valkyrie.EIR.Examples {
 
         #endregion
 
+        #region Public Methods
+
+        public void DismissLowBatteryNotification() {
+
+            if (lowBatteryNotification != null) {
+                lowBatteryNotification.SetActive(false);
+            }
+        }
+
+        #endregion
+
         #region Interface Implementation
 
 #if EIR_COMM
@@ -125,6 +138,14 @@ namespace Valkyrie.EIR.Examples {
         public void OnDisconnect() {
             SetIndication(false, new DeviceVitals(false, false, 0, 0, 0, 0));
             SetIndication(true, new DeviceVitals(false, false, 0, 0, 0, 0));
+        }
+
+        public void OnLowBatteryDetected() {
+
+            // display the low battery notification, if one is available.
+            if (lowBatteryNotification != null) {
+                lowBatteryNotification.SetActive(true);
+            }
         }
 #endif
 
