@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
 using TMPro;
-#if EIR_HAPTICS
-using Valkyrie.EIR.Haptics;
-#endif
 
 namespace Valkyrie.EIR.Examples {
 
@@ -17,6 +14,8 @@ namespace Valkyrie.EIR.Examples {
         private bool isLeft;
         [SerializeField]
         private GameObject label;
+        [SerializeField]
+        private bool logVoltage;
 
         #endregion
 
@@ -66,7 +65,8 @@ namespace Valkyrie.EIR.Examples {
             if (up) {
                 if (currentIndex < EIRManager.Instance.Haptics.CALIBRATION_INDEX_LENGTH)
                     currentIndex += 1;
-            } else {
+            }
+            else {
                 if (currentIndex > 0)
                     currentIndex -= 1;
             }
@@ -81,6 +81,14 @@ namespace Valkyrie.EIR.Examples {
             EIRManager.Instance.Haptics.ModifyCalibrationByIndex(isLeft, currentIndex);
             label.GetComponent<TextMeshProUGUI>().text = (currentIndex + 1).ToString(); // to count from 1 to 11, instead of 0 to 10
 #endif
+            if (logVoltage) LogOutputVoltage();
+        }
+
+        private void LogOutputVoltage() {
+            int calibration = EIRManager.Instance.Haptics.CalibrationIndex[isLeft ? 1 : 0];
+            int intensity = EIRManager.Instance.Haptics.UpperLimits[isLeft ? 1 : 0];
+            byte unsigned = (byte)intensity;
+            Debug.Log($"[EMS Output Max] From Calibrated Val:  {-0.000305 * unsigned * unsigned + 0.5021 * unsigned + 0.03}.\nINPUTS:\nCalibration: {calibration}\nIntensity: {intensity}\nuByte: {unsigned}");
         }
 
         #endregion
