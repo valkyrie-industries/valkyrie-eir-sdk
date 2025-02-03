@@ -258,8 +258,14 @@ namespace Valkyrie.EIR.Haptics
 
             int deviceIndex = isLeft ? 1 : 0;
 
-            LowerLimits[deviceIndex] = Mathf.RoundToInt(minMax[0]);
-            UpperLimits[deviceIndex] = Mathf.RoundToInt(minMax[1]);
+            if (index == -1) {
+                LowerLimits[deviceIndex] = 0;
+                UpperLimits[deviceIndex] = 0;
+            }
+            else {
+                LowerLimits[deviceIndex] = Mathf.RoundToInt(minMax[0]);
+                UpperLimits[deviceIndex] = Mathf.RoundToInt(minMax[1]);
+            }
 
             CalibrationIndex[deviceIndex] = index;
 
