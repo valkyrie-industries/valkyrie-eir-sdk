@@ -5,13 +5,15 @@ using UnityEngine.UI;
 using Valkyrie.EIR.Bluetooth;
 #endif
 
-namespace Valkyrie.EIR.Examples {
+namespace Valkyrie.EIR.Examples
+{
 
     /// <summary>
     /// Manages an output display to visualise the connection and battery state of an EIR device, dependent on the Communication Manager reading the required characteristic.
     /// </summary>
 #if EIR_COMM
-    public class BatteryIndicator : MonoBehaviour, IEirBluetooth {
+    public class BatteryIndicator : MonoBehaviour, IEirBluetooth
+    {
 #else
     public class BatteryIndicator : MonoBehaviour {
 #endif
@@ -27,7 +29,12 @@ namespace Valkyrie.EIR.Examples {
         [SerializeField] private TextMeshProUGUI rightText;
 
         [SerializeField] private Image panel;
+<<<<<<< Updated upstream
         [SerializeField] private bool recolour;
+=======
+        [SerializeField] private bool recolourImage = true;
+        [SerializeField] private bool recolourText = true;
+>>>>>>> Stashed changes
         [SerializeField] private Color standardColor = Color.white;
         [SerializeField] private Color lowBattColor = Color.red;
         [SerializeField] private Color disconnectedColor = Color.gray;
@@ -45,7 +52,8 @@ namespace Valkyrie.EIR.Examples {
         #region Unity Methods
 
 #if EIR_COMM
-        private void Update() {
+        private void Update()
+        {
             if (initialised) return;
             if (EIRManager.Instance == null) return;
             EIRManager.Instance.EirBluetooth.RegisterHandler(this);
@@ -54,7 +62,8 @@ namespace Valkyrie.EIR.Examples {
             initialised = true;
         }
 
-        private void OnDisable() {
+        private void OnDisable()
+        {
             if (!initialised) return;
             EIRManager.Instance.EirBluetooth.UnregisterHandler(this);
             initialised = false;
@@ -70,14 +79,20 @@ namespace Valkyrie.EIR.Examples {
         /// Sets the indicator values for each device.
         /// </summary>
         /// <param name="isLeft"></param>
-        private void SetIndication(bool isLeft, DeviceVitals deviceVitals) {
+        private void SetIndication(bool isLeft, DeviceVitals deviceVitals)
+        {
             uint battery = isLeft ? deviceVitals.LeftBattery : deviceVitals.RightBattery;
             bool connected = isLeft ? deviceVitals.LeftConnected : deviceVitals.RightConnected;
             Image i = isLeft ? leftIndicator : rightIndicator;
             i.sprite = GetSprite(connected, battery);
             TextMeshProUGUI t = isLeft ? leftText : rightText;
             t.SetText(connected ? $"{battery}%" : "off");
+<<<<<<< Updated upstream
             if (recolour) i.color = connected ? (battery > 20 ? standardColor :lowBattColor) : disconnectedColor;
+=======
+            if (recolourImage) i.color = connected ? (battery > 20 ? standardColor : lowBattColor) : disconnectedColor;
+            if (recolourText) t.color = connected ? (battery > 20 ? standardColor : lowBattColor) : disconnectedColor;
+>>>>>>> Stashed changes
         }
 
         /// <summary>
@@ -86,7 +101,8 @@ namespace Valkyrie.EIR.Examples {
         /// <param name="connected"></param>
         /// <param name="charge"></param>
         /// <returns></returns>
-        private Sprite GetSprite(bool connected, uint charge) {
+        private Sprite GetSprite(bool connected, uint charge)
+        {
             if (!connected) return sprUnknown;
             if (charge > 90) return sprFull;
             if (charge > 80) return spr80;
@@ -101,9 +117,17 @@ namespace Valkyrie.EIR.Examples {
 
         #region Public Methods
 
+<<<<<<< Updated upstream
         public void DismissLowBatteryNotification() {
 
             if (lowBatteryNotification != null) {
+=======
+        public void DismissLowBatteryNotification()
+        {
+
+            if (lowBatteryNotification != null)
+            {
+>>>>>>> Stashed changes
                 lowBatteryNotification.SetActive(false);
             }
         }
@@ -114,6 +138,7 @@ namespace Valkyrie.EIR.Examples {
 
 #if EIR_COMM
 
+<<<<<<< Updated upstream
         public void OnBluetoothEnable() {
             // discard.
         }
@@ -123,10 +148,25 @@ namespace Valkyrie.EIR.Examples {
         }
 
         public void OnUpdateVitals(DeviceVitals vitals) {
+=======
+        public void OnBluetoothEnable()
+        {
+            // discard.
+        }
+
+        public void OnWrite()
+        {
+            // discard.
+        }
+
+        public void OnUpdateVitals(DeviceVitals vitals)
+        {
+>>>>>>> Stashed changes
             SetIndication(false, vitals);
             SetIndication(true, vitals);
         }
 
+<<<<<<< Updated upstream
         public void OnBluetoothDisable() {
             // discard.
         }
@@ -136,14 +176,37 @@ namespace Valkyrie.EIR.Examples {
         }
 
         public void OnDisconnect() {
+=======
+        public void OnBluetoothDisable()
+        {
+            // discard.
+        }
+
+        public void OnUpdateVoltages(double[] voltages)
+        {
+            // discard.
+        }
+
+        public void OnDisconnect()
+        {
+>>>>>>> Stashed changes
             SetIndication(false, new DeviceVitals(false, false, 0, 0, 0, 0));
             SetIndication(true, new DeviceVitals(false, false, 0, 0, 0, 0));
         }
 
+<<<<<<< Updated upstream
         public void OnLowBatteryDetected() {
 
             // display the low battery notification, if one is available.
             if (lowBatteryNotification != null) {
+=======
+        public void OnLowBatteryDetected()
+        {
+
+            // display the low battery notification, if one is available.
+            if (lowBatteryNotification != null)
+            {
+>>>>>>> Stashed changes
                 lowBatteryNotification.SetActive(true);
             }
         }
