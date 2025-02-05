@@ -29,12 +29,9 @@ namespace Valkyrie.EIR.Examples
         [SerializeField] private TextMeshProUGUI rightText;
 
         [SerializeField] private Image panel;
-<<<<<<< Updated upstream
         [SerializeField] private bool recolour;
-=======
         [SerializeField] private bool recolourImage = true;
         [SerializeField] private bool recolourText = true;
->>>>>>> Stashed changes
         [SerializeField] private Color standardColor = Color.white;
         [SerializeField] private Color lowBattColor = Color.red;
         [SerializeField] private Color disconnectedColor = Color.gray;
@@ -87,12 +84,9 @@ namespace Valkyrie.EIR.Examples
             i.sprite = GetSprite(connected, battery);
             TextMeshProUGUI t = isLeft ? leftText : rightText;
             t.SetText(connected ? $"{battery}%" : "off");
-<<<<<<< Updated upstream
             if (recolour) i.color = connected ? (battery > 20 ? standardColor :lowBattColor) : disconnectedColor;
-=======
             if (recolourImage) i.color = connected ? (battery > 20 ? standardColor : lowBattColor) : disconnectedColor;
             if (recolourText) t.color = connected ? (battery > 20 ? standardColor : lowBattColor) : disconnectedColor;
->>>>>>> Stashed changes
         }
 
         /// <summary>
@@ -117,17 +111,11 @@ namespace Valkyrie.EIR.Examples
 
         #region Public Methods
 
-<<<<<<< Updated upstream
-        public void DismissLowBatteryNotification() {
-
-            if (lowBatteryNotification != null) {
-=======
         public void DismissLowBatteryNotification()
         {
 
             if (lowBatteryNotification != null)
             {
->>>>>>> Stashed changes
                 lowBatteryNotification.SetActive(false);
             }
         }
@@ -138,7 +126,6 @@ namespace Valkyrie.EIR.Examples
 
 #if EIR_COMM
 
-<<<<<<< Updated upstream
         public void OnBluetoothEnable() {
             // discard.
         }
@@ -147,26 +134,12 @@ namespace Valkyrie.EIR.Examples
             // discard.
         }
 
-        public void OnUpdateVitals(DeviceVitals vitals) {
-=======
-        public void OnBluetoothEnable()
-        {
-            // discard.
-        }
-
-        public void OnWrite()
-        {
-            // discard.
-        }
-
         public void OnUpdateVitals(DeviceVitals vitals)
         {
->>>>>>> Stashed changes
             SetIndication(false, vitals);
             SetIndication(true, vitals);
         }
 
-<<<<<<< Updated upstream
         public void OnBluetoothDisable() {
             // discard.
         }
@@ -175,38 +148,18 @@ namespace Valkyrie.EIR.Examples
             // discard.
         }
 
-        public void OnDisconnect() {
-=======
-        public void OnBluetoothDisable()
-        {
-            // discard.
-        }
-
-        public void OnUpdateVoltages(double[] voltages)
-        {
-            // discard.
-        }
-
         public void OnDisconnect()
         {
->>>>>>> Stashed changes
             SetIndication(false, new DeviceVitals(false, false, 0, 0, 0, 0));
             SetIndication(true, new DeviceVitals(false, false, 0, 0, 0, 0));
         }
 
-<<<<<<< Updated upstream
-        public void OnLowBatteryDetected() {
-
-            // display the low battery notification, if one is available.
-            if (lowBatteryNotification != null) {
-=======
         public void OnLowBatteryDetected()
         {
 
             // display the low battery notification, if one is available.
             if (lowBatteryNotification != null)
             {
->>>>>>> Stashed changes
                 lowBatteryNotification.SetActive(true);
             }
         }
