@@ -249,7 +249,13 @@ namespace Valkyrie.EIR.Haptics
 
                     // find the intensity by mapping the time across the segment to the 2 intensities
                     intensity = ValkyrieEIRExtensionMethods.MapToRange(timer.GetTimeSinceStart(), cumulativeSegmentTime - segments[currentSegmentIndex].m_time, cumulativeSegmentTime, points.Item1, points.Item2);
-                    intensity = Mathf.Clamp(intensity, 0, 1);
+                    
+                    float highClamp = Mathf.Max(points.Item1, points.Item2);
+                    highClamp = Mathf.Clamp01(highClamp);
+                    float lowClamp = Mathf.Min(points.Item1, points.Item2);
+                    lowClamp = Mathf.Clamp01(lowClamp);
+
+                    intensity = Mathf.Clamp(intensity, lowClamp, highClamp);
                 }
                 else
                 {
