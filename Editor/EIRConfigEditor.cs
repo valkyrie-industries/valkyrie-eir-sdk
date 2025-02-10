@@ -85,7 +85,7 @@ namespace Valkyrie.EIR.Utilities {
             EditorGUILayout.PropertyField(enableBTEirBluetoothBridge, new GUIContent("Enable BT Communication Manager"));
             EditorGUILayout.PropertyField(enableInteractionManager, new GUIContent("Enable Interaction Manager"));
             EditorGUILayout.Space(10);
-            EditorGUILayout.LabelField("Build Targetting", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("Build Targeting", EditorStyles.boldLabel);
             EditorGUILayout.PropertyField(deploymentType, new GUIContent("Deployment Type"));
             EditorGUILayout.Space(10);
             EditorGUILayout.LabelField("EIR Device Properties", EditorStyles.boldLabel);
