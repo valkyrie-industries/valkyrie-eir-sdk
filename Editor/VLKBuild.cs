@@ -99,12 +99,11 @@ namespace Valkyrie.EIR.Utilities {
         private void MergeAndroidManifest() {
             string projectPath = Application.dataPath.Replace("/Assets", "");
 
-            string deploymentPath = EIRConfig.Instance.DeploymentType == DeploymentType.XR ? "AndroidManifest.xml" : "AndroidManifest_Mobile.xml";
-            string manifestPath = Path.Combine(projectPath, "Assets", "Plugins", "Android", deploymentPath);
+            string manifestPath = Path.Combine(projectPath, "Assets", "Plugins", "Android", "AndroidManifest.xml");
 
             Debug.Log($"[VLK Build] Injecting Manifest for Deployment Type: {(EIRConfig.Instance.DeploymentType == DeploymentType.XR ? "XR" : "Mobile")}");
-
-            string customManifestPath = Path.Combine(projectPath, "Packages", "com.valkyrieindustries.eirsdk", "Runtime", "Plugins", "Android", "AndroidManifest.xml");
+            string deploymentPath = EIRConfig.Instance.DeploymentType == DeploymentType.XR ? "AndroidManifest.xml" : "AndroidManifest_Mobile.xml";
+            string customManifestPath = Path.Combine(projectPath, "Packages", "com.valkyrieindustries.eirsdk", "Runtime", "Plugins", "Android", deploymentPath);
 
             if (File.Exists(customManifestPath)) {
                 var targetDoc = new XmlDocument();
