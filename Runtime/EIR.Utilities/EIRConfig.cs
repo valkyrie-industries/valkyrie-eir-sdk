@@ -87,7 +87,7 @@ namespace Valkyrie.EIR.Utilities {
         /// Selecting XR for a Mobile Deployment will result in build rejection from Google Play Store.
         /// Selecting Mobile for XR Deployment will result in 2d windowed app on XR.
         /// </summary>
-        public DeploymentType DeploymentType { get { return deploymentType; }
+        public DeploymentType DeploymentType { get { return deploymentType; } }
 
         #endregion
 
