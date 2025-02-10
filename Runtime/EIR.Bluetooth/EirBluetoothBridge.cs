@@ -59,6 +59,7 @@ namespace Valkyrie.EIR.Bluetooth {
         private List<IEirBluetooth> handlers = new List<IEirBluetooth>();
         private AndroidJavaObject activity;
         private double[] outputVoltages = new double[2] { 0, 0 };
+        private sbyte[] lastConfigSignal;
 
         /// <summary>
         /// Returns the name of the current connected bluetooth device, if available.
@@ -171,6 +172,7 @@ namespace Valkyrie.EIR.Bluetooth {
                 callbackInstance = null;
             }
             deviceName = "";
+            lastConfigSignal = null;
 
             Debug.Log("[EIR Bluetooth] Disposing");
             initialised = false;
@@ -299,6 +301,7 @@ namespace Valkyrie.EIR.Bluetooth {
         /// <param name="data"></param>
         public void SendConfigSignal(sbyte[] data) {
             if (state == ConnectionStates.NotConnected || !isActive) return;
+            lastConfigSignal = data;
             eirBlu.CallStatic("writeCharacteristic", data, true);
         }
 
@@ -419,6 +422,14 @@ namespace Valkyrie.EIR.Bluetooth {
 
                 uint pulseWidth = Convert.ToUInt32(obj[4]);
                 uint pulseFrequency = Convert.ToUInt32(obj[5]);
+
+
+                // if the connection state of one of the bands changes from not connected to connected during the connection lifecycle,
+                // resend the last known config signal if available.
+                if ((deviceLConnected && !deviceVitals.LeftConnected) || (deviceRConnected && !deviceVitals.RightConnected)) {
+                    if (lastConfigSignal != null) SendConfigSignal(lastConfigSignal);
+                }
+
 
                 deviceVitals.Update(deviceLConnected, deviceRConnected, lBattery, rBattery, pulseWidth, pulseFrequency);
 
