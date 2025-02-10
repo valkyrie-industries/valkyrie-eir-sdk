@@ -29,7 +29,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Valkyrie EIR SDK<span id="projectnumber">&#160;v1.0.1</span>
+   <div id="projectname">Valkyrie EIR SDK<span id="projectnumber">&#160;v1.0.7</span>
    </div>
   </td>
  </tr>
@@ -102,6 +102,7 @@ $(function(){initNavTree('d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#properties">Properties</a> &#124;
 <a href="../../d0/d97/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Valkyrie.EIR.Examples.FeelManager Class Reference</div></div>
@@ -125,13 +126,21 @@ Collaboration diagram for Valkyrie.EIR.Examples.FeelManager:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../db/dc1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager__coll__graph.png" border="0" usemap="#a_valkyrie_8_e_i_r_8_examples_8_feel_manager_coll__map" alt="Collaboration graph"/></div>
 <map name="a_valkyrie_8_e_i_r_8_examples_8_feel_manager_coll__map" id="a_valkyrie_8_e_i_r_8_examples_8_feel_manager_coll__map">
-<area shape="rect" title="Runs set feels from FeelLibrary as well as configuring EIR to whatever that feel requires." alt="" coords="5,188,191,231"/>
-<area shape="rect" title=" " alt="" coords="37,5,148,32"/>
-<area shape="poly" title=" " alt="" coords="96,47,100,188,95,188,91,48"/>
-<area shape="rect" href="../../d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html" title="Runs set feels from FeelLibrary as well as configuring EIR to whatever that feel requires." alt="" coords="115,81,300,124"/>
-<area shape="poly" title=" " alt="" coords="124,39,180,79,177,83,121,43"/>
-<area shape="poly" title=" " alt="" coords="176,137,121,189,118,186,173,133"/>
-<area shape="poly" title=" " alt="" coords="317,95,327,103,318,110,301,113,300,108,316,105,321,103,314,99"/>
+<area shape="rect" title="Runs set feels from FeelLibrary as well as configuring EIR to whatever that feel requires." alt="" coords="821,117,1006,159"/>
+<area shape="rect" title=" " alt="" coords="5,97,117,123"/>
+<area shape="poly" title=" " alt="" coords="111,88,221,53,293,34,373,18,458,7,546,3,634,7,719,23,768,41,814,65,887,114,884,119,812,70,766,46,718,29,633,13,546,8,459,12,374,24,294,40,223,58,112,93"/>
+<area shape="rect" href="../../d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html" title="Runs set feels from FeelLibrary as well as configuring EIR to whatever that feel requires." alt="" coords="533,78,719,121"/>
+<area shape="poly" title=" " alt="" coords="132,100,141,99,351,93,533,94,533,100,351,99,141,105,132,105"/>
+<area shape="rect" href="../../df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html" title="Runs the provided HapticPreset in real time. Use by calling CreateHapticPresetRunner from the Haptics..." alt="" coords="193,118,378,161"/>
+<area shape="poly" title=" " alt="" coords="132,117,193,125,192,130,132,122"/>
+<area shape="rect" href="../../d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html" title="Configures EIR with values it&#39;s provided or values you set or to default." alt="" coords="166,199,405,226"/>
+<area shape="poly" title=" " alt="" coords="96,130,167,170,237,196,235,201,165,175,94,135"/>
+<area shape="poly" title=" " alt="" coords="734,111,820,123,820,128,734,116"/>
+<area shape="poly" title=" " alt="" coords="601,60,610,54,626,51,641,53,651,59,655,68,654,78,649,77,650,69,647,63,639,58,626,57,612,59,604,65"/>
+<area shape="poly" title=" " alt="" coords="394,150,534,162,626,166,718,162,820,151,821,156,719,167,626,171,533,167,393,155"/>
+<area shape="poly" title=" " alt="" coords="394,138,451,135,509,129,555,119,556,124,510,134,452,140,394,143"/>
+<area shape="poly" title=" " alt="" coords="421,210,565,204,718,187,783,174,844,157,845,163,784,179,719,193,565,209,421,216"/>
+<area shape="poly" title=" " alt="" coords="408,193,459,179,508,158,520,148,532,137,566,119,568,124,535,142,523,152,511,163,461,184,410,198"/>
 </map>
 <center><span class="legend">[<a target="top" href="../../graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -139,12 +148,12 @@ Collaboration diagram for Valkyrie.EIR.Examples.FeelManager:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8e922b7f6219a1ad2d9f9a2b7ed9d1db" id="r_a8e922b7f6219a1ad2d9f9a2b7ed9d1db"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e922b7f6219a1ad2d9f9a2b7ed9d1db">FeelingStatusEvent</a> (bool status)</td></tr>
 <tr class="separator:a8e922b7f6219a1ad2d9f9a2b7ed9d1db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28a551e91976bd26ab52d96c22674ae2" id="r_a28a551e91976bd26ab52d96c22674ae2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28a551e91976bd26ab52d96c22674ae2">PlayFeeling</a> (string feelID)</td></tr>
-<tr class="memdesc:a28a551e91976bd26ab52d96c22674ae2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays the 'feeling' which corresponds to the input ID.  <br /></td></tr>
-<tr class="separator:a28a551e91976bd26ab52d96c22674ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6928aebc3e751f9277bdca1882ac2733" id="r_a6928aebc3e751f9277bdca1882ac2733"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6928aebc3e751f9277bdca1882ac2733">StopPlayingFeeling</a> ()</td></tr>
-<tr class="memdesc:a6928aebc3e751f9277bdca1882ac2733"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the active 'feeling'.  <br /></td></tr>
-<tr class="separator:a6928aebc3e751f9277bdca1882ac2733"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16f366934943020877977d2b1a263e1b" id="r_a16f366934943020877977d2b1a263e1b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16f366934943020877977d2b1a263e1b">PlayFeeling</a> (string feelID)</td></tr>
+<tr class="memdesc:a16f366934943020877977d2b1a263e1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays the 'feeling' which corresponds to the input ID.  <br /></td></tr>
+<tr class="separator:a16f366934943020877977d2b1a263e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad377bf71b2874dc00cb255c0532ab6c0" id="r_ad377bf71b2874dc00cb255c0532ab6c0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad377bf71b2874dc00cb255c0532ab6c0">StopPlayingFeeling</a> ()</td></tr>
+<tr class="memdesc:ad377bf71b2874dc00cb255c0532ab6c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the active 'feeling'.  <br /></td></tr>
+<tr class="separator:ad377bf71b2874dc00cb255c0532ab6c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -156,9 +165,26 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:aa8ae68fd26c3430ce81f5905f1619576" id="r_aa8ae68fd26c3430ce81f5905f1619576"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html">FeelManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8ae68fd26c3430ce81f5905f1619576">Instance</a></td></tr>
 <tr class="separator:aa8ae68fd26c3430ce81f5905f1619576"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:aafac978204ed4a4ef5619bdaf1a496c2" id="r_aafac978204ed4a4ef5619bdaf1a496c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html">HapticPresetRunner</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafac978204ed4a4ef5619bdaf1a496c2">leftPreset</a></td></tr>
+<tr class="separator:aafac978204ed4a4ef5619bdaf1a496c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6dc9bab0798785cb14733adccf1af08" id="r_aa6dc9bab0798785cb14733adccf1af08"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html">HapticPresetRunner</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa6dc9bab0798785cb14733adccf1af08">rightPreset</a></td></tr>
+<tr class="separator:aa6dc9bab0798785cb14733adccf1af08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82ef82ded6904d6f9d5e76aecc4b6872" id="r_a82ef82ded6904d6f9d5e76aecc4b6872"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html">ConfigureEIR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82ef82ded6904d6f9d5e76aecc4b6872">configureEIR</a></td></tr>
+<tr class="separator:a82ef82ded6904d6f9d5e76aecc4b6872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3b7fa8cf3ac3ec04c22186a12211e44" id="r_af3b7fa8cf3ac3ec04c22186a12211e44"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3b7fa8cf3ac3ec04c22186a12211e44">originalGain</a></td></tr>
+<tr class="separator:af3b7fa8cf3ac3ec04c22186a12211e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a761cb0d0a72015548dfce96aa83db25b" id="r_a761cb0d0a72015548dfce96aa83db25b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a761cb0d0a72015548dfce96aa83db25b">originalPulseWidth</a></td></tr>
+<tr class="separator:a761cb0d0a72015548dfce96aa83db25b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecfe52a0f75888882c135275307380ef" id="r_aecfe52a0f75888882c135275307380ef"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecfe52a0f75888882c135275307380ef">originalFrequency</a></td></tr>
+<tr class="separator:aecfe52a0f75888882c135275307380ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad50aba25ec0d6b39cf25543b3b59de22" id="r_ad50aba25ec0d6b39cf25543b3b59de22"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad50aba25ec0d6b39cf25543b3b59de22">usingCustomConf</a> = false</td></tr>
+<tr class="separator:ad50aba25ec0d6b39cf25543b3b59de22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a9fef1a477c766e60e09cdc4ae411fb93" id="r_a9fef1a477c766e60e09cdc4ae411fb93"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fef1a477c766e60e09cdc4ae411fb93">IsPlayingFeeling</a><code> [get]</code></td></tr>
+<tr class="memitem:a9fef1a477c766e60e09cdc4ae411fb93" id="r_a9fef1a477c766e60e09cdc4ae411fb93"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fef1a477c766e60e09cdc4ae411fb93">IsPlayingFeeling</a><code> [get, protected set]</code></td></tr>
 <tr class="separator:a9fef1a477c766e60e09cdc4ae411fb93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -181,19 +207,27 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a id="a28a551e91976bd26ab52d96c22674ae2" name="a28a551e91976bd26ab52d96c22674ae2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28a551e91976bd26ab52d96c22674ae2">&#9670;&#160;</a></span>PlayFeeling()</h2>
+<a id="a16f366934943020877977d2b1a263e1b" name="a16f366934943020877977d2b1a263e1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16f366934943020877977d2b1a263e1b">&#9670;&#160;</a></span>PlayFeeling()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Valkyrie.EIR.Examples.FeelManager.PlayFeeling </td>
+          <td class="memname">virtual void Valkyrie.EIR.Examples.FeelManager.PlayFeeling </td>
           <td>(</td>
           <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>feelID</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Plays the 'feeling' which corresponds to the input ID. </p>
@@ -206,8 +240,8 @@ Properties</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_a28a551e91976bd26ab52d96c22674ae2_cgraph.png" border="0" usemap="#ad0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_a28a551e91976bd26ab52d96c22674ae2_cgraph" alt=""/></div>
-<map name="ad0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_a28a551e91976bd26ab52d96c22674ae2_cgraph" id="ad0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_a28a551e91976bd26ab52d96c22674ae2_cgraph">
+<div class="center"><img src="../../d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_a16f366934943020877977d2b1a263e1b_cgraph.png" border="0" usemap="#ad0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_a16f366934943020877977d2b1a263e1b_cgraph" alt=""/></div>
+<map name="ad0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_a16f366934943020877977d2b1a263e1b_cgraph" id="ad0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_a16f366934943020877977d2b1a263e1b_cgraph">
 <area shape="rect" title="Plays the &#39;feeling&#39; which corresponds to the input ID." alt="" coords="5,127,191,169"/>
 <area shape="rect" href="../../d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html#a95e8979644a9f5d5eaa741264495da97" title="Sets the gain, frequency and pulse width to the input values, and commands the EIR Bluetooth Bridge t..." alt="" coords="247,60,463,103"/>
 <area shape="poly" title=" " alt="" coords="182,123,255,105,256,110,184,129"/>
@@ -229,8 +263,8 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_a28a551e91976bd26ab52d96c22674ae2_icgraph.png" border="0" usemap="#ad0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_a28a551e91976bd26ab52d96c22674ae2_icgraph" alt=""/></div>
-<map name="ad0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_a28a551e91976bd26ab52d96c22674ae2_icgraph" id="ad0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_a28a551e91976bd26ab52d96c22674ae2_icgraph">
+<div class="center"><img src="../../d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_a16f366934943020877977d2b1a263e1b_icgraph.png" border="0" usemap="#ad0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_a16f366934943020877977d2b1a263e1b_icgraph" alt=""/></div>
+<map name="ad0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_a16f366934943020877977d2b1a263e1b_icgraph" id="ad0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_a16f366934943020877977d2b1a263e1b_icgraph">
 <area shape="rect" title="Plays the &#39;feeling&#39; which corresponds to the input ID." alt="" coords="252,39,437,81"/>
 <area shape="rect" href="../../d7/dfc/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_haptic_gun.html#a20917c6c79aea41aefa2b355e491617d" title="Activate the gun, and begin firing if on rapid fire, or fire one bullet if not." alt="" coords="5,5,204,48"/>
 <area shape="poly" title=" " alt="" coords="236,48,204,43,204,38,237,42"/>
@@ -241,27 +275,35 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a6928aebc3e751f9277bdca1882ac2733" name="a6928aebc3e751f9277bdca1882ac2733"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6928aebc3e751f9277bdca1882ac2733">&#9670;&#160;</a></span>StopPlayingFeeling()</h2>
+<a id="ad377bf71b2874dc00cb255c0532ab6c0" name="ad377bf71b2874dc00cb255c0532ab6c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad377bf71b2874dc00cb255c0532ab6c0">&#9670;&#160;</a></span>StopPlayingFeeling()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Valkyrie.EIR.Examples.FeelManager.StopPlayingFeeling </td>
+          <td class="memname">virtual void Valkyrie.EIR.Examples.FeelManager.StopPlayingFeeling </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Stops the active 'feeling'. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_a6928aebc3e751f9277bdca1882ac2733_cgraph.png" border="0" usemap="#ad0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_a6928aebc3e751f9277bdca1882ac2733_cgraph" alt=""/></div>
-<map name="ad0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_a6928aebc3e751f9277bdca1882ac2733_cgraph" id="ad0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_a6928aebc3e751f9277bdca1882ac2733_cgraph">
+<div class="center"><img src="../../d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_ad377bf71b2874dc00cb255c0532ab6c0_cgraph.png" border="0" usemap="#ad0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_ad377bf71b2874dc00cb255c0532ab6c0_cgraph" alt=""/></div>
+<map name="ad0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_ad377bf71b2874dc00cb255c0532ab6c0_cgraph" id="ad0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager_ad377bf71b2874dc00cb255c0532ab6c0_cgraph">
 <area shape="rect" title="Stops the active &#39;feeling&#39;." alt="" coords="5,68,193,111"/>
 <area shape="rect" href="../../d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html#a95e8979644a9f5d5eaa741264495da97" title="Sets the gain, frequency and pulse width to the input values, and commands the EIR Bluetooth Bridge t..." alt="" coords="243,35,459,77"/>
 <area shape="poly" title=" " alt="" coords="193,74,227,70,228,75,193,80"/>
@@ -278,6 +320,28 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a82ef82ded6904d6f9d5e76aecc4b6872" name="a82ef82ded6904d6f9d5e76aecc4b6872"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82ef82ded6904d6f9d5e76aecc4b6872">&#9670;&#160;</a></span>configureEIR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html">ConfigureEIR</a> Valkyrie.EIR.Examples.FeelManager.configureEIR</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa8ae68fd26c3430ce81f5905f1619576" name="aa8ae68fd26c3430ce81f5905f1619576"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa8ae68fd26c3430ce81f5905f1619576">&#9670;&#160;</a></span>Instance</h2>
 
@@ -300,6 +364,28 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="aafac978204ed4a4ef5619bdaf1a496c2" name="aafac978204ed4a4ef5619bdaf1a496c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafac978204ed4a4ef5619bdaf1a496c2">&#9670;&#160;</a></span>leftPreset</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html">HapticPresetRunner</a> Valkyrie.EIR.Examples.FeelManager.leftPreset</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ad46f3b95dc6651c3325daa4cf5da3894" name="ad46f3b95dc6651c3325daa4cf5da3894"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad46f3b95dc6651c3325daa4cf5da3894">&#9670;&#160;</a></span>OnFeelingStatusChange</h2>
 
@@ -310,6 +396,116 @@ Here is the call graph for this function:</div>
           <td class="memname"><a class="el" href="#a8e922b7f6219a1ad2d9f9a2b7ed9d1db">FeelingStatusEvent</a> Valkyrie.EIR.Examples.FeelManager.OnFeelingStatusChange</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aecfe52a0f75888882c135275307380ef" name="aecfe52a0f75888882c135275307380ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecfe52a0f75888882c135275307380ef">&#9670;&#160;</a></span>originalFrequency</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Valkyrie.EIR.Examples.FeelManager.originalFrequency</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af3b7fa8cf3ac3ec04c22186a12211e44" name="af3b7fa8cf3ac3ec04c22186a12211e44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3b7fa8cf3ac3ec04c22186a12211e44">&#9670;&#160;</a></span>originalGain</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Valkyrie.EIR.Examples.FeelManager.originalGain</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a761cb0d0a72015548dfce96aa83db25b" name="a761cb0d0a72015548dfce96aa83db25b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a761cb0d0a72015548dfce96aa83db25b">&#9670;&#160;</a></span>originalPulseWidth</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Valkyrie.EIR.Examples.FeelManager.originalPulseWidth</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa6dc9bab0798785cb14733adccf1af08" name="aa6dc9bab0798785cb14733adccf1af08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6dc9bab0798785cb14733adccf1af08">&#9670;&#160;</a></span>rightPreset</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html">HapticPresetRunner</a> Valkyrie.EIR.Examples.FeelManager.rightPreset</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad50aba25ec0d6b39cf25543b3b59de22" name="ad50aba25ec0d6b39cf25543b3b59de22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad50aba25ec0d6b39cf25543b3b59de22">&#9670;&#160;</a></span>usingCustomConf</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Valkyrie.EIR.Examples.FeelManager.usingCustomConf = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -330,7 +526,7 @@ Here is the call graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">protected set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

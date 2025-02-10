@@ -1,0 +1,7 @@
+<map id="Valkyrie.EIR.Examples.VoltageIndicator" name="Valkyrie.EIR.Examples.VoltageIndicator">
+<area shape="rect" id="Node000001" title="Manages an output display to visualise the voltage output of an EIR device, dependent on the Communic..." alt="" coords="23,80,227,123"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,117,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="82,43,111,78,107,81,78,46"/>
+<area shape="rect" id="Node000003" href="$dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html" title=" " alt="" coords="141,5,237,32"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,46,143,81,139,78,168,43"/>
+</map>

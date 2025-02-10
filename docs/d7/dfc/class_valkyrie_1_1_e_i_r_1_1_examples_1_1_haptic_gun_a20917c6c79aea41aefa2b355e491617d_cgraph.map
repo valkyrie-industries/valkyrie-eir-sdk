@@ -6,7 +6,7 @@
 <area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="143,237,290,154,293,158,146,242"/>
 <area shape="rect" id="Node000009" href="$db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#a0a5e040dc26f8a156155019721c81d68" title="Creates a new HapticPresetRunner instance that can be applied to a sigle body part and attaches it to..." alt="" coords="485,339,717,381"/>
 <area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="147,281,197,304,252,323,363,344,470,354,469,359,362,349,251,328,195,308,145,286"/>
-<area shape="rect" id="Node000012" href="$d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#a28a551e91976bd26ab52d96c22674ae2" title="Plays the &#39;feeling&#39; which corresponds to the input ID." alt="" coords="252,271,437,313"/>
+<area shape="rect" id="Node000012" href="$d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#a16f366934943020877977d2b1a263e1b" title="Plays the &#39;feeling&#39; which corresponds to the input ID." alt="" coords="252,271,437,313"/>
 <area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="204,271,237,276,236,281,204,277"/>
 <area shape="rect" id="Node000003" href="$d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html#a9fa6f69857fb0403a73613de3885e8ef" title="Commands the EIR Bluetooth Bridge to send a config signal to the connected device with the current se..." alt="" coords="765,176,982,219"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="710,212,750,208,750,213,710,218"/>

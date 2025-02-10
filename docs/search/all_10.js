@@ -26,7 +26,7 @@ var searchData=
   ['rightconnected_23',['RightConnected',['../de/d08/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_device_vitals.html#a2c075007f9693fbe20c97cc77c57882e',1,'Valkyrie::EIR::Bluetooth::DeviceVitals']]],
   ['rightfoot_24',['rightFoot',['../de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7a7d2e851c69f79ca07624d98bad6e1caa',1,'Valkyrie::EIR']]],
   ['righthand_25',['rightHand',['../de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7a243cb7db6712b11b8b8260dfb5798140',1,'Valkyrie::EIR']]],
-  ['rightpreset_26',['rightPreset',['../db/de6/struct_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_struct.html#ab017489fff51808308ad4bc40dc13bb0',1,'Valkyrie::EIR::Examples::FeelStruct']]],
+  ['rightpreset_26',['rightPreset',['../d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#aa6dc9bab0798785cb14733adccf1af08',1,'Valkyrie.EIR.Examples.FeelManager.rightPreset'],['../db/de6/struct_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_struct.html#ab017489fff51808308ad4bc40dc13bb0',1,'Valkyrie.EIR.Examples.FeelStruct.rightPreset']]],
   ['rigid_27',['Rigid',['../db/d4b/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_bullet.html#a82210741cce306f0a3461ad3e6f94847',1,'Valkyrie::EIR::Examples::Bullet']]],
   ['rise_28',['rise',['../d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#a5c9e727dfbe7118131572828bb822c79a04f38d5f332a9410d3aa737eff3b2698',1,'Valkyrie::EIR::Haptics::HapticPreset']]],
   ['risefall_29',['riseFall',['../d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#a65baa7fee171e68475638ba8199bb419ae3b21e3a9a702aa79808f2e18739fbe1',1,'Valkyrie::EIR::Haptics::HapticPreset']]],

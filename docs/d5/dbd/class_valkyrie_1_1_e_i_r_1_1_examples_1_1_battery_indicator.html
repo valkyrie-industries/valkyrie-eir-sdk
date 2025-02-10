@@ -29,7 +29,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Valkyrie EIR SDK<span id="projectnumber">&#160;v1.0.1</span>
+   <div id="projectname">Valkyrie EIR SDK<span id="projectnumber">&#160;v1.0.7</span>
    </div>
   </td>
  </tr>
@@ -134,6 +134,8 @@ Collaboration diagram for Valkyrie.EIR.Examples.BatteryIndicator:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a747e857d6148837952fc6f18a6ff35d1" id="r_a747e857d6148837952fc6f18a6ff35d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a747e857d6148837952fc6f18a6ff35d1">DismissLowBatteryNotification</a> ()</td></tr>
+<tr class="separator:a747e857d6148837952fc6f18a6ff35d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f4adc52d0558eeee1a52496a8847f2f" id="r_a7f4adc52d0558eeee1a52496a8847f2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f4adc52d0558eeee1a52496a8847f2f">OnBluetoothEnable</a> ()</td></tr>
 <tr class="memdesc:a7f4adc52d0558eeee1a52496a8847f2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invoked when the bluetooth activity state is set to true, enabling characteristic write.  <br /></td></tr>
 <tr class="separator:a7f4adc52d0558eeee1a52496a8847f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,11 +154,31 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8b9ff5c98a54dc729f822b7c6f061b89" id="r_a8b9ff5c98a54dc729f822b7c6f061b89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b9ff5c98a54dc729f822b7c6f061b89">OnDisconnect</a> ()</td></tr>
 <tr class="memdesc:a8b9ff5c98a54dc729f822b7c6f061b89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invoked when the eir bands are disconnected.  <br /></td></tr>
 <tr class="separator:a8b9ff5c98a54dc729f822b7c6f061b89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bc5599b09d3bb2edd74bc396e3ecb26" id="r_a7bc5599b09d3bb2edd74bc396e3ecb26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bc5599b09d3bb2edd74bc396e3ecb26">OnLowBatteryDetected</a> ()</td></tr>
+<tr class="memdesc:a7bc5599b09d3bb2edd74bc396e3ecb26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invoked when the eir band battery levels drop below 20%.  <br /></td></tr>
+<tr class="separator:a7bc5599b09d3bb2edd74bc396e3ecb26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html">Valkyrie.EIR.Bluetooth.IEirBluetooth</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Manages an output display to visualise the connection and battery state of an <a class="el" href="../../de/dba/namespace_valkyrie_1_1_e_i_r.html">EIR</a> device, dependent on the Communication Manager reading the required characteristic. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a747e857d6148837952fc6f18a6ff35d1" name="a747e857d6148837952fc6f18a6ff35d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a747e857d6148837952fc6f18a6ff35d1">&#9670;&#160;</a></span>DismissLowBatteryNotification()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Valkyrie.EIR.Examples.BatteryIndicator.DismissLowBatteryNotification </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a20f4921bb62fa99c3aa596c900ef374a" name="a20f4921bb62fa99c3aa596c900ef374a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a20f4921bb62fa99c3aa596c900ef374a">&#9670;&#160;</a></span>OnBluetoothDisable()</h2>
 
@@ -217,6 +239,27 @@ Public Member Functions</h2></td></tr>
 <p>Invoked when the eir bands are disconnected. </p>
 
 <p>Implements <a class="el" href="../../dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#a239f60a77fe3ac8f21afa5c2382cb39f">Valkyrie.EIR.Bluetooth.IEirBluetooth</a>.</p>
+
+</div>
+</div>
+<a id="a7bc5599b09d3bb2edd74bc396e3ecb26" name="a7bc5599b09d3bb2edd74bc396e3ecb26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bc5599b09d3bb2edd74bc396e3ecb26">&#9670;&#160;</a></span>OnLowBatteryDetected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Valkyrie.EIR.Examples.BatteryIndicator.OnLowBatteryDetected </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Invoked when the eir band battery levels drop below 20%. </p>
+
+<p>Implements <a class="el" href="../../dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html#ad24d6245106dc9fdab9e8d2b436190c9">Valkyrie.EIR.Bluetooth.IEirBluetooth</a>.</p>
 
 </div>
 </div>

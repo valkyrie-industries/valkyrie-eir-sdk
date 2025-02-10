@@ -21,7 +21,6 @@ var class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager =
     [ "CONST_PULSE_WIDTH", "db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#a5fe7c92e5038a3e7b3d0bbd918517046", null ],
     [ "MIN_FREQUENCY", "db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#a9cc56a55ab4c0b916119508293f2746c", null ],
     [ "MIN_PULSE_WIDTH", "db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#acbd7351abbf93f38cf0ff4c492f9918d", null ],
-    [ "stopAllHapticSignals", "db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#a832db72a7ea5d7e8335abcdcf7a1f10f", null ],
     [ "CALIBRATION_INDEX_LENGTH", "db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#a10e7ef4f5ecef41980686e6a288f2689", null ],
     [ "CalibrationIndex", "db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#a12614c097cfb63ceea25249d4788ec61", null ],
     [ "ConfigSignal", "db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#a47acaca80e5dbf43f1d2a23235de9525", null ],

@@ -1,5 +1,7 @@
 <map id="Valkyrie.EIR.Bluetooth.IEirBluetooth" name="Valkyrie.EIR.Bluetooth.IEirBluetooth">
-<area shape="rect" id="Node000001" title=" " alt="" coords="18,5,195,48"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="131,5,308,48"/>
 <area shape="rect" id="Node000002" href="$d5/dbd/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_battery_indicator.html" title="Manages an output display to visualise the connection and battery state of an EIR device,..." alt="" coords="5,96,208,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,64,109,96,104,96,104,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,60,135,98,131,93,180,55"/>
+<area shape="rect" id="Node000003" href="$d3/da1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_voltage_indicator.html" title="Manages an output display to visualise the voltage output of an EIR device, dependent on the Communic..." alt="" coords="232,96,435,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="259,55,308,93,305,98,256,60"/>
 </map>

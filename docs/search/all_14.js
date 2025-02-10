@@ -20,5 +20,7 @@ var searchData=
   ['vlkbuild_17',['VLKBuild',['../da/d64/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_v_l_k_build.html',1,'Valkyrie::EIR::Utilities']]],
   ['vlkbuild_2ecs_18',['VLKBuild.cs',['../d7/df2/_v_l_k_build_8cs.html',1,'']]],
   ['vlkpostimport_19',['VLKPostImport',['../de/d32/class_valkyrie_1_1_e_i_r_1_1_utilities_1_1_v_l_k_post_import.html',1,'Valkyrie::EIR::Utilities']]],
-  ['vlkpostimport_2ecs_20',['VLKPostImport.cs',['../dd/d21/_v_l_k_post_import_8cs.html',1,'']]]
+  ['vlkpostimport_2ecs_20',['VLKPostImport.cs',['../dd/d21/_v_l_k_post_import_8cs.html',1,'']]],
+  ['voltageindicator_21',['VoltageIndicator',['../d3/da1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_voltage_indicator.html',1,'Valkyrie::EIR::Examples']]],
+  ['voltageindicator_2ecs_22',['VoltageIndicator.cs',['../dd/dfc/_voltage_indicator_8cs.html',1,'']]]
 ];

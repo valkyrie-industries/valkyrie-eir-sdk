@@ -1,6 +1,6 @@
 <map id="Valkyrie.EIR.Examples.FeelButton.PlayFeeling" name="Valkyrie.EIR.Examples.FeelButton.PlayFeeling">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,127,191,169"/>
-<area shape="rect" id="Node000002" href="$d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#a28a551e91976bd26ab52d96c22674ae2" title="Plays the &#39;feeling&#39; which corresponds to the input ID." alt="" coords="239,127,424,169"/>
+<area shape="rect" id="Node000002" href="$d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#a16f366934943020877977d2b1a263e1b" title="Plays the &#39;feeling&#39; which corresponds to the input ID." alt="" coords="239,127,424,169"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,145,223,145,223,151,191,151"/>
 <area shape="rect" id="Node000003" href="$d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html#a95e8979644a9f5d5eaa741264495da97" title="Sets the gain, frequency and pulse width to the input values, and commands the EIR Bluetooth Bridge t..." alt="" coords="480,60,696,103"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="416,123,488,105,489,110,417,129"/>

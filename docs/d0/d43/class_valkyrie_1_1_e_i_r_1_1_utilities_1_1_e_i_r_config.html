@@ -29,7 +29,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Valkyrie EIR SDK<span id="projectnumber">&#160;v1.0.1</span>
+   <div id="projectname">Valkyrie EIR SDK<span id="projectnumber">&#160;v1.0.7</span>
    </div>
   </td>
  </tr>
@@ -162,6 +162,9 @@ Properties</h2></td></tr>
 <tr class="memitem:a1fa3d9c5bd48d087c0398ecb75dc8410" id="r_a1fa3d9c5bd48d087c0398ecb75dc8410"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d92/namespace_valkyrie_1_1_e_i_r_1_1_utilities.html#a4a1349392309c08ca7614d2b60bb7cf5">BluetoothSendFrequency</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fa3d9c5bd48d087c0398ecb75dc8410">BluetoothSendFrequency</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a1fa3d9c5bd48d087c0398ecb75dc8410"><td class="mdescLeft">&#160;</td><td class="mdescRight">The frequency in which EirBluetoothBridge.WriteBytesToDevice is called on a framerate dependent basis. For XR projects, it is recommended to specify BluetoothSendFrequency as EverySecondFrame or EveryThirdFrame.  <br /></td></tr>
 <tr class="separator:a1fa3d9c5bd48d087c0398ecb75dc8410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c717da5d1bdcecd9c6bee98cb39e4e5" id="r_a3c717da5d1bdcecd9c6bee98cb39e4e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d92/namespace_valkyrie_1_1_e_i_r_1_1_utilities.html#aa79e2e5f9f2b1f74ef58ce8ecad0647d">DeploymentType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c717da5d1bdcecd9c6bee98cb39e4e5">DeploymentType</a><code> [get]</code></td></tr>
+<tr class="memdesc:a3c717da5d1bdcecd9c6bee98cb39e4e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switches the deployment type for the project. Important! Injects manifest changes at build time that are specific to XR if XR is selected. Selecting XR for a Mobile Deployment will result in build rejection from Google Play Store. Selecting Mobile for XR Deployment will result in 2d windowed app on XR.  <br /></td></tr>
+<tr class="separator:a3c717da5d1bdcecd9c6bee98cb39e4e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Configuration scriptable object to facilitate quick modification of <a class="el" href="../../de/dba/namespace_valkyrie_1_1_e_i_r.html">EIR</a> configration values. </p>
@@ -235,6 +238,30 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the connection timeout (milleseconds). </p>
+
+</div>
+</div>
+<a id="a3c717da5d1bdcecd9c6bee98cb39e4e5" name="a3c717da5d1bdcecd9c6bee98cb39e4e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c717da5d1bdcecd9c6bee98cb39e4e5">&#9670;&#160;</a></span>DeploymentType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d92/namespace_valkyrie_1_1_e_i_r_1_1_utilities.html#aa79e2e5f9f2b1f74ef58ce8ecad0647d">DeploymentType</a> Valkyrie.EIR.Utilities.EIRConfig.DeploymentType</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Switches the deployment type for the project. Important! Injects manifest changes at build time that are specific to XR if XR is selected. Selecting XR for a Mobile Deployment will result in build rejection from Google Play Store. Selecting Mobile for XR Deployment will result in 2d windowed app on XR. </p>
 
 </div>
 </div>

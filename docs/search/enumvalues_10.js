@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zerotobridge_0',['zeroToBridge',['../d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#a5c9e727dfbe7118131572828bb822c79a609ddf25d0a6d53ec6974dcd1e7a57b5',1,'Valkyrie::EIR::Haptics::HapticPreset']]]
+  ['xr_0',['XR',['../d6/d92/namespace_valkyrie_1_1_e_i_r_1_1_utilities.html#aa79e2e5f9f2b1f74ef58ce8ecad0647da6e029fb0cac7800630850e5f6a2f5567',1,'Valkyrie::EIR::Utilities']]]
 ];

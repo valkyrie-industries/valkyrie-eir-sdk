@@ -32,13 +32,14 @@ var searchData=
   ['min_5fpulse_5fwidth_29',['MIN_PULSE_WIDTH',['../db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#acbd7351abbf93f38cf0ff4c492f9918d',1,'Valkyrie::EIR::Haptics::HapticManager']]],
   ['minextension_30',['minExtension',['../d7/d91/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_kinematic_grab_interactable.html#ada7ccceedef051d915ace66ecbaa9099',1,'Valkyrie.EIR.Interaction.Interactables.KinematicGrabInteractable.minExtension'],['../d2/d3b/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_pull_grab_interactable.html#ad844cbe585b0482f5e7e773d07912d46',1,'Valkyrie.EIR.Interaction.Interactables.PullGrabInteractable.minExtension']]],
   ['minimum_31',['minimum',['../d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#a65baa7fee171e68475638ba8199bb419ae383234c8c5c6cf7eb44a3208e26d50f',1,'Valkyrie.EIR.Haptics.HapticPreset.minimum'],['../d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#a5c9e727dfbe7118131572828bb822c79ae383234c8c5c6cf7eb44a3208e26d50f',1,'Valkyrie.EIR.Haptics.HapticPreset.minimum']]],
-  ['models_2ecs_32',['Models.cs',['../d7/d03/_models_8cs.html',1,'']]],
-  ['modifycalibrationbyindex_33',['ModifyCalibrationByIndex',['../db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#a8c220f75002c930232e0116349d21368',1,'Valkyrie::EIR::Haptics::HapticManager']]],
-  ['moveback_34',['MoveBack',['../d1/db1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_move_back.html',1,'Valkyrie::EIR::Examples']]],
-  ['moveback_2ecs_35',['MoveBack.cs',['../db/daa/_move_back_8cs.html',1,'']]],
-  ['movebacktoinitialposition_36',['MoveBackToInitialPosition',['../d1/db1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_move_back.html#a0470fa780868b9b1b1dfd1207308e817',1,'Valkyrie::EIR::Examples::MoveBack']]],
-  ['movetoscene_37',['MoveToScene',['../d7/d6c/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_utilities_1_1_move_to_scene.html',1,'Valkyrie::EIR::Examples::Utilities']]],
-  ['movetoscene_2ecs_38',['MoveToScene.cs',['../d7/d2d/_move_to_scene_8cs.html',1,'']]],
-  ['muscle_39',['Muscle',['../d9/d2b/struct_valkyrie_1_1_e_i_r_1_1_haptics_1_1_muscle.html',1,'Valkyrie.EIR.Haptics.Muscle'],['../d9/d2b/struct_valkyrie_1_1_e_i_r_1_1_haptics_1_1_muscle.html#a55c92489b159e0b7daf1c8e38e219e10',1,'Valkyrie.EIR.Haptics.Muscle.Muscle(byte _muscleNum, byte _intensity, byte _frequency, byte _pulseWidth)'],['../d9/d2b/struct_valkyrie_1_1_e_i_r_1_1_haptics_1_1_muscle.html#a7e3993644705a61fdd694eb20c3d3787',1,'Valkyrie.EIR.Haptics.Muscle.Muscle(Muscle _muscle)']]],
-  ['musclenum_40',['muscleNum',['../d9/d2b/struct_valkyrie_1_1_e_i_r_1_1_haptics_1_1_muscle.html#a340537070d5031accde3c9c798cc9886',1,'Valkyrie::EIR::Haptics::Muscle']]]
+  ['mobile_32',['Mobile',['../d6/d92/namespace_valkyrie_1_1_e_i_r_1_1_utilities.html#aa79e2e5f9f2b1f74ef58ce8ecad0647da87d17f4624a514e81dc7c8e016a7405c',1,'Valkyrie::EIR::Utilities']]],
+  ['models_2ecs_33',['Models.cs',['../d7/d03/_models_8cs.html',1,'']]],
+  ['modifycalibrationbyindex_34',['ModifyCalibrationByIndex',['../db/de2/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_manager.html#a8c220f75002c930232e0116349d21368',1,'Valkyrie::EIR::Haptics::HapticManager']]],
+  ['moveback_35',['MoveBack',['../d1/db1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_move_back.html',1,'Valkyrie::EIR::Examples']]],
+  ['moveback_2ecs_36',['MoveBack.cs',['../db/daa/_move_back_8cs.html',1,'']]],
+  ['movebacktoinitialposition_37',['MoveBackToInitialPosition',['../d1/db1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_move_back.html#a0470fa780868b9b1b1dfd1207308e817',1,'Valkyrie::EIR::Examples::MoveBack']]],
+  ['movetoscene_38',['MoveToScene',['../d7/d6c/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_utilities_1_1_move_to_scene.html',1,'Valkyrie::EIR::Examples::Utilities']]],
+  ['movetoscene_2ecs_39',['MoveToScene.cs',['../d7/d2d/_move_to_scene_8cs.html',1,'']]],
+  ['muscle_40',['Muscle',['../d9/d2b/struct_valkyrie_1_1_e_i_r_1_1_haptics_1_1_muscle.html',1,'Valkyrie.EIR.Haptics.Muscle'],['../d9/d2b/struct_valkyrie_1_1_e_i_r_1_1_haptics_1_1_muscle.html#a55c92489b159e0b7daf1c8e38e219e10',1,'Valkyrie.EIR.Haptics.Muscle.Muscle(byte _muscleNum, byte _intensity, byte _frequency, byte _pulseWidth)'],['../d9/d2b/struct_valkyrie_1_1_e_i_r_1_1_haptics_1_1_muscle.html#a7e3993644705a61fdd694eb20c3d3787',1,'Valkyrie.EIR.Haptics.Muscle.Muscle(Muscle _muscle)']]],
+  ['musclenum_41',['muscleNum',['../d9/d2b/struct_valkyrie_1_1_e_i_r_1_1_haptics_1_1_muscle.html#a340537070d5031accde3c9c798cc9886',1,'Valkyrie::EIR::Haptics::Muscle']]]
 ];

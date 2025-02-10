@@ -29,7 +29,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Valkyrie EIR SDK<span id="projectnumber">&#160;v1.0.1</span>
+   <div id="projectname">Valkyrie EIR SDK<span id="projectnumber">&#160;v1.0.7</span>
    </div>
   </td>
  </tr>
@@ -109,9 +109,11 @@ Inheritance diagram for Valkyrie.EIR.Bluetooth.IEirBluetooth:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../db/ddb/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth__inherit__graph.png" border="0" usemap="#a_valkyrie_8_e_i_r_8_bluetooth_8_i_eir_bluetooth_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_valkyrie_8_e_i_r_8_bluetooth_8_i_eir_bluetooth_inherit__map" id="a_valkyrie_8_e_i_r_8_bluetooth_8_i_eir_bluetooth_inherit__map">
-<area shape="rect" title=" " alt="" coords="18,5,195,48"/>
+<area shape="rect" title=" " alt="" coords="131,5,308,48"/>
 <area shape="rect" href="../../d5/dbd/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_battery_indicator.html" title="Manages an output display to visualise the connection and battery state of an EIR device,..." alt="" coords="5,96,208,139"/>
-<area shape="poly" title=" " alt="" coords="109,64,109,96,104,96,104,64"/>
+<area shape="poly" title=" " alt="" coords="183,60,135,98,131,93,180,55"/>
+<area shape="rect" href="../../d3/da1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_voltage_indicator.html" title="Manages an output display to visualise the voltage output of an EIR device, dependent on the Communic..." alt="" coords="232,96,435,139"/>
+<area shape="poly" title=" " alt="" coords="259,55,308,93,305,98,256,60"/>
 </map>
 <center><span class="legend">[<a target="top" href="../../graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -135,6 +137,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a239f60a77fe3ac8f21afa5c2382cb39f" id="r_a239f60a77fe3ac8f21afa5c2382cb39f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a239f60a77fe3ac8f21afa5c2382cb39f">OnDisconnect</a> ()</td></tr>
 <tr class="memdesc:a239f60a77fe3ac8f21afa5c2382cb39f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invoked when the eir bands are disconnected.  <br /></td></tr>
 <tr class="separator:a239f60a77fe3ac8f21afa5c2382cb39f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad24d6245106dc9fdab9e8d2b436190c9" id="r_ad24d6245106dc9fdab9e8d2b436190c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad24d6245106dc9fdab9e8d2b436190c9">OnLowBatteryDetected</a> ()</td></tr>
+<tr class="memdesc:ad24d6245106dc9fdab9e8d2b436190c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invoked when the eir band battery levels drop below 20%.  <br /></td></tr>
+<tr class="separator:ad24d6245106dc9fdab9e8d2b436190c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a10c6130739d61d59afdca5d19c80ca5e" name="a10c6130739d61d59afdca5d19c80ca5e"></a>
@@ -154,7 +159,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Invoked when the bluetooth activity state is set to false, disabling characteristic write. </p>
 
-<p>Implemented in <a class="el" href="../../d5/dbd/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_battery_indicator.html#a20f4921bb62fa99c3aa596c900ef374a">Valkyrie.EIR.Examples.BatteryIndicator</a>.</p>
+<p>Implemented in <a class="el" href="../../d5/dbd/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_battery_indicator.html#a20f4921bb62fa99c3aa596c900ef374a">Valkyrie.EIR.Examples.BatteryIndicator</a>, and <a class="el" href="../../d3/da1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_voltage_indicator.html#a7559f2a8b95eba5bee5d99cdd0fcb469">Valkyrie.EIR.Examples.VoltageIndicator</a>.</p>
 
 </div>
 </div>
@@ -175,7 +180,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Invoked when the bluetooth activity state is set to true, enabling characteristic write. </p>
 
-<p>Implemented in <a class="el" href="../../d5/dbd/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_battery_indicator.html#a7f4adc52d0558eeee1a52496a8847f2f">Valkyrie.EIR.Examples.BatteryIndicator</a>.</p>
+<p>Implemented in <a class="el" href="../../d5/dbd/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_battery_indicator.html#a7f4adc52d0558eeee1a52496a8847f2f">Valkyrie.EIR.Examples.BatteryIndicator</a>, and <a class="el" href="../../d3/da1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_voltage_indicator.html#a98822f0ef60940b38e1195b7a566683f">Valkyrie.EIR.Examples.VoltageIndicator</a>.</p>
 
 </div>
 </div>
@@ -196,7 +201,44 @@ Public Member Functions</h2></td></tr>
 
 <p>Invoked when the eir bands are disconnected. </p>
 
-<p>Implemented in <a class="el" href="../../d5/dbd/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_battery_indicator.html#a8b9ff5c98a54dc729f822b7c6f061b89">Valkyrie.EIR.Examples.BatteryIndicator</a>.</p>
+<p>Implemented in <a class="el" href="../../d5/dbd/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_battery_indicator.html#a8b9ff5c98a54dc729f822b7c6f061b89">Valkyrie.EIR.Examples.BatteryIndicator</a>, and <a class="el" href="../../d3/da1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_voltage_indicator.html#a352405b61aad0888737bea40a2ea3c38">Valkyrie.EIR.Examples.VoltageIndicator</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth_a239f60a77fe3ac8f21afa5c2382cb39f_icgraph.png" border="0" usemap="#adc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth_a239f60a77fe3ac8f21afa5c2382cb39f_icgraph" alt=""/></div>
+<map name="adc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth_a239f60a77fe3ac8f21afa5c2382cb39f_icgraph" id="adc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth_a239f60a77fe3ac8f21afa5c2382cb39f_icgraph">
+<area shape="rect" title="Invoked when the eir bands are disconnected." alt="" coords="485,72,662,115"/>
+<area shape="rect" href="../../d6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge.html#af996d717f30ed09ed02ac07a9ea7b74b" title="Terminate active connection." alt="" coords="254,72,437,115"/>
+<area shape="poly" title=" " alt="" coords="469,96,437,96,437,91,469,91"/>
+<area shape="rect" href="../../db/de4/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_menu_example.html#ad74b0804d58bb4d499a778cb71b5cca5" title="Connect or disconnect to a bluetooth device and update the input text object with the connection stat..." alt="" coords="9,5,202,48"/>
+<area shape="poly" title=" " alt="" coords="251,70,184,51,186,46,253,65"/>
+<area shape="rect" href="../../d7/d50/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_simple_connection.html#a371e6842754a1d0e6ca994b14c7d80be" title="Invokes Scan and Connect on the EIR Bluetooth module if true (and not already connected),..." alt="" coords="5,72,206,115"/>
+<area shape="poly" title=" " alt="" coords="238,96,206,96,206,91,238,91"/>
+<area shape="rect" href="../../d8/d90/class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager.html#a7f36da5877ac112f9a7fa4a63b5fca6d" title="Shuts down and cleans up the EIR Manager." alt="" coords="18,139,193,181"/>
+<area shape="poly" title=" " alt="" coords="253,122,186,141,184,135,251,117"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad24d6245106dc9fdab9e8d2b436190c9" name="ad24d6245106dc9fdab9e8d2b436190c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad24d6245106dc9fdab9e8d2b436190c9">&#9670;&#160;</a></span>OnLowBatteryDetected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Valkyrie.EIR.Bluetooth.IEirBluetooth.OnLowBatteryDetected </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Invoked when the eir band battery levels drop below 20%. </p>
+
+<p>Implemented in <a class="el" href="../../d5/dbd/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_battery_indicator.html#a7bc5599b09d3bb2edd74bc396e3ecb26">Valkyrie.EIR.Examples.BatteryIndicator</a>, and <a class="el" href="../../d3/da1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_voltage_indicator.html#a9c9c1cf2f157bc339e1311641c50f3b4">Valkyrie.EIR.Examples.VoltageIndicator</a>.</p>
 
 </div>
 </div>
@@ -223,7 +265,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="../../d5/dbd/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_battery_indicator.html#a865b7f099b5cc6148321f9a509d15c1c">Valkyrie.EIR.Examples.BatteryIndicator</a>.</p>
+<p>Implemented in <a class="el" href="../../d5/dbd/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_battery_indicator.html#a865b7f099b5cc6148321f9a509d15c1c">Valkyrie.EIR.Examples.BatteryIndicator</a>, and <a class="el" href="../../d3/da1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_voltage_indicator.html#ac17d833f9597ac55920c5c93946fe80a">Valkyrie.EIR.Examples.VoltageIndicator</a>.</p>
 
 </div>
 </div>
@@ -244,7 +286,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Invoked when the output voltage value changes. </p>
 
-<p>Implemented in <a class="el" href="../../d5/dbd/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_battery_indicator.html#adfd812754a086dc1e1d1e1048c7f5d66">Valkyrie.EIR.Examples.BatteryIndicator</a>.</p>
+<p>Implemented in <a class="el" href="../../d5/dbd/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_battery_indicator.html#adfd812754a086dc1e1d1e1048c7f5d66">Valkyrie.EIR.Examples.BatteryIndicator</a>, and <a class="el" href="../../d3/da1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_voltage_indicator.html#ab5ea193822391d0ab9917ad9a75d9854">Valkyrie.EIR.Examples.VoltageIndicator</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -275,7 +317,7 @@ Here is the caller graph for this function:</div>
 
 <p>Invoked on characteristic write. </p>
 
-<p>Implemented in <a class="el" href="../../d5/dbd/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_battery_indicator.html#a386109faafe301443d43755b1214959e">Valkyrie.EIR.Examples.BatteryIndicator</a>.</p>
+<p>Implemented in <a class="el" href="../../d5/dbd/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_battery_indicator.html#a386109faafe301443d43755b1214959e">Valkyrie.EIR.Examples.BatteryIndicator</a>, and <a class="el" href="../../d3/da1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_voltage_indicator.html#a67e7e093ff79673b9a0d79b67a4494e7">Valkyrie.EIR.Examples.VoltageIndicator</a>.</p>
 
 </div>
 </div>

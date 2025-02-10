@@ -50,7 +50,7 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", null ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Enumerations", "functions_enum.html", null ],
         [ "Properties", "functions_prop.html", null ],
@@ -66,10 +66,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d4/d3b/struct_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_signal.html#adac2d04933a0c58043ca3b008cd2fb12",
-"d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html#a38ff5f6fbe064d58969df64dc21b83d0",
-"db/d1e/_valkyrie_e_i_r_extension_methods_8cs.html#aab6fe57ed6f76b2294eb9a74e7b9984aadc3ed5f44b4b3074230a9a5b2d0f7ae3",
-"de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7"
+"d4/d2c/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge_1_1_android_plugin_callback.html#a98d0674d54832a5d46bb8a613b034e44",
+"d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#a65baa7fee171e68475638ba8199bb419adce4ac558f1aaa490f95721278582734",
+"d9/da7/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_grab_interactable.html#aad946d6bc2e3e7c3cd58a26ed7f5798b",
+"dd/dbd/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_return_after_grabbing.html#a377f116152ceb9aedc674b9e2486162b"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

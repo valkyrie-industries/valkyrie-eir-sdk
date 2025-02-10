@@ -6,7 +6,7 @@ var searchData=
   ['permissionsmanager_2ecs_3',['PermissionsManager.cs',['../de/de0/_permissions_manager_8cs.html',1,'']]],
   ['piedisplay_4',['PieDisplay',['../d4/dc3/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_pie_display.html',1,'Valkyrie::EIR::Examples']]],
   ['piedisplay_2ecs_5',['PieDisplay.cs',['../df/dbd/_pie_display_8cs.html',1,'']]],
-  ['playfeeling_6',['PlayFeeling',['../d2/dfe/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_button.html#a7eed39537f02a09c1b8560ce71ef6233',1,'Valkyrie.EIR.Examples.FeelButton.PlayFeeling()'],['../d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#a28a551e91976bd26ab52d96c22674ae2',1,'Valkyrie.EIR.Examples.FeelManager.PlayFeeling()']]],
+  ['playfeeling_6',['PlayFeeling',['../d2/dfe/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_button.html#a7eed39537f02a09c1b8560ce71ef6233',1,'Valkyrie.EIR.Examples.FeelButton.PlayFeeling()'],['../d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#a16f366934943020877977d2b1a263e1b',1,'Valkyrie.EIR.Examples.FeelManager.PlayFeeling()']]],
   ['position_7',['position',['../d7/d63/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interacting_body_part.html#a473cb1bc749cbf0edf5afcc41d0d0d56',1,'Valkyrie::EIR::Interaction::InteractingBodyPart']]],
   ['presettype_8',['PresetType',['../d6/dbb/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset.html#a65baa7fee171e68475638ba8199bb419',1,'Valkyrie::EIR::Haptics::HapticPreset']]],
   ['previousstate_9',['PreviousState',['../d6/d10/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_eir_bluetooth_bridge.html#a25870fec8c3e3b00bcec4489ef43fcc7',1,'Valkyrie::EIR::Bluetooth::EirBluetoothBridge']]],

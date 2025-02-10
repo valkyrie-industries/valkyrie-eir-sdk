@@ -5,7 +5,7 @@ var searchData=
   ['leftconnected_2',['LeftConnected',['../de/d08/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_device_vitals.html#a42f55983a399e4b970cf9f10572ef9e9',1,'Valkyrie::EIR::Bluetooth::DeviceVitals']]],
   ['leftfoot_3',['leftFoot',['../de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7aa162787dff1327ae1ee90a43e6e0a2f7',1,'Valkyrie::EIR']]],
   ['lefthand_4',['leftHand',['../de/dba/namespace_valkyrie_1_1_e_i_r.html#a85ac410fdc016fdf7c5ec77ca2446dd7ac38809848b8ff11a735291d013bff7b7',1,'Valkyrie::EIR']]],
-  ['leftpreset_5',['leftPreset',['../db/de6/struct_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_struct.html#a2ad331cb8ef38b8f385ef12323c1f0b0',1,'Valkyrie::EIR::Examples::FeelStruct']]],
+  ['leftpreset_5',['leftPreset',['../d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#aafac978204ed4a4ef5619bdaf1a496c2',1,'Valkyrie.EIR.Examples.FeelManager.leftPreset'],['../db/de6/struct_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_struct.html#a2ad331cb8ef38b8f385ef12323c1f0b0',1,'Valkyrie.EIR.Examples.FeelStruct.leftPreset']]],
   ['license_6',['LICENSE',['../d1/dd7/md__c_1_2_git_2valkyrie-eir-sdk_2_l_i_c_e_n_s_e.html',1,'']]],
   ['license_7',['License',['../d1/dd7/md__c_1_2_git_2valkyrie-eir-sdk_2_l_i_c_e_n_s_e.html#autotoc_md0',1,'']]],
   ['license_20text_8',['Full License Text',['../d1/dd7/md__c_1_2_git_2valkyrie-eir-sdk_2_l_i_c_e_n_s_e.html#autotoc_md6',1,'']]],

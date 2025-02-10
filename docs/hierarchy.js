@@ -20,7 +20,8 @@ var hierarchy =
     [ "Valkyrie.EIR.Haptics.HapticSignal", "d4/d3b/struct_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_signal.html", null ],
     [ "Valkyrie.EIR.Haptics.ICalibrationObject", "dc/d26/interface_valkyrie_1_1_e_i_r_1_1_haptics_1_1_i_calibration_object.html", null ],
     [ "Valkyrie.EIR.Bluetooth.IEirBluetooth", "dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html", [
-      [ "Valkyrie.EIR.Examples.BatteryIndicator", "d5/dbd/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_battery_indicator.html", null ]
+      [ "Valkyrie.EIR.Examples.BatteryIndicator", "d5/dbd/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_battery_indicator.html", null ],
+      [ "Valkyrie.EIR.Examples.VoltageIndicator", "d3/da1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_voltage_indicator.html", null ]
     ] ],
     [ "Valkyrie.EIR.Interaction.InteractionManager", "d2/d52/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interaction_manager.html", null ],
     [ "IPointerDownHandler", null, [
@@ -63,6 +64,7 @@ var hierarchy =
       [ "Valkyrie.EIR.Examples.TeleportManager", "d5/dc7/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_teleport_manager.html", null ],
       [ "Valkyrie.EIR.Examples.Utilities.MoveToScene", "d7/d6c/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_utilities_1_1_move_to_scene.html", null ],
       [ "Valkyrie.EIR.Examples.Utilities.Spin", "d4/dc5/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_utilities_1_1_spin.html", null ],
+      [ "Valkyrie.EIR.Examples.VoltageIndicator", "d3/da1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_voltage_indicator.html", null ],
       [ "Valkyrie.EIR.Haptics.HapticPresetRunner", "df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html", null ],
       [ "Valkyrie.EIR.Interaction.Interactable", "d2/dc4/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactable.html", [
         [ "Valkyrie.EIR.Interaction.Interactables.GrabInteractable", "d9/da7/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_grab_interactable.html", [

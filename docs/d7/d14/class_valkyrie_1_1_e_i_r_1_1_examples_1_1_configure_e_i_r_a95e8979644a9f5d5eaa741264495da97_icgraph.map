@@ -2,9 +2,9 @@
 <area shape="rect" id="Node000001" title="Sets the gain, frequency and pulse width to the input values, and commands the EIR Bluetooth Bridge t..." alt="" coords="487,64,703,107"/>
 <area shape="rect" id="Node000002" href="$d7/dfc/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_haptic_gun.html#a20917c6c79aea41aefa2b355e491617d" title="Activate the gun, and begin firing if on rapid fire, or fire one bullet if not." alt="" coords="5,5,204,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="487,63,439,55,317,41,204,33,204,28,317,36,439,49,488,58"/>
-<area shape="rect" id="Node000003" href="$d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#a28a551e91976bd26ab52d96c22674ae2" title="Plays the &#39;feeling&#39; which corresponds to the input ID." alt="" coords="253,64,438,107"/>
+<area shape="rect" id="Node000003" href="$d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#a16f366934943020877977d2b1a263e1b" title="Plays the &#39;feeling&#39; which corresponds to the input ID." alt="" coords="253,64,438,107"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="471,88,438,88,438,83,471,83"/>
-<area shape="rect" id="Node000005" href="$d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#a6928aebc3e751f9277bdca1882ac2733" title="Stops the active &#39;feeling&#39;." alt="" coords="252,131,439,173"/>
+<area shape="rect" id="Node000005" href="$d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html#ad377bf71b2874dc00cb255c0532ab6c0" title="Stops the active &#39;feeling&#39;." alt="" coords="252,131,439,173"/>
 <area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="499,114,429,133,427,127,498,109"/>
 <area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="239,62,195,51,196,46,241,57"/>
 <area shape="rect" id="Node000004" href="$d2/dfe/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_button.html#a7eed39537f02a09c1b8560ce71ef6233" title=" " alt="" coords="12,72,197,115"/>

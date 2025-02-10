@@ -1,93 +1,96 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html" title=" " alt="" coords="5,5,183,48"/>
-<area shape="rect" id="Node000001" href="$d5/dbd/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_battery_indicator.html" title="Manages an output display to visualise the connection and battery state of an EIR device,..." alt="" coords="249,5,452,48"/>
-<area shape="poly" id="edge5_Node000000_Node000001" title=" " alt="" coords="198,24,249,24,249,29,198,29"/>
-<area shape="rect" id="Node000018" title=" " alt="" coords="21,76,167,103"/>
-<area shape="rect" id="Node000017" href="$db/da2/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_e_m_s_test_button.html" title="Example implementation of quick EMS output from pointer input." alt="" coords="243,72,458,115"/>
-<area shape="poly" id="edge6_Node000018_Node000017" title=" " alt="" coords="182,88,243,89,243,94,182,93"/>
-<area shape="rect" id="Node000019" title=" " alt="" coords="30,127,158,153"/>
-<area shape="poly" id="edge7_Node000019_Node000017" title=" " alt="" coords="173,123,242,110,243,116,174,128"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="38,884,150,911"/>
-<area shape="poly" id="edge12_Node000002_Node000001" title=" " alt="" coords="95,868,114,692,146,435,165,306,186,192,207,106,218,77,229,58,247,43,251,47,233,62,223,79,212,108,191,193,171,307,151,436,120,692,101,869"/>
-<area shape="poly" id="edge23_Node000002_Node000017" title=" " alt="" coords="94,868,103,715,125,492,142,377,165,272,193,185,210,151,229,125,242,113,246,117,233,128,215,154,198,187,170,273,147,378,130,493,108,716,99,869"/>
-<area shape="rect" id="Node000003" href="$da/d1a/class_haptic_example.html" title=" " alt="" coords="295,523,406,549"/>
-<area shape="poly" id="edge8_Node000002_Node000003" title=" " alt="" coords="95,868,106,804,129,720,146,676,168,633,196,593,229,559,260,542,294,534,295,539,262,547,232,563,200,597,173,636,151,678,134,722,111,805,101,869"/>
-<area shape="rect" id="Node000004" href="$da/d48/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_main_thread_dispatcher.html" title="Class to dispatch actions called from threads other than the main thread within the Bluetooth Java pl..." alt="" coords="258,573,443,616"/>
-<area shape="poly" id="edge9_Node000002_Node000004" title=" " alt="" coords="99,868,114,816,139,751,177,684,201,653,229,626,256,610,259,614,232,630,205,656,182,687,144,753,119,818,104,870"/>
-<area shape="rect" id="Node000005" href="$d8/d90/class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager.html" title="Facade class to manage the instantiation and interaction between the three management classes require..." alt="" coords="265,640,436,667"/>
-<area shape="poly" id="edge10_Node000002_Node000005" title=" " alt="" coords="102,868,119,825,146,773,182,721,204,697,229,676,263,660,265,665,232,681,208,701,186,724,150,776,124,827,107,870"/>
-<area shape="rect" id="Node000006" href="$da/d23/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_arrow.html" title="Arrow projectile for EMS Bow example." alt="" coords="253,691,448,717"/>
-<area shape="poly" id="edge11_Node000002_Node000006" title=" " alt="" coords="107,869,127,835,155,797,189,759,229,727,254,715,256,720,232,732,193,763,159,800,131,838,112,871"/>
-<area shape="rect" id="Node000007" href="$d7/da4/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_bow.html" title="Example bow that applies EMS force when drawn." alt="" coords="257,741,444,768"/>
-<area shape="poly" id="edge13_Node000002_Node000007" title=" " alt="" coords="115,870,164,823,195,798,229,778,259,766,261,771,232,782,198,803,167,827,119,874"/>
-<area shape="rect" id="Node000008" href="$db/d4b/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_bullet.html" title="Bullet projectile for HapticGun example." alt="" coords="254,792,447,819"/>
-<area shape="poly" id="edge14_Node000002_Node000008" title=" " alt="" coords="131,874,177,850,230,828,270,817,271,822,232,833,180,855,133,878"/>
-<area shape="rect" id="Node000009" href="$de/d6d/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_calibration_button.html" title="Example calibration button." alt="" coords="239,843,462,885"/>
-<area shape="poly" id="edge15_Node000002_Node000009" title=" " alt="" coords="164,886,239,876,239,881,165,891"/>
-<area shape="rect" id="Node000010" href="$d2/dd0/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_calibration_output.html" title="Output class to interface between the PlayerSettings class and a UX EIR Bands state." alt="" coords="239,909,462,952"/>
-<area shape="poly" id="edge16_Node000002_Node000010" title=" " alt="" coords="165,904,239,914,239,919,164,909"/>
-<area shape="rect" id="Node000011" href="$dc/d46/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_button.html" title="Example of an EIR configuration button for setting Gain, Frequency and Pulse Width." alt="" coords="242,976,458,1019"/>
-<area shape="poly" id="edge17_Node000002_Node000011" title=" " alt="" coords="135,916,232,962,265,973,263,978,230,966,132,921"/>
-<area shape="rect" id="Node000012" href="$d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html" title="Configures EIR with values it&#39;s provided or values you set or to default." alt="" coords="231,1043,470,1069"/>
-<area shape="poly" id="edge18_Node000002_Node000012" title=" " alt="" coords="116,922,165,977,197,1005,232,1028,259,1040,257,1045,229,1033,193,1009,161,980,112,925"/>
-<area shape="rect" id="Node000013" href="$d2/da0/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_debug_output.html" title="Simple output script for calibration and mapped intensity values." alt="" coords="251,1093,450,1136"/>
-<area shape="poly" id="edge19_Node000002_Node000013" title=" " alt="" coords="111,924,130,959,157,1001,191,1044,232,1079,252,1090,250,1095,229,1084,188,1047,153,1005,125,962,106,926"/>
-<area shape="rect" id="Node000014" href="$d6/d4b/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_e_m_s_config_output.html" title="Output class to interface between the HapticManager and the Quick Menu&#39;s EMS state." alt="" coords="237,1160,464,1203"/>
-<area shape="poly" id="edge20_Node000002_Node000014" title=" " alt="" coords="105,925,121,973,147,1033,184,1094,207,1122,232,1146,250,1157,247,1162,229,1150,203,1125,179,1097,142,1036,116,975,100,927"/>
-<area shape="rect" id="Node000015" href="$d9/d99/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_e_m_s_display.html" title="Example visual output for EMS signal levels." alt="" coords="234,1227,467,1253"/>
-<area shape="poly" id="edge21_Node000002_Node000015" title=" " alt="" coords="101,926,113,986,136,1065,153,1105,175,1145,201,1181,232,1213,250,1224,247,1228,229,1217,197,1185,170,1148,148,1108,131,1066,108,988,96,927"/>
-<area shape="rect" id="Node000020" href="$de/de6/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_eir_device_selection.html" title="Example implementation of an EIR Device Selection UX." alt="" coords="262,1277,438,1320"/>
-<area shape="poly" id="edge24_Node000002_Node000020" title=" " alt="" coords="100,926,109,995,131,1086,148,1134,170,1181,198,1225,232,1263,263,1282,260,1287,229,1267,194,1228,166,1184,143,1136,126,1087,104,996,95,927"/>
-<area shape="rect" id="Node000021" href="$d2/dfe/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_button.html" title="Button that communicates with FeelManager to play feelings." alt="" coords="258,1344,443,1387"/>
-<area shape="poly" id="edge25_Node000002_Node000021" title=" " alt="" coords="98,926,103,1006,111,1058,122,1115,139,1173,163,1230,193,1283,232,1330,259,1348,256,1352,229,1334,189,1286,158,1232,134,1175,117,1116,105,1059,98,1006,93,926"/>
-<area shape="rect" id="Node000022" href="$d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html" title="Runs set feels from FeelLibrary as well as configuring EIR to whatever that feel requires." alt="" coords="258,1411,443,1453"/>
-<area shape="poly" id="edge26_Node000002_Node000022" title=" " alt="" coords="102,925,119,1030,147,1172,165,1243,186,1308,208,1361,233,1397,259,1415,256,1419,229,1401,204,1364,181,1310,160,1245,142,1173,113,1031,97,926"/>
-<area shape="rect" id="Node000023" href="$db/de4/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_menu_example.html" title="Example menu implementation for Connection and Calibration." alt="" coords="254,1477,446,1520"/>
-<area shape="poly" id="edge27_Node000002_Node000023" title=" " alt="" coords="101,926,116,1043,143,1204,161,1287,182,1361,206,1422,233,1463,255,1480,252,1484,229,1467,201,1425,177,1363,156,1288,138,1205,110,1043,96,926"/>
-<area shape="rect" id="Node000024" href="$d1/db1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_move_back.html" title="Moves a gameobject back to its start position and orientation." alt="" coords="239,1544,462,1571"/>
-<area shape="poly" id="edge28_Node000002_Node000024" title=" " alt="" coords="100,926,112,1056,137,1238,155,1331,177,1415,203,1484,217,1511,233,1530,247,1541,244,1546,229,1534,213,1513,198,1487,172,1417,150,1332,132,1239,107,1056,95,927"/>
-<area shape="rect" id="Node000025" href="$d6/dcc/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_resistance_band_visuals.html" title="Resistance band visuals. Controls the colour and visuals of the band during interaction." alt="" coords="237,1595,464,1637"/>
-<area shape="poly" id="edge29_Node000002_Node000025" title=" " alt="" coords="100,926,111,1064,135,1261,153,1362,175,1454,202,1530,217,1559,233,1581,246,1592,243,1596,229,1584,212,1562,197,1532,170,1456,148,1363,130,1262,106,1065,94,926"/>
-<area shape="rect" id="Node000026" href="$d7/d50/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_simple_connection.html" title="Connects to the Valkyrie EIR in the background. Intended to be placed on a button with a text child...." alt="" coords="250,1661,450,1704"/>
-<area shape="poly" id="edge30_Node000002_Node000026" title=" " alt="" coords="99,926,109,1076,131,1293,149,1405,171,1507,199,1591,215,1623,233,1647,251,1662,248,1666,229,1651,211,1626,194,1593,166,1508,143,1406,126,1294,103,1076,94,926"/>
-<area shape="rect" id="Node000027" href="$d4/d69/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_target.html" title="Example target object which generates a haptic force when struck." alt="" coords="252,1728,448,1755"/>
-<area shape="poly" id="edge31_Node000002_Node000027" title=" " alt="" coords="99,926,105,1089,125,1326,142,1449,166,1561,195,1653,213,1688,233,1714,253,1729,250,1733,229,1718,209,1691,191,1655,160,1562,137,1450,120,1327,100,1089,93,926"/>
-<area shape="rect" id="Node000029" href="$d5/dc7/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_teleport_manager.html" title="Process teleportation around the Valkyrie EIR Example Room. Also enables/disables the Haptic preset b..." alt="" coords="247,1779,454,1821"/>
-<area shape="poly" id="edge33_Node000002_Node000029" title=" " alt="" coords="98,926,105,1097,112,1218,124,1349,141,1480,164,1599,195,1698,213,1736,233,1765,248,1778,245,1782,229,1768,208,1739,190,1700,159,1601,136,1480,119,1349,107,1218,99,1097,93,926"/>
-<area shape="rect" id="Node000030" href="$d7/d6c/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_utilities_1_1_move_to_scene.html" title="Quick scene loader." alt="" coords="246,139,454,181"/>
-<area shape="poly" id="edge34_Node000002_Node000030" title=" " alt="" coords="94,869,105,727,129,524,147,420,169,324,196,246,212,215,229,192,244,179,248,183,233,195,216,218,201,248,174,326,152,421,134,525,110,728,100,869"/>
-<area shape="rect" id="Node000031" href="$d4/dc5/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_utilities_1_1_spin.html" title="Rotates a gameobject over time." alt="" coords="233,205,468,232"/>
-<area shape="poly" id="edge35_Node000002_Node000031" title=" " alt="" coords="95,868,106,735,131,547,148,451,170,363,197,291,212,263,229,242,244,230,247,235,233,246,217,266,202,293,175,365,154,452,136,548,111,736,100,869"/>
-<area shape="rect" id="Node000032" href="$df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html" title="Runs the provided HapticPreset in real time. Use by calling CreateHapticPresetRunner from the Haptics..." alt="" coords="258,256,443,299"/>
-<area shape="poly" id="edge36_Node000002_Node000032" title=" " alt="" coords="95,869,110,748,136,581,154,495,176,417,200,353,214,328,229,309,256,290,259,294,233,313,219,331,205,355,181,419,159,496,141,582,115,749,101,869"/>
-<area shape="rect" id="Node000033" href="$d2/dc4/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactable.html" title="Valkyrie Interactable: interacts with the body part and calculates the intensity of interaction...." alt="" coords="269,323,432,365"/>
-<area shape="poly" id="edge37_Node000002_Node000033" title=" " alt="" coords="96,869,113,761,141,613,159,538,180,470,203,414,229,376,247,362,267,352,269,357,249,366,233,379,208,416,185,472,164,540,146,614,118,762,102,870"/>
-<area shape="rect" id="Node000044" href="$d7/d63/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interacting_body_part.html" title="Body part for physical interaction with objects. Associated with the tracked device on the same gameo..." alt="" coords="269,389,432,432"/>
-<area shape="poly" id="edge48_Node000002_Node000044" title=" " alt="" coords="92,868,97,785,103,730,115,671,132,609,156,549,188,492,229,442,247,429,267,419,269,424,249,433,233,446,192,495,161,551,137,611,120,672,109,731,102,786,98,869"/>
-<area shape="rect" id="Node000045" href="$dd/dbd/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_return_after_grabbing.html" title="Returns a grab interactable back to its home location." alt="" coords="269,456,432,499"/>
-<area shape="poly" id="edge49_Node000002_Node000045" title=" " alt="" coords="94,868,102,796,123,699,141,648,163,597,193,550,229,509,247,496,267,486,269,491,250,500,232,513,197,553,168,600,146,650,128,701,108,797,99,869"/>
-<area shape="rect" id="Node000016" href="$d4/dc3/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_pie_display.html" title="Overrides EMSDisplay example and visualises as a pie." alt="" coords="534,1219,713,1261"/>
-<area shape="poly" id="edge22_Node000015_Node000016" title=" " alt="" coords="483,1237,534,1237,534,1243,483,1243"/>
-<area shape="rect" id="Node000028" href="$d8/df4/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_breaking_target.html" title="Example breakable target object which generates a haptic force when destroyed." alt="" coords="518,1720,729,1763"/>
-<area shape="poly" id="edge32_Node000027_Node000028" title=" " alt="" coords="464,1739,518,1739,518,1744,464,1744"/>
-<area shape="rect" id="Node000034" href="$d9/da7/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_grab_interactable.html" title="Checks if it is grabbed by the hand (the &quot;currently interacting body part&quot;)" alt="" coords="526,252,722,295"/>
-<area shape="poly" id="edge38_Node000033_Node000034" title=" " alt="" coords="447,316,537,293,539,298,448,322"/>
-<area shape="rect" id="Node000041" href="$d4/de0/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_touch_interactable.html" title="Checks if it is touched by the bodypart (the &quot;currently interacting body part&quot;) and sends TouchIntera..." alt="" coords="522,393,725,436"/>
-<area shape="poly" id="edge45_Node000033_Node000041" title=" " alt="" coords="448,366,539,390,537,395,447,372"/>
-<area shape="rect" id="Node000035" href="$d6/d75/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_climb_grab_interactable.html" title="Checks if it is grabbed by the hand (the &quot;currently interacting body part&quot;)" alt="" coords="789,252,1020,295"/>
-<area shape="poly" id="edge39_Node000034_Node000035" title=" " alt="" coords="738,271,789,271,789,276,738,276"/>
-<area shape="rect" id="Node000036" href="$d1/d7e/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_grab_impact_interactable.html" title="Extends GrabInteractable, listening for collisions whilst grabbing." alt="" coords="786,319,1023,361"/>
-<area shape="poly" id="edge40_Node000034_Node000036" title=" " alt="" coords="732,296,812,315,811,321,731,301"/>
-<area shape="rect" id="Node000037" href="$d7/d91/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_kinematic_grab_interactable.html" title="Valkyrie Gravity Grab Interactable: checks the object&#39;s mass and acceleration. Every frame it sends t..." alt="" coords="777,119,1032,161"/>
-<area shape="poly" id="edge41_Node000034_Node000037" title=" " alt="" coords="662,240,715,204,776,171,806,159,808,164,778,176,718,209,665,245"/>
-<area shape="rect" id="Node000039" href="$d2/d3b/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_pull_grab_interactable.html" title="Resistance Grab Interactable: checks how much the resistance band is stretched and with how much forc..." alt="" coords="795,185,1014,228"/>
-<area shape="poly" id="edge43_Node000034_Node000039" title=" " alt="" coords="731,245,811,226,812,231,732,250"/>
-<area shape="rect" id="Node000038" href="$d7/dfc/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_haptic_gun.html" title="Example gun that applies EMS force when fired." alt="" coords="1080,127,1302,153"/>
-<area shape="poly" id="edge42_Node000037_Node000038" title=" " alt="" coords="1047,137,1079,137,1079,143,1047,143"/>
-<area shape="rect" id="Node000040" href="$d4/d1b/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_calibration_pull_grab_interactable.html" title="Calibration Resistance Grab Interactable: checks how much it is stretched and with which force...." alt="" coords="1085,177,1297,236"/>
-<area shape="poly" id="edge44_Node000039_Node000040" title=" " alt="" coords="1030,204,1084,204,1084,209,1030,209"/>
-<area shape="rect" id="Node000042" href="$d7/de1/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_haptic_preset_touch_interactable.html" title="TouchInteractable that sends haptic preset at the touch of a bodypart." alt="" coords="799,385,1010,444"/>
-<area shape="poly" id="edge46_Node000041_Node000042" title=" " alt="" coords="741,412,798,412,798,417,741,417"/>
-<area shape="rect" id="Node000043" href="$df/d22/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_hit_interactable.html" title="Checks if it is hit by the hand and sends short impulse of various envelopes to the Interaction Manag..." alt="" coords="812,468,997,511"/>
-<area shape="poly" id="edge47_Node000041_Node000043" title=" " alt="" coords="721,438,778,453,821,465,819,470,777,459,719,443"/>
+<area shape="rect" id="Node000000" href="$dc/d21/interface_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_i_eir_bluetooth.html" title=" " alt="" coords="5,49,183,92"/>
+<area shape="rect" id="Node000001" href="$d5/dbd/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_battery_indicator.html" title="Manages an output display to visualise the connection and battery state of an EIR device,..." alt="" coords="249,72,452,115"/>
+<area shape="poly" id="edge5_Node000000_Node000001" title=" " alt="" coords="198,77,249,82,248,87,198,83"/>
+<area shape="rect" id="Node000032" href="$d3/da1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_voltage_indicator.html" title="Manages an output display to visualise the voltage output of an EIR device, dependent on the Communic..." alt="" coords="249,5,452,48"/>
+<area shape="poly" id="edge6_Node000000_Node000032" title=" " alt="" coords="198,50,248,42,249,47,198,55"/>
+<area shape="rect" id="Node000018" title=" " alt="" coords="21,120,167,147"/>
+<area shape="rect" id="Node000017" href="$db/da2/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_e_m_s_test_button.html" title="Example implementation of quick EMS output from pointer input." alt="" coords="243,139,458,181"/>
+<area shape="poly" id="edge7_Node000018_Node000017" title=" " alt="" coords="182,140,243,146,243,152,181,145"/>
+<area shape="rect" id="Node000019" title=" " alt="" coords="30,171,158,197"/>
+<area shape="poly" id="edge8_Node000019_Node000017" title=" " alt="" coords="173,174,242,167,243,173,174,179"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="38,941,150,968"/>
+<area shape="poly" id="edge13_Node000002_Node000001" title=" " alt="" coords="93,925,101,762,121,522,139,398,162,284,191,190,209,153,229,125,247,110,251,114,233,128,214,156,196,192,167,285,144,399,127,522,106,762,99,926"/>
+<area shape="poly" id="edge37_Node000002_Node000032" title=" " alt="" coords="95,926,113,738,144,463,163,325,184,202,206,110,217,78,229,58,247,43,250,48,233,62,222,80,211,111,189,204,169,325,150,464,118,739,100,926"/>
+<area shape="poly" id="edge24_Node000002_Node000017" title=" " alt="" coords="94,925,103,773,125,554,143,440,166,336,194,250,210,217,229,192,242,180,246,184,233,195,215,220,199,252,171,338,148,441,131,554,108,774,99,926"/>
+<area shape="rect" id="Node000003" href="$da/d1a/class_haptic_example.html" title=" " alt="" coords="295,773,406,800"/>
+<area shape="poly" id="edge9_Node000002_Node000003" title=" " alt="" coords="111,926,159,867,192,836,229,810,261,796,294,789,295,794,263,801,232,814,196,840,163,870,115,930"/>
+<area shape="rect" id="Node000004" href="$da/d48/class_valkyrie_1_1_e_i_r_1_1_bluetooth_1_1_main_thread_dispatcher.html" title="Class to dispatch actions called from threads other than the main thread within the Bluetooth Java pl..." alt="" coords="258,824,443,867"/>
+<area shape="poly" id="edge10_Node000002_Node000004" title=" " alt="" coords="128,931,175,903,230,876,261,865,263,870,232,881,177,908,130,935"/>
+<area shape="rect" id="Node000005" href="$d8/d90/class_valkyrie_1_1_e_i_r_1_1_e_i_r_manager.html" title="Facade class to manage the instantiation and interaction between the three management classes require..." alt="" coords="265,891,436,917"/>
+<area shape="poly" id="edge11_Node000002_Node000005" title=" " alt="" coords="164,938,279,915,280,921,165,943"/>
+<area shape="rect" id="Node000006" href="$da/d23/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_arrow.html" title="Arrow projectile for EMS Bow example." alt="" coords="253,941,448,968"/>
+<area shape="poly" id="edge12_Node000002_Node000006" title=" " alt="" coords="165,952,253,952,253,957,165,957"/>
+<area shape="rect" id="Node000007" href="$d7/da4/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_bow.html" title="Example bow that applies EMS force when drawn." alt="" coords="257,992,444,1019"/>
+<area shape="poly" id="edge14_Node000002_Node000007" title=" " alt="" coords="165,966,280,989,279,994,164,971"/>
+<area shape="rect" id="Node000008" href="$db/d4b/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_bullet.html" title="Bullet projectile for HapticGun example." alt="" coords="254,1043,447,1069"/>
+<area shape="poly" id="edge15_Node000002_Node000008" title=" " alt="" coords="130,975,177,1003,232,1028,269,1039,267,1045,230,1033,174,1007,127,979"/>
+<area shape="rect" id="Node000009" href="$de/d6d/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_calibration_button.html" title="Example calibration button." alt="" coords="239,1093,462,1136"/>
+<area shape="poly" id="edge16_Node000002_Node000009" title=" " alt="" coords="117,978,166,1029,198,1056,232,1079,256,1090,254,1095,229,1084,195,1060,163,1033,114,982"/>
+<area shape="rect" id="Node000010" href="$d2/dd0/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_calibration_output.html" title="Output class to interface between the PlayerSettings class and a UX EIR Bands state." alt="" coords="239,1160,462,1203"/>
+<area shape="poly" id="edge17_Node000002_Node000010" title=" " alt="" coords="109,981,128,1018,155,1063,190,1108,232,1146,252,1157,249,1162,229,1150,186,1111,151,1066,124,1021,105,983"/>
+<area shape="rect" id="Node000011" href="$dc/d46/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_button.html" title="Example of an EIR configuration button for setting Gain, Frequency and Pulse Width." alt="" coords="242,1227,458,1269"/>
+<area shape="poly" id="edge18_Node000002_Node000011" title=" " alt="" coords="105,982,120,1032,146,1095,183,1158,206,1187,232,1213,250,1224,247,1229,229,1217,202,1191,178,1161,141,1097,115,1034,100,984"/>
+<area shape="rect" id="Node000012" href="$d7/d14/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_configure_e_i_r.html" title="Configures EIR with values it&#39;s provided or values you set or to default." alt="" coords="231,1293,470,1320"/>
+<area shape="poly" id="edge19_Node000002_Node000012" title=" " alt="" coords="101,983,112,1045,135,1126,152,1168,174,1209,200,1247,232,1279,250,1291,247,1295,229,1283,196,1250,169,1212,147,1171,130,1128,107,1046,96,984"/>
+<area shape="rect" id="Node000013" href="$d2/da0/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_debug_output.html" title="Simple output script for calibration and mapped intensity values." alt="" coords="251,1344,450,1387"/>
+<area shape="poly" id="edge20_Node000002_Node000013" title=" " alt="" coords="100,983,108,1053,130,1147,147,1197,169,1245,198,1291,232,1330,252,1344,249,1348,229,1334,193,1294,164,1248,142,1199,124,1148,103,1054,94,984"/>
+<area shape="rect" id="Node000014" href="$d6/d4b/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_e_m_s_config_output.html" title="Output class to interface between the HapticManager and the Quick Menu&#39;s EMS state." alt="" coords="237,1411,464,1453"/>
+<area shape="poly" id="edge21_Node000002_Node000014" title=" " alt="" coords="98,983,103,1065,110,1118,121,1176,138,1236,162,1294,193,1349,233,1397,247,1408,244,1412,229,1401,188,1352,157,1297,133,1237,116,1177,104,1119,97,1065,93,984"/>
+<area shape="rect" id="Node000015" href="$d9/d99/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_e_m_s_display.html" title="Example visual output for EMS signal levels." alt="" coords="234,1477,467,1504"/>
+<area shape="poly" id="edge22_Node000002_Node000015" title=" " alt="" coords="102,983,118,1090,146,1235,164,1308,184,1374,207,1428,233,1463,248,1475,245,1479,229,1467,203,1430,179,1376,158,1310,140,1236,112,1091,96,984"/>
+<area shape="rect" id="Node000020" href="$de/de6/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_eir_device_selection.html" title="Example implementation of an EIR Device Selection UX." alt="" coords="262,1528,438,1571"/>
+<area shape="poly" id="edge25_Node000002_Node000020" title=" " alt="" coords="101,983,116,1098,143,1258,161,1339,182,1413,206,1474,233,1514,246,1525,263,1534,260,1539,244,1530,229,1518,201,1476,177,1415,156,1341,138,1259,111,1099,96,983"/>
+<area shape="rect" id="Node000021" href="$d2/dfe/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_button.html" title="Button that communicates with FeelManager to play feelings." alt="" coords="258,1595,443,1637"/>
+<area shape="poly" id="edge26_Node000002_Node000021" title=" " alt="" coords="100,983,113,1111,139,1291,157,1383,178,1466,204,1535,218,1561,233,1581,259,1599,256,1604,229,1585,213,1564,199,1537,173,1468,152,1384,134,1292,108,1112,95,984"/>
+<area shape="rect" id="Node000022" href="$d0/d4f/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_feel_manager.html" title="Runs set feels from FeelLibrary as well as configuring EIR to whatever that feel requires." alt="" coords="258,1661,443,1704"/>
+<area shape="poly" id="edge27_Node000002_Node000022" title=" " alt="" coords="100,983,111,1123,135,1323,152,1425,174,1519,201,1596,216,1625,233,1647,259,1666,256,1670,229,1651,212,1628,196,1598,169,1520,147,1426,129,1324,105,1124,94,984"/>
+<area shape="rect" id="Node000023" href="$db/de4/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_menu_example.html" title="Example menu implementation for Connection and Calibration." alt="" coords="254,1728,446,1771"/>
+<area shape="poly" id="edge28_Node000002_Node000023" title=" " alt="" coords="99,984,108,1135,131,1355,148,1468,171,1572,199,1657,215,1690,233,1714,256,1731,252,1736,229,1718,210,1692,194,1659,166,1573,143,1469,125,1356,103,1136,94,984"/>
+<area shape="rect" id="Node000024" href="$d1/db1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_move_back.html" title="Moves a gameobject back to its start position and orientation." alt="" coords="239,1795,462,1821"/>
+<area shape="poly" id="edge29_Node000002_Node000024" title=" " alt="" coords="99,983,105,1147,113,1263,125,1388,142,1512,165,1626,195,1719,213,1754,233,1781,247,1792,244,1796,229,1785,208,1757,190,1721,160,1627,137,1513,119,1389,107,1264,100,1148,93,984"/>
+<area shape="rect" id="Node000025" href="$d6/dcc/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_resistance_band_visuals.html" title="Resistance band visuals. Controls the colour and visuals of the band during interaction." alt="" coords="237,1845,464,1888"/>
+<area shape="poly" id="edge30_Node000002_Node000025" title=" " alt="" coords="98,983,104,1155,112,1278,123,1410,141,1543,164,1664,194,1764,212,1802,233,1832,245,1843,242,1847,229,1835,208,1805,189,1766,159,1665,135,1544,118,1411,106,1278,99,1156,93,983"/>
+<area shape="rect" id="Node000026" href="$d7/d50/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_simple_connection.html" title="Connects to the Valkyrie EIR in the background. Intended to be placed on a button with a text child...." alt="" coords="250,205,450,248"/>
+<area shape="poly" id="edge31_Node000002_Node000026" title=" " alt="" coords="94,926,105,786,129,586,147,483,169,389,196,311,212,281,229,258,248,243,251,247,233,262,216,284,201,314,174,390,152,484,135,586,111,786,100,926"/>
+<area shape="rect" id="Node000027" href="$d4/d69/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_target.html" title="Example target object which generates a haptic force when struck." alt="" coords="252,272,448,299"/>
+<area shape="poly" id="edge32_Node000002_Node000027" title=" " alt="" coords="95,925,107,794,131,609,149,514,171,428,197,357,212,330,229,309,250,294,253,298,232,313,217,332,202,359,176,429,154,515,136,609,112,794,100,926"/>
+<area shape="rect" id="Node000029" href="$d5/dc7/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_teleport_manager.html" title="Process teleportation around the Valkyrie EIR Example Room. Also enables/disables the Haptic preset b..." alt="" coords="247,323,454,365"/>
+<area shape="poly" id="edge34_Node000002_Node000029" title=" " alt="" coords="96,926,110,807,137,642,155,558,176,482,201,419,229,376,245,362,248,367,233,379,206,421,181,483,160,560,142,643,115,808,101,926"/>
+<area shape="rect" id="Node000030" href="$d7/d6c/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_utilities_1_1_move_to_scene.html" title="Quick scene loader." alt="" coords="246,389,454,432"/>
+<area shape="poly" id="edge35_Node000002_Node000030" title=" " alt="" coords="97,925,113,819,141,674,160,601,180,534,203,480,229,442,244,430,247,434,233,446,208,482,185,536,165,602,147,675,118,820,102,926"/>
+<area shape="rect" id="Node000031" href="$d4/dc5/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_utilities_1_1_spin.html" title="Rotates a gameobject over time." alt="" coords="233,456,468,483"/>
+<area shape="poly" id="edge36_Node000002_Node000031" title=" " alt="" coords="92,926,95,841,101,785,112,724,129,661,153,599,186,542,229,493,246,481,249,485,232,497,190,545,158,602,134,663,117,725,106,786,100,841,97,926"/>
+<area shape="rect" id="Node000033" href="$df/d95/class_valkyrie_1_1_e_i_r_1_1_haptics_1_1_haptic_preset_runner.html" title="Runs the provided HapticPreset in real time. Use by calling CreateHapticPresetRunner from the Haptics..." alt="" coords="258,507,443,549"/>
+<area shape="poly" id="edge38_Node000002_Node000033" title=" " alt="" coords="94,925,102,852,122,754,140,701,163,650,192,602,229,559,256,542,259,546,232,563,196,605,167,652,145,703,128,755,107,853,99,926"/>
+<area shape="rect" id="Node000034" href="$d2/dc4/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactable.html" title="Valkyrie Interactable: interacts with the body part and calculates the intensity of interaction...." alt="" coords="269,573,432,616"/>
+<area shape="poly" id="edge39_Node000002_Node000034" title=" " alt="" coords="96,925,108,863,131,782,149,740,171,698,197,660,229,626,247,613,267,604,269,609,250,618,232,630,201,663,175,701,154,742,136,784,113,864,101,926"/>
+<area shape="rect" id="Node000045" href="$d7/d63/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interacting_body_part.html" title="Body part for physical interaction with objects. Associated with the tracked device on the same gameo..." alt="" coords="269,640,432,683"/>
+<area shape="poly" id="edge50_Node000002_Node000045" title=" " alt="" coords="100,925,115,875,141,812,178,748,202,718,229,693,267,672,270,677,232,697,206,722,183,751,146,815,120,877,105,927"/>
+<area shape="rect" id="Node000046" href="$dd/dbd/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_return_after_grabbing.html" title="Returns a grab interactable back to its home location." alt="" coords="269,707,432,749"/>
+<area shape="poly" id="edge51_Node000002_Node000046" title=" " alt="" coords="105,926,124,889,151,843,186,798,229,759,267,740,270,745,232,764,190,802,155,846,128,891,109,929"/>
+<area shape="rect" id="Node000016" href="$d4/dc3/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_pie_display.html" title="Overrides EMSDisplay example and visualises as a pie." alt="" coords="534,1469,713,1512"/>
+<area shape="poly" id="edge23_Node000015_Node000016" title=" " alt="" coords="483,1488,534,1488,534,1493,483,1493"/>
+<area shape="rect" id="Node000028" href="$d8/df4/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_breaking_target.html" title="Example breakable target object which generates a haptic force when destroyed." alt="" coords="518,264,729,307"/>
+<area shape="poly" id="edge33_Node000027_Node000028" title=" " alt="" coords="464,283,518,283,518,288,464,288"/>
+<area shape="rect" id="Node000035" href="$d9/da7/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_grab_interactable.html" title="Checks if it is grabbed by the hand (the &quot;currently interacting body part&quot;)" alt="" coords="526,640,722,683"/>
+<area shape="poly" id="edge40_Node000034_Node000035" title=" " alt="" coords="448,616,534,637,533,642,447,621"/>
+<area shape="rect" id="Node000042" href="$d4/de0/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_touch_interactable.html" title="Checks if it is touched by the bodypart (the &quot;currently interacting body part&quot;) and sends TouchIntera..." alt="" coords="522,507,725,549"/>
+<area shape="poly" id="edge47_Node000034_Node000042" title=" " alt="" coords="447,569,533,547,534,552,448,574"/>
+<area shape="rect" id="Node000036" href="$d6/d75/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_climb_grab_interactable.html" title="Checks if it is grabbed by the hand (the &quot;currently interacting body part&quot;)" alt="" coords="789,573,1020,616"/>
+<area shape="poly" id="edge41_Node000035_Node000036" title=" " alt="" coords="731,633,811,614,812,619,732,638"/>
+<area shape="rect" id="Node000037" href="$d1/d7e/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_grab_impact_interactable.html" title="Extends GrabInteractable, listening for collisions whilst grabbing." alt="" coords="786,640,1023,683"/>
+<area shape="poly" id="edge42_Node000035_Node000037" title=" " alt="" coords="737,659,786,659,786,664,737,664"/>
+<area shape="rect" id="Node000038" href="$d7/d91/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_kinematic_grab_interactable.html" title="Valkyrie Gravity Grab Interactable: checks the object&#39;s mass and acceleration. Every frame it sends t..." alt="" coords="777,707,1032,749"/>
+<area shape="poly" id="edge43_Node000035_Node000038" title=" " alt="" coords="732,684,812,703,811,709,731,689"/>
+<area shape="rect" id="Node000040" href="$d2/d3b/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_pull_grab_interactable.html" title="Resistance Grab Interactable: checks how much the resistance band is stretched and with how much forc..." alt="" coords="795,773,1014,816"/>
+<area shape="poly" id="edge45_Node000035_Node000040" title=" " alt="" coords="665,690,718,726,778,759,808,770,806,775,776,764,715,730,662,694"/>
+<area shape="rect" id="Node000039" href="$d7/dfc/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_haptic_gun.html" title="Example gun that applies EMS force when fired." alt="" coords="1080,715,1302,741"/>
+<area shape="poly" id="edge44_Node000038_Node000039" title=" " alt="" coords="1047,725,1079,725,1079,731,1047,731"/>
+<area shape="rect" id="Node000041" href="$d4/d1b/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_calibration_pull_grab_interactable.html" title="Calibration Resistance Grab Interactable: checks how much it is stretched and with which force...." alt="" coords="1085,765,1297,824"/>
+<area shape="poly" id="edge46_Node000040_Node000041" title=" " alt="" coords="1030,792,1084,792,1084,797,1030,797"/>
+<area shape="rect" id="Node000043" href="$d7/de1/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_haptic_preset_touch_interactable.html" title="TouchInteractable that sends haptic preset at the touch of a bodypart." alt="" coords="799,424,1010,483"/>
+<area shape="poly" id="edge48_Node000042_Node000043" title=" " alt="" coords="721,499,798,479,799,484,722,505"/>
+<area shape="rect" id="Node000044" href="$df/d22/class_valkyrie_1_1_e_i_r_1_1_interaction_1_1_interactables_1_1_hit_interactable.html" title="Checks if it is hit by the hand and sends short impulse of various envelopes to the Interaction Manag..." alt="" coords="812,507,997,549"/>
+<area shape="poly" id="edge49_Node000042_Node000044" title=" " alt="" coords="741,525,811,525,811,531,741,531"/>
 </map>

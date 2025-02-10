@@ -26,5 +26,6 @@ var namespace_valkyrie_1_1_e_i_r_1_1_examples =
     [ "ResistanceBandVisuals", "d6/dcc/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_resistance_band_visuals.html", "d6/dcc/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_resistance_band_visuals" ],
     [ "SimpleConnection", "d7/d50/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_simple_connection.html", "d7/d50/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_simple_connection" ],
     [ "Target", "d4/d69/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_target.html", "d4/d69/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_target" ],
-    [ "TeleportManager", "d5/dc7/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_teleport_manager.html", "d5/dc7/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_teleport_manager" ]
+    [ "TeleportManager", "d5/dc7/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_teleport_manager.html", "d5/dc7/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_teleport_manager" ],
+    [ "VoltageIndicator", "d3/da1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_voltage_indicator.html", "d3/da1/class_valkyrie_1_1_e_i_r_1_1_examples_1_1_voltage_indicator" ]
 ];
