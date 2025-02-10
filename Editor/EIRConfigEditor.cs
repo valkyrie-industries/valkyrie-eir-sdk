@@ -44,6 +44,7 @@ namespace Valkyrie.EIR.Utilities {
         private SerializedProperty enableBTEirBluetoothBridge;
         private SerializedProperty enableInteractionManager;
         private SerializedProperty bluetoothSendFrequency;
+        private SerializedProperty deploymentType;
         private SerializedProperty outputHapticDebug;
         private SerializedProperty ignoreCachedDevice;
         private SerializedProperty vitalsReadFrequency;
@@ -63,6 +64,7 @@ namespace Valkyrie.EIR.Utilities {
             enableBTEirBluetoothBridge = serializedObject.FindProperty("enableBTEirBluetoothBridge");
             enableInteractionManager = serializedObject.FindProperty("enableInteractionManager");
             bluetoothSendFrequency = serializedObject.FindProperty("bluetoothSendFrequency");
+            deploymentType = serializedObject.FindProperty("deploymentType");
             outputHapticDebug = serializedObject.FindProperty("outputHapticDebug");
             ignoreCachedDevice = serializedObject.FindProperty("ignoreCachedDevice");
             vitalsReadFrequency = serializedObject.FindProperty("vitalsReadInterval");
@@ -82,6 +84,9 @@ namespace Valkyrie.EIR.Utilities {
             EditorGUILayout.PropertyField(enableHapticsManager, new GUIContent("Enable Haptics Manager"));
             EditorGUILayout.PropertyField(enableBTEirBluetoothBridge, new GUIContent("Enable BT Communication Manager"));
             EditorGUILayout.PropertyField(enableInteractionManager, new GUIContent("Enable Interaction Manager"));
+            EditorGUILayout.Space(10);
+            EditorGUILayout.LabelField("Build Targetting", EditorStyles.boldLabel)
+            EditorGUILayout.PropertyField(deploymentType, new GUIContent("Deployment Type"));
             EditorGUILayout.Space(10);
             EditorGUILayout.LabelField("EIR Device Properties", EditorStyles.boldLabel);
             if (!enableBTEirBluetoothBridge.boolValue) EditorGUILayout.LabelField("EIR Bluetooth is not enabled.", EditorStyles.miniLabel);

@@ -3,7 +3,13 @@ using UnityEngine;
 
 namespace Valkyrie.EIR.Utilities {
 
+    #region Enumerations
+
+    public enum DeploymentType { XR, Mobile }
+
     public enum BluetoothSendFrequency { EveryFrame, EverySecondFrame, EveryThirdFrame }
+
+    #endregion
 
     /// <summary>
     /// Configuration scriptable object to facilitate quick modification of EIR configration values.
@@ -75,6 +81,13 @@ namespace Valkyrie.EIR.Utilities {
         /// For XR projects, it is recommended to specify BluetoothSendFrequency as EverySecondFrame or EveryThirdFrame.
         /// </summary>
         public BluetoothSendFrequency BluetoothSendFrequency { get { return bluetoothSendFrequency; } set { bluetoothSendFrequency = value; } }
+        /// <summary>
+        /// Switches the deployment type for the project.
+        /// Important! Injects manifest changes at build time that are specific to XR if XR is selected.
+        /// Selecting XR for a Mobile Deployment will result in build rejection from Google Play Store.
+        /// Selecting Mobile for XR Deployment will result in 2d windowed app on XR.
+        /// </summary>
+        public DeploymentType DeploymentType { get { return deploymentType; }
 
         #endregion
 
@@ -93,6 +106,7 @@ namespace Valkyrie.EIR.Utilities {
         [SerializeField] private bool useOVRForVibrations;
         [SerializeField] private BluetoothSendFrequency bluetoothSendFrequency;
         [SerializeField] private bool useDuodecimalIndex;
+        [SerializeField] private DeploymentType deploymentType;
         #endregion
     }
 }

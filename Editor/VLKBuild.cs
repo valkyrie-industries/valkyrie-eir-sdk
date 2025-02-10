@@ -32,6 +32,7 @@ namespace Valkyrie.EIR.Utilities {
 
             // define paths for the gradle templates
             string mainTemplatePath = Path.Combine(gradlePath, "mainTemplate.gradle");
+
             string customMainTemplatePath = Path.Combine(projectPath, "Packages", "com.valkyrieindustries.eirsdk", "Runtime", "Plugins", "Android", "mainTemplate.gradle");
 
             string propertiesTemplatePath = Path.Combine(gradlePath, "gradleTemplate.properties");
@@ -98,6 +99,11 @@ namespace Valkyrie.EIR.Utilities {
         private void MergeAndroidManifest() {
             string projectPath = Application.dataPath.Replace("/Assets", "");
             string manifestPath = Path.Combine(projectPath, "Assets", "Plugins", "Android", "AndroidManifest.xml");
+
+
+            string manifestPath = EIRConfig.Instance.DeploymentType == DeploymentType.XR ? "AndroidManifest.xml" : "AndroidManifest_Mobile.xml";
+            Debug.Log($"[VLK Build] Injecting Manifest for Deployment Type: {(DeploymentType.XR ? "XR" : "Mobile")}");
+
             string customManifestPath = Path.Combine(projectPath, "Packages", "com.valkyrieindustries.eirsdk", "Runtime", "Plugins", "Android", "AndroidManifest.xml");
 
             if (File.Exists(customManifestPath)) {
