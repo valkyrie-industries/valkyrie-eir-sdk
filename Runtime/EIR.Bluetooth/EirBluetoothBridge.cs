@@ -41,6 +41,7 @@ namespace Valkyrie.EIR.Bluetooth {
 
         public delegate void OnConnectionStateChangedEventHandler(ConnectionStates connectionState);
         public static event OnConnectionStateChangedEventHandler OnConnectionStateChanged;
+        public static Action OnConnectionFailedEvent;
 
         public static Action<bool> OnDataWritten;
 
@@ -145,6 +146,7 @@ namespace Valkyrie.EIR.Bluetooth {
             callbackInstance.OnInitialisationCompleteEvent += OnInitialisationComplete;
             callbackInstance.OnDeviceFoundEvent += OnDevicesFound;
             callbackInstance.OnConnectedEvent += OnConnected;
+            callbackInstance.OnConnectionFailedEvent += OnConnectionFailed;
             callbackInstance.OnDisconnectEvent += OnDisconnected;
             callbackInstance.OnReconnectionEvent += OnReconnection;
             callbackInstance.OnReadEvent += OnRead;
@@ -162,6 +164,7 @@ namespace Valkyrie.EIR.Bluetooth {
                 callbackInstance.OnInitialisationCompleteEvent -= OnInitialisationComplete;
                 callbackInstance.OnDeviceFoundEvent -= OnDevicesFound;
                 callbackInstance.OnConnectedEvent -= OnConnected;
+                callbackInstance.OnConnectionFailedEvent -= OnConnectionFailed;
                 callbackInstance.OnDisconnectEvent -= OnDisconnected;
                 callbackInstance.OnReconnectionEvent -= OnReconnection;
                 callbackInstance.OnReadEvent -= OnRead;
@@ -427,6 +430,7 @@ namespace Valkyrie.EIR.Bluetooth {
                 // if the connection state of one of the bands changes from not connected to connected during the connection lifecycle,
                 // resend the last known config signal if available.
                 if ((deviceLConnected && !deviceVitals.LeftConnected) || (deviceRConnected && !deviceVitals.RightConnected)) {
+                    Debug.Log("[EIR Bluetooth] eir band connection changed, resending last known config signal...");
                     if (lastConfigSignal != null) SendConfigSignal(lastConfigSignal);
                 }
 
@@ -479,6 +483,14 @@ namespace Valkyrie.EIR.Bluetooth {
                 state = ConnectionStates.Connected;
                 deviceName = name;
                 OnConnectionStateChanged?.Invoke(state);
+            });
+        }
+
+        private void OnConnectionFailed() {
+            MainThreadDispatcher.RunOnMainThread(() => {
+                Debug.Log($"[EIR Bluetooth] Connection to eir device failed.");
+                state = ConnectionStates.NotConnected;
+                OnConnectionFailedEvent?.Invoke();
             });
         }
 
@@ -699,6 +711,11 @@ namespace Valkyrie.EIR.Bluetooth {
             public event Action<string> OnConnectedEvent;
 
             /// <summary>
+            /// Event triggered upon failed connection to a device.
+            /// </summary>
+            public event Action OnConnectionFailedEvent;
+
+            /// <summary>
             /// Event triggered when the initialization of the plugin is complete.
             /// </summary>
             public event Action<bool> OnInitialisationCompleteEvent;
@@ -778,6 +795,17 @@ namespace Valkyrie.EIR.Bluetooth {
                 OnConnectedEvent?.Invoke(deviceName);
             }
 
+            /// <summary>
+            /// Callback invoked upon failed connection to a device.
+            /// </summary>
+            public void onConnectionFailed() {
+                OnConnectionFailedEvent?.Invoke();
+            }
+
+            /// <summary>
+            /// Callback invoked upon enabling or disabling of location services.
+            /// </summary>
+            /// <param name="enabled"></param>
             public void onLocationEnabled(bool enabled) {
                 OnLocationEnabledEvent?.Invoke(enabled);
             }
