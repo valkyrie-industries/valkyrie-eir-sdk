@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using TMPro;
+using Valkyrie.EIR.Utilities;
 
-namespace Valkyrie.EIR.Examples {
+namespace Valkyrie.EIR.Examples
+{
 
     /// <summary>
     /// Example calibration button.
     /// </summary>
-    public class CalibrationButton : MonoBehaviour {
+    public class CalibrationButton : MonoBehaviour
+    {
 
         #region Serialized Variables
 
@@ -29,7 +32,8 @@ namespace Valkyrie.EIR.Examples {
 
         #region Unity Methods
 
-        private void OnEnable() {
+        private void OnEnable()
+        {
             handIndex = isLeft ? 1 : 0;
 #if EIR_HAPTICS
             if (label != null && text == null) text = label.GetComponent<TextMeshProUGUI>();
@@ -58,7 +62,8 @@ namespace Valkyrie.EIR.Examples {
         /// Increments or decrements the calibration for the set hand dependent on whether up is true or false.
         /// </summary>
         /// <param name="up"></param>
-        public void UpdateCalibrationIndex(bool up) {
+        public void UpdateCalibrationIndex(bool up)
+        {
 #if EIR_HAPTICS
 
             int currentIndex = EIRManager.Instance.Haptics.CalibrationIndex[handIndex];
@@ -67,8 +72,19 @@ namespace Valkyrie.EIR.Examples {
                     currentIndex += 1;
             }
             else {
-                if (currentIndex >= 0)
-                    currentIndex -= 1;
+
+                if (EIRConfig.Instance.UseDuodecimalIndex)
+                {
+                    if (currentIndex == 0)
+                        currentIndex -= 1;
+                }
+                else
+                {
+                    if (currentIndex >= 0)
+                        currentIndex -= 1;
+                }
+                
+
             }
             EIRManager.Instance.Haptics.CalibrationIndex[handIndex] = currentIndex;
             lastValue = currentIndex;
@@ -84,7 +100,8 @@ namespace Valkyrie.EIR.Examples {
             if (logVoltage) LogOutputVoltage();
         }
 
-        private void LogOutputVoltage() {
+        private void LogOutputVoltage()
+        {
             int calibration = EIRManager.Instance.Haptics.CalibrationIndex[isLeft ? 1 : 0];
             int intensity = EIRManager.Instance.Haptics.UpperLimits[isLeft ? 1 : 0];
             byte unsigned = (byte)intensity;
