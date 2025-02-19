@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+
 #if EIR_COMM
 using Valkyrie.EIR.Bluetooth;
 #endif
@@ -15,6 +17,7 @@ namespace Valkyrie.EIR.Examples {
 
         [SerializeField] private TextMeshProUGUI textA;
         [SerializeField] private TextMeshProUGUI textB;
+        [SerializeField] private UnityEvent<double[]> onUpdateVoltages;
 
         #endregion
 
@@ -112,6 +115,7 @@ namespace Valkyrie.EIR.Examples {
         public void OnUpdateVoltages(double[] outputVoltages) {
             Enable();
             SetIndication(outputVoltages[0], outputVoltages[1]);
+            onUpdateVoltages.Invoke(outputVoltages);
         }
 
         public void OnDisconnect() {
