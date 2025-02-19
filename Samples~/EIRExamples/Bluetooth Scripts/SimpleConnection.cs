@@ -310,14 +310,17 @@ namespace Valkyrie.EIR.Examples {
                             connectionIndicator.GetComponent<Image>().color = Color.green;
                             break;
                         case ConnectionStates.NotConnected:
+                        case ConnectionStates.Denied:
                             connectionIndicator.GetComponent<Image>().color = Color.red;
                             break;
                         case ConnectionStates.Scanning:
                         case ConnectionStates.Connecting:
+                        case ConnectionStates.Selection:
                             connectionIndicator.GetComponent<Image>().color = Color.yellow;
                             break;
+
                         default:
-                            connectionIndicator.GetComponent<Image>().color = Color.grey;
+                            connectionIndicator.GetComponent<Image>().color = Color.red;
                             break;
                     }
                 }
