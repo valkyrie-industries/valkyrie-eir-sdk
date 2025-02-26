@@ -415,8 +415,6 @@ namespace Valkyrie.EIR.Bluetooth {
 
             MainThreadDispatcher.RunOnMainThread(() => {
 
-                Debug.Log($"[EIR Bluetooth] Read bytes: {DecodeBytesToString(obj)}");
-
                 bool deviceRConnected = Convert.ToBoolean(obj[0]);
                 bool deviceLConnected = Convert.ToBoolean(obj[2]);
 
