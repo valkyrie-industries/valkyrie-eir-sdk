@@ -91,6 +91,17 @@
 				"name": "Notepad++",
 				"vendor": "Don Ho",
 				"version":"8.5.1"
+			},
+			{
+				"name": "Unity Version Control",
+				"vendor": "Unity Technologies",
+				"version":"11.0.16.8564"
+			},
+			{
+				"name": "Github Desktop",
+				"vendor": "Microsoft",
+				"version":"3.4.16"
+			},
         ]
     },
     "specVersion": "1.4",
