@@ -1,0 +1,103 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "version": 1,
+  "components": [
+    {
+      "type": "library",
+      "name": "ESP-IDF",
+      "version": "5.1.2",
+      "description": "Development framework",
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License 2.0"
+          }
+        }
+      ],
+      "supplier": {
+        "name": "Espressif"
+      }
+    },
+    {
+      "type": "library",
+      "name": "ESP freeRTOS",
+      "version": "ESP-ID version",
+      "description": "Microcontroller middleware",
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License 2.0"
+          }
+        }
+      ],
+      "supplier": {
+        "name": "Espressif"
+      }
+    },
+    {
+      "type": "library",
+      "name": "LEDC library",
+      "version": "ESP-ID version",
+      "description": "PWM signal generation",
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License 2.0"
+          }
+        }
+      ],
+      "supplier": {
+        "name": "Espressif"
+      }
+    },
+    {
+      "type": "library",
+      "name": "ESP-NOW",
+      "version": "ESP-ID version",
+      "description": "Wireless communication protocol",
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License 2.0"
+          }
+        }
+      ],
+      "supplier": {
+        "name": "Espressif"
+      }
+    },
+    {
+      "type": "library",
+      "name": "ESP-nimble",
+      "version": "1.4.0",
+      "description": "Bluetooth Low Energy API",
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License Version 2.0, January 2004"
+          }
+        }
+      ],
+      "supplier": {
+        "name": "Apache/h2zero"
+      }
+    },
+    {
+      "type": "library",
+      "name": "Led library",
+      "version": "ESP-IDF v4.1-beta1",
+      "description": "LED strip control library ws2812",
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License 2.0"
+          }
+        }
+      ],
+      "supplier": {
+        "name": "Espressif"
+      }
+    }
+  ]
+}

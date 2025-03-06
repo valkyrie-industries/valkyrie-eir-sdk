@@ -1,0 +1,206 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:d76900c9-a8f8-4573-82d0-2a5db44fff53",
+  "version": 1,
+  "metadata": {
+    "tools": [
+      {
+        "vendor": "Unity Technologies",
+        "name": "Unity",
+        "version": "2022.3.36f1"
+      },
+      {
+        "vendor": "Microsoft",
+        "name": "Visual Studio",
+        "version": "17.12.4"
+      },
+      {
+        "vendor": "Don Ho",
+        "name": "Notepad\u002B\u002B",
+        "version": "8.5.1"
+      },
+      {
+        "vendor": "Unity Technologies",
+        "name": "Unity Version Control",
+        "version": "11.0.16.8564"
+      },
+      {
+        "vendor": "Microsoft",
+        "name": "Github Desktop",
+        "version": "3.4.16"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "Valkyrie.EIR.Utilities@1.1.0",
+      "name": "Valkyrie.EIR.Utilities",
+      "version": "1.1.0",
+      "purl": "pkg:github/valkyrie-industries/valkyrie-eir-sdk@1.1.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "Valkyrie.EIR@1.1.0",
+      "name": "Valkyrie.EIR",
+      "version": "1.1.0",
+      "purl": "pkg:github/valkyrie-industries/valkyrie-eir-sdk@1.1.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "Valkyrie.EIR.Bluetooth@1.1.0",
+      "name": "Valkyrie.EIR.Bluetooth",
+      "version": "1.1.0",
+      "purl": "pkg:github/valkyrie-industries/valkyrie-eir-sdk@1.1.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "Valkyrie.EIR.Haptics@1.1.0",
+      "name": "Valkyrie.EIR.Haptics",
+      "version": "1.1.0",
+      "purl": "pkg:github/valkyrie-industries/valkyrie-eir-sdk@1.1.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "Valkyrie.EIR.Examples@1.1.0",
+      "name": "Valkyrie.EIR.Examples",
+      "version": "1.1.0",
+      "purl": "pkg:github/valkyrie-industries/valkyrie-eir-sdk@1.1.0"
+    },
+    {
+      "type": "library",
+      "supplier": {
+        "name": "Espressif"
+      },
+      "name": "ESP-IDF",
+      "version": "5.1.2",
+      "description": "Development framework",
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License 2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "supplier": {
+        "name": "Espressif"
+      },
+      "name": "ESP freeRTOS",
+      "version": "ESP-ID version",
+      "description": "Microcontroller middleware",
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License 2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "supplier": {
+        "name": "Espressif"
+      },
+      "name": "LEDC library",
+      "version": "ESP-ID version",
+      "description": "PWM signal generation",
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License 2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "supplier": {
+        "name": "Espressif"
+      },
+      "name": "ESP-NOW",
+      "version": "ESP-ID version",
+      "description": "Wireless communication protocol",
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License 2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "supplier": {
+        "name": "Apache/h2zero"
+      },
+      "name": "ESP-nimble",
+      "version": "1.4.0",
+      "description": "Bluetooth Low Energy API",
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License Version 2.0, January 2004"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "supplier": {
+        "name": "Espressif"
+      },
+      "name": "Led library",
+      "version": "ESP-IDF v4.1-beta1",
+      "description": "LED strip control library ws2812",
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License 2.0"
+          }
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "Valkyrie.EIR.Utilities@1.1.0",
+      "dependsOn": [
+        "pkg:nuget/system@5.0.0",
+        "pkg:nuget/system.io@5.0.0",
+        "pkg:nuget/system.text.regularexpressions@5.0.0",
+        "pkg:nuget/system.collections.generic@5.0.0",
+        "pkg:nuget/system.xml@5.0.0"
+      ]
+    },
+    {
+      "ref": "Valkyrie.EIR.Bluetooth@1.1.0",
+      "dependsOn": [
+        "pkg:nuget/system@5.0.0",
+        "pkg:nuget/system.collections.generic@5.0.0",
+        "pkg:nuget/system.threading.tasks@5.0.0",
+        "pkg:nuget/system.text@5.0.0"
+      ]
+    },
+    {
+      "ref": "Valkyrie.EIR.Haptics@1.1.0",
+      "dependsOn": [
+        "pkg:nuget/system@5.0.0",
+        "pkg:nuget/system.collections.generic@5.0.0",
+        "pkg:nuget/system.collections@5.0.0",
+        "pkg:nuget/system.interopservices@5.0.0"
+      ]
+    },
+    {
+      "ref": "Valkyrie.EIR.Examples@1.1.0",
+      "dependsOn": [
+        "pkg:nuget/system@5.0.0",
+        "pkg:nuget/system.collections.generic@5.0.0",
+        "pkg:nuget/system.collections@5.0.0"
+      ]
+    }
+  ]
+}
