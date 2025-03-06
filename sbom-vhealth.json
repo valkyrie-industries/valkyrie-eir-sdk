@@ -1,0 +1,98 @@
+{
+    "bomFormat": "CycloneDX",
+    "components": [
+        {
+			"bom-ref": "Valkyrie.EIR.Utilities@1.1.0",
+            "name": "Valkyrie.EIR.Utilities",
+            "purl": "pkg:github/valkyrie-industries/valkyrie-eir-sdk@1.1.0",
+            "type": "library",
+            "version": "1.1.0"
+        },
+        {
+			"bom-ref": "Valkyrie.EIR@1.1.0",
+            "name": "Valkyrie.EIR",
+            "purl": "pkg:github/valkyrie-industries/valkyrie-eir-sdk@1.1.0",
+            "type": "library",
+            "version": "1.1.0"
+        },
+        {
+			"bom-ref": "Valkyrie.EIR.Bluetooth@1.1.0",
+            "name": "Valkyrie.EIR.Bluetooth",
+            "purl": "pkg:github/valkyrie-industries/valkyrie-eir-sdk@1.1.0",
+            "type": "library",
+            "version": "1.1.0"
+        },
+        {
+			"bom-ref": "Valkyrie.EIR.Haptics@1.1.0",
+            "name": "Valkyrie.EIR.Haptics",
+            "purl": "pkg:github/valkyrie-industries/valkyrie-eir-sdk@1.1.0",
+            "type": "library",
+            "version": "1.1.0"
+        },
+        {
+			"bom-ref": "Valkyrie.EIR.Examples@1.1.0",
+            "name": "Valkyrie.EIR.Examples",
+            "purl": "pkg:github/valkyrie-industries/valkyrie-eir-sdk@1.1.0",
+            "type": "library",
+            "version": "1.1.0"
+        }
+    ],
+    "dependencies": [
+		{
+			"ref": "Valkyrie.EIR.Utilities@1.1.0",
+			"dependsOn" : [
+					"pkg:nuget/system@5.0.0",
+					"pkg:nuget/system.io@5.0.0",
+					"pkg:nuget/system.text.regularexpressions@5.0.0",
+					"pkg:nuget/system.collections.generic@5.0.0",
+					"pkg:nuget/system.xml@5.0.0"
+			]
+		},
+		{
+			"ref": "Valkyrie.EIR.Bluetooth@1.1.0",
+			"dependsOn" : [
+					"pkg:nuget/system@5.0.0",
+					"pkg:nuget/system.collections.generic@5.0.0",
+					"pkg:nuget/system.threading.tasks@5.0.0",
+					"pkg:nuget/system.text@5.0.0"
+			]
+		},		
+		{
+			"ref": "Valkyrie.EIR.Haptics@1.1.0",
+			"dependsOn" : [
+					"pkg:nuget/system@5.0.0",
+					"pkg:nuget/system.collections.generic@5.0.0",
+					"pkg:nuget/system.collections@5.0.0",
+					"pkg:nuget/system.interopservices@5.0.0"
+			]
+		},		
+		{
+			"ref": "Valkyrie.EIR.Examples@1.1.0",
+			"dependsOn" : [
+					"pkg:nuget/system@5.0.0",
+					"pkg:nuget/system.collections.generic@5.0.0",
+					"pkg:nuget/system.collections@5.0.0"
+			]
+		}
+    ],
+    "metadata": {
+        "tools": [
+            {
+                "name": "Unity",
+                "vendor": "Unity Technologies",
+                "version": "2022.3.36f1"
+            },
+			{
+				"name": "Visual Studio",
+                "vendor": "Microsoft",
+                "version": "17.12.4"
+			},
+			{
+				"name": "Notepad++",
+				"vendor": "Don Ho",
+				"version":"8.5.1"
+        ]
+    },
+    "specVersion": "1.4",
+    "version": 1
+}
